@@ -18,8 +18,6 @@
 <img src="./generated/stats.svg" />
 <!-- final-stats-->
 
-<br clear="right" />
-
 ### 🛠️ Tecnologías y Herramientas
 ![Flutter](https://img.shields.io/badge/-Flutter-05122A?style=flat&logo=flutter)
 ![Dart](https://img.shields.io/badge/-Dart-05122A?style=flat&logo=dart)
