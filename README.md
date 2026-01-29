@@ -15,7 +15,7 @@
 ✉️ Contacto: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
 
 </td>
-    <td valign="top" width="45%" align="right">
+    <td valign="top" width="30%" align="right">
 
 <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" width="50%" />
 
