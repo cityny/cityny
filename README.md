@@ -4,7 +4,7 @@
 
 ### 🚀 Desarrollador enfocado en Flutter & Automatización
 
-[cite_start]📱 &nbsp;**Mobile:** Especialista en aplicaciones con Flutter[cite: 1].
+📱 &nbsp;**Mobile:** Especialista en aplicaciones con Flutter.
 [cite_start]⚙️ &nbsp;**Automatización:** Flujos de trabajo avanzados en n8n[cite: 2].
 [cite_start]🌐 &nbsp;**Infraestructura:** Gestión de VPS, Túneles y Proxies[cite: 3].
 [cite_start]💡 &nbsp;Me gusta explorar nuevas tecnologías y desarrollar soluciones de software eficientes[cite: 6].
