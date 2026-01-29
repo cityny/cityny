@@ -4,7 +4,7 @@
 
 <table>
   <tr>
-    <td valign="top" width="40%">
+    <td valign="top" width="55%">
 
 ### 🚀 Desarrollador enfocado en Flutter & Automatización
 
