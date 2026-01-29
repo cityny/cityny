@@ -1,7 +1,7 @@
-name: Update Repos
+name: Update Repo List
 on:
   schedule:
-    - cron: '0 */12 * * *'
+    - cron: '0 0 * * *' # Una vez al día
   workflow_dispatch:
 
 jobs:
@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: gautamkrishnar/blog-post-workflow@v1
+      - name: Generate Repo List
+        uses: jreleaser/repo-list-generator@v1
         with:
-          comment_tag_name: "RECENT_REPOS"
-          # CAMBIO CLAVE: Esta URL solo muestra actividad de creación/repos
-          feed_list: "https://github.com/cityny?tab=repositories&q=&type=public&language=&sort=stargazers.atom"
-          max_post_count: 5
-          template: "$randomEmoji(🚀,🛠️,📱) [$title]($url) $newline"
-          description_max_length: 1
+          username: cityny
+          # Solo mostrar repositorios públicos que no sean forks
+          include_forks: false
+          # Formato de la lista
+          template: "- [$name]($html_url) - $description"
