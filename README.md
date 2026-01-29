@@ -3,9 +3,8 @@
 <img alt="Wave" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Hand%20Wave.gif" width='40' align="left"/><h2>¡Hola! Soy cityny 👋</h2>
 
 <p align="center">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="55%" align="left" valign="top">
+  <a href="javascript:void(0)" align="left" style="float: left; width: 50%;">
+    <div align="left">
       
 ### 🚀 Desarrollador enfocado en Flutter & Automatización
 📱 &nbsp;**Mobile:** Especialista en aplicaciones con Flutter.\
@@ -14,17 +13,19 @@
 💡 &nbsp;Me gusta explorar nuevas tecnologías y desarrollar soluciones de software eficientes.\
 ✉️ &nbsp;Puedes contactarme en: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com).
 
-</td>
-      <td width="45%" align="right" valign="top">
+</div>
+  </a>
+  <a href="javascript:void(0)" align="right" style="float: right; width: 45%;">
+    <div align="right">
       
 ### ⚙️ GitHub Analytics
 <!-- inicio-stats-->
 <img src="./generated/stats.svg" />
 <!-- final-stats-->
-</td>
-    </tr>
-  </table>
+</div>
+  </a>
 </p>
+<br clear="both">
 
 <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" align="right"/>
 
