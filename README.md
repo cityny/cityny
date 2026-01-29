@@ -2,50 +2,49 @@
 
 <img alt="Wave" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Hand%20Wave.gif" width='40' align="left"/><h2>¡Hola! Soy cityny 👋</h2>
 
-<div style="display: flex; flex-wrap: wrap; gap: 0; margin-bottom: 20px;">
+<div style="display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 20px;">
   <!-- Columna izquierda -->
-  <div style="flex: 1; min-width: 300px; padding-right: 10px;">
+  <div style="flex: 1; min-width: 300px;">
+    <!-- Contenedor para el texto y el GIF -->
+    <div style="display: flex; align-items: start; justify-content: space-between; gap: 20px;">
+      <!-- Texto -->
+      <div style="flex: 1;">
+        <h3>🚀 Desarrollador enfocado en Flutter & Automatización</h3>
+        📱 <strong>Mobile:</strong> Especialista en aplicaciones con Flutter.<br>
+        ⚙️ <strong>Automatización:</strong> Flujos de trabajo avanzados en n8n.<br>
+        🌐 <strong>Infraestructura:</strong> Gestión de VPS, Túneles y Proxies.<br>
+        💡 Me gusta explorar nuevas tecnologías y desarrollar soluciones eficientes.<br>
+        ✉️ <strong>Contacto:</strong> <a href="mailto:tu-email@ejemplo.com">tu-email@ejemplo.com</a>
+      </div>
+      <!-- GIF -->
+      <div>
+        <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" width="150" />
+      </div>
+    </div>
 
-
-<div style="display: flex; align-items: start; justify-content: space-between; gap: 20px; margin-bottom: 20px;">
-  <!-- Texto (izquierda) -->
-  <div style="flex: 1; min-width: 0;">
-    <h3>🚀 Desarrollador enfocado en Flutter & Automatización</h3>
-    📱 <strong>Mobile:</strong> Especialista en aplicaciones con Flutter.<br>
-    ⚙️ <strong>Automatización:</strong> Flujos de trabajo avanzados en n8n.<br>
-    🌐 <strong>Infraestructura:</strong> Gestión de VPS, Túneles y Proxies.<br>
-    💡 Me gusta explorar nuevas tecnologías y desarrollar soluciones eficientes.<br>
-    ✉️ <strong>Contacto:</strong> <a href="mailto:tu-email@ejemplo.com">tu-email@ejemplo.com</a>
+  <!-- Tecnologías y Herramientas -->
+  <div style="margin-top: 20px;">
+    <h3>🛠️ Tecnologías y Herramientas</h3>
+    <div>
+      <img src="https://img.shields.io/badge/-Flutter-05122A?style=flat&logo=flutter" alt="Flutter" />
+      <img src="https://img.shields.io/badge/-Dart-05122A?style=flat&logo=dart" alt="Dart" />
+      <img src="https://img.shields.io/badge/-Node.js-05122A?style=flat&logo=node.js" alt="Node.js" />
+      <img src="https://img.shields.io/badge/-Docker-05122A?style=flat&logo=docker" alt="Docker" />
+      <img src="https://img.shields.io/badge/-GitHub%20Actions-05122A?style=flat&logo=github-actions" alt="GitHub Actions" />
+      <img src="https://img.shields.io/badge/-n8n-05122A?style=flat&logo=n8n" alt="n8n" />
+    </div>
   </div>
-
-  <!-- GIF (derecha) -->
-  <div style="flex: 0 0 auto;">
-    <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" width="150" />
-  </div>
-</div>
-
-
-
-### 🛠️ Tecnologías y Herramientas
-![Flutter](https://img.shields.io/badge/-Flutter-05122A?style=flat&logo=flutter)
-![Dart](https://img.shields.io/badge/-Dart-05122A?style=flat&logo=dart)
-![Node.js](https://img.shields.io/badge/-Node.js-05122A?style=flat&logo=node.js)
-![Docker](https://img.shields.io/badge/-Docker-05122A?style=flat&logo=docker)
-![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-05122A?style=flat&logo=github-actions)
-![n8n](https://img.shields.io/badge/-n8n-05122A?style=flat&logo=n8n)
-
   </div>
 
   <!-- Columna derecha -->
   <div style="flex: 1; min-width: 300px;">
-
-### ⚙️ GitHub Analytics
-<!-- inicio-stats-->
+    <h3>⚙️ GitHub Analytics</h3>
+    <!-- inicio-stats-->
 <img src="./generated/stats.svg" width="50%" />
 <!-- final-stats-->
-
   </div>
 </div>
+
 
 
 
