@@ -19,6 +19,8 @@
 💡 &nbsp;Me gusta explorar nuevas tecnologías y desarrollar soluciones de software eficientes.\
 ✉️ &nbsp;Puedes contactarme en: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com).
 
+<br clear="right" />
+
 ### ⚙️ GitHub Analytics
 <!-- inicio-stats-->
 <img src="./generated/stats.svg" />
