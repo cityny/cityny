@@ -13,10 +13,6 @@
 
 <br clear="right" />
 
-<!-- inicio-stats-->
-<img src="./generated/stats.svg" />
-<!-- final-stats-->
-
 ### 🛠️ Tecnologías y Herramientas
 ![Flutter](https://img.shields.io/badge/-Flutter-05122A?style=flat&logo=flutter)
 ![Dart](https://img.shields.io/badge/-Dart-05122A?style=flat&logo=dart)
@@ -26,6 +22,9 @@
 ![n8n](https://img.shields.io/badge/-n8n-05122A?style=flat&logo=n8n)
 
 ### ⚙️ GitHub Analytics
+<!-- inicio-stats-->
+<img src="./generated/stats.svg" />
+<!-- final-stats-->
 <br clear="right" />
 
 ---
