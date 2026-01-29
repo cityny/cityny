@@ -14,7 +14,7 @@
 💡 Me gusta explorar nuevas tecnologías y desarrollar soluciones eficientes.  
 ✉️ Contacto: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
 
-    </td>
+</td>
     <td valign="top" width="45%" align="right">
 
 <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" width="100%" />
