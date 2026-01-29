@@ -65,8 +65,9 @@ jobs:
               print(content[:500])
 
           # Definir las etiquetas que marcan dónde insertar la lista de repositorios
-          start_tag = "--inicio--"
-          end_tag = "--final--"
+              start_tag = "<!-- inicio -->"
+              end_tag = "<!-- final -->"
+
 
           # Verificar que las etiquetas existan en el README.md
           if start_tag in content and end_tag in content:
