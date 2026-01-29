@@ -1,28 +1,69 @@
-- name: Write to README
+name: Repo List Generator
+on:
+  schedule:
+    - cron: '0 0 * * *' # Se ejecuta cada 24 horas
+  workflow_dispatch: # Permite ejecución manual desde la pestaña Actions
+
+jobs:
+  repo-list:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Get Repo List Data
+        id: repo_data
+        uses: yi-Xu-0100/repo-list-generator@v1.1.1
+        with:
+          user: cityny
+          my_token: ${{ secrets.REPO_TOKEN }}
+          max_page: 1
+          allow_empty: true
+          block_list: ""
+
+      - name: Write to README using Python
         shell: python
         run: |
           import os
           
-          # 1. Capturamos la lista desde los outputs
+          # 1. Obtener la lista de repositorios desde el output de la acción anterior
           repo_list = """${{ steps.repo_data.outputs.repoList }}"""
           
-          # 2. Leemos el README actual
+          # 2. Leer el archivo README.md
+          if not os.path.exists("README.md"):
+              print("El archivo README.md no existe.")
+              exit(1)
+              
           with open("README.md", "r", encoding="utf-8") as f:
-            content = f.read()
+              content = f.read()
           
-          # 3. Tus etiquetas personalizadas
+          # 3. Definir tus etiquetas personalizadas
           start_tag = "--inicio--"
           end_tag = "--final--"
           
-          # 4. Reconstrucción del archivo
+          # 4. Inyectar los datos entre las etiquetas
           if start_tag in content and end_tag in content:
-              pre = content.split(start_tag)[0]
-              post = content.split(end_tag)[1]
-              new_content = f"{pre}{start_tag}\n{repo_list}\n{end_tag}{post}"
-              
-              with open("README.md", "w", encoding="utf-8") as f:
-                  f.write(new_content)
-              print("README actualizado con éxito.")
+              try:
+                  pre = content.split(start_tag)[0]
+                  post = content.split(end_tag)[1]
+                  # Unimos todo: parte previa + etiqueta + datos + etiqueta + parte final
+                  new_content = f"{pre}{start_tag}\n{repo_list}\n{end_tag}{post}"
+                  
+                  with open("README.md", "w", encoding="utf-8") as f:
+                      f.write(new_content)
+                  print("README.md actualizado correctamente.")
+              except Exception as e:
+                  print(f"Error procesando el contenido: {e}")
+                  exit(1)
           else:
-              print(f"Error: No se encontró {start_tag} o {end_tag} en el README.")
+              print(f"Error: No se encontraron las etiquetas '{start_tag}' y '{end_tag}' en el README.")
               exit(1)
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          # Solo hace commit si hay cambios reales para evitar errores
+          git commit -m "🤖 Actualización automática de proyectos" || echo "Nada que actualizar"
+          git push
