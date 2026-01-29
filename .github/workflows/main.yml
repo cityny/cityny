@@ -1,20 +1,17 @@
 name: Update Repos
 on:
   schedule:
-    # Se ejecuta cada 12 horas
     - cron: '0 */12 * * *'
-  workflow_dispatch: # Permite ejecutarlo a mano para probar ahora
+  workflow_dispatch:
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: gautamkrishnar/github-repo-sync@master
+      - uses: gautamkrishnar/blog-post-workflow@v1
         with:
-          # Sustituye 'cityny' por tu usuario si fuera necesario
-          gh_username: cityny 
-          # Cuántos repositorios quieres mostrar
-          repo_limit: 5
-          # Ordenar por los últimos creados/actualizados
-          sort_by: last_updated
+          comment_tag_name: "RECENT_REPOS"
+          feed_list: "https://github.com/cityny.atom" # Tu feed de actividad de GitHub
+          max_post_count: 5
+          template: "- [$title]($url) - $description"
