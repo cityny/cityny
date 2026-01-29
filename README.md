@@ -2,8 +2,6 @@
 
 <img alt="Wave" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Hand%20Wave.gif" width='40' align="left"/><h2>¡Hola! Soy cityny 👋</h2>
 
-<img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" align="right"/>
-
 ### 🚀 Desarrollador enfocado en Flutter & Automatización
 
 📱 &nbsp;**Mobile:** Especialista en aplicaciones con Flutter.\
@@ -12,6 +10,7 @@
 💡 &nbsp;Me gusta explorar nuevas tecnologías y desarrollar soluciones de software eficientes.\
 ✉️ &nbsp;Puedes contactarme en: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com).
 
+<img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" align="right"/>
 <div align="center">
   <div style="display: flex; justify-content: space-between;">
     <div align="left" style="width: 45%; display: inline-block; vertical-align: top;">
