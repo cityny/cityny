@@ -32,7 +32,7 @@
 <img src="./generated/stats.svg" width="100%" />
 <!-- final-stats-->
 
-    </td>
+  </td>
   </tr>
 </table>
 
