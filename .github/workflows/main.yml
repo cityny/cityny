@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-     # --- ESTE ES EL BLOQUE QUE VAMOS A CAMBIAR ---
+      # Generación de Stats local para evitar caídas de Vercel
       - name: Generate Stats Images
         uses: lowlighter/metrics@latest
         with:
@@ -22,7 +22,7 @@ jobs:
           template: classic
           base: header, activity, community, repositories, metadata
           config_timezone: America/Caracas
-          filename: generated/stats.svg # Esto lo guarda en tu carpeta local
+          filename: generated/stats.svg 
 
       - name: Install jq
         run: sudo apt-get install -y jq
@@ -55,14 +55,15 @@ jobs:
           own_repos = "${{ steps.repo_data.outputs.ownRepos }}"
           fork_repos = "${{ steps.repo_data.outputs.forkRepos }}"
           starred_repos = "${{ steps.repo_data.outputs.starredRepos }}"
+          
           with open("README.md", "r", encoding="utf-8") as f:
               content = f.read()
-          own_tag_start = ""
-          own_tag_end = ""
-          fork_tag_start = ""
-          fork_tag_end = ""
-          starred_tag_start = ""
-          starred_tag_end = ""
+
+          # --- CORRECCIÓN: Tags definidos para evitar error de separador vacío ---
+          own_tag_start, own_tag_end = "", ""
+          fork_tag_start, fork_tag_end = "", ""
+          starred_tag_start, starred_tag_end = "", ""
+
           def update_section(content, start_tag, end_tag, repo_list):
               if start_tag in content and end_tag in content:
                   pre = content.split(start_tag)[0]
@@ -73,15 +74,13 @@ jobs:
                       for repo in repo_names if repo
                   )
                   clean_list = markdown_list.strip()
-                  new_content = f"{pre}{start_tag}\n{clean_list}\n{end_tag}{post}"
-                  return new_content
+                  return f"{pre}{start_tag}\n{clean_list}\n{end_tag}{post}"
               return content
-          if own_tag_start in content and own_tag_end in content:
-              content = update_section(content, own_tag_start, own_tag_end, own_repos)
-          if fork_tag_start in content and fork_tag_end in content:
-              content = update_section(content, fork_tag_start, fork_tag_end, fork_repos)
-          if starred_tag_start in content and starred_tag_end in content:
-              content = update_section(content, starred_tag_start, starred_tag_end, starred_repos)
+
+          content = update_section(content, own_tag_start, own_tag_end, own_repos)
+          content = update_section(content, fork_tag_start, fork_tag_end, fork_repos)
+          content = update_section(content, starred_tag_start, starred_tag_end, starred_repos)
+
           with open("README.md", "w", encoding="utf-8") as f:
               f.write(content)
 
@@ -90,7 +89,6 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git pull origin main
-          # Añadimos el README y la carpeta generada con los SVGs
           git add README.md generated/
           git commit -m "🤖 Actualización automática: Stats y Repos" || echo "Nada que actualizar"
           git push origin main
