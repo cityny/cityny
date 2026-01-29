@@ -1,19 +1,18 @@
-name: Update Repo List
+name: Repo List Generator
 on:
   schedule:
-    - cron: '0 0 * * *' # Una vez al día
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 jobs:
-  update-readme:
+  repo-list:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Generate Repo List
-        uses: jreleaser/repo-list-generator@v1
+      - name: Update repo list
+        uses: yi-Xu-0100/repo-list-generator@v1.1.1
         with:
-          username: cityny
-          # Solo mostrar repositorios públicos que no sean forks
-          include_forks: false
-          # Formato de la lista
-          template: "- [$name]($html_url) - $description"
+          user: cityny
+          # Esta opción pone la lista en tu README.md
+          # Asegúrate de que las etiquetas coincidan abajo
+          repo_type: all
