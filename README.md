@@ -2,17 +2,17 @@
 
 <img alt="Wave" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Hand%20Wave.gif" width='40' align="left"/><h2>¡Hola! Soy cityny 👋</h2>
 
-<img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" align="right"/>
-
-### 🛠️ Tecnologías y Herramientas
-![Flutter](https://img.shields.io/badge/-Flutter-05122A?style=flat&logo=flutter)
-![Dart](https://img.shields.io/badge/-Dart-05122A?style=flat&logo=dart)
-![Node.js](https://img.shields.io/badge/-Node.js-05122A?style=flat&logo=node.js)
-![Docker](https://img.shields.io/badge/-Docker-05122A?style=flat&logo=docker)
-![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-05122A?style=flat&logo=github-actions)
-![n8n](https://img.shields.io/badge/-n8n-05122A?style=flat&logo=n8n)
-
-<br clear="right" />
+<div align="right">
+  <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" width="350" />
+  
+  ### 🛠️ Tecnologías y Herramientas
+  ![Flutter](https://img.shields.io/badge/-Flutter-05122A?style=flat&logo=flutter)
+  ![Dart](https://img.shields.io/badge/-Dart-05122A?style=flat&logo=dart)
+  ![Node.js](https://img.shields.io/badge/-Node.js-05122A?style=flat&logo=node.js)
+  ![Docker](https://img.shields.io/badge/-Docker-05122A?style=flat&logo=docker)
+  ![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-05122A?style=flat&logo=github-actions)
+  ![n8n](https://img.shields.io/badge/-n8n-05122A?style=flat&logo=n8n)
+</div>
             
 ### 🚀 Desarrollador enfocado en Flutter & Automatización
 📱 &nbsp;**Mobile:** Especialista en aplicaciones con Flutter.\
