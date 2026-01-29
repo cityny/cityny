@@ -24,9 +24,9 @@
 ---
 
 ### ⚙️ GitHub Analytics
+<!-- inicio-stats-->
 
-<p align="center">
-</p>>
+<!-- final-stats-->
 
 ---
 
