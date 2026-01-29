@@ -1,6 +1,6 @@
 ![Tu Banner](https://enlace-a-tu-banner.jpg)
 
-<img alt="Wave" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Hand%20Wave.gif" width='40' align="left"/> ##¡Hola! Soy cityny 👋
+<img alt="Wave" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Hand%20Wave.gif" width='40' align="left"/> ¡Hola! Soy cityny
 
 <img src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" alt="side Image" align="right" width="200" height="auto" />      
 ### 🚀 Desarrollador enfocado en Flutter & Automatización
