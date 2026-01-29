@@ -26,6 +26,13 @@
 ![WhatsApp](https://img.shields.io/badge/WhatsApp-05122A?style=flat&logo=whatsapp&logoColor=white)
 ![Alpine Linux](https://img.shields.io/badge/-Alpine%20Linux-05122A?style=flat&logo=alpinelinux)
 ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-05122A?style=flat&logo=postgresql)
+![Supabase](https://img.shields.io/badge/-Supabase-05122A?style=flat&logo=supabase)
+![Vercel](https://img.shields.io/badge/-Vercel-05122A?style=flat&logo=vercel)
+![Python](https://img.shields.io/badge/-Python-05122A?style=flat&logo=python)
+![PaddlePaddle](https://img.shields.io/badge/-PaddlePaddle-05122A?style=flat&logo=paddlepaddle)
+![Android](https://img.shields.io/badge/-Android-05122A?style=flat&logo=android)
+![Ubuntu](https://img.shields.io/badge/-Ubuntu-05122A?style=flat&logo=ubuntu)
+![Excel](https://img.shields.io/badge/-Excel-05122A?style=flat&logo=microsoft-excel)
 
 ### ⚙️ GitHub Analytics
 [![Estadísticas de GitHub](https://github-readme-stats.vercel.app/api?username=cityny&show_icons=true&theme=tokyonight&bg_color=05122A&title_color=ffffff&text_color=9effff)](https://github.com/anuraghazra/github-readme-stats)
