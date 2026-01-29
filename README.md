@@ -15,7 +15,7 @@
 <table>
   <table border="0" style="border-collapse: collapse; border: none;">
   <tr>
-    <td width="50%" valign="top">
+    <td width="50%" valign="top" style="border: none;">
 
 ### 🛠️ Tecnologías y Herramientas
 ![Flutter](https://img.shields.io/badge/-Flutter-05122A?style=flat&logo=flutter)
@@ -26,7 +26,7 @@
 ![n8n](https://img.shields.io/badge/-n8n-05122A?style=flat&logo=n8n)
 
 </td>
-    <td width="50%" valign="top">
+    <td width="50%" valign="top" style="border: none;">
 
 ### ⚙️ GitHub Analytics
 <!-- inicio-stats-->
