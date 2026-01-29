@@ -2,8 +2,8 @@ name: Repo List Generator
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Ejecución diaria a las 00:00 UTC (20:00 en Venezuela, GMT-4)
-  workflow_dispatch:  # Permite ejecución manual desde GitHub Actions
+    - cron: '0 0 * * *'  # Ejecución diaria
+  workflow_dispatch:      # Permite ejecución manual
 
 jobs:
   repo-list:
@@ -13,28 +13,28 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
+      # --- NUEVO: Generación de Stats local para evitar caídas de Vercel ---
+      - name: Generate Stats Images
+        uses: anuraghazra/github-readme-stats@master
+        with:
+          username: cityny
+          theme: algolia
+          show_icons: true
+          output: generated/ # Esto crea archivos .svg locales
+
       - name: Install jq
         run: sudo apt-get install -y jq
 
       - name: Get Repo List Data (API Directa)
         id: repo_data
         run: |
-          # Obtener todos los repositorios del usuario
           REPO_LIST=$(curl -s -H "Authorization: token ${{ secrets.REPO_TOKEN }}" \
             "https://api.github.com/users/cityny/repos?per_page=100&type=all")
-
-          # Obtener repositorios con estrella (starred)
           STARRED_REPOS=$(curl -s -H "Authorization: token ${{ secrets.REPO_TOKEN }}" \
             "https://api.github.com/users/cityny/starred?per_page=100")
-
-          # Extraer repositorios propios y forks
           OWN_REPOS=$(echo "$REPO_LIST" | jq -r '.[] | select(.fork == false) | .full_name' | tr '\n' ',')
           FORK_REPOS=$(echo "$REPO_LIST" | jq -r '.[] | select(.fork == true) | .full_name' | tr '\n' ',')
-
-          # Extraer repositorios con estrella
           STARRED_REPOS_LIST=$(echo "$STARRED_REPOS" | jq -r '.[].full_name' | tr '\n' ',')
-
-          # Pasar las listas a las salidas del paso
           echo "ownRepos=$OWN_REPOS" >> $GITHUB_OUTPUT
           echo "forkRepos=$FORK_REPOS" >> $GITHUB_OUTPUT
           echo "starredRepos=$STARRED_REPOS_LIST" >> $GITHUB_OUTPUT
@@ -50,25 +50,17 @@ jobs:
         shell: python
         run: |
           import os
-
-          # Obtener las listas de repositorios
           own_repos = "${{ steps.repo_data.outputs.ownRepos }}"
           fork_repos = "${{ steps.repo_data.outputs.forkRepos }}"
           starred_repos = "${{ steps.repo_data.outputs.starredRepos }}"
-
-          # Leer el contenido actual del README.md
           with open("README.md", "r", encoding="utf-8") as f:
               content = f.read()
-
-          # Definir las etiquetas para cada sección
-          own_tag_start = "<!-- inicio-proyectos -->"
-          own_tag_end = "<!-- final-proyectos -->"
-          fork_tag_start = "<!-- inicio-forks -->"
-          fork_tag_end = "<!-- final-forks -->"
-          starred_tag_start = "<!-- inicio-stars -->"
-          starred_tag_end = "<!-- final-stars -->"
-
-          # Función para actualizar una sección específica
+          own_tag_start = ""
+          own_tag_end = ""
+          fork_tag_start = ""
+          fork_tag_end = ""
+          starred_tag_start = ""
+          starred_tag_end = ""
           def update_section(content, start_tag, end_tag, repo_list):
               if start_tag in content and end_tag in content:
                   pre = content.split(start_tag)[0]
@@ -82,39 +74,21 @@ jobs:
                   new_content = f"{pre}{start_tag}\n{clean_list}\n{end_tag}{post}"
                   return new_content
               return content
-
-          # Actualizar cada sección
           if own_tag_start in content and own_tag_end in content:
               content = update_section(content, own_tag_start, own_tag_end, own_repos)
-
           if fork_tag_start in content and fork_tag_end in content:
               content = update_section(content, fork_tag_start, fork_tag_end, fork_repos)
-
           if starred_tag_start in content and starred_tag_end in content:
               content = update_section(content, starred_tag_start, starred_tag_end, starred_repos)
-
-          # Escribir el nuevo contenido en el README.md
           with open("README.md", "w", encoding="utf-8") as f:
               f.write(content)
 
-          print("README.md actualizado correctamente.")
-
       - name: Commit and Push Changes
         run: |
-                    git config --local user.email "action@github.com"
-                    git config --local user.name "GitHub Action"
-                
-                    # Hacer pull de los últimos cambios antes de intentar el push
-                    git pull origin main
-                
-                    # Añadir el README.md modificado al staging area
-                    git add README.md
-                
-                    # Mostrar los cambios antes de hacer commit (opcional, para depuración)
-                    git diff --cached README.md
-                
-                    # Hacer commit con un mensaje descriptivo
-                    git commit -m "🤖 Actualización automática de proyectos, forks y repositorios con estrella" || echo "Nada que actualizar"
-                
-                    # Hacer push de los cambios al repositorio
-                    git push origin main
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git pull origin main
+          # Añadimos el README y la carpeta generada con los SVGs
+          git add README.md generated/
+          git commit -m "🤖 Actualización automática: Stats y Repos" || echo "Nada que actualizar"
+          git push origin main
