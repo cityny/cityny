@@ -13,7 +13,7 @@ jobs:
         uses: yi-Xu-0100/repo-list-generator@v1.1.1
         with:
           user: cityny
-          # Aquí está la magia: usamos el token automático
-          my_token: ${{ secrets.GITHUB_TOKEN }}
+          # AQUI está el cambio: llamamos a tu nuevo secreto
+          my_token: ${{ secrets.REPO_TOKEN }}
           max_page: 1
           allow_empty: true
