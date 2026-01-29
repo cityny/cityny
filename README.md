@@ -24,8 +24,6 @@
   </div>
 </div>
 
-<br clear="right" />
-
 ### ⚙️ GitHub Analytics
 <!-- inicio-stats-->
 <img src="./generated/stats.svg" />
