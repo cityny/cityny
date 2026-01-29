@@ -1,26 +1,4 @@
-name: Repo List Generator
-on:
-  schedule:
-    - cron: '0 0 * * *'
-  workflow_dispatch:
-
-jobs:
-  repo-list:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Get Repo List
-        id: repo_data
-        uses: yi-Xu-0100/repo-list-generator@v1.1.1
-        with:
-          user: cityny
-          my_token: ${{ secrets.REPO_TOKEN }}
-          max_page: 1
-          allow_empty: true
-          block_list: ""
-
-      - name: Write to README
+- name: Write to README
         shell: python
         run: |
           import os
@@ -32,21 +10,19 @@ jobs:
           with open("README.md", "r", encoding="utf-8") as f:
             content = f.read()
           
-          # 3. Definimos las etiquetas
-          start_tag = ""
-          end_tag = ""
+          # 3. Tus etiquetas personalizadas
+          start_tag = "--inicio--"
+          end_tag = "--final--"
           
-          # 4. Reemplazamos el contenido entre etiquetas
-          new_content = content.split(start_tag)[0] + start_tag + "\n" + repo_list + "\n" + end_tag + content.split(end_tag)[1]
-          
-          # 5. Guardamos
-          with open("README.md", "w", encoding="utf-8") as f:
-            f.write(new_content)
-
-      - name: Commit and Push
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add README.md
-          git commit -m "🤖 Actualización automática de proyectos" || echo "Nada que actualizar"
-          git push
+          # 4. Reconstrucción del archivo
+          if start_tag in content and end_tag in content:
+              pre = content.split(start_tag)[0]
+              post = content.split(end_tag)[1]
+              new_content = f"{pre}{start_tag}\n{repo_list}\n{end_tag}{post}"
+              
+              with open("README.md", "w", encoding="utf-8") as f:
+                  f.write(new_content)
+              print("README actualizado con éxito.")
+          else:
+              print(f"Error: No se encontró {start_tag} o {end_tag} en el README.")
+              exit(1)
