@@ -23,11 +23,7 @@
   </a>
   <a href="javascript:void(0)" align="right" style="float: right; width: 45%;">
     <div align="right">   
-</div>
-  </a>
-</p>
-<br clear="both">
-
+      
 ### 🛠️ Tecnologías y Herramientas
 ![Flutter](https://img.shields.io/badge/-Flutter-05122A?style=flat&logo=flutter)
 ![Dart](https://img.shields.io/badge/-Dart-05122A?style=flat&logo=dart)
@@ -35,6 +31,11 @@
 ![Docker](https://img.shields.io/badge/-Docker-05122A?style=flat&logo=docker)
 ![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-05122A?style=flat&logo=github-actions)
 ![n8n](https://img.shields.io/badge/-n8n-05122A?style=flat&logo=n8n)
+</div>
+  </a>
+</p>
+<br clear="both">
+
 
 ---
 
