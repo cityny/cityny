@@ -40,7 +40,7 @@
 
 ### ⚙️ GitHub Analytics
 <!-- inicio-stats-->
-<img src="./generated/stats.svg" width="100%" />
+<img src="./generated/stats.svg" width="50%" />
 <!-- final-stats-->
 
   </div>
