@@ -11,10 +11,10 @@
 
 ### 🚀 Desarrollador enfocado en Flutter & Automatización
 
-📱 **Mobile:** Especialista en aplicaciones con Flutter.
-⚙️ **Automatización:** Flujos de trabajo avanzados en n8n.
-🌐 **Infraestructura:** Gestión de VPS, Túneles y Proxies.
-💡 Me gusta explorar nuevas tecnologías y desarrollar soluciones eficientes.
+📱 **Mobile:** Especialista en aplicaciones con Flutter. \
+⚙️ **Automatización:** Flujos de trabajo avanzados en n8n.\
+🌐 **Infraestructura:** Gestión de VPS, Túneles y Proxies.\
+💡 Me gusta explorar nuevas tecnologías y desarrollar soluciones eficientes.\
 ✉️ Contacto: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
 
 ### 🛠️ Tecnologías y Herramientas
