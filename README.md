@@ -7,14 +7,9 @@
   <div style="flex: 1; min-width: 300px; padding-right: 10px;">
 
 
-<div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
-  <!-- GIF -->
-  <div>
-    <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" width="150" />
-  </div>
-
-  <!-- Texto -->
-  <div>
+<div style="display: flex; align-items: flex-start; gap: 20px; margin-bottom: 20px;">
+  <!-- Texto (izquierda) -->
+  <div style="flex: 1;">
     <h3>🚀 Desarrollador enfocado en Flutter & Automatización</h3>
     📱 <strong>Mobile:</strong> Especialista en aplicaciones con Flutter.<br>
     ⚙️ <strong>Automatización:</strong> Flujos de trabajo avanzados en n8n.<br>
@@ -22,7 +17,13 @@
     💡 Me gusta explorar nuevas tecnologías y desarrollar soluciones eficientes.<br>
     ✉️ <strong>Contacto:</strong> <a href="mailto:tu-email@ejemplo.com">tu-email@ejemplo.com</a>
   </div>
+
+  <!-- GIF (derecha) -->
+  <div>
+    <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" width="150" />
+  </div>
 </div>
+
 
 
 ### 🛠️ Tecnologías y Herramientas
