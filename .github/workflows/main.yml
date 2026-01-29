@@ -22,35 +22,45 @@ jobs:
           allow_archived: true
           block_list: ""
 
+      # Debug: Imprimir TODAS las salidas de la acción
+      - name: Debug - Mostrar salidas de la acción
+        run: |
+          echo "Salida repoList_ALL: ${{ steps.repo_data.outputs.repoList_ALL }}"
+          echo "Salida repoList: ${{ steps.repo_data.outputs.repoList }}"
+          echo "Salida repoList_own: ${{ steps.repo_data.outputs.repoList_own }}"
+          echo "Salida repoList_fork: ${{ steps.repo_data.outputs.repoList_fork }}"
+
       - name: Write to README using Python
         shell: python
         run: |
           import os
-          
-          # CAMBIO CLAVE: Usamos repoList_ALL para capturar forks y proyectos propios
-          repo_list = """${{ steps.repo_data.outputs.repoList_ALL }}"""
-          
-          if not os.path.exists("README.md"):
-              print("El archivo README.md no existe.")
-              exit(1)
-              
+
+          # Debug: Imprimir el contenido del README antes de modificarlo
           with open("README.md", "r", encoding="utf-8") as f:
               content = f.read()
-          
+              print("Contenido actual del README (primeras 500 caracteres):")
+              print(content[:500])
+
+          # Debug: Imprimir la lista de repositorios recibida
+          repo_list = """${{ steps.repo_data.outputs.repoList_ALL }}"""
+          print("Lista de repositorios recibida (primeros 500 caracteres):")
+          print(repo_list[:500])
+
+          # Resto del código...
           start_tag = "--inicio--"
           end_tag = "--final--"
-          
+
           if start_tag in content and end_tag in content:
               try:
                   pre = content.split(start_tag)[0]
                   post = content.split(end_tag)[1]
-                  
-                  # Limpiamos espacios innecesarios de la lista generada
                   clean_list = repo_list.strip()
-                  
-                  # Reconstrucción del archivo
                   new_content = f"{pre}{start_tag}\n{clean_list}\n{end_tag}{post}"
-                  
+
+                  # Debug: Imprimir el nuevo contenido del README
+                  print("Nuevo contenido del README (primeros 500 caracteres):")
+                  print(new_content[:500])
+
                   with open("README.md", "w", encoding="utf-8") as f:
                       f.write(new_content)
                   print("README.md actualizado con la lista ALL correctamente.")
@@ -66,5 +76,6 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add README.md
+          git diff --cached README.md  # Debug: Mostrar cambios antes de commitear
           git commit -m "🤖 Actualización automática de proyectos (incluye forks)" || echo "Nada que actualizar"
           git push
