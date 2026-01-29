@@ -14,5 +14,3 @@
 * **No-Code/Low-Code:** n8n.
 
 ### 📈 Mis Proyectos
-- [Nombre del Proyecto 1](link): Descripción breve.
-- [Nombre del Proyecto 2](link): Descripción breve.
