@@ -72,7 +72,7 @@ jobs:
       
                 # 3. ACTUALIZAR LAS STATS (Nueva etiqueta)
                 stats_image = '<img src="./generated/stats.svg" />'
-                content = update_section(content, "", "", stats_image)
+                content = update_section(content, "<!-- inicio-stats-->", "<!-- final-stats-->", stats_image)
       
                 with open("README.md", "w", encoding="utf-8") as f:
                     f.write(content)
