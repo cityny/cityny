@@ -5,7 +5,7 @@
 <p align="center">
   <a href="javascript:void(0)" align="left" style="float: left; width: 50%;">
     <div align="left">
-      
+<img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" align="right"/>         
 ### 🚀 Desarrollador enfocado en Flutter & Automatización
 📱 &nbsp;**Mobile:** Especialista en aplicaciones con Flutter.\
 ⚙️ &nbsp;**Automatización:** Flujos de trabajo avanzados en n8n.\
@@ -21,8 +21,7 @@
 </div>
   </a>
   <a href="javascript:void(0)" align="right" style="float: right; width: 45%;">
-    <div align="right">
-<img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" align="right"/>      
+    <div align="right">   
 </div>
   </a>
 </p>
