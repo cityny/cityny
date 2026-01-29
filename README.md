@@ -13,15 +13,16 @@
 💡 &nbsp;Me gusta explorar nuevas tecnologías y desarrollar soluciones de software eficientes.\
 ✉️ &nbsp;Puedes contactarme en: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com).
 
+### ⚙️ GitHub Analytics
+<!-- inicio-stats-->
+<img src="./generated/stats.svg" />
+<!-- final-stats-->
+
 </div>
   </a>
   <a href="javascript:void(0)" align="right" style="float: right; width: 45%;">
     <div align="right">
       
-### ⚙️ GitHub Analytics
-<!-- inicio-stats-->
-<img src="./generated/stats.svg" />
-<!-- final-stats-->
 </div>
   </a>
 </p>
