@@ -26,11 +26,7 @@
 ### ⚙️ GitHub Analytics
 
 <p align="center">
-<a href="https://github.com/cityny">
-  <img height="180em" src="./generated/github-ranking.svg"/>
-  <img height="180em" src="./generated/top-langs.svg"/>
-</a>
-</p>
+</p>>
 
 ---
 
