@@ -7,7 +7,7 @@
   <div style="flex: 1; min-width: 300px; padding-right: 10px;">
 
 
-<img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" width="100%" />
+<img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" width="50%" />
 
 ### 🚀 Desarrollador enfocado en Flutter & Automatización
 
