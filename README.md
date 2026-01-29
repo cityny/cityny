@@ -12,10 +12,9 @@
 💡 &nbsp;Me gusta explorar nuevas tecnologías y desarrollar soluciones de software eficientes.\
 ✉️ &nbsp;Puedes contactarme en: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com).
 
-<table>
-  <table border="0" style="border-collapse: collapse; border: none;">
-  <tr>
-    <td width="50%" valign="top" style="border: none;">
+<div align="center">
+  <div style="display: flex; justify-content: space-between;">
+    <div align="left" style="width: 45%; display: inline-block; vertical-align: top;">
 
 ### 🛠️ Tecnologías y Herramientas
 ![Flutter](https://img.shields.io/badge/-Flutter-05122A?style=flat&logo=flutter)
@@ -25,16 +24,16 @@
 ![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-05122A?style=flat&logo=github-actions)
 ![n8n](https://img.shields.io/badge/-n8n-05122A?style=flat&logo=n8n)
 
-</td>
-    <td width="50%" valign="top" style="border: none;">
+</div>
+    <div align="right" style="width: 45%; display: inline-block; vertical-align: top;">
 
 ### ⚙️ GitHub Analytics
 <!-- inicio-stats-->
 <img src="./generated/stats.svg" />
 <!-- final-stats-->
-</td>
-  </tr>
-</table>
+</div>
+  </div>
+</div>
 
 ---
 
