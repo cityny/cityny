@@ -2,10 +2,9 @@
 
 <img alt="Wave" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Hand%20Wave.gif" width='40' align="left"/><h2>¡Hola! Soy cityny 👋</h2>
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px;">
-
-  <!-- Columna izquierda -->
-  <div style="flex: 1; min-width: 300px;">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none; width: 100%;">
+  <tr>
+    <td valign="top" width="55%" style="border: none; padding: 0;">
 
 ### 🚀 Desarrollador enfocado en Flutter & Automatización
 
@@ -16,7 +15,6 @@
 ✉️ Contacto: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
 
 ### 🛠️ Tecnologías y Herramientas
-
 ![Flutter](https://img.shields.io/badge/-Flutter-05122A?style=flat&logo=flutter)
 ![Dart](https://img.shields.io/badge/-Dart-05122A?style=flat&logo=dart)
 ![Node.js](https://img.shields.io/badge/-Node.js-05122A?style=flat&logo=node.js)
@@ -24,20 +22,20 @@
 ![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-05122A?style=flat&logo=github-actions)
 ![n8n](https://img.shields.io/badge/-n8n-05122A?style=flat&logo=n8n)
 
-  </div>
+    </td>
+    <td valign="top" width="45%" style="border: none; padding: 0;">
 
-  <!-- Columna derecha -->
-  <div style="flex: 1; min-width: 300px; text-align: center;">
-
-<img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" width="100%" style="max-width: 300px;" />
+<img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" width="100%" />
 
 ### ⚙️ GitHub Analytics
 <!-- inicio-stats-->
-<img src="./generated/stats.svg" width="100%" style="max-width: 300px;" />
+<img src="./generated/stats.svg" width="100%" />
 <!-- final-stats-->
 
-  </div>
-</div>
+    </td>
+  </tr>
+</table>
+
 
 ---
 
