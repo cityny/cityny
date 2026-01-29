@@ -27,6 +27,7 @@
 ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-05122A?style=flat&logo=postgresql)
 
 ### ⚙️ GitHub Analytics
+[![Estadísticas de GitHub](https://github-readme-stats.vercel.app/api?username=cityny&show_icons=true&theme=tokyonight&bg_color=05122A&title_color=ffffff&text_color=9effff)](https://github.com/anuraghazra/github-readme-stats)
 <!-- inicio-stats-->
 <img src="./generated/stats.svg" />
 <!-- final-stats-->
