@@ -6,13 +6,6 @@
   <a href="javascript:void(0)" align="left" style="float: left; width: 50%;">
     <div align="left">
 <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" align="right"/>
-            
-### 🚀 Desarrollador enfocado en Flutter & Automatización
-📱 &nbsp;**Mobile:** Especialista en aplicaciones con Flutter.\
-⚙️ &nbsp;**Automatización:** Flujos de trabajo avanzados en n8n.\
-🌐 &nbsp;**Infraestructura:** Gestión de VPS, Túneles y Proxies.\
-💡 &nbsp;Me gusta explorar nuevas tecnologías y desarrollar soluciones de software eficientes.\
-✉️ &nbsp;Puedes contactarme en: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com).
 
 ### 🛠️ Tecnologías y Herramientas
 ![Flutter](https://img.shields.io/badge/-Flutter-05122A?style=flat&logo=flutter)
@@ -21,6 +14,13 @@
 ![Docker](https://img.shields.io/badge/-Docker-05122A?style=flat&logo=docker)
 ![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-05122A?style=flat&logo=github-actions)
 ![n8n](https://img.shields.io/badge/-n8n-05122A?style=flat&logo=n8n)
+            
+### 🚀 Desarrollador enfocado en Flutter & Automatización
+📱 &nbsp;**Mobile:** Especialista en aplicaciones con Flutter.\
+⚙️ &nbsp;**Automatización:** Flujos de trabajo avanzados en n8n.\
+🌐 &nbsp;**Infraestructura:** Gestión de VPS, Túneles y Proxies.\
+💡 &nbsp;Me gusta explorar nuevas tecnologías y desarrollar soluciones de software eficientes.\
+✉️ &nbsp;Puedes contactarme en: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com).
 
 ### ⚙️ GitHub Analytics
 <!-- inicio-stats-->
