@@ -2,9 +2,9 @@
 
 <img alt="Wave" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Hand%20Wave.gif" width='40' align="left"/><h2>¡Hola! Soy cityny 👋</h2>
 
-<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none; width: 100%;">
-  <tr>
-    <td valign="top" width="55%" style="border: none; padding: 0;">
+<div style="display: flex; flex-wrap: wrap; gap: 0; margin-bottom: 20px;">
+  <!-- Columna izquierda -->
+  <div style="flex: 1; min-width: 300px; padding-right: 10px;">
 
 ### 🚀 Desarrollador enfocado en Flutter & Automatización
 
@@ -22,8 +22,10 @@
 ![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-05122A?style=flat&logo=github-actions)
 ![n8n](https://img.shields.io/badge/-n8n-05122A?style=flat&logo=n8n)
 
-  </td>
-  <td valign="top" width="45%" style="border: none; padding: 0;">
+  </div>
+
+  <!-- Columna derecha -->
+  <div style="flex: 1; min-width: 300px;">
 
 <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" width="100%" />
 
@@ -32,9 +34,9 @@
 <img src="./generated/stats.svg" width="100%" />
 <!-- final-stats-->
 
-  </td>
-  </tr>
-</table>
+  </div>
+</div>
+
 
 
 ---
