@@ -11,42 +11,46 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Get Repo List Data
-        id: repo_data
-        uses: yi-Xu-0100/repo-list-generator@v1.1.1
-        with:
-          user: cityny
-          my_token: ${{ secrets.REPO_TOKEN }}
-          max_page: 1
-          allow_empty: true
-          allow_archived: true
-          block_list: ""
+      - name: Install jq
+        run: sudo apt-get install jq
 
-      # Debug: Imprimir TODAS las salidas de la acción
-      - name: Debug - Mostrar salidas de la acción
+      - name: Get Repo List Data (API Directa)
+        id: repo_data
+        run: |
+          # Usar la API de GitHub para listar repositorios
+          REPO_LIST=$(curl -s -H "Authorization: token ${{ secrets.REPO_TOKEN }}" \
+            "https://api.github.com/users/cityny/repos?per_page=100&type=all" | jq -r '.[].full_name' | tr '\n' ',')
+
+          # Debug: Imprimir la lista de repositorios
+          echo "Lista de repositorios obtenida: $REPO_LIST"
+
+          # Pasar la lista a la salida del paso
+          echo "repoList_ALL=$REPO_LIST" >> $GITHUB_OUTPUT
+        shell: bash
+
+      - name: Debug - Mostrar salidas
         run: |
           echo "Salida repoList_ALL: ${{ steps.repo_data.outputs.repoList_ALL }}"
-          echo "Salida repoList: ${{ steps.repo_data.outputs.repoList }}"
-          echo "Salida repoList_own: ${{ steps.repo_data.outputs.repoList_own }}"
-          echo "Salida repoList_fork: ${{ steps.repo_data.outputs.repoList_fork }}"
 
       - name: Write to README using Python
         shell: python
         run: |
           import os
 
-          # Debug: Imprimir el contenido del README antes de modificarlo
+          # Obtener la lista de repositorios
+          repo_list = """${{ steps.repo_data.outputs.repoList_ALL }}"""
+
+          # Debug: Imprimir la lista de repositorios recibida
+          print("Lista de repositorios recibida (primeros 500 caracteres):")
+          print(repo_list[:500])
+
+          # Leer el README actual
           with open("README.md", "r", encoding="utf-8") as f:
               content = f.read()
               print("Contenido actual del README (primeras 500 caracteres):")
               print(content[:500])
 
-          # Debug: Imprimir la lista de repositorios recibida
-          repo_list = """${{ steps.repo_data.outputs.repoList_ALL }}"""
-          print("Lista de repositorios recibida (primeros 500 caracteres):")
-          print(repo_list[:500])
-
-          # Resto del código...
+          # Definir etiquetas
           start_tag = "--inicio--"
           end_tag = "--final--"
 
@@ -55,15 +59,18 @@ jobs:
                   pre = content.split(start_tag)[0]
                   post = content.split(end_tag)[1]
                   clean_list = repo_list.strip()
+
+                  # Reconstruir el contenido
                   new_content = f"{pre}{start_tag}\n{clean_list}\n{end_tag}{post}"
 
-                  # Debug: Imprimir el nuevo contenido del README
+                  # Debug: Imprimir el nuevo contenido
                   print("Nuevo contenido del README (primeros 500 caracteres):")
                   print(new_content[:500])
 
+                  # Escribir el nuevo contenido
                   with open("README.md", "w", encoding="utf-8") as f:
                       f.write(new_content)
-                  print("README.md actualizado con la lista ALL correctamente.")
+                  print("README.md actualizado correctamente.")
               except Exception as e:
                   print(f"Error procesando el contenido: {e}")
                   exit(1)
@@ -76,6 +83,6 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add README.md
-          git diff --cached README.md  # Debug: Mostrar cambios antes de commitear
+          git diff --cached README.md  # Mostrar cambios antes de commitear
           git commit -m "🤖 Actualización automática de proyectos (incluye forks)" || echo "Nada que actualizar"
           git push
