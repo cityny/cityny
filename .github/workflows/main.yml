@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # Generación de Stats local para evitar caídas de Vercel
+      # Genera la imagen de estadísticas localmente
       - name: Generate Stats Images
         uses: lowlighter/metrics@latest
         with:
@@ -42,12 +42,6 @@ jobs:
           echo "starredRepos=$STARRED_REPOS_LIST" >> $GITHUB_OUTPUT
         shell: bash
 
-      - name: Debug - Mostrar salidas
-        run: |
-          echo "Repositorios propios: ${{ steps.repo_data.outputs.ownRepos }}"
-          echo "Repositorios forks: ${{ steps.repo_data.outputs.forkRepos }}"
-          echo "Repositorios con estrella: ${{ steps.repo_data.outputs.starredRepos }}"
-
       - name: Write to README using Python
         shell: python
         run: |
@@ -59,10 +53,13 @@ jobs:
           with open("README.md", "r", encoding="utf-8") as f:
               content = f.read()
 
-          # --- CORRECCIÓN: Tags definidos para evitar error de separador vacío ---
-          own_tag_start, own_tag_end = "", ""
-          fork_tag_start, fork_tag_end = "", ""
-          starred_tag_start, starred_tag_end = "", ""
+          # --- AQUÍ ESTABA EL ERROR: AHORA TIENEN CONTENIDO ---
+          own_tag_start = ""
+          own_tag_end = ""
+          fork_tag_start = ""
+          fork_tag_end = ""
+          starred_tag_start = ""
+          starred_tag_end = ""
 
           def update_section(content, start_tag, end_tag, repo_list):
               if start_tag in content and end_tag in content:
@@ -77,6 +74,7 @@ jobs:
                   return f"{pre}{start_tag}\n{clean_list}\n{end_tag}{post}"
               return content
 
+          # Aplicar actualizaciones
           content = update_section(content, own_tag_start, own_tag_end, own_repos)
           content = update_section(content, fork_tag_start, fork_tag_end, fork_repos)
           content = update_section(content, starred_tag_start, starred_tag_end, starred_repos)
@@ -90,5 +88,5 @@ jobs:
           git config --local user.name "GitHub Action"
           git pull origin main
           git add README.md generated/
-          git commit -m "🤖 Actualización automática: Stats y Repos" || echo "Nada que actualizar"
+          git commit -m "🤖 Stats y Repos actualizados sin errores" || echo "Nada que actualizar"
           git push origin main
