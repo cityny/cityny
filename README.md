@@ -1,4 +1,4 @@
-![Tu Banner]([https://enlace-a-tu-banner.jpg](https://github.com/halfrost/halfrost/blob/master/icons/header_1.png))
+![Tu Banner]((https://github.com/halfrost/halfrost/blob/master/icons/header_1.png))
 
 # ¡Hola! Soy cityny!  <img src="https://github.com/sciencepal/sciencepal/blob/master/assets/Hi.gif" width="29px"> 
 ![Visitas](https://komarev.com/ghpvc/?username=cityny&label=Profile%20Visits&color=blue&style=for-the-badge)
