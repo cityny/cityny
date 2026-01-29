@@ -10,6 +10,7 @@
 [cite_start]🌐 &nbsp;**Infraestructura:** Gestión de VPS, Túneles y Proxies[cite: 3].
 [cite_start]✉️ &nbsp;Puedes contactarme en: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)[cite: 7].
 
+<img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" align="right"/>
 ---
 
 ### 🛠️ Tecnologías y Herramientas
@@ -21,7 +22,6 @@
 ![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-05122A?style=flat&logo=github-actions)
 ![n8n](https://img.shields.io/badge/-n8n-05122A?style=flat&logo=n8n)
 
-<img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" align="right"/>
 ---
 
 ### ⚙️ GitHub Analytics
