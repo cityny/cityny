@@ -22,13 +22,11 @@
   </a>
   <a href="javascript:void(0)" align="right" style="float: right; width: 45%;">
     <div align="right">
-      
+<img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" align="right"/>      
 </div>
   </a>
 </p>
 <br clear="both">
-
-<img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" align="right"/>
 
 ### 🛠️ Tecnologías y Herramientas
 ![Flutter](https://img.shields.io/badge/-Flutter-05122A?style=flat&logo=flutter)
