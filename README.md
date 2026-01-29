@@ -9,8 +9,8 @@
 [cite_start]⚙️ &nbsp;**Automatización:** Flujos de trabajo avanzados en n8n[cite: 2].
 [cite_start]🌐 &nbsp;**Infraestructura:** Gestión de VPS, Túneles y Proxies[cite: 3].
 [cite_start]✉️ &nbsp;Puedes contactarme en: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)[cite: 7].
-
 <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" align="right"/>
+
 ---
 
 ### 🛠️ Tecnologías y Herramientas
