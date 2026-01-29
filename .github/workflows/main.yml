@@ -1,76 +1,99 @@
 name: Repo List Generator
+
+# Descripción:
+# Este workflow actualiza automáticamente la lista de repositorios en el README.md.
+# Se ejecuta cada 24 horas o manualmente.
+
 on:
   schedule:
-    - cron: '0 0 * * *' # Se ejecuta cada 24 horas
-  workflow_dispatch: # Permite ejecución manual
+    - cron: '0 0 * * *'  # Ejecución diaria a las 00:00 UTC (20:00 en Venezuela, GMT-4)
+  workflow_dispatch:  # Permite ejecución manual desde GitHub Actions
 
 jobs:
   repo-list:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Sistema operativo para ejecutar el workflow
+
     steps:
+      # Paso 1: Clonar el repositorio
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3  # Clona el repositorio para poder modificar el README.md
 
+      # Paso 2: Instalar jq (herramienta para procesar JSON)
       - name: Install jq
-        run: sudo apt-get install jq
+        run: sudo apt-get install -y jq  # Instala jq para procesar la respuesta de la API de GitHub
 
+      # Paso 3: Obtener la lista de repositorios usando la API de GitHub
       - name: Get Repo List Data (API Directa)
         id: repo_data
         run: |
-          # Usar la API de GitHub para listar repositorios
+          # Usar la API de GitHub para listar todos los repositorios del usuario
+          # - per_page=100: Obtiene hasta 100 repositorios por página
+          # - type=all: Incluye repositorios propios y forks
           REPO_LIST=$(curl -s -H "Authorization: token ${{ secrets.REPO_TOKEN }}" \
-            "https://api.github.com/users/cityny/repos?per_page=100&type=all" | jq -r '.[].full_name' | tr '\n' ',')
+            "https://api.github.com/users/cityny/repos?per_page=100&type=all" | \
+            jq -r '.[].full_name' | tr '\n' ',')
 
-          # Debug: Imprimir la lista de repositorios
+          # Debug: Imprimir la lista de repositorios obtenida
           echo "Lista de repositorios obtenida: $REPO_LIST"
 
-          # Pasar la lista a la salida del paso
+          # Pasar la lista a la salida del paso para usarla en pasos posteriores
           echo "repoList_ALL=$REPO_LIST" >> $GITHUB_OUTPUT
         shell: bash
 
+      # Paso 4: Mostrar la lista de repositorios obtenida (para depuración)
       - name: Debug - Mostrar salidas
         run: |
           echo "Salida repoList_ALL: ${{ steps.repo_data.outputs.repoList_ALL }}"
 
+      # Paso 5: Actualizar el README.md con la lista de repositorios
       - name: Write to README using Python
         shell: python
         run: |
           import os
 
-          # Obtener la lista de repositorios
+          # Obtener la lista de repositorios desde la salida del paso anterior
           repo_list = """${{ steps.repo_data.outputs.repoList_ALL }}"""
 
           # Debug: Imprimir la lista de repositorios recibida
           print("Lista de repositorios recibida (primeros 500 caracteres):")
           print(repo_list[:500])
 
-          # Leer el README actual
+          # Leer el contenido actual del README.md
           with open("README.md", "r", encoding="utf-8") as f:
               content = f.read()
               print("Contenido actual del README (primeras 500 caracteres):")
               print(content[:500])
 
-          # Definir etiquetas
+          # Definir las etiquetas que marcan dónde insertar la lista de repositorios
           start_tag = "--inicio--"
           end_tag = "--final--"
 
+          # Verificar que las etiquetas existan en el README.md
           if start_tag in content and end_tag in content:
               try:
+                  # Dividir el contenido del README en partes antes y después de las etiquetas
                   pre = content.split(start_tag)[0]
                   post = content.split(end_tag)[1]
-                  clean_list = repo_list.strip()
 
-                  # Reconstruir el contenido
+                  # Convertir la lista de repositorios en formato Markdown con enlaces
+                  repo_names = sorted(repo_list.split(','))  # Ordenar alfabéticamente
+                  markdown_list = "\n".join(
+                      f"- [{repo.split('/')[1]}](https://github.com/{repo})"
+                      for repo in repo_names if repo
+                  )
+                  clean_list = markdown_list.strip()  # Limpiar espacios innecesarios
+
+                  # Reconstruir el contenido del README con la lista de repositorios actualizada
                   new_content = f"{pre}{start_tag}\n{clean_list}\n{end_tag}{post}"
 
-                  # Debug: Imprimir el nuevo contenido
+                  # Debug: Imprimir el nuevo contenido del README
                   print("Nuevo contenido del README (primeros 500 caracteres):")
                   print(new_content[:500])
 
-                  # Escribir el nuevo contenido
+                  # Escribir el nuevo contenido en el README.md
                   with open("README.md", "w", encoding="utf-8") as f:
                       f.write(new_content)
-                  print("README.md actualizado correctamente.")
+                  print("README.md actualizado correctamente con enlaces a los repositorios.")
               except Exception as e:
                   print(f"Error procesando el contenido: {e}")
                   exit(1)
@@ -78,11 +101,21 @@ jobs:
               print(f"Error: No se encontraron las etiquetas '{start_tag}' y '{end_tag}' en el README.")
               exit(1)
 
+      # Paso 6: Hacer commit y push de los cambios al repositorio
       - name: Commit and Push Changes
         run: |
+          # Configurar el usuario de Git para el commit
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+
+          # Añadir el README.md modificado al staging area
           git add README.md
-          git diff --cached README.md  # Mostrar cambios antes de commitear
+
+          # Mostrar los cambios antes de hacer commit (para depuración)
+          git diff --cached README.md
+
+          # Hacer commit con un mensaje descriptivo
           git commit -m "🤖 Actualización automática de proyectos (incluye forks)" || echo "Nada que actualizar"
+
+          # Hacer push de los cambios al repositorio
           git push
