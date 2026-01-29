@@ -27,15 +27,15 @@
 
 <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" width="100%" />
 
-  </td>
-  </tr>
-</table>
-
 ### ⚙️ GitHub Analytics
 <!-- inicio-stats-->
 <img src="./generated/stats.svg" />
 <!-- final-stats-->
 <br clear="right" />
+
+  </td>
+  </tr>
+</table>
 
 ---
 
