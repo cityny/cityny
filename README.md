@@ -2,9 +2,6 @@
 
 <img alt="Wave" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Hand%20Wave.gif" width='40' align="left"/><h2>¡Hola! Soy cityny 👋</h2>
 
-<p align="center">
-  <a href="javascript:void(0)" align="left" style="float: left; width: 50%;">
-    <div align="left">
 <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" align="right"/>
 
 ### 🛠️ Tecnologías y Herramientas
@@ -26,18 +23,6 @@
 <!-- inicio-stats-->
 <img src="./generated/stats.svg" />
 <!-- final-stats-->
-
-</div>
-  </a>
-  <a href="javascript:void(0)" align="right" style="float: right; width: 45%;">
-    <div align="right">   
-      
-
-</div>
-  </a>
-</p>
-<br clear="both">
-
 
 ---
 
