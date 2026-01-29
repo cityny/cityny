@@ -9,11 +9,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Update repo list
+
+      - name: Get Repo List
+        id: repo
         uses: yi-Xu-0100/repo-list-generator@v1.1.1
         with:
           user: cityny
-          # AQUI está el cambio: llamamos a tu nuevo secreto
           my_token: ${{ secrets.REPO_TOKEN }}
           max_page: 1
           allow_empty: true
+          block_list: ""
+
+      - name: Update README
+        run: |
+          # Este script toma el output y lo pone en el README entre las etiquetas
+          # Sed es un editor de texto por línea de comandos
+          REPO_DATA="${{ steps.repo.outputs.repoList }}"
+          sed -i "//,//c\\n$REPO_DATA\n" README.md
+          
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          git commit -m "Update repo list" || echo "No changes to commit"
+          git push
