@@ -12,11 +12,8 @@ jobs:
       - uses: gautamkrishnar/blog-post-workflow@v1
         with:
           comment_tag_name: "RECENT_REPOS"
-          feed_list: "https://github.com/cityny.atom"
+          # CAMBIO CLAVE: Esta URL solo muestra actividad de creación/repos
+          feed_list: "https://github.com/cityny?tab=repositories&q=&type=public&language=&sort=stargazers.atom"
           max_post_count: 5
-          # Usamos las variables de la documentación que compartiste:
           template: "$randomEmoji(🚀,🛠️,📱) [$title]($url) $newline"
-          # Esta opción es vital para que no se vea el código HTML:
-          description_max_length: 1 
-          # Evita que el HTML rompa el diseño:
-          disable_html_encoding: false
+          description_max_length: 1
