@@ -13,6 +13,7 @@
 ✉️ &nbsp;Puedes contactarme en: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com).
 
 <table>
+  <table border="0" style="border-collapse: collapse; border: none;">
   <tr>
     <td width="50%" valign="top">
 
