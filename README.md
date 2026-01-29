@@ -7,15 +7,23 @@
   <div style="flex: 1; min-width: 300px; padding-right: 10px;">
 
 
-<img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" width="20%" />
+<div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
+  <!-- GIF -->
+  <div>
+    <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" width="150" />
+  </div>
 
-### 🚀 Desarrollador enfocado en Flutter & Automatización
+  <!-- Texto -->
+  <div>
+    <h3>🚀 Desarrollador enfocado en Flutter & Automatización</h3>
+    📱 <strong>Mobile:</strong> Especialista en aplicaciones con Flutter.<br>
+    ⚙️ <strong>Automatización:</strong> Flujos de trabajo avanzados en n8n.<br>
+    🌐 <strong>Infraestructura:</strong> Gestión de VPS, Túneles y Proxies.<br>
+    💡 Me gusta explorar nuevas tecnologías y desarrollar soluciones eficientes.<br>
+    ✉️ <strong>Contacto:</strong> <a href="mailto:tu-email@ejemplo.com">tu-email@ejemplo.com</a>
+  </div>
+</div>
 
-📱 **Mobile:** Especialista en aplicaciones con Flutter. \
-⚙️ **Automatización:** Flujos de trabajo avanzados en n8n.\
-🌐 **Infraestructura:** Gestión de VPS, Túneles y Proxies.\
-💡 Me gusta explorar nuevas tecnologías y desarrollar soluciones eficientes.\
-✉️ Contacto: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
 
 ### 🛠️ Tecnologías y Herramientas
 ![Flutter](https://img.shields.io/badge/-Flutter-05122A?style=flat&logo=flutter)
