@@ -18,21 +18,30 @@ jobs:
           my_token: ${{ secrets.REPO_TOKEN }}
           max_page: 1
           allow_empty: true
-          block_list: "" # Para que no ignore tu repo actual
+          block_list: ""
 
-      - name: Update README.md
+      - name: Write to README
+        shell: python
         run: |
-          # 1. Capturamos el output que viste en la documentación
-          # Usamos un delimitador especial (EOF) para evitar problemas con saltos de línea
-          echo "LISTA_REPOS<<EOF" >> $GITHUB_ENV
-          echo "${{ steps.repo_data.outputs.repoList }}" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-
-      - name: Write to File
-        run: |
-          # 2. Usamos sed para inyectar la lista entre tus etiquetas
-          # Esto es puro manejo de archivos como en un VPS
-          sed -i "//,//c\\n${{ env.LISTA_REPOS }}\n" README.md
+          import os
+          
+          # 1. Capturamos la lista desde los outputs
+          repo_list = """${{ steps.repo_data.outputs.repoList }}"""
+          
+          # 2. Leemos el README actual
+          with open("README.md", "r", encoding="utf-8") as f:
+            content = f.read()
+          
+          # 3. Definimos las etiquetas
+          start_tag = ""
+          end_tag = ""
+          
+          # 4. Reemplazamos el contenido entre etiquetas
+          new_content = content.split(start_tag)[0] + start_tag + "\n" + repo_list + "\n" + end_tag + content.split(end_tag)[1]
+          
+          # 5. Guardamos
+          with open("README.md", "w", encoding="utf-8") as f:
+            f.write(new_content)
 
       - name: Commit and Push
         run: |
