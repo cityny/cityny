@@ -22,6 +22,7 @@
 ![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-05122A?style=flat&logo=github-actions)
 ![n8n](https://img.shields.io/badge/-n8n-05122A?style=flat&logo=n8n)
 ![JavaScript](https://img.shields.io/badge/JavaScript-05122A?style=flat&logo=javascript)
+![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=flat&logo=whatsapp&logoColor=white)
 
 ### ⚙️ GitHub Analytics
 <!-- inicio-stats-->
