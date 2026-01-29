@@ -2,6 +2,14 @@
 
 <img alt="Wave" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Hand%20Wave.gif" width='40' align="left"/><h2>¡Hola! Soy cityny 👋</h2>
 
+### 🚀 Desarrollador enfocado en Flutter & Automatización
+
+📱 &nbsp;**Mobile:** Especialista en aplicaciones con Flutter.  
+⚙️ &nbsp;**Automatización:** Flujos de trabajo avanzados en n8n.  
+🌐 &nbsp;**Infraestructura:** Gestión de VPS, Túneles y Proxies.  
+💡 &nbsp;Me gusta explorar nuevas tecnologías y desarrollar soluciones de software eficientes.  
+✉️ &nbsp;Puedes contactarme en: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
+
 <div align="right" style="float: right; margin-left: 20px;">
   <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" width="350" />
   
@@ -15,14 +23,6 @@
     <img src="https://img.shields.io/badge/-n8n-05122A?style=flat&logo=n8n" />
   </div>
 </div>
-
-### 🚀 Desarrollador enfocado en Flutter & Automatización
-
-📱 &nbsp;**Mobile:** Especialista en aplicaciones con Flutter.  
-⚙️ &nbsp;**Automatización:** Flujos de trabajo avanzados en n8n.  
-🌐 &nbsp;**Infraestructura:** Gestión de VPS, Túneles y Proxies.  
-💡 &nbsp;Me gusta explorar nuevas tecnologías y desarrollar soluciones de software eficientes.  
-✉️ &nbsp;Puedes contactarme en: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
 
 <br clear="right" />
 
