@@ -5,9 +5,9 @@
 ### 🚀 Desarrollador enfocado en Flutter & Automatización
 
 📱 &nbsp;**Mobile:** Especialista en aplicaciones con Flutter.\
-⚙️ &nbsp;**Automatización:** Flujos de trabajo avanzados en n8n./
-🌐 &nbsp;**Infraestructura:** Gestión de VPS, Túneles y Proxies.
-💡 &nbsp;Me gusta explorar nuevas tecnologías y desarrollar soluciones de software eficientes.
+⚙️ &nbsp;**Automatización:** Flujos de trabajo avanzados en n8n.\
+🌐 &nbsp;**Infraestructura:** Gestión de VPS, Túneles y Proxies.\
+💡 &nbsp;Me gusta explorar nuevas tecnologías y desarrollar soluciones de software eficientes.\
 ✉️ &nbsp;Puedes contactarme en: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com).
 
 <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" align="right"/>
