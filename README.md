@@ -1,17 +1,45 @@
-# Hola, soy cityny 👋
+![Tu Banner](https://enlace-a-tu-banner.jpg)
+
+<img alt="Wave" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Hand%20Wave.gif" width='40' align="left"/><h2>¡Hola! Soy cityny 👋</h2>
 
 ### 🚀 Desarrollador enfocado en Flutter & Automatización
 
-- 📱 **Mobile:** Especialista en aplicaciones con Flutter.
-- ⚙️ **Automatización:** Flujos de trabajo eficientes en n8n.
-- 🌐 **Infraestructura:** Gestión de VPS, Túneles y Proxies.
+[cite_start]💡 &nbsp;Me gusta explorar nuevas tecnologías y desarrollar soluciones de software eficientes[cite: 6].
+[cite_start]📱 &nbsp;**Mobile:** Especialista en aplicaciones con Flutter[cite: 1].
+[cite_start]⚙️ &nbsp;**Automatización:** Flujos de trabajo avanzados en n8n[cite: 2].
+[cite_start]🌐 &nbsp;**Infraestructura:** Gestión de VPS, Túneles y Proxies[cite: 3].
+[cite_start]✉️ &nbsp;Puedes contactarme en: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)[cite: 7].
 
 ---
 
 ### 🛠️ Tecnologías y Herramientas
-* **Frontend:** Flutter, Dart.
-* **Backend & DevOps:** Node.js, GitHub Actions, Docker.
-* **No-Code/Low-Code:** n8n.
+
+![Flutter](https://img.shields.io/badge/-Flutter-05122A?style=flat&logo=flutter)
+![Dart](https://img.shields.io/badge/-Dart-05122A?style=flat&logo=dart)
+![Node.js](https://img.shields.io/badge/-Node.js-05122A?style=flat&logo=node.js)
+![Docker](https://img.shields.io/badge/-Docker-05122A?style=flat&logo=docker)
+![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-05122A?style=flat&logo=github-actions)
+![n8n](https://img.shields.io/badge/-n8n-05122A?style=flat&logo=n8n)
+
+---
+
+### ⚙️ GitHub Analytics
+
+<p align="center">
+<a href="https://github.com/cityny">
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=cityny&show_icons=true&theme=algolia&include_all_commits=true&count_private=true"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=cityny&layout=compact&langs_count=8&theme=algolia"/>
+</a>
+</p>
+
+---
+
+### 🤝🏻 Conecta conmigo
+
+<p align="center">
+<a href="https://linkedin.com/in/TU_USUARIO"><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=Linkedin&logoColor=white"/></a>
+<a href="https://tu-sitio-web.com"><img src="https://img.shields.io/badge/-Website-3423A6?style=flat&logo=Google-Chrome&logoColor=white"/></a>
+</p>
 
 ### 📈 Mis Proyectos
 <!-- inicio-proyectos -->
@@ -83,4 +111,3 @@
 - [yt-dlp](https://github.com/yt-dlp/yt-dlp)
 - [social-media-posts](https://github.com/zafar-saleem/social-media-posts)
 <!-- final-stars -->
-
