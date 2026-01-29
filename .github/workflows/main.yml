@@ -1,0 +1,20 @@
+name: Update Repos
+on:
+  schedule:
+    # Se ejecuta cada 12 horas
+    - cron: '0 */12 * * *'
+  workflow_dispatch: # Permite ejecutarlo a mano para probar ahora
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: gautamkrishnar/github-repo-sync@master
+        with:
+          # Sustituye 'cityny' por tu usuario si fuera necesario
+          gh_username: cityny 
+          # Cuántos repositorios quieres mostrar
+          repo_limit: 5
+          # Ordenar por los últimos creados/actualizados
+          sort_by: last_updated
