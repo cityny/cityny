@@ -2,39 +2,76 @@
 
 <img alt="Wave" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Hand%20Wave.gif" width='40' align="left"/><h2>¡Hola! Soy cityny 👋</h2>
 
+esta estructura es la perfecta pero no quiero que sea en tabla y aparte quiero que el texto sea responsive:
+
+
+
 <table border="0" frame="void" rules="none">
+
   <tr>
+
     <td valign="top" width="55%" style="border: none;">
+
+
 
 ### 🚀 Desarrollador enfocado en Flutter & Automatización
 
+
+
 📱 **Mobile:** Especialista en aplicaciones con Flutter.  
+
 ⚙️ **Automatización:** Flujos de trabajo avanzados en n8n.  
+
 🌐 **Infraestructura:** Gestión de VPS, Túneles y Proxies.  
+
 💡 Me gusta explorar nuevas tecnologías y desarrollar soluciones eficientes.  
+
 ✉️ Contacto: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
 
+
+
 ### 🛠️ Tecnologías y Herramientas
+
 ![Flutter](https://img.shields.io/badge/-Flutter-05122A?style=flat&logo=flutter)
+
 ![Dart](https://img.shields.io/badge/-Dart-05122A?style=flat&logo=dart)
+
 ![Node.js](https://img.shields.io/badge/-Node.js-05122A?style=flat&logo=node.js)
+
 ![Docker](https://img.shields.io/badge/-Docker-05122A?style=flat&logo=docker)
+
 ![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-05122A?style=flat&logo=github-actions)
+
 ![n8n](https://img.shields.io/badge/-n8n-05122A?style=flat&logo=n8n)
 
+
+
   </td>
+
   <td valign="top" width="45%" align="right" style="border: none;">
+
+
 
 <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" width="100%" />
 
+
+
 ### ⚙️ GitHub Analytics
+
 <!-- inicio-stats-->
+
 <img src="./generated/stats.svg" />
+
 <!-- final-stats-->
+
 <br clear="right" />
 
+
+
   </td>
+
   </tr>
+
 </table>
 
 ---
