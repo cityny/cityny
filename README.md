@@ -5,8 +5,8 @@
 <div align="center">
   <div style="display: flex; justify-content: space-between;">
     <div align="left" style="width: 45%; display: inline-block; vertical-align: top;">
+      
 ### 🚀 Desarrollador enfocado en Flutter & Automatización
-
 📱 &nbsp;**Mobile:** Especialista en aplicaciones con Flutter.\
 ⚙️ &nbsp;**Automatización:** Flujos de trabajo avanzados en n8n.\
 🌐 &nbsp;**Infraestructura:** Gestión de VPS, Túneles y Proxies.\
