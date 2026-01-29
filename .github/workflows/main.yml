@@ -13,6 +13,5 @@ jobs:
         uses: yi-Xu-0100/repo-list-generator@v1.1.1
         with:
           user: cityny
-          # Esta opción pone la lista en tu README.md
-          # Asegúrate de que las etiquetas coincidan abajo
-          repo_type: all
+          max_page: 1
+          allow_empty: true
