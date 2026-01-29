@@ -45,42 +45,36 @@ jobs:
       - name: Write to README using Python
         shell: python
         run: |
-          import os
-          own_repos = "${{ steps.repo_data.outputs.ownRepos }}"
-          fork_repos = "${{ steps.repo_data.outputs.forkRepos }}"
-          starred_repos = "${{ steps.repo_data.outputs.starredRepos }}"
-          
-          with open("README.md", "r", encoding="utf-8") as f:
-              content = f.read()
-
-          # --- AQUÍ ESTABA EL ERROR: AHORA TIENEN CONTENIDO ---
-          own_tag_start = ""
-          own_tag_end = ""
-          fork_tag_start = ""
-          fork_tag_end = ""
-          starred_tag_start = ""
-          starred_tag_end = ""
-
-          def update_section(content, start_tag, end_tag, repo_list):
-              if start_tag in content and end_tag in content:
-                  pre = content.split(start_tag)[0]
-                  post = content.split(end_tag)[1]
-                  repo_names = sorted(repo_list.split(',')) if repo_list else []
-                  markdown_list = "\n".join(
-                      f"- [{repo.split('/')[1]}](https://github.com/{repo})"
-                      for repo in repo_names if repo
-                  )
-                  clean_list = markdown_list.strip()
-                  return f"{pre}{start_tag}\n{clean_list}\n{end_tag}{post}"
-              return content
-
-          # Aplicar actualizaciones
-          content = update_section(content, own_tag_start, own_tag_end, own_repos)
-          content = update_section(content, fork_tag_start, fork_tag_end, fork_repos)
-          content = update_section(content, starred_tag_start, starred_tag_end, starred_repos)
-
-          with open("README.md", "w", encoding="utf-8") as f:
-              f.write(content)
+                import os
+                # Recuperamos las listas de los pasos anteriores
+                own_repos = "${{ steps.repo_data.outputs.ownRepos }}"
+                fork_repos = "${{ steps.repo_data.outputs.forkRepos }}"
+                starred_repos = "${{ steps.repo_data.outputs.starredRepos }}"
+                
+                with open("README.md", "r", encoding="utf-8") as f:
+                    content = f.read()
+      
+                def update_section(content, start_tag, end_tag, repo_list):
+                    # Verificamos que los tags existan en el README antes de operar
+                    if start_tag in content and end_tag in content:
+                        pre = content.split(start_tag)[0]
+                        post = content.split(end_tag)[1]
+                        repo_names = sorted(repo_list.split(',')) if repo_list else []
+                        markdown_list = "\n".join(
+                            f"- [{repo.split('/')[1]}](https://github.com/{repo})"
+                            for repo in repo_names if repo
+                        )
+                        return f"{pre}{start_tag}\n{markdown_list.strip()}\n{end_tag}{post}"
+                    return content
+      
+                # DEFINICIÓN DIRECTA (No las dejes vacías)
+                content = update_section(content, "", "", own_repos)
+                content = update_section(content, "", "", fork_repos)
+                content = update_section(content, "", "", starred_repos)
+      
+                with open("README.md", "w", encoding="utf-8") as f:
+                    f.write(content)
+                print("README actualizado con éxito.")
 
       - name: Commit and Push Changes
         run: |
