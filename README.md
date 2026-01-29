@@ -26,7 +26,7 @@
 ![n8n](https://img.shields.io/badge/-n8n-05122A?style=flat&logo=n8n)
 
 ### ⚙️ GitHub Analytics
-
+<br clear="right" />
 
 ---
 
