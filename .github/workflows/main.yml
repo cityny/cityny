@@ -11,26 +11,33 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Get Repo List
-        id: repo
+        id: repo_data
         uses: yi-Xu-0100/repo-list-generator@v1.1.1
         with:
           user: cityny
           my_token: ${{ secrets.REPO_TOKEN }}
           max_page: 1
           allow_empty: true
-          block_list: ""
+          block_list: "" # Para que no ignore tu repo actual
 
-      - name: Update README
+      - name: Update README.md
         run: |
-          # Este script toma el output y lo pone en el README entre las etiquetas
-          # Sed es un editor de texto por línea de comandos
-          REPO_DATA="${{ steps.repo.outputs.repoList }}"
-          sed -i "//,//c\\n$REPO_DATA\n" README.md
-          
-      - name: Commit changes
+          # 1. Capturamos el output que viste en la documentación
+          # Usamos un delimitador especial (EOF) para evitar problemas con saltos de línea
+          echo "LISTA_REPOS<<EOF" >> $GITHUB_ENV
+          echo "${{ steps.repo_data.outputs.repoList }}" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Write to File
+        run: |
+          # 2. Usamos sed para inyectar la lista entre tus etiquetas
+          # Esto es puro manejo de archivos como en un VPS
+          sed -i "//,//c\\n${{ env.LISTA_REPOS }}\n" README.md
+
+      - name: Commit and Push
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add README.md
-          git commit -m "Update repo list" || echo "No changes to commit"
+          git commit -m "🤖 Actualización automática de proyectos" || echo "Nada que actualizar"
           git push
