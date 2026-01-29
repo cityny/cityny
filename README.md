@@ -2,6 +2,11 @@
 
 <img alt="Wave" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Hand%20Wave.gif" width='40' align="left"/><h2>¡Hola! Soy cityny 👋</h2>
 
+### ⚙️ GitHub Analytics
+<!-- inicio-stats-->
+<img src="./generated/stats.svg" />
+<!-- final-stats-->
+
 ### 🚀 Desarrollador enfocado en Flutter & Automatización
 
 📱 &nbsp;**Mobile:** Especialista en aplicaciones con Flutter.\
@@ -11,9 +16,6 @@
 ✉️ &nbsp;Puedes contactarme en: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com).
 
 <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" align="right"/>
-<div align="center">
-  <div style="display: flex; justify-content: space-between;">
-    <div align="left" style="width: 45%; display: inline-block; vertical-align: top;">
 
 ### 🛠️ Tecnologías y Herramientas
 ![Flutter](https://img.shields.io/badge/-Flutter-05122A?style=flat&logo=flutter)
@@ -22,17 +24,6 @@
 ![Docker](https://img.shields.io/badge/-Docker-05122A?style=flat&logo=docker)
 ![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-05122A?style=flat&logo=github-actions)
 ![n8n](https://img.shields.io/badge/-n8n-05122A?style=flat&logo=n8n)
-
-</div>
-    <div align="right" style="width: 45%; display: inline-block; vertical-align: top;">
-
-### ⚙️ GitHub Analytics
-<!-- inicio-stats-->
-<img src="./generated/stats.svg" />
-<!-- final-stats-->
-</div>
-  </div>
-</div>
 
 ---
 
