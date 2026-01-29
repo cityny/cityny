@@ -13,14 +13,16 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # --- NUEVO: Generación de Stats local para evitar caídas de Vercel ---
+     # --- ESTE ES EL BLOQUE QUE VAMOS A CAMBIAR ---
       - name: Generate Stats Images
-        uses: anuraghazra/github-readme-stats@master
+        uses: lowlighter/metrics@latest
         with:
-          username: cityny
-          theme: algolia
-          show_icons: true
-          output: generated/ # Esto crea archivos .svg locales
+          token: ${{ secrets.REPO_TOKEN }}
+          user: cityny
+          template: classic
+          base: header, activity, community, repositories, metadata
+          config_timezone: America/Caracas
+          filename: generated/stats.svg # Esto lo guarda en tu carpeta local
 
       - name: Install jq
         run: sudo apt-get install -y jq
