@@ -101,9 +101,20 @@ jobs:
 
       - name: Commit and Push Changes
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add README.md
-          git diff --cached README.md
-          git commit -m "🤖 Actualización automática de proyectos, forks y repositorios con estrella" || echo "Nada que actualizar"
-          git push
+                    git config --local user.email "action@github.com"
+                    git config --local user.name "GitHub Action"
+                
+                    # Hacer pull de los últimos cambios antes de intentar el push
+                    git pull origin main
+                
+                    # Añadir el README.md modificado al staging area
+                    git add README.md
+                
+                    # Mostrar los cambios antes de hacer commit (opcional, para depuración)
+                    git diff --cached README.md
+                
+                    # Hacer commit con un mensaje descriptivo
+                    git commit -m "🤖 Actualización automática de proyectos, forks y repositorios con estrella" || echo "Nada que actualizar"
+                
+                    # Hacer push de los cambios al repositorio
+                    git push origin main
