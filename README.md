@@ -2,42 +2,40 @@
 
 <img alt="Wave" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Hand%20Wave.gif" width='40' align="left"/><h2>¡Hola! Soy cityny 👋</h2>
 
-<div style="display: flex; align-items: flex-start;">
-  <!-- Texto a la izquierda -->
-  <div style="flex: 1;">
-    <h3>🚀 Desarrollador enfocado en Flutter & Automatización</h3>
-    📱 <strong>Mobile:</strong> Especialista en aplicaciones con Flutter.<br>
-    ⚙️ <strong>Automatización:</strong> Flujos de trabajo avanzados en n8n.<br>
-    🌐 <strong>Infraestructura:</strong> Gestión de VPS, Túneles y Proxies.<br>
-    💡 Me gusta explorar nuevas tecnologías y desarrollar soluciones eficientes.<br>
-    ✉️ <strong>Contacto:</strong> <a href="mailto:tu-email@ejemplo.com">tu-email@ejemplo.com</a>
-  </div>
-  <!-- GIF a la derecha -->
-  <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" width="150" style="flex-shrink: 0; margin-left: 20px;" />
-</div>
+<table>
+  <tr>
+    <td valign="top" width="55%">
 
-<!-- Tecnologías y Herramientas -->
-<div style="margin-top: 20px;">
-  <h3>🛠️ Tecnologías y Herramientas</h3>
-  <div>
-    <img src="https://img.shields.io/badge/-Flutter-05122A?style=flat&logo=flutter" alt="Flutter" />
-    <img src="https://img.shields.io/badge/-Dart-05122A?style=flat&logo=dart" alt="Dart" />
-    <img src="https://img.shields.io/badge/-Node.js-05122A?style=flat&logo=node.js" alt="Node.js" />
-    <img src="https://img.shields.io/badge/-Docker-05122A?style=flat&logo=docker" alt="Docker" />
-    <img src="https://img.shields.io/badge/-GitHub%20Actions-05122A?style=flat&logo=github-actions" alt="GitHub Actions" />
-    <img src="https://img.shields.io/badge/-n8n-05122A?style=flat&logo=n8n" alt="n8n" />
-  </div>
-</div>
+### 🚀 Desarrollador enfocado en Flutter & Automatización
 
-<!-- GitHub Analytics -->
-<div style="margin-top: 20px;">
-  <h3>⚙️ GitHub Analytics</h3>
-      <!-- inicio-stats-->
-  <img src="./generated/stats.svg" width="100%" />
-  <!-- final-stats-->
-</div>
+📱 **Mobile:** Especialista en aplicaciones con Flutter.  
+⚙️ **Automatización:** Flujos de trabajo avanzados en n8n.  
+🌐 **Infraestructura:** Gestión de VPS, Túneles y Proxies.  
+💡 Me gusta explorar nuevas tecnologías y desarrollar soluciones eficientes.  
+✉️ Contacto: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
 
+</td>
+    <td valign="top" width="45%" align="right">
 
+<img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" width="100%" />
+
+### 🛠️ Tecnologías y Herramientas
+![Flutter](https://img.shields.io/badge/-Flutter-05122A?style=flat&logo=flutter)
+![Dart](https://img.shields.io/badge/-Dart-05122A?style=flat&logo=dart)
+![Node.js](https://img.shields.io/badge/-Node.js-05122A?style=flat&logo=node.js)
+![Docker](https://img.shields.io/badge/-Docker-05122A?style=flat&logo=docker)
+![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-05122A?style=flat&logo=github-actions)
+![n8n](https://img.shields.io/badge/-n8n-05122A?style=flat&logo=n8n)
+
+</td>
+  </tr>
+</table>
+
+### ⚙️ GitHub Analytics
+<!-- inicio-stats-->
+<img src="./generated/stats.svg" />
+<!-- final-stats-->
+<br clear="right" />
 
 ---
 
