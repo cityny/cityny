@@ -2,11 +2,8 @@
 
 <img alt="Wave" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Hand%20Wave.gif" width='40' align="left"/> ##¡Hola! Soy cityny 👋
 
-<table>
-  <tr>
-    <td valign="top" width="55%">
 <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" width="50%" />
-      
+<img src="https://github.com/sciencepal/sciencepal/blob/master/assets/life_balance.gif" alt="side Image" align="right" width="200" height="auto" />      
 ### 🚀 Desarrollador enfocado en Flutter & Automatización
 
 📱 **Mobile:** Especialista en aplicaciones con Flutter.  
@@ -15,8 +12,6 @@
 💡 Me gusta explorar nuevas tecnologías y desarrollar soluciones eficientes.  
 ✉️ Contacto: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
 
-</td>
-    <td valign="top" width="30%" align="right">
 
 
 ### 🛠️ Tecnologías y Herramientas
@@ -26,10 +21,6 @@
 ![Docker](https://img.shields.io/badge/-Docker-05122A?style=flat&logo=docker)
 ![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-05122A?style=flat&logo=github-actions)
 ![n8n](https://img.shields.io/badge/-n8n-05122A?style=flat&logo=n8n)
-
-</td>
-  </tr>
-</table>
 
 ### ⚙️ GitHub Analytics
 <!-- inicio-stats-->
