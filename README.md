@@ -32,7 +32,7 @@
 ![PaddlePaddle](https://img.shields.io/badge/-PaddlePaddle-05122A?style=flat&logo=paddlepaddle)
 ![Android](https://img.shields.io/badge/-Android-05122A?style=flat&logo=android)
 ![Ubuntu](https://img.shields.io/badge/-Ubuntu-05122A?style=flat&logo=ubuntu)
-![Excel](https://img.shields.io/badge/-Excel-05122A?style=flat&logo=microsoft-excel&logoColor=white)
+![Excel](https://img.shields.io/badge/-Excel-05122A?style=flat&logo=microsoft%20excel)
 
 ### ⚙️ GitHub Analytics
 [![Estadísticas de GitHub](https://github-readme-stats.vercel.app/api?username=cityny&show_icons=true&theme=tokyonight&bg_color=05122A&title_color=ffffff&text_color=9effff)](https://github.com/anuraghazra/github-readme-stats)
