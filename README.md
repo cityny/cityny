@@ -1,6 +1,6 @@
 ![Tu Banner](https://github.com/halfrost/halfrost/blob/master/icons/header_1.png)
 
-# ¡hello! i´m cityny!  <img src="https://github.com/cityny/cityny/blob/main/assets/Hi.gif" width="29px">
+# ¡Hello! I´m cityny!  <img src="https://github.com/cityny/cityny/blob/main/assets/Hi.gif" width="29px">
 ![Visitas](https://komarev.com/ghpvc/?username=cityny&label=Profile%20Visits&color=blue&style=for-the-badge)
 
 <img src="https://github.com/cityny/cityny/blob/main/assets/Night-Coding.gif" alt="side Image" align="right" width="200" height="auto" />
