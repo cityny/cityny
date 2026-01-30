@@ -11,7 +11,7 @@
 ⚙️ **Automatización:** Flujos de trabajo avanzados en n8n.  
 🌐 **Infraestructura:** Gestión de VPS, Túneles y Proxies.  
 💡 Me gusta explorar nuevas tecnologías y desarrollar soluciones eficientes.  
-✉️ Contacto: [tu-email@ejemplo.com](mailto:nycity981@gmail.com)
+✉️ Contacto: [nycity981@gmail.com](mailto:nycity981@gmail.com)
 
 
 
