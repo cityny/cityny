@@ -12,11 +12,12 @@
 
 <img src="https://github.com/cityny/cityny/blob/main/assets/Night-Coding.gif" alt="side Image" align="right" width="200" height="auto" />
 
-### 🚀 Desarrollador enfocado en Flutter & Automatización
+### 🚀 Desarrollador Full-Stack & IA Engineer
 
-📱 **Mobile:** Especialista en aplicaciones con Flutter.  
-⚙️ **Automatización:** Flujos de trabajo avanzados en n8n.  
-🌐 **Infraestructura:** Gestión de VPS, Túneles y Proxies.  
+🤖 **IA Engineer:** Implementación de LLMs, Agentes autónomos y RAG.
+📱 **Mobile:** Especialista en aplicaciones de alto rendimiento con Flutter.
+⚙️ **Automatización:** Arquitecto de flujos complejos en n8n y manejo de JSON.
+🌐 **Infraestructura:** Gestión técnica de VPS, Túneles, Proxies y GitHub.
 💡 Me gusta explorar nuevas tecnologías y desarrollar soluciones eficientes.  
 ✉️ Contacto: [nycity981@gmail.com](mailto:nycity981@gmail.com)
 
