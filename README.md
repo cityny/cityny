@@ -59,7 +59,7 @@
 <!-- final-proyectos -->
 
 <details>
-<sumary><h2>🍴 Repositorios Forks</h2></summary>
+<summary><h2>🍴 Repositorios Forks</h2></summary>
   
 <!-- inicio-forks -->
 - [Chatwoot-CityNy](https://github.com/cityny/Chatwoot-CityNy)
