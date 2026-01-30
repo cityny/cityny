@@ -1,9 +1,9 @@
 ![Tu Banner](https://github.com/halfrost/halfrost/blob/master/icons/header_1.png)
 
-# ¡Hola! Soy cityny!  <img src="https://github.com/cityny/cityny/blob/main/assets/Hi.gif" width="29px">
+# ¡hello! i´m cityny!  <img src="https://github.com/cityny/cityny/blob/main/assets/Hi.gif" width="29px">
 ![Visitas](https://komarev.com/ghpvc/?username=cityny&label=Profile%20Visits&color=blue&style=for-the-badge)
 
-### 🤝🏻 Conecta conmigo
+### 🤝🏻 Connct with me!
 
 <p align="center">
 <a href="https://linkedin.com/in/TU_USUARIO"><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=Linkedin&logoColor=white"/></a>
@@ -23,7 +23,7 @@
 
 
 
-### 🛠️ Tecnologías y Herramientas
+### 🛠️ Tech Stack
 ![Flutter](https://img.shields.io/badge/-Flutter-05122A?style=flat&logo=flutter)
 ![Dart](https://img.shields.io/badge/-Dart-05122A?style=flat&logo=dart)
 ![Node.js](https://img.shields.io/badge/-Node.js-05122A?style=flat&logo=node.js)
