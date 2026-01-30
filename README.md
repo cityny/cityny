@@ -66,7 +66,7 @@
 <!-- final-forks -->
 
 <details>
-<summary><b>⭐ Repositorios con Estrella</b></summary>
+<summary><h2>⭐ Repositorios con Estrella</h2></summary>
 
 <!-- inicio-stars -->
 - [WrenAI](https://github.com/Canner/WrenAI)
