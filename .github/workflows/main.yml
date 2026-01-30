@@ -43,12 +43,25 @@ jobs:
           base: header, activity, community, repositories, metadata  # Secciones de la imagen
           config_timezone: America/Caracas  # Zona horaria para las estadísticas
           filename: generated/stats.svg  # Ruta donde se guarda la imagen generada
-          config_theme: none  # Desactiva el tema predefinido
-          config_background: transparent  # Fondo transparente
-          config_title_color: "ffffff"  # Color del título (blanco)
-          config_text_color: "ffffff"  # Color del texto (blanco)
-          config_border_color: "333333"  # Color del borde (gris oscuro)
-          config_animations: no  # Desactiva animaciones si las hay
+          config_presets: dark  # Tema oscuro predefinido
+              extras_css: |
+                /* Fondo oscuro */
+                svg {
+                  background-color: #121212 !important;
+                }
+                /* Texto en blanco */
+                .header, .content {
+                  fill: #ffffff !important;
+                  color: #ffffff !important;
+                }
+                /* Bordes oscuros */
+                .border {
+                  stroke: #333333 !important;
+                }
+                /* Color para los gráficos */
+                .chart rect {
+                  fill: #4CAF50 !important;
+                }
 
       # ---------------------------------------------
       # Paso 3: Instalar jq (procesador de JSON)
