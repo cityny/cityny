@@ -12,33 +12,14 @@
 
 <img src="https://github.com/cityny/cityny/blob/main/assets/Night-Coding.gif" alt="side Image" align="right" width="200" height="auto" />
 
-<table>
-  <tr>
-    <td width="50%">
-      <h3>🇪🇸 Español</h3>
-      <b>🚀 Desarrollador Full-Stack & IA Engineer</b><br><br>
-      🤖 <b>IA Engineer:</b> Implementación de LLMs, Agentes autónomos y RAG.<br>
-      📱 <b>Mobile:</b> Especialista en aplicaciones de alto rendimiento con Flutter.<br>
-      ⚙️ <b>Automatización:</b> Arquitecto de flujos complejos en n8n y JSON.<br>
-      🌐 <b>Infraestructura:</b> Gestión de VPS, Túneles, Proxies y GitHub.<br>
-      💡 Me gusta explorar nuevas tecnologías.<br>
-    </td>
-    <td width="50%">
-      <h3>🇺🇸 English</h3>
-      <b>🚀 Full-Stack Developer & IA Engineer</b><br><br>
-      🤖 <b>IA Engineer:</b> LLM implementation, Autonomous Agents, and RAG.<br>
-      📱 <b>Mobile:</b> Flutter high-performance app specialist.<br>
-      ⚙️ <b>Automation:</b> n8n complex workflow architect and JSON.<br>
-      🌐 <b>Infrastructure:</b> VPS, Tunnels, Proxies, and GitHub management.<br>
-      💡 I enjoy exploring new technologies.<br>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center">
-      ✉️ <b>Contacto / Contact:</b> <a href="mailto:nycity981@gmail.com">nycity981@gmail.com</a>
-    </td>
-  </tr>
-</table>
+### 🚀 Full-Stack Developer & IA Engineer
+
+  🤖 **IA Engineer:** LLM implementation, Autonomous Agents, and RAG.  
+  📱 **Mobile:** Flutter high-performance app specialist.  
+  ⚙️ **Automation:** n8n complex workflow architect and JSON management.  
+  🌐 **Infrastructure:** Technical management of VPS, Tunnels, Proxies, and GitHub.  
+  💡 I enjoy exploring new technologies and building efficient solutions.  
+  ✉️ Contact: [nycity981@gmail.com](mailto:nycity981@gmail.com)
 
 
 
