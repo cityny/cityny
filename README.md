@@ -14,11 +14,11 @@
 
 ### 🚀 Desarrollador Full-Stack & IA Engineer
 
-🤖 **IA Engineer:** Implementación de LLMs, Agentes autónomos y RAG.
-📱 **Mobile:** Especialista en aplicaciones de alto rendimiento con Flutter.
-⚙️ **Automatización:** Arquitecto de flujos complejos en n8n y manejo de JSON.
-🌐 **Infraestructura:** Gestión técnica de VPS, Túneles, Proxies y GitHub.
-💡 Me gusta explorar nuevas tecnologías y desarrollar soluciones eficientes.  
+🤖 **IA Engineer:** Implementación de LLMs, Agentes autónomos y RAG.\
+📱 **Mobile:** Especialista en aplicaciones de alto rendimiento con Flutter.\
+⚙️ **Automatización:** Arquitecto de flujos complejos en n8n y manejo de JSON.\
+🌐 **Infraestructura:** Gestión técnica de VPS, Túneles, Proxies y GitHub.\
+💡 Me gusta explorar nuevas tecnologías y desarrollar soluciones eficientes.\
 ✉️ Contacto: [nycity981@gmail.com](mailto:nycity981@gmail.com)
 
 
