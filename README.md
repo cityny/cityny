@@ -49,7 +49,7 @@
 ---
 
 <details>
-<summary><h2>📈 My Work on Github</h2></summary>
+<summary><h2>📈 My Projects</h2></summary>
   
 <!-- inicio-proyectos -->
 - [Cronograma-de-Viajes](https://github.com/cityny/Cronograma-de-Viajes)
