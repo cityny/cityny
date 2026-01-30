@@ -66,7 +66,6 @@
 - [PaddleOCR](https://github.com/cityny/PaddleOCR)
 - [shopper](https://github.com/cityny/shopper)
 <!-- final-forks -->
-
 </details>
 
 <details>
