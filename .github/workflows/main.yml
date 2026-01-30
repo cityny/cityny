@@ -1,74 +1,116 @@
+# =============================================
+# Workflow: Repo List Generator
+# Descripción: Genera automáticamente una lista de repositorios (propios, forks y con estrella) y estadísticas para el perfil de GitHub de 'cityny'.
+# Se ejecuta diariamente y también puede ser activado manualmente.
+# =============================================
+
 name: Repo List Generator
 
+# =============================================
+# Eventos que disparan el workflow
+# =============================================
 on:
   schedule:
-    - cron: '0 0 * * *'  # Ejecución diaria
-  workflow_dispatch:      # Permite ejecución manual
+    - cron: '0 0 * * *'  # Ejecución diaria a medianoche (UTC)
+  workflow_dispatch:      # Permite ejecución manual desde la interfaz de GitHub
 
+# =============================================
+# Definición del trabajo principal
+# =============================================
 jobs:
   repo-list:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Sistema operativo para ejecutar el trabajo
 
+    # =============================================
+    # Pasos del trabajo
+    # =============================================
     steps:
+      # ---------------------------------------------
+      # Paso 1: Clonar el repositorio
+      # ---------------------------------------------
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3  # Clona el repositorio para acceder a los archivos
 
-      # Genera la imagen de estadísticas localmente
+      # ---------------------------------------------
+      # Paso 2: Generar imágenes de estadísticas del perfil
+      # ---------------------------------------------
       - name: Generate Stats Images
-        uses: lowlighter/metrics@latest
+        uses: lowlighter/metrics@latest  # Genera una imagen con estadísticas del perfil de GitHub
         with:
-          token: ${{ secrets.REPO_TOKEN }}
-          user: cityny
-          template: classic
-          base: header, activity, community, repositories, metadata
-          config_timezone: America/Caracas
-          filename: generated/stats.svg 
+          token: ${{ secrets.REPO_TOKEN }}  # Token de autenticación para acceder a la API de GitHub
+          user: cityny  # Usuario de GitHub para el que se generan las estadísticas
+          template: classic  # Plantilla para el diseño de la imagen
+          base: header, activity, community, repositories, metadata  # Secciones de la imagen
+          config_timezone: America/Caracas  # Zona horaria para las estadísticas
+          filename: generated/stats.svg  # Ruta donde se guarda la imagen generada
 
+      # ---------------------------------------------
+      # Paso 3: Instalar jq (procesador de JSON)
+      # ---------------------------------------------
       - name: Install jq
-        run: sudo apt-get install -y jq
+        run: sudo apt-get install -y jq  # Instala jq para procesar datos JSON de la API
 
+      # ---------------------------------------------
+      # Paso 4: Obtener datos de repositorios desde la API de GitHub
+      # ---------------------------------------------
       - name: Get Repo List Data (API Directa)
-        id: repo_data
+        id: repo_data  # Identificador para usar los datos en pasos posteriores
         run: |
+          # Obtiene la lista completa de repositorios del usuario (incluyendo forks)
           REPO_LIST=$(curl -s -H "Authorization: token ${{ secrets.REPO_TOKEN }}" \
             "https://api.github.com/users/cityny/repos?per_page=100&type=all")
+
+          # Obtiene la lista de repositorios marcados con estrella por el usuario
           STARRED_REPOS=$(curl -s -H "Authorization: token ${{ secrets.REPO_TOKEN }}" \
             "https://api.github.com/users/cityny/starred?per_page=100")
+
+          # Filtra los repositorios propios (no forks) y los convierte en una lista separada por comas
           OWN_REPOS=$(echo "$REPO_LIST" | jq -r '.[] | select(.fork == false) | .full_name' | tr '\n' ',')
+
+          # Filtra los repositorios con fork y los convierte en una lista separada por comas
           FORK_REPOS=$(echo "$REPO_LIST" | jq -r '.[] | select(.fork == true) | .full_name' | tr '\n' ',')
+
+          # Convierte la lista de repositorios con estrella en una lista separada por comas
           STARRED_REPOS_LIST=$(echo "$STARRED_REPOS" | jq -r '.[].full_name' | tr '\n' ',')
+
+          # Guarda los datos en variables de salida para usarlos en el siguiente paso
           echo "ownRepos=$OWN_REPOS" >> $GITHUB_OUTPUT
           echo "forkRepos=$FORK_REPOS" >> $GITHUB_OUTPUT
           echo "starredRepos=$STARRED_REPOS_LIST" >> $GITHUB_OUTPUT
         shell: bash
 
+      # ---------------------------------------------
+      # Paso 5: Actualizar el README.md con los datos obtenidos
+      # ---------------------------------------------
       - name: Write to README using Python
         shell: python
         run: |
           import os
-          
-          # 1. Definir las etiquetas EXACTAS de tu README
-          # Nota: las de stats NO tienen espacio antes del --> según lo que pusiste
-          stats_start = "<!-- inicio-stats-->"
-          stats_end   = "<!-- final-stats-->"
-          
-          own_start   = "<!-- inicio-proyectos -->"
-          own_end     = "<!-- final-proyectos -->"
-          
-          fork_start  = "<!-- inicio-forks -->"
-          fork_end    = "<!-- final-forks -->"
-          
-          star_start  = "<!-- inicio-stars -->"
-          star_end    = "<!-- final-stars -->"
 
-          # 2. Cargar datos de los pasos anteriores
-          own_repos = "${{ steps.repo_data.outputs.ownRepos }}"
-          fork_repos = "${{ steps.repo_data.outputs.forkRepos }}"
-          starred_repos = "${{ steps.repo_data.outputs.starredRepos }}"
-          
+          # Etiquetas EXACTAS para identificar las secciones en el README.md
+          # (Se usan para reemplazar el contenido entre estas etiquetas)
+          stats_start = "<!-- inicio-stats-->"  # Inicio de la sección de estadísticas
+          stats_end   = "<!-- final-stats-->"    # Fin de la sección de estadísticas
+
+          own_start   = "<!-- inicio-proyectos -->"  # Inicio de la sección de repositorios propios
+          own_end     = "<!-- final-proyectos -->"    # Fin de la sección de repositorios propios
+
+          fork_start  = "<!-- inicio-forks -->"      # Inicio de la sección de repositorios con fork
+          fork_end    = "<!-- final-forks -->"        # Fin de la sección de repositorios con fork
+
+          star_start  = "<!-- inicio-stars -->"      # Inicio de la sección de repositorios con estrella
+          star_end    = "<!-- final-stars -->"        # Fin de la sección de repositorios con estrella
+
+          # Cargar datos de los pasos anteriores (variables generadas en el paso 4)
+          own_repos = "${{ steps.repo_data.outputs.ownRepos }}"      # Repositorios propios
+          fork_repos = "${{ steps.repo_data.outputs.forkRepos }}"    # Repositorios con fork
+          starred_repos = "${{ steps.repo_data.outputs.starredRepos }}"  # Repositorios con estrella
+
+          # Lee el contenido actual del README.md
           with open("README.md", "r", encoding="utf-8") as f:
               content = f.read()
 
+          # Función para actualizar una sección del README (entre etiquetas)
           def update_section(text, start, end, new_content):
               if start in text and end in text:
                   pre = text.split(start)[0]
@@ -76,27 +118,32 @@ jobs:
                   return f"{pre}{start}\n{new_content}\n{end}{post}"
               return text
 
+          # Función para formatear la lista de repositorios como enlaces de Markdown
           def format_repos(repo_list):
               repo_names = sorted(repo_list.split(',')) if repo_list else []
               return "\n".join(f"- [{r.split('/')[1]}](https://github.com/{r})" for r in repo_names if r).strip()
 
-          # 3. Aplicar los cambios usando las variables definidas arriba
-          content = update_section(content, own_start, own_end, format_repos(own_repos))
-          content = update_section(content, fork_start, fork_end, format_repos(fork_repos))
-          content = update_section(content, star_start, star_end, format_repos(starred_repos))
-          
-          # Inyectar la imagen de stats
+          # Actualiza cada sección del README con los datos correspondientes
+          content = update_section(content, own_start, own_end, format_repos(own_repos))      # Repositorios propios
+          content = update_section(content, fork_start, fork_end, format_repos(fork_repos))  # Repositorios con fork
+          content = update_section(content, star_start, star_end, format_repos(starred_repos))  # Repositorios con estrella
+
+          # Inyecta la imagen de estadísticas en su sección correspondiente
           stats_img = '<img src="./generated/stats.svg" />'
           content = update_section(content, stats_start, stats_end, stats_img)
 
+          # Escribe el contenido actualizado de vuelta al README.md
           with open("README.md", "w", encoding="utf-8") as f:
               f.write(content)
 
+      # ---------------------------------------------
+      # Paso 6: Confirmar y subir cambios al repositorio
+      # ---------------------------------------------
       - name: Commit and Push Changes
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git pull origin main
-          git add README.md generated/
-          git commit -m "🤖 Stats y Repos actualizados sin errores" || echo "Nada que actualizar"
-          git push origin main
+          git config --local user.email "action@github.com"  # Configura el email de Git
+          git config --local user.name "GitHub Action"       # Configura el nombre de usuario de Git
+          git pull origin main  # Asegura que el repositorio local esté actualizado
+          git add README.md generated/  # Añade los archivos modificados/creados
+          git commit -m "🤖 Stats y Repos actualizados sin errores" || echo "Nada que actualizar"  # Confirma los cambios
+          git push origin main  # Sube los cambios al repositorio remoto
