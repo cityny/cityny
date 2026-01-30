@@ -3,6 +3,13 @@
 # ¡Hola! Soy cityny!  <img src="https://github.com/cityny/cityny/blob/main/assets/Hi.gif" width="29px">
 ![Visitas](https://komarev.com/ghpvc/?username=cityny&label=Profile%20Visits&color=blue&style=for-the-badge)
 
+### 🤝🏻 Conecta conmigo
+
+<p align="center">
+<a href="https://linkedin.com/in/TU_USUARIO"><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=Linkedin&logoColor=white"/></a>
+<a href="https://tu-sitio-web.com"><img src="https://img.shields.io/badge/-Website-3423A6?style=flat&logo=Google-Chrome&logoColor=white"/></a>
+</p>
+
 <img src="https://github.com/cityny/cityny/blob/main/assets/Night-Coding.gif" alt="side Image" align="right" width="200" height="auto" />
 
 ### 🚀 Desarrollador enfocado en Flutter & Automatización
@@ -41,13 +48,6 @@
 <br clear="right" />
 
 ---
-
-### 🤝🏻 Conecta conmigo
-
-<p align="center">
-<a href="https://linkedin.com/in/TU_USUARIO"><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=Linkedin&logoColor=white"/></a>
-<a href="https://tu-sitio-web.com"><img src="https://img.shields.io/badge/-Website-3423A6?style=flat&logo=Google-Chrome&logoColor=white"/></a>
-</p>
 
 ### 📈 Mis Proyectos
 <!-- inicio-proyectos -->
