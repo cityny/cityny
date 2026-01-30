@@ -57,13 +57,16 @@
 - [cityny](https://github.com/cityny/cityny)
 - [politica-privacidad-bot](https://github.com/cityny/politica-privacidad-bot)
 <!-- final-proyectos -->
+
 <details>
-<sumary><h2>🍴 Repositorios Forks<sumary</h2></summary>
+<sumary><h2>🍴 Repositorios Forks</h2></summary>
+  
 <!-- inicio-forks -->
 - [Chatwoot-CityNy](https://github.com/cityny/Chatwoot-CityNy)
 - [PaddleOCR](https://github.com/cityny/PaddleOCR)
 - [shopper](https://github.com/cityny/shopper)
 <!-- final-forks -->
+
 </details>
 
 <details>
