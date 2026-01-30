@@ -44,7 +44,7 @@ jobs:
           config_timezone: America/Caracas  # Zona horaria para las estadísticas
           filename: generated/stats.svg  # Ruta donde se guarda la imagen generada
           config_presets: dark  # Tema oscuro predefinido
-              extras_css: |
+          extras_css: |
                 /* Fondo oscuro */
                 svg {
                   background-color: #121212 !important;
