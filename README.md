@@ -49,7 +49,8 @@
 
 ---
 
-### 📈 Mis Proyectos
+<details>
+<summary><h2>📈 Mis Proyectos</h2></summary>
 <!-- inicio-proyectos -->
 - [Cronograma-de-Viajes](https://github.com/cityny/Cronograma-de-Viajes)
 - [DeudaFlowFlutter](https://github.com/cityny/DeudaFlowFlutter)
@@ -57,6 +58,7 @@
 - [cityny](https://github.com/cityny/cityny)
 - [politica-privacidad-bot](https://github.com/cityny/politica-privacidad-bot)
 <!-- final-proyectos -->
+</details>
 
 <details>
 <summary><h2>🍴 Repositorios Forks</h2></summary>
