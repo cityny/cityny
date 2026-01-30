@@ -65,7 +65,9 @@
 - [shopper](https://github.com/cityny/shopper)
 <!-- final-forks -->
 
-### ⭐ Repositorios con Estrella
+<details>
+<summary><b>⭐ Repositorios con Estrella</b></summary>
+
 <!-- inicio-stars -->
 - [WrenAI](https://github.com/Canner/WrenAI)
 - [Cyber-Sploit](https://github.com/Cyber-Dioxide/Cyber-Sploit)
@@ -121,3 +123,4 @@
 - [yt-dlp](https://github.com/yt-dlp/yt-dlp)
 - [social-media-posts](https://github.com/zafar-saleem/social-media-posts)
 <!-- final-stars -->
+</details>
