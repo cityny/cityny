@@ -51,6 +51,7 @@
 
 <details>
 <summary><h2>📈 Mis Proyectos</h2></summary>
+  
 <!-- inicio-proyectos -->
 - [Cronograma-de-Viajes](https://github.com/cityny/Cronograma-de-Viajes)
 - [DeudaFlowFlutter](https://github.com/cityny/DeudaFlowFlutter)
