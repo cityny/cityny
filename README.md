@@ -49,7 +49,7 @@
 ---
 
 <details>
-<summary><h2>📈 Mis Proyectos</h2></summary>
+<summary><h2>📈 My Work on Github</h2></summary>
   
 <!-- inicio-proyectos -->
 - [Cronograma-de-Viajes](https://github.com/cityny/Cronograma-de-Viajes)
@@ -61,7 +61,7 @@
 </details>
 
 <details>
-<summary><h2>🍴 Repositorios Forks</h2></summary>
+<summary><h2>🍴 Forks</h2></summary>
   
 <!-- inicio-forks -->
 - [Chatwoot-CityNy](https://github.com/cityny/Chatwoot-CityNy)
@@ -71,7 +71,7 @@
 </details>
 
 <details>
-<summary><h2>⭐ Repositorios con Estrella</h2></summary>
+<summary><h2>⭐ Stars Repo</h2></summary>
 
 <!-- inicio-stars -->
 - [WrenAI](https://github.com/Canner/WrenAI)
