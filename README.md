@@ -66,6 +66,7 @@
 <!-- inicio-forks -->
 - [Chatwoot-CityNy](https://github.com/cityny/Chatwoot-CityNy)
 - [PaddleOCR](https://github.com/cityny/PaddleOCR)
+- [gestion-horario-sspl](https://github.com/cityny/gestion-horario-sspl)
 - [shopper](https://github.com/cityny/shopper)
 <!-- final-forks -->
 </details>
@@ -80,6 +81,7 @@
 - [scrcpy](https://github.com/Genymobile/scrcpy)
 - [n8n_ai_agents](https://github.com/GhufranBarcha/n8n_ai_agents)
 - [GroveGrab](https://github.com/GopikChenth/GroveGrab)
+- [Planificador-de-Horarios-Empresariales](https://github.com/Ignacio-Cancino1/Planificador-de-Horarios-Empresariales)
 - [markdown-badges](https://github.com/Ileriayo/markdown-badges)
 - [WSABuilds](https://github.com/MustardChef/WSABuilds)
 - [self.so](https://github.com/Nutlope/self.so)
@@ -104,10 +106,10 @@
 - [Apktool](https://github.com/iBotPeaches/Apktool)
 - [jan](https://github.com/janhq/jan)
 - [twake-drive-legacy](https://github.com/linagora/twake-drive-legacy)
-- [moltbot](https://github.com/moltbot/moltbot)
 - [n8n](https://github.com/n8n-io/n8n)
 - [VidBee](https://github.com/nexmoe/VidBee)
 - [node-red](https://github.com/node-red/node-red)
+- [openclaw](https://github.com/openclaw/openclaw)
 - [n8n-nodes-chatwoot](https://github.com/pixelinfinito/n8n-nodes-chatwoot)
 - [pixeltable](https://github.com/pixeltable/pixeltable)
 - [deepseek_ocr_app](https://github.com/rdumasia303/deepseek_ocr_app)
