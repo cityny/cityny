@@ -66,7 +66,6 @@
 <!-- inicio-forks -->
 - [Chatwoot-CityNy](https://github.com/cityny/Chatwoot-CityNy)
 - [PaddleOCR](https://github.com/cityny/PaddleOCR)
-- [gestion-horario-sspl](https://github.com/cityny/gestion-horario-sspl)
 - [shopper](https://github.com/cityny/shopper)
 <!-- final-forks -->
 </details>
@@ -81,6 +80,7 @@
 - [scrcpy](https://github.com/Genymobile/scrcpy)
 - [n8n_ai_agents](https://github.com/GhufranBarcha/n8n_ai_agents)
 - [GroveGrab](https://github.com/GopikChenth/GroveGrab)
+- [docker-android](https://github.com/HQarroum/docker-android)
 - [Planificador-de-Horarios-Empresariales](https://github.com/Ignacio-Cancino1/Planificador-de-Horarios-Empresariales)
 - [markdown-badges](https://github.com/Ileriayo/markdown-badges)
 - [WSABuilds](https://github.com/MustardChef/WSABuilds)
