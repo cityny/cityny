@@ -74,6 +74,7 @@
 <summary><h2>⭐ Stars Repo</h2></summary>
 
 <!-- inicio-stars -->
+- [ai-marketplace-monitor](https://github.com/BoPeng/ai-marketplace-monitor)
 - [WrenAI](https://github.com/Canner/WrenAI)
 - [Cyber-Sploit](https://github.com/Cyber-Dioxide/Cyber-Sploit)
 - [FreeDomain](https://github.com/DigitalPlatDev/FreeDomain)
@@ -83,11 +84,13 @@
 - [docker-android](https://github.com/HQarroum/docker-android)
 - [Planificador-de-Horarios-Empresariales](https://github.com/Ignacio-Cancino1/Planificador-de-Horarios-Empresariales)
 - [markdown-badges](https://github.com/Ileriayo/markdown-badges)
+- [wifi-3d-fusion](https://github.com/MaliosDark/wifi-3d-fusion)
 - [WSABuilds](https://github.com/MustardChef/WSABuilds)
 - [self.so](https://github.com/Nutlope/self.so)
 - [CompressPDF](https://github.com/OpenToolKit/CompressPDF)
 - [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)
 - [crystal-vault](https://github.com/Ringmast4r/crystal-vault)
+- [lingbot-world](https://github.com/Robbyant/lingbot-world)
 - [chatwoot3-personal](https://github.com/Torrey5feb/chatwoot3-personal)
 - [n8n-workflows](https://github.com/Zie619/n8n-workflows)
 - [go-whatsapp-web-multidevice](https://github.com/aldinokemal/go-whatsapp-web-multidevice)
