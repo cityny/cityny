@@ -17,7 +17,7 @@
 ### 🤝🏻 Connect with me!
 
 <p align="center">
-<a href="https://linkedin.com/in/TU_USUARIO"><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=Linkedin&logoColor=white"/></a>
+<a href="https://www.linkedin.com/in/dionnyn/"><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=Linkedin&logoColor=white"/></a>
 <a href="https://tu-sitio-web.com"><img src="https://img.shields.io/badge/-Website-3423A6?style=flat&logo=Google-Chrome&logoColor=white"/></a>
 </p>
 
