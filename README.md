@@ -86,6 +86,7 @@
 - [Planificador-de-Horarios-Empresariales](https://github.com/Ignacio-Cancino1/Planificador-de-Horarios-Empresariales)
 - [markdown-badges](https://github.com/Ileriayo/markdown-badges)
 - [wifi-3d-fusion](https://github.com/MaliosDark/wifi-3d-fusion)
+- [rs-sdk](https://github.com/MaxBittker/rs-sdk)
 - [WSABuilds](https://github.com/MustardChef/WSABuilds)
 - [self.so](https://github.com/Nutlope/self.so)
 - [CompressPDF](https://github.com/OpenToolKit/CompressPDF)
