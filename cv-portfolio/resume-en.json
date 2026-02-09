@@ -2,11 +2,59 @@
   "basics": {
     "name": "Dionny Jose Núñez Márquez",
     "label": "Electronic Engineer & Flutter Developer",
-    "summary": "Influenced by knowledge and the desire to learn new things every day... [cite: 2]",
-    "location": { "city": "Maracaibo", "countryCode": "VE" }
+    "email": "dionnyn@gmail.com",
+    "phone": "+58 414 6795706",
+    "summary": "Engineer passionate about automation and new technologies. Specialist in Flutter, n8n and process optimization.",
+    "location": {
+      "city": "Maracaibo",
+      "countryCode": "VE",
+      "region": "Zulia"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "cityny",
+        "url": "https://github.com/cityny"
+      }
+    ]
   },
-  "skills": [
-    { "name": "Mobile Development", "keywords": ["Flutter", "Dart"] },
-    { "name": "Automations", "keywords": ["n8n"] }
+  "Technical Skills": [
+    {
+      "name": "Mobile Development",
+      "keywords": ["Flutter", "Dart", "Android", "iOS"]
+    },
+    {
+      "name": "Automation",
+      "keywords": ["n8n", "Webhooks", "JSON"]
+    },
+    {
+      "name": "Infrastructure",
+      "keywords": ["VPS", "Cloud Computing", "Linux"]
+    }
+  ],
+  "Work Experience": [
+    {
+      "company": "San Simón",
+      "position": "Industrial Maintenance Supervisor",
+      "startDate": "20XX-XX-XX",
+      "summary": "Industrial process control and staff management."
+    }
+  ],
+  "Languages": [
+    {
+      "language": "Spanish",
+      "level": "Native"
+    },
+    {
+      "language": "English",
+      "level": "Intermediate (B1)"
+    }
+  ],
+  "Featured Projects": [
+    {
+      "name": "Home Automation System with Flutter",
+      "summary": "Lights and temperature control using MQTT protocol.",
+      "technologies": "Dart, C++, ESP32"
+    }
   ]
 }
