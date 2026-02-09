@@ -71,14 +71,19 @@ function renderBasics(basics) {
     const contactFields = Object.entries(basics)
         .filter(([key]) => !['name', 'label', 'summary', 'location', 'profiles'].includes(key))
         .map(([key, value]) => {
-            // Detecta campos de teléfono y los convierte en enlace wa.me
+            // Detecta campos de teléfono y extrae números para enlace wa.me
             if (key.toLowerCase().includes('telefono') || key.toLowerCase().includes('phone')) {
-                const cleanPhone = value.replace(/\D/g, ''); // Solo números
-                return `<a href="https://wa.me/${cleanPhone}" target="_blank" rel="noopener"><strong>${key}:</strong> ${value}</a>`;
+                // Extrae todos los teléfonos del valor y los convierte en enlaces
+                const phones = value.split(/[|,]/).map(p => p.trim()).filter(Boolean);
+                const phoneLinks = phones.map(phone => {
+                    const cleanPhone = phone.replace(/\D/g, '');
+                    return `<a href="https://wa.me/${cleanPhone}" target="_blank" rel="noopener">${phone}</a>`;
+                }).join(' ');
+                return `<span><strong>${key}:</strong> ${phoneLinks}</span>`;
             }
             // Detecta correos y los convierte en mailto
             if (key.toLowerCase().includes('correo') || key.toLowerCase().includes('email')) {
-                return `<a href="mailto:${value}" target="_blank"><strong>${key}:</strong> ${value}</a>`;
+                return `<span><strong>${key}:</strong> <a href="mailto:${value}" target="_blank">${value}</a></span>`;
             }
             return `<span><strong>${key}:</strong> ${value}</span>`;
         })
