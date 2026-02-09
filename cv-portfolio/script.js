@@ -1,4 +1,20 @@
-// Carga el CV desde el archivo JSON según el idioma
+/**
+ * =============================================================================
+ * CV-PORTFOLIO SCRIPT
+ * =============================================================================
+ * Este script carga y renderiza un CV dinámicamente desde archivos JSON.
+ * Soporta múltiples idiomas y renderiza cualquier estructura de datos automáticamente.
+ * =============================================================================
+ */
+
+// =============================================================================
+// SECCIÓN 1: CARGA DE DATOS
+// =============================================================================
+
+/**
+ * Carga el CV desde el archivo JSON según el idioma especificado.
+ * @param {string} lang - Código de idioma ('es' o 'en')
+ */
 async function loadResume(lang) {
     const container = document.getElementById('resume-container');
     try {
@@ -11,44 +27,66 @@ async function loadResume(lang) {
     }
 }
 
-// Renderiza todo el CV de forma automática
+// =============================================================================
+// SECCIÓN 2: RENDERIZADO PRINCIPAL
+// =============================================================================
+
+/**
+ * Renderiza todo el CV de forma automática.
+ * Genera el header y todas las secciones dinámicamente.
+ * @param {Object} data - Objeto completo del CV desde JSON
+ */
 function renderResume(data) {
     const container = document.getElementById('resume-container');
     
-    // Genera el header con basics
+    // Genera el header con basics (nombre, contacto, resumen)
     const headerHTML = renderBasics(data.basics);
     
     // Genera todas las secciones dinámicamente
+    // Filtra: solo secciones que sean arrays y no sean 'basics'
     const sectionsHTML = Object.entries(data)
         .filter(([key]) => key !== 'basics' && Array.isArray(data[key]))
         .map(([title, content]) => renderDynamicSection(title, content))
         .join('');
     
+    // Combina header + secciones en el contenedor
     container.innerHTML = `<header>${headerHTML}</header>${sectionsHTML}`;
 }
 
-// Renderiza la sección de información básica
+// =============================================================================
+// SECCIÓN 3: RENDERIZADO DEL HEADER (BASICS)
+// =============================================================================
+
+/**
+ * Renderiza la sección de información básica del CV.
+ * Incluye: nombre, label, contactos, ubicación y perfiles sociales.
+ * @param {Object} basics - Objeto con la información básica del CV
+ * @returns {string} HTML formateado del header
+ */
 function renderBasics(basics) {
     if (!basics) return '';
     
-    // Mapea campos simples (email, telefono, etc.)
+    // Mapea campos simples como email, telefono, etc.
+    // Excluye campos especiales que se manejan por separado
     const contactFields = Object.entries(basics)
         .filter(([key]) => !['name', 'label', 'summary', 'location', 'profiles'].includes(key))
         .map(([key, value]) => `<span><strong>${key}:</strong> ${value}</span>`)
         .join(' | ');
     
-    // Mapea location
+    // Mapea location (ciudad y región)
     const location = basics.location 
         ? ` | <span>📍 ${[basics.location.city, basics.location.region].filter(Boolean).join(', ')}</span>` 
         : '';
     
-    // Mapea profiles con enlaces
+    // Mapea profiles con enlaces cliqueables
+    // Genera enlaces para GitHub, LinkedIn, etc.
     const profiles = basics.profiles && Array.isArray(basics.profiles)
         ? ` | ${basics.profiles.map(p => 
             `<a href="${p.url}" target="_blank" rel="noopener">${p.network}: ${p.username}</a>`
           ).join(' | ')}`
         : '';
     
+    // Retorna HTML completo del header
     return `
         <h1>${basics.name || ''}</h1>
         <p class="subtitle">${basics.label || ''}</p>
@@ -59,7 +97,17 @@ function renderBasics(basics) {
     `;
 }
 
-// Renderiza una sección dinámica basada en su contenido
+// =============================================================================
+// SECCIÓN 4: RENDERIZADO DE SECCIONES DINÁMICAS
+// =============================================================================
+
+/**
+ * Renderiza una sección dinámica basada en su contenido.
+ * Cada sección corresponde a un array en el JSON (experiencia, habilidades, etc.)
+ * @param {string} title - Título de la sección
+ * @param {Array} content - Array con los items de la sección
+ * @returns {string} HTML de la sección completa
+ */
 function renderDynamicSection(title, content) {
     return `
         <section>
@@ -71,14 +119,24 @@ function renderDynamicSection(title, content) {
     `;
 }
 
-// Renderiza un item individual (trabajo, proyecto, habilidad, idioma, etc.)
+// =============================================================================
+// SECCIÓN 5: RENDERIZADO DE ITEMS INDIVIDUALES
+// =============================================================================
+
+/**
+ * Renderiza un item individual dentro de una sección.
+ * Detecta automáticamente el tipo de item y lo renderiza apropiadamente.
+ * @param {Object|string} item - Item a renderizar
+ * @returns {string} HTML del item formateado
+ */
 function renderItem(item) {
-    // Si es un string simple, lo muestra como tag
+    // Tipo 1: Si es un string simple, lo muestra como tag
     if (typeof item === 'string') {
         return `<span class="tag">${item}</span>`;
     }
     
-    // Si tiene keywords, es una lista de habilidades
+    // Tipo 2: Si tiene keywords, es una lista de habilidades/tags
+    // Renderiza con skill-tags alrededor de cada keyword
     if (item.keywords) {
         return `
             <div class="item-box skills-item">
@@ -88,7 +146,8 @@ function renderItem(item) {
         `;
     }
     
-    // Renderiza objeto con cualquier estructura
+    // Tipo 3: Objeto genérico (trabajo, proyecto, idioma, etc.)
+    // Renderiza name, position, summary y campos adicionales
     return `
         <div class="item-box">
             ${item.name ? `<h4>${item.name} ${item.position ? `- ${item.position}` : ''}</h4>` : ''}
@@ -98,48 +157,82 @@ function renderItem(item) {
     `;
 }
 
-// Renderiza campos adicionales que no son name, position, summary o keywords
+// =============================================================================
+// SECCIÓN 6: UTILIDADES DE RENDERIZADO
+// =============================================================================
+
+/**
+ * Renderiza campos adicionales de un objeto que no son name, position, summary o keywords.
+ * Útil para campos como Empresa, Fecha, Tecnologías, etc.
+ * @param {Object} item - Objeto del cual renderizar campos adicionales
+ * @returns {string} HTML de los campos adicionales
+ */
 function renderExtraFields(item) {
     return Object.entries(item)
         .filter(([k]) => !['name', 'position', 'summary', 'keywords'].includes(k))
         .map(([k, v]) => {
-            // Si es un array, lo une con comas
+            // Si el valor es un array, lo une con comas para mostrar
             const value = Array.isArray(v) ? v.join(', ') : v;
             return `<small><strong>${formatKey(k)}:</strong> ${value}</small>`;
         })
         .join(' | ');
 }
 
-// Genera un título desde las claves del objeto si no tiene name
+/**
+ * Genera un título desde las claves del objeto si no existe 'name'.
+ * Útil cuando los items tienen campos como 'Empresa', 'Cargo', etc.
+ * @param {Object} item - Objeto sin campo 'name'
+ * @returns {string} Título generado o cadena vacía
+ */
 function titleFromKeys(item) {
+    // Mapeo de claves comunes a etiquetas legibles
     const keyMap = {
         'Empresa': 'Empresa',
         'Cargo': 'Cargo',
         'Lenguaje': 'Idioma',
         'Tecnologías': 'Tecnologías'
     };
+    
+    // Busca la primera clave presente en el objeto
     for (const [k, label] of Object.entries(keyMap)) {
         if (item[k]) return label;
     }
     return '';
 }
 
-// Formatea las claves para mostrar (camelCase a espacio)
+/**
+ * Formatea las claves para mostrar de forma legible.
+ * Convierte camelCase a texto con espacios y capitaliza la primera letra.
+ * Ej: 'fechaInicio' → 'Fecha Inicio'
+ * @param {string} key - Clave a formatear
+ * @returns {string} Clave formateada para visualización
+ */
 function formatKey(key) {
     return key
-        .replace(/([A-Z])/g, ' $1')  // Espacio antes de mayúsculas
-        .replace(/^./, str => str.toUpperCase())  // Primera letra mayúscula
+        .replace(/([A-Z])/g, ' $1')  // Inserta espacio antes de mayúsculas
+        .replace(/^./, str => str.toUpperCase())  // Capitaliza primera letra
         .trim();
 }
 
-// Toggle del tema claro/oscuro
+// =============================================================================
+// SECCIÓN 7: INTERFAZ DE USUARIO
+// =============================================================================
+
+/**
+ * Alterna entre el tema claro y oscuro.
+ * Modifica las clases del body para activar los estilos CSS correspondientes.
+ */
 function toggleTheme() {
     document.body.classList.toggle('dark-theme');
     document.body.classList.toggle('light-theme');
 }
 
-// Carga inicial en español
+// =============================================================================
+// SECCIÓN 8: INICIALIZACIÓN
+// =============================================================================
+
+// Carga inicial del CV en español por defecto
 loadResume('es');
 
-// Event listeners
+// Configura el evento click para el botón de toggle de tema
 document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
