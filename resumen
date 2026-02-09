@@ -1,0 +1,53 @@
+{
+  "basics": {
+    "name": "Dionny Jose Núñez Márquez",
+    "label": "Ingeniero Electrónico & Desarrollador Flutter",
+    "email": "dionnyn@gmail.com",
+    "phone": "+58 414 6795706",
+    "summary": "Ingeniero apasionado por la automatización y nuevas tecnologías. Especialista en Flutter, n8n y optimización de procesos.",
+    "location": {
+      "city": "Maracaibo",
+      "countryCode": "VE",
+      "region": "Zulia"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "TuUsuarioGitHub",
+        "url": "https://github.com/cityny"
+      }
+    ]
+  },
+  "skills": [
+    {
+      "name": "Desarrollo Móvil",
+      "keywords": ["Flutter", "Dart", "Android", "iOS"]
+    },
+    {
+      "name": "Automatización",
+      "keywords": ["n8n", "Webhooks", "JSON"]
+    },
+     {
+      "name": "Infraestructura",
+      "keywords": ["VPS", "Cloud Computing", "Linux"]
+    }
+  ],
+  "work": [
+    {
+      "name": "San Simón",
+      "position": "Supervisor de Mantenimiento Industrial",
+      "startDate": "20XX-XX-XX",
+      "summary": "Control de procesos industriales y manejo de personal."
+    }
+  ],
+  "languages": [
+    {
+      "language": "Español",
+      "fluency": "Nativo"
+    },
+    {
+      "language": "Inglés",
+      "fluency": "Intermedio (B1)"
+    }
+  ]
+}
