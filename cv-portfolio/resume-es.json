@@ -13,12 +13,12 @@
     "profiles": [
       {
         "network": "GitHub",
-        "username": "TuUsuarioGitHub",
+        "username": "cityny",
         "url": "https://github.com/cityny"
       }
     ]
   },
-  "skills": [
+  "Habilidades Técnicas": [
     {
       "name": "Desarrollo Móvil",
       "keywords": ["Flutter", "Dart", "Android", "iOS"]
@@ -27,35 +27,34 @@
       "name": "Automatización",
       "keywords": ["n8n", "Webhooks", "JSON"]
     },
-     {
+    {
       "name": "Infraestructura",
       "keywords": ["VPS", "Cloud Computing", "Linux"]
     }
   ],
-  "work": [
+  "Experiencia Laboral": [
     {
-      "name": "San Simón",
-      "position": "Supervisor de Mantenimiento Industrial",
-      "startDate": "20XX-XX-XX",
-      "summary": "Control de procesos industriales y manejo de personal."
+      "Empresa": "San Simón",
+      "Cargo": "Supervisor de Mantenimiento Industrial",
+      "Fecha de inicio": "20XX-XX-XX",
+      "Resumen": "Control de procesos industriales y manejo de personal."
     }
   ],
-  "languages": [
+  "Idiomas": [
     {
-      "language": "Español",
-      "fluency": "Nativo "
+      "Lenguaje": "Español",
+      "Nivel": "Nativo"
     },
     {
-      "language": "Inglés",
-      "fluency": "Intermedio (B1)"
+      "Lenguaje": "Inglés",
+      "Nivel": "Intermedio (B1)"
     }
   ],
-"proyectos": [
-  {
-    "name": "Sistema de Domótica con Flutter",
-    "summary": "Control de luces y temperatura mediante protocolo MQTT.",
-    "tecnologias": "Dart, C++, ESP32"
-  }
-]
-  
+  "Proyectos Destacados": [
+    {
+      "name": "Sistema de Domótica con Flutter",
+      "summary": "Control de luces y temperatura mediante protocolo MQTT.",
+      "Tecnologías": "Dart, C++, ESP32"
+    }
+  ]
 }
