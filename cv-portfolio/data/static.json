@@ -43,6 +43,14 @@
   ],
   "experience": [
     {
+      "company": "Entrevistador de Campo",
+      "position_es": "Ingeolan - Venezuela",
+      "position_en": "Ingeolan - Venezuela",
+      "startDate": "20XX-XX-XX",
+      "summary_es": "Entrevistas de campo para selección de personal.",
+      "summary_en": "Field interviews for personnel selection."
+    },
+    {
       "company": "URBE - Universidad Rafael Belloso Chacín",
       "position_es": "Asistente de Laboratorio",
       "position_en": "Laboratory Assistant",

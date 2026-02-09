@@ -274,8 +274,18 @@ nav button:hover {
 }
 
 .company {
-    font-weight: bold;
-    color: var(--text-muted);  /* Nombre empresa en gris */
+    /* font-weight: bold;  Quitado - empresa sin negrita */
+    color: var(--text-main);  /* Nombre empresa en color principal */
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 0px;  /* Ajusta el espacio entre empresa y fecha */
+}
+
+/* Texto muted/secundario para labels como "Cargo:" */
+.muted {
+    color: var(--text-muted);
+}
+
+/* Reduce espacio en experiencias laborales */
+.job p {
+    margin-top: 2px;
 }

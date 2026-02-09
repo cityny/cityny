@@ -115,9 +115,9 @@ function renderResume() {
         const positionKey = currentLang === 'es' ? 'position_es' : 'position_en';
         return `
             <div class="item-box job">
+                <strong><span class="muted">${t.job.position_label}:</span> ${job[positionKey]}</strong>
                 <span class="company">${job.company}</span>
-                <strong>${t.job.position_label}:</strong> ${job[positionKey]}
-                <br><small>📅 ${job.startDate}</small>
+                <small>📅 ${job.startDate}</small>
                 <p>${job[summaryKey]}</p>
             </div>
         `;
