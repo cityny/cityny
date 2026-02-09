@@ -104,6 +104,7 @@
 - [waha](https://github.com/devlikeapro/waha)
 - [open-agent-builder](https://github.com/firecrawl/open-agent-builder)
 - [awesome-open-source-flutter-apps](https://github.com/fluttergems/awesome-open-source-flutter-apps)
+- [pangolin](https://github.com/fosrl/pangolin)
 - [binance-bcv-dolar](https://github.com/gabrielbaute/binance-bcv-dolar)
 - [postiz-app](https://github.com/gitroomhq/postiz-app)
 - [optimizer](https://github.com/hellzerg/optimizer)
