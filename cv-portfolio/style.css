@@ -57,7 +57,7 @@
  */
 
 body.dark-theme {
-    --primary: #60a5fa;    /* Azul más brillante para oscuro */
+    --primary: #f2f2f2;    /* Azul más brillante para oscuro */
     --bg: #020617;         /* Fondo casi negro */
     --card-bg: #1e293b;    /* Gris azulado para el CV */
     --text-main: #f8fafc;  /* Texto blanco */
@@ -210,6 +210,37 @@ h3 {
 
 .skill-badge:hover {
     transform: scale(1.05); /* Efecto al pasar el mouse */
+}
+
+/* =============================================================================
+ * SECCIÓN 9: ICONOS DE GOOGLE MATERIAL SYMBOLS
+ * =============================================================================
+ */
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    font-size: 18px;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+/* Iconos de contacto */
+.icon-contact {
+    font-size: 16px;
+    vertical-align: text-bottom;
+    margin-right: 2px;
+    color: var(--primary);  /* Color principal */
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;  /* Icono relleno */
+}
+
+/* Iconos de contacto en modo oscuro - color blanco */
+body.dark-theme .icon-contact {
+    color: #ffffff;  /* Blanco puro */
+}
+
+/* Texto de ubicación - color negro */
+.location-text {
+    color: var(--text-main);  /* Color principal */
 }
 
 /* =============================================================================

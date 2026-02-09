@@ -85,15 +85,15 @@ function renderResume() {
     // Crea enlaces cliqueables para email, teléfonos, ubicación y perfiles
     const contactLinks = [
         // Enlace mailto para abrir cliente de correo
-        `📧 <a href="mailto:${s.basics.email}">${s.basics.email}</a>`,
-        // Teléfonos con enlace a WhatsApp Web (ícono fuera del enlace)
+        `<span class="material-symbols-outlined icon-contact">mail</span> <a href="mailto:${s.basics.email}">${s.basics.email}</a>`,
+        // Teléfonos con enlace a WhatsApp Web
         ...s.basics.phones.map(p => 
-            `📱 <a href="https://wa.me/${p.number.replace(/\D/g, '')}">${p.number}</a>`
+            `<span class="material-symbols-outlined icon-contact">call</span> <a href="https://wa.me/${p.number.replace(/\D/g, '')}">${p.number}</a>`
         ),
-        // Emoji de ubicación + ciudad + región
-        `📍 ${s.basics.location.city}, ${s.basics.location.region || ''}`,
-        // Perfiles sociales
-        ...s.basics.profiles.map(p => `🔗<a href="${p.url}" target="_blank"> ${p.network}</a>`)
+        // Ubicación con icono y countryCode
+        `<span class="material-symbols-outlined icon-contact">location_on</span> <span class="location-text">${s.basics.location.city}, ${s.basics.location.region || ''} (${s.basics.location.countryCode})</span>`,
+        // Perfiles sociales (GitHub)
+        ...s.basics.profiles.map(p => `<span class="material-symbols-outlined icon-contact">code</span> <a href="${p.url}" target="_blank"> ${p.network}</a>`)
     ];
     
     // --- Generar sección de habilidades técnicas ---
@@ -122,9 +122,8 @@ function renderResume() {
         const positionKey = currentLang === 'es' ? 'position_es' : 'position_en';
         return `
             <div class="item-box job">
-                <strong><span class="muted">${t.job.position_label}:</span> ${job[positionKey]}</strong>
+                <strong><span class="material-symbols-outlined">work</span> ${t.job.position_label}: ${job[positionKey]}</strong>
                 <span class="company">${job.company}</span>
-                <small>📅 ${job.startDate}</small>
                 <p>${job[summaryKey]}</p>
             </div>
         `;
@@ -136,6 +135,7 @@ function renderResume() {
         const degreeKey = currentLang === 'es' ? 'degree_es' : 'degree_en';
         return `
             <div class="item-box">
+                <span class="material-symbols-outlined">school</span>
                 <strong>${edu.institution}</strong>
                 <p>${edu[degreeKey]}</p>
             </div>
@@ -149,6 +149,7 @@ function renderResume() {
         const levelKey = currentLang === 'es' ? 'level_es' : 'level_en';
         return `
             <div class="item-box">
+                <span class="material-symbols-outlined">language</span>
                 <strong>${lang[langKey]}</strong> - ${lang[levelKey]}
             </div>
         `;

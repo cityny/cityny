@@ -43,9 +43,9 @@
   ],
   "experience": [
     {
-      "company": "Entrevistador de Campo",
-      "position_es": "Ingeolan - Venezuela",
-      "position_en": "Ingeolan - Venezuela",
+      "company": "Ingeolan - Venezuela",
+      "position_es": "Entrevistador de Campo",
+      "position_en": "Field Interviewer",
       "startDate": "20XX-XX-XX",
       "summary_es": "Entrevistas de campo para selección de personal.",
       "summary_en": "Field interviews for personnel selection."
@@ -71,8 +71,8 @@
       "position_es": "Supervisor de Mantenimiento Industrial",
       "position_en": "Industrial Maintenance Supervisor",
       "startDate": "2022-04-15",
-      "summary_es": "Control de procesos industriales y manejo de personal.",
-      "summary_en": "Industrial process control and staff management."
+      "summary_es": "Mantenimiento de maquinaria industrial y gestión de personal.",
+      "summary_en": "Maintenance of industrial machinery and personnel management."
     }
   ],
   "projects": [
