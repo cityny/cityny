@@ -1,0 +1,76 @@
+{
+  "basics": {
+    "name": "Dionny Jose Núñez Márquez",
+    "email": "dionnyn@gmail.com",
+    "phones": [
+      { "number": "+58 414 6795706", "label": "Principal" },
+      { "number": "+58 412 176 3710", "label": "Secundario" }
+    ],
+    "location": {
+      "city": "Maracaibo",
+      "region": "Zulia",
+      "countryCode": "VE"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "cityny",
+        "url": "https://github.com/cityny"
+      }
+    ]
+  },
+  "education": [
+    {
+      "institution": "Universidad Rafael Belloso Chacin",
+      "degree_es": "Ingeniería Electrónica",
+      "degree_en": "Electronic Engineering",
+      "year_es": "Graduado",
+      "year_en": "Graduated"
+    }
+  ],
+  "experience": [
+    {
+      "company": "San Simón",
+      "position": "Supervisor de Mantenimiento Industrial",
+      "startDate": "2022-04-15",
+      "summary_es": "Control de procesos industriales y manejo de personal.",
+      "summary_en": "Industrial process control and staff management."
+    }
+  ],
+  "projects": [
+    {
+      "name": "Sistema de Domótica con Flutter",
+      "description_es": "Control de luces y temperatura mediante protocolo MQTT.",
+      "description_en": "Light and temperature control using MQTT protocol.",
+      "technologies": ["Dart", "C++", "ESP32"]
+    }
+  ],
+  "skills": [
+    {
+      "category": "Desarrollo Móvil / Mobile Development",
+      "keywords": ["Flutter", "Dart", "Android", "iOS"]
+    },
+    {
+      "category": "Automatización / Automation",
+      "keywords": ["n8n", "Webhooks", "JSON"]
+    },
+    {
+      "category": "Infraestructura / Infrastructure",
+      "keywords": ["VPS", "Cloud Computing", "Linux"]
+    }
+  ],
+  "languages": [
+    {
+      "language_es": "Español",
+      "language_en": "English",
+      "level_es": "Nativo",
+      "level_en": "Native"
+    },
+    {
+      "language_es": "Inglés",
+      "language_en": "English",
+      "level_es": "Intermedio (B1)",
+      "level_en": "Intermediate (B1)"
+    }
+  ]
+}

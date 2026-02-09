@@ -1,242 +1,209 @@
 /**
  * =============================================================================
- * CV-PORTFOLIO SCRIPT
+ * CV-Portfolio Script - Sistema i18n (Internacionalización)
  * =============================================================================
- * Este script carga y renderiza un CV dinámicamente desde archivos JSON.
- * Soporta múltiples idiomas y renderiza cualquier estructura de datos automáticamente.
+ * Maneja la carga de datos estáticos y traducciones para el CV
+ * Separa el contenido traducible del contenido estático para facilitar mantenimiento
  * =============================================================================
  */
 
 // =============================================================================
-// SECCIÓN 1: CARGA DE DATOS
+// SECCIÓN 1: VARIABLES GLOBALES DE ESTADO
 // =============================================================================
+// Almacenan el estado actual de la aplicación para uso en todo el script
+
+let currentLang = 'es';      // Idioma actual ('es' o 'en')
+let staticData = null;       // Datos estáticos (nombre, email, teléfono, experiencia, etc.)
+let translations = null;      // Traducciones de la interfaz de usuario
+
+// =============================================================================
+// SECCIÓN 2: CARGA DE DATOS
+// =============================================================================
+// Funciones responsables de obtener datos del servidor y prepararlos para usar
 
 /**
- * Carga el CV desde el archivo JSON según el idioma especificado.
- * @param {string} lang - Código de idioma ('es' o 'en')
+ * Carga inicial del CV desde los archivos JSON
+ * @param {string} lang - Idioma a cargar ('es' o 'en')
+ * 
+ * Proceso:
+ * 1. Actualiza el idioma actual
+ * 2. Carga en paralelo: datos estáticos + traducciones del idioma
+ * 3. Si todo sale bien, renderiza el CV
+ * 4. Si hay error, muestra mensaje de error en pantalla
  */
 async function loadResume(lang) {
-    const container = document.getElementById('resume-container');
+    currentLang = lang;  // Guarda el idioma seleccionado
+    const container = document.getElementById('resume-container');  // Contenedor principal
+    
     try {
-        const response = await fetch(`resume-${lang}.json`);
-        if (!response.ok) throw new Error(`No se pudo cargar: ${response.status}`);
-        const data = await response.json();
-        renderResume(data);
+        // Cargar ambos archivos JSON al mismo tiempo (en paralelo)
+        // Promise.all espera que ambos terminen antes de continuar
+        const [staticResponse, translationsResponse] = await Promise.all([
+            fetch('data/static.json'),                           // Datos que no cambian
+            fetch(`data/translations/${lang}.json`)             // Traducciones del idioma
+        ]);
+        
+        // Verificar que ambas respuestas fueron exitosas (código 200)
+        if (!staticResponse.ok) throw new Error(`Static data error: ${staticResponse.status}`);
+        if (!translationsResponse.ok) throw new Error(`Translation error: ${translationsResponse.status}`);
+        
+        // Convertir respuestas a objetos JavaScript
+        staticData = await staticResponse.json();
+        translations = await translationsResponse.json();
+        
+        // Una vez cargados los datos, renderizar el CV completo
+        renderResume();
     } catch (error) {
-        container.innerHTML = `<h2>Error: ${error.message}</h2>`;
+        // Si algo falla, mostrar error en pantalla
+        // translations?.ui?.error_loading usa optional chaining por si translations no cargó
+        container.innerHTML = `<h2>${translations?.ui?.error_loading || 'Error'}: ${error.message}</h2>`;
     }
 }
 
 // =============================================================================
-// SECCIÓN 2: RENDERIZADO PRINCIPAL
+// SECCIÓN 3: RENDERIZADO DEL CV
 // =============================================================================
+// Funciones responsables de generar el HTML que se muestra en pantalla
 
 /**
- * Renderiza todo el CV de forma automática.
- * Genera el header y todas las secciones dinámicamente.
- * @param {Object} data - Objeto completo del CV desde JSON
+ * Renderiza el CV completo combinando datos estáticos + traducciones
+ * 
+ * Genera el HTML dinámicamente para las secciones:
+ * - Contacto (email, teléfono, ubicación)
+ * - Habilidades técnicas
+ * - Experiencia laboral
+ * - Idiomas
+ * - Educación
+ * - Proyectos destacados
  */
-function renderResume(data) {
+function renderResume() {
     const container = document.getElementById('resume-container');
+    const t = translations;  // Atajo para traducciones
+    const s = staticData;    // Atajo para datos estáticos
     
-    // Genera el header con basics (nombre, contacto, resumen)
-    const headerHTML = renderBasics(data.basics);
+    // --- Generar enlaces de contacto ---
+    // Crea enlaces cliqueables para email y WhatsApp (soporta múltiples teléfonos)
+    const contactLinks = [
+        // Enlace mailto para abrir cliente de correo
+        `📧 <a href="mailto:${s.basics.email}">${s.basics.email}</a>`,
+        // Teléfonos con enlace a WhatsApp Web (ícono fuera del enlace)
+        ...s.basics.phones.map(p => 
+            `📱 <a href="https://wa.me/${p.number.replace(/\D/g, '')}">${p.number}</a>`
+        ),
+        // Emoji de ubicación + ciudad + región
+        `📍 ${s.basics.location.city}, ${s.basics.location.region || ''}`
+    ];
     
-    // Genera todas las secciones dinámicamente
-    // Filtra: solo secciones que sean arrays y no sean 'basics'
-    const sectionsHTML = Object.entries(data)
-        .filter(([key]) => key !== 'basics' && Array.isArray(data[key]))
-        .map(([title, content]) => renderDynamicSection(title, content))
-        .join('');
-    
-    // Combina header + secciones en el contenedor
-    container.innerHTML = `<header>${headerHTML}</header>${sectionsHTML}`;
-}
-
-// =============================================================================
-// SECCIÓN 3: RENDERIZADO DEL HEADER (BASICS)
-// =============================================================================
-
-/**
- * Renderiza la sección de información básica del CV.
- * Incluye: nombre, label, contactos, ubicación y perfiles sociales.
- * @param {Object} basics - Objeto con la información básica del CV
- * @returns {string} HTML formateado del header
- */
-function renderBasics(basics) {
-    if (!basics) return '';
-    
-    // Mapea campos simples como email, telefono, etc.
-    // Excluye campos especiales que se manejan por separado
-    const contactFields = Object.entries(basics)
-        .filter(([key]) => !['name', 'label', 'summary', 'location', 'profiles'].includes(key))
-        .map(([key, value]) => {
-            // Detecta campos de teléfono y extrae números para enlace wa.me
-            if (key.toLowerCase().includes('telefono') || key.toLowerCase().includes('phone')) {
-                // Extrae todos los teléfonos del valor y los convierte en enlaces
-                const phones = value.split(/[|,]/).map(p => p.trim()).filter(Boolean);
-                const phoneLinks = phones.map(phone => {
-                    const cleanPhone = phone.replace(/\D/g, '');
-                    return `<a href="https://wa.me/${cleanPhone}" target="_blank" rel="noopener">${phone}</a>`;
-                }).join(' ');
-                return `<span><strong>${key}:</strong> ${phoneLinks}</span>`;
-            }
-            // Detecta correos y los convierte en mailto
-            if (key.toLowerCase().includes('correo') || key.toLowerCase().includes('email')) {
-                return `<span><strong>${key}:</strong> <a href="mailto:${value}" target="_blank">${value}</a></span>`;
-            }
-            return `<span><strong>${key}:</strong> ${value}</span>`;
-        })
-        .join(' | ');
-    
-    // Mapea location (ciudad y región)
-    const location = basics.location 
-        ? ` | <span>📍 ${[basics.location.city, basics.location.region].filter(Boolean).join(', ')}</span>` 
-        : '';
-    
-    // Mapea profiles con enlaces cliqueables
-    // Genera enlaces para GitHub, LinkedIn, etc.
-    const profiles = basics.profiles && Array.isArray(basics.profiles)
-        ? ` | ${basics.profiles.map(p => 
-            `<a href="${p.url}" target="_blank" rel="noopener">${p.network}: ${p.username}</a>`
-          ).join(' | ')}`
-        : '';
-    
-    // Retorna HTML completo del header
-    return `
-        <h1>${basics.name || ''}</h1>
-        <p class="subtitle">${basics.label || ''}</p>
-        <div class="contact-info">
-            ${contactFields}${location}${profiles}
+    // --- Generar sección de habilidades técnicas ---
+    // Itera sobre cada categoría de habilidades y genera tags
+    const skillsHtml = s.skills.map(skill => `
+        <div class="item-box">
+            <strong>${skill.category}:</strong>
+            ${skill.keywords.map(k => `<span class="skill-tag">${k}</span>`).join('')}
         </div>
-        <p class="summary">${basics.summary || ''}</p>
-    `;
-}
-
-// =============================================================================
-// SECCIÓN 4: RENDERIZADO DE SECCIONES DINÁMICAS
-// =============================================================================
-
-/**
- * Renderiza una sección dinámica basada en su contenido.
- * Cada sección corresponde a un array en el JSON (experiencia, habilidades, etc.)
- * @param {string} title - Título de la sección
- * @param {Array} content - Array con los items de la sección
- * @returns {string} HTML de la sección completa
- */
-function renderDynamicSection(title, content) {
-    return `
-        <section>
-            <h3 style="text-transform: capitalize;">${title}</h3>
-            <div class="${title}-content">
-                ${content.map(item => renderItem(item)).join('')}
+    `).join('');
+    
+    // --- Generar experiencia laboral ---
+    // Selecciona automáticamente el resumen en el idioma correcto (_es o _en)
+    const experienceHtml = s.experience.map(job => {
+        const summaryKey = currentLang === 'es' ? 'summary_es' : 'summary_en';
+        return `
+            <div class="item-box job">
+                <span class="company">${job.company}</span>
+                <strong>${t.job.position_label}:</strong> ${job.position}
+                <br><small>📅 ${job.startDate}</small>
+                <p>${job[summaryKey]}</p>
             </div>
+        `;
+    }).join('');
+    
+    // --- Generar sección de idiomas ---
+    // Selecciona automáticamente nombre y nivel en el idioma correcto
+    const languagesHtml = s.languages.map(lang => {
+        const langKey = currentLang === 'es' ? 'language_es' : 'language_en';
+        const levelKey = currentLang === 'es' ? 'level_es' : 'level_en';
+        return `
+            <div class="item-box">
+                <strong>${lang[langKey]}</strong> - ${lang[levelKey]}
+            </div>
+        `;
+    }).join('');
+    
+    // --- Generar educación ---
+    // Selecciona automáticamente título y año en el idioma correcto
+    const educationHtml = s.education.map(edu => {
+        const degreeKey = currentLang === 'es' ? 'degree_es' : 'degree_en';
+        const yearKey = currentLang === 'es' ? 'year_es' : 'year_en';
+        return `
+            <div class="item-box">
+                <strong>${edu.institution}</strong>
+                <p>${edu[degreeKey]} - ${edu[yearKey]}</p>
+            </div>
+        `;
+    }).join('');
+    
+    // --- Generar proyectos destacados ---
+    // Selecciona automáticamente descripción en el idioma correcto
+    const projectsHtml = s.projects.map(project => {
+        const descKey = currentLang === 'es' ? 'description_es' : 'description_en';
+        return `
+            <div class="item-box job">
+                <strong>${project.name}</strong>
+                <p>${project[descKey]}</p>
+                <small><strong>${t.project.technologies_label}:</strong> ${project.technologies.join(', ')}</small>
+            </div>
+        `;
+    }).join('');
+    
+    // --- Construir HTML final ---
+    // Ensambla todas las secciones generadas en el contenedor principal
+    container.innerHTML = `
+        <header>
+            <h1>${s.basics.name}</h1>
+            <p class="subtitle">${currentLang === 'es' ? 'Ingeniero Electrónico & Desarrollador Junior' : 'Electronic Engineer & Junior Developer'}</p>
+            
+            <div class="contact-info">
+                ${contactLinks.join(' | ')}
+            </div>
+        </header>
+
+        <section>
+            <h3>${t.sections.technical_skills}</h3>
+            <div class="skills-grid">
+                ${skillsHtml}
+            </div>
+        </section>
+
+        <section>
+            <h3>${t.sections.work_experience}</h3>
+            ${experienceHtml}
+        </section>
+
+        <section>
+            <h3>${t.sections.education}</h3>
+            ${educationHtml}
+        </section>
+
+        <section>
+            <h3>${t.sections.languages}</h3>
+            ${languagesHtml}
+        </section>
+
+        <section>
+            <h3>${t.sections.featured_projects}</h3>
+            ${projectsHtml}
         </section>
     `;
 }
 
 // =============================================================================
-// SECCIÓN 5: RENDERIZADO DE ITEMS INDIVIDUALES
+// SECCIÓN 4: INTERFAZ DE USUARIO
 // =============================================================================
+// Funciones relacionadas con la interacción del usuario
 
 /**
- * Renderiza un item individual dentro de una sección.
- * Detecta automáticamente el tipo de item y lo renderiza apropiadamente.
- * @param {Object|string} item - Item a renderizar
- * @returns {string} HTML del item formateado
- */
-function renderItem(item) {
-    // Tipo 1: Si es un string simple, lo muestra como tag
-    if (typeof item === 'string') {
-        return `<span class="tag">${item}</span>`;
-    }
-    
-    // Tipo 2: Si tiene keywords, es una lista de habilidades/tags
-    // Renderiza con skill-tags alrededor de cada keyword
-    if (item.keywords) {
-        return `
-            <div class="item-box skills-item">
-                <strong>${item.name || titleFromKeys(item)}:</strong>
-                ${item.keywords.map(k => `<span class="skill-tag">${k}</span>`).join('')}
-            </div>
-        `;
-    }
-    
-    // Tipo 3: Objeto genérico (trabajo, proyecto, idioma, etc.)
-    // Renderiza name, position, summary y campos adicionales
-    return `
-        <div class="item-box">
-            ${item.name ? `<h4>${item.name} ${item.position ? `- ${item.position}` : ''}</h4>` : ''}
-            ${item.summary ? `<p>${item.summary}</p>` : ''}
-            ${renderExtraFields(item)}
-        </div>
-    `;
-}
-
-// =============================================================================
-// SECCIÓN 6: UTILIDADES DE RENDERIZADO
-// =============================================================================
-
-/**
- * Renderiza campos adicionales de un objeto que no son name, position, summary o keywords.
- * Útil para campos como Empresa, Fecha, Tecnologías, etc.
- * @param {Object} item - Objeto del cual renderizar campos adicionales
- * @returns {string} HTML de los campos adicionales
- */
-function renderExtraFields(item) {
-    return Object.entries(item)
-        .filter(([k]) => !['name', 'position', 'summary', 'keywords'].includes(k))
-        .map(([k, v]) => {
-            // Si el valor es un array, lo une con comas para mostrar
-            const value = Array.isArray(v) ? v.join(', ') : v;
-            return `<small><strong>${formatKey(k)}:</strong> ${value}</small>`;
-        })
-        .join(' | ');
-}
-
-/**
- * Genera un título desde las claves del objeto si no existe 'name'.
- * Útil cuando los items tienen campos como 'Empresa', 'Cargo', etc.
- * @param {Object} item - Objeto sin campo 'name'
- * @returns {string} Título generado o cadena vacía
- */
-function titleFromKeys(item) {
-    // Mapeo de claves comunes a etiquetas legibles
-    const keyMap = {
-        'Empresa': 'Empresa',
-        'Cargo': 'Cargo',
-        'Lenguaje': 'Idioma',
-        'Tecnologías': 'Tecnologías'
-    };
-    
-    // Busca la primera clave presente en el objeto
-    for (const [k, label] of Object.entries(keyMap)) {
-        if (item[k]) return label;
-    }
-    return '';
-}
-
-/**
- * Formatea las claves para mostrar de forma legible.
- * Convierte camelCase a texto con espacios y capitaliza la primera letra.
- * Ej: 'fechaInicio' → 'Fecha Inicio'
- * @param {string} key - Clave a formatear
- * @returns {string} Clave formateada para visualización
- */
-function formatKey(key) {
-    return key
-        .replace(/([A-Z])/g, ' $1')  // Inserta espacio antes de mayúsculas
-        .replace(/^./, str => str.toUpperCase())  // Capitaliza primera letra
-        .trim();
-}
-
-// =============================================================================
-// SECCIÓN 7: INTERFAZ DE USUARIO
-// =============================================================================
-
-/**
- * Alterna entre el tema claro y oscuro.
- * Modifica las clases del body para activar los estilos CSS correspondientes.
+ * Cambia entre tema claro y oscuro
+ * Toggle de clases CSS en el body
  */
 function toggleTheme() {
     document.body.classList.toggle('dark-theme');
@@ -244,11 +211,20 @@ function toggleTheme() {
 }
 
 // =============================================================================
-// SECCIÓN 8: INICIALIZACIÓN
+// SECCIÓN 5: EVENT LISTENERS E INICIALIZACIÓN
 // =============================================================================
+// Configuración de eventos y carga inicial de la aplicación
 
-// Carga inicial del CV en español por defecto
-loadResume('es');
-
-// Configura el evento click para el botón de toggle de tema
+// Asigna el evento click al botón de cambio de tema
 document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+/**
+ * Función wrapper para cambiar idioma desde el HTML
+ * @param {string} lang - Idioma ('es' o 'en')
+ */
+function setLanguage(lang) {
+    loadResume(lang);
+}
+
+// Carga inicial: ejecuta loadResume con español por defecto
+loadResume('es');
