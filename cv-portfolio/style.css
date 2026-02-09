@@ -1,86 +1,204 @@
-/* Paleta de colores Moderna */
+/**
+ * =============================================================================
+ * ESTILOS DEL CV-PORTFOLIO
+ * =============================================================================
+ * Documentación de colores y selectores según el contenido del CV
+ * =============================================================================
+ */
+
+/* =============================================================================
+ * SECCIÓN 1: PALETA DE COLORES (MODO CLARO - POR DEFECTO)
+ * =============================================================================
+ * Estos son los colores base que se usan en todo el CV
+ */
+
 :root {
-    --primary: #2563eb;    /* Azul profesional */
-    --bg: #f1f5f9;         /* Fondo gris muy claro */
-    --card-bg: #ffffff;    /* Blanco para el "papel" del CV */
-    --text-main: #0f172a;  /* Casi negro para lectura */
-    --text-muted: #64748b; /* Gris para detalles */
-    --border: #e2e8f0;
+    /* --- Colores Principales --- */
+    --primary: #2563eb;    /* Azul profesional - Se aplica a:
+                              - Título principal (h1): "Dionny Jose Núñez Márquez"
+                              - Títulos de sección (h3): "Habilidades Técnicas", "Experiencia..."
+                              - Borde izquierdo de experiencia (.job)
+                              - Efecto hover en botones y enlaces */
+    
+    /* --- Colores de Fondo --- */
+    --bg: #f1f5f9;         /* Fondo de la página - Se aplica a:
+                              - body (fondo general de la página)
+                              - Botones (background)
+                              - Etiquetas skills (.skill-tag background) */
+    
+    --card-bg: #ffffff;    /* Fondo del "papel" del CV - Se aplica a:
+                              - main (contenedor principal del CV)
+                              - nav (barra superior de controles)
+                              - item-box (cada tarjeta de contenido) */
+    
+    /* --- Colores de Texto --- */
+    --text-main: #0f172a;  /* Texto principal - Se aplica a:
+                              - body (texto general)
+                              - Títulos h1, h3
+                              - Nombre de empresas (.company)
+                              - Botones (color de texto) */
+    
+    --text-muted: #64748b; /* Texto secundario - Se aplica a:
+                              - Información de contacto (.contact-info)
+                              - Labels de职位/posición */
+    
+    --border: #e2e8f0;     /* Color de bordes - Se aplica a:
+                              - Borde inferior de nav
+                              - Borde de main
+                              - Borde de botones
+                              - Borde de skill-tags
+                              - Línea bajo títulos h3 */
 }
 
-/* Modo Oscuro */
+/* =============================================================================
+ * SECCIÓN 2: PALETA DE COLORES (MODO OSCURO)
+ * =============================================================================
+ * Colores invertidos para mejor lectura en entornos oscuros
+ */
+
 body.dark-theme {
-    --primary: #60a5fa;
-    --bg: #020617;
-    --card-bg: #1e293b;
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --border: #334155;
+    --primary: #60a5fa;    /* Azul más brillante para oscuro */
+    --bg: #020617;         /* Fondo casi negro */
+    --card-bg: #1e293b;    /* Gris azulado para el CV */
+    --text-main: #f8fafc;  /* Texto blanco */
+    --text-muted: #94a3b8; /* Gris claro para detalles */
+    --border: #334155;     /* Borde más oscuro */
 }
+
+/* =============================================================================
+ * SECCIÓN 3: ELEMENTOS GENERALES
+ * =============================================================================
+ */
 
 body {
+    /* Fondo de toda la página */
     background-color: var(--bg);
+    
+    /* Color del texto general */
     color: var(--text-main);
+    
+    /* Tipografía */
     font-family: 'Inter', -apple-system, sans-serif;
     margin: 0;
     line-height: 1.6;
+    
+    /* Transición suave al cambiar entre modos */
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* =============================================================================
+ * SECCIÓN 4: BARRA DE NAVEGACIÓN (nav)
+ * =============================================================================
+ * Barra superior con botones de tema e idioma
+ * 
+ * Ejemplo visual:
+ * ┌─────────────────────────────────────────────────────┐
+ * │                       [🌓 Modo] [🇪🇸 ES] [🇺🇸 EN]   │
+ * └─────────────────────────────────────────────────────┘
+ */
+
+nav {
+    position: sticky;      /* Se mantiene visible al hacer scroll */
+    top: 0;                /* Pegada arriba */
+    background: var(--card-bg);  /* Fondo del navbar */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;   /* Botones alineados a la derecha */
+    gap: 10px;                  /* Espacio entre botones */
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;              /* Siempre encima del contenido */
+}
+
+/* =============================================================================
+ * SECCIÓN 5: CONTENEDOR PRINCIPAL (main) - "EL PAPEL DEL CV"
+ * =============================================================================
+ * Área blanca/oscura donde aparece todo el contenido del CV
+ * 
+ * Ejemplo visual:
+ * ┌─────────────────────────────────────────────────────────────┐
+ * │                                                             │
+ * │   Dionny Jose Núñez Márquez                                 │
+ * │   Ingeniero Electrónico & Desarrollador Junior              │
+ * │                                                             │
+ * │   📧 dionnyn@gmail.com | 📱 +58 414... | 📍 Maracaibo...   │
+ * │                                                             │
+ * │   ────────────────────────────                              │
+ * │   HABILIDADES TÉCNICAS                                      │
+ * │   ┌─────────────────────────────────────┐                    │
+ * │   │ Desarrollo Móvil: Flutter Dart...  │                    │
+ * │   └─────────────────────────────────────┘                    │
+ * │                                                             │
+ * └─────────────────────────────────────────────────────────────┘
+ */
+
+main {
+    max-width: 850px;           /* Ancho máximo del CV */
+    margin: 40px auto;           /* Centrado horizontal */
+    background: var(--card-bg);   /* Fondo del papel */
+    padding: 50px;               /* Espacio interior */
+    border-radius: 8px;          /* Bordes redondeados */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);  /* Sombra suave */
+    border: 1px solid var(--border);
+    
+    /* Transición suave al cambiar tema */
     transition: all 0.3s ease;
 }
 
-/* Barra superior de controles */
-nav {
-    position: sticky;
-    top: 0;
-    background: var(--card-bg);
-    padding: 10px 20px;
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    border-bottom: 1px solid var(--border);
-    z-index: 1000;
+/* =============================================================================
+ * SECCIÓN 6: TÍTULOS
+ * =============================================================================
+ */
+
+h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: var(--primary);  /* Tu nombre en azul */
 }
 
-/* El "Papel" del CV */
-main {
-    max-width: 850px;
-    margin: 40px auto;
-    background: var(--card-bg);
-    padding: 50px;
-    border-radius: 8px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    border: 1px solid var(--border);
-}
-
-/* Títulos */
-h1 { font-size: 2.5rem; margin: 0; color: var(--primary); }
-h3 { 
-    text-transform: uppercase; 
-    font-size: 0.9rem; 
-    letter-spacing: 1px; 
-    color: var(--primary);
-    border-bottom: 2px solid var(--border);
+h3 {
+    text-transform: uppercase;   /* MAYÚSCULAS */
+    font-size: 0.9rem;
+    letter-spacing: 1px;         /* Espaciado entre letras */
+    color: var(--primary);       /* Títulos de sección en azul */
+    border-bottom: 2px solid var(--border);  /* Línea bajo el título */
     padding-bottom: 5px;
     margin-top: 30px;
 }
 
-/* Estilo de Etiquetas (Skills) */
+/* =============================================================================
+ * SECCIÓN 7: ETIQUETAS DE HABILIDADES (.skill-tag)
+ * =============================================================================
+ * Etiquetas pequeñas como: Flutter, Dart, Android, iOS, n8n...
+ * 
+ * Ejemplo visual:
+ * [Flutter] [Dart] [Android] [iOS]
+ */
+
+.skill-tag {
+    background: var(--bg);           /* Fondo ligero */
+    padding: 2px 10px;                /* Espacio interior pequeño */
+    border-radius: 15px;              /* Forma ovalada */
+    font-size: 0.8rem;                /* Texto pequeño */
+    border: 1px solid var(--border); /* Borde sutil */
+    margin: 0 3px;                    /* Espacio entre etiquetas */
+    display: inline-block;             /* Se alinean en línea */
+    
+    transition: all 0.3s ease;
+}
+
+/* Grid para organizar habilidades */
 .skills-grid {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.skill-tag {
-    background: var(--bg);
-    padding: 2px 10px;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    border: 1px solid var(--border);
-    margin: 0 3px;
-    display: inline-block;
-}
+/* =============================================================================
+ * SECCIÓN 8: BOTONES
+ * =============================================================================
+ * Botones de tema (🌓 Modo) e idioma (🇪🇸 ES | 🇺🇸 EN)
+ */
 
-/* Botones Interactivos */
 button {
     background: var(--bg);
     border: 1px solid var(--border);
@@ -92,43 +210,72 @@ button {
 }
 
 button:hover {
-    border-color: var(--primary);
+    border-color: var(--primary);  /* Borde azul al pasar el mouse */
 }
+
+/* Efecto especial para botones del navbar */
+nav button:hover {
+    transform: scale(1.1);                    /* Aumenta tamaño */
+    border-color: var(--primary);
+    box-shadow: 0 0 10px var(--primary);     /* Resplandor azul */
+}
+
+/* =============================================================================
+ * SECCIÓN 9: INFORMACIÓN DE CONTACTO
+ * =============================================================================
+ * Línea con email, teléfonos, ubicación y GitHub
+ * 
+ * Ejemplo visual:
+ * 📧 dionnyn@gmail.com | 📱 +58 414... | 📍 Maracaibo | 🔗 GitHub
+ */
 
 .contact-info {
     font-size: 0.9rem;
     color: var(--text-muted);
     margin: 1rem 0;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;     /* Se adapta a pantallas pequeñas */
     gap: 15px;
 }
 
+/* =============================================================================
+ * SECCIÓN 10: CAJAS DE CONTENIDO (.item-box)
+ * =============================================================================
+ * Tarjetas que contienen cada elemento (educación, experiencia, etc.)
+ * 
+ * Ejemplo visual:
+ * ┌─────────────────────────────────────────┐
+ * │ Universidad Rafael Belloso Chacin      │
+ * │ Ingeniería Electrónica                 │
+ * └─────────────────────────────────────────┘
+ */
+
+.item-box {
+    /* Hereda transiciones del tema */
+    transition: all 0.3s ease;
+}
+
+/* =============================================================================
+ * SECCIÓN 11: EXPERIENCIA LABORAL (.job)
+ * =============================================================================
+ * Tarjetas de experiencia con borde izquierdo azul
+ * 
+ * Ejemplo visual:
+ * │ San Simón Planta de Leche
+ * │ Cargo: Supervisor de Mantenimiento...
+ * │ 📅 2022-04-15
+ * │ Control de procesos...
+ */
+
 .job {
-    border-left: 3px solid var(--primary);
-    padding-left: 20px;
-    margin-bottom: 25px;
+    border-left: 3px solid var(--primary);  /* Barra azul izquierda */
+    padding-left: 20px;                      /* Espacio después de la barra */
+    margin-bottom: 25px;                     /* Espacio entre trabajos */
 }
 
 .company {
     font-weight: bold;
-    color: var(--text-muted);
+    color: var(--text-muted);  /* Nombre empresa en gris */
     display: block;
     margin-bottom: 5px;
-}
-
-/* Agrega esto al principio o final de tu style.css */
-body {
-    transition: background-color 0.4s ease, color 0.4s ease;
-}
-
-main, .item-box, .skill-tag {
-    transition: all 0.3s ease;
-}
-
-/* Efecto visual en los botones para que el usuario sepa que detectan el mouse */
-nav button:hover {
-    transform: scale(1.1);
-    border-color: var(--primary);
-    box-shadow: 0 0 10px var(--primary);
 }
