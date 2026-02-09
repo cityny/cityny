@@ -2,26 +2,31 @@ async function loadResume(lang) {
     const container = document.getElementById('resume-container');
     try {
         const response = await fetch(`resume-${lang}.json`);
-        if (!response.ok) throw new Error(`Error ${response.status}`);
+        if (!response.ok) throw new Error(`No se pudo cargar el archivo: ${response.status}`);
         const data = await response.json();
         renderResume(data);
     } catch (error) {
-        container.innerHTML = `<h2 style="color:red">Error al cargar datos</h2>`;
+        console.error(error);
+        container.innerHTML = `<h2>Error: ${error.message}</h2>`;
     }
 }
 
 function renderResume(data) {
     const container = document.getElementById('resume-container');
     
+    // Aquí es donde "mapeamos" cada campo de tu JSON al HTML
     container.innerHTML = `
         <header>
             <h1>${data.basics.name}</h1>
             <p class="subtitle">${data.basics.label}</p>
+            
             <div class="contact-info">
-                <span>📍 ${data.basics.location.city}, ${data.basics.location.region}</span> | 
-                <span>📧 ${data.basics.email}</span> | 
+                <span>📍 ${data.basics.location.city}, ${data.basics.location.region}</span>
+                <span>📧 <a href="mailto:${data.basics.email}">${data.basics.email}</a></span>
                 <span>📱 ${data.basics.phone}</span>
+                <span>🔗 <a href="${data.basics.profiles[0].url}" target="_blank">${data.basics.profiles[0].network}</a></span>
             </div>
+
             <p class="summary">${data.basics.summary}</p>
         </header>
 
@@ -42,7 +47,7 @@ function renderResume(data) {
             ${data.work.map(w => `
                 <div class="job">
                     <h4>${w.position}</h4>
-                    <span class="company">${w.name}</span>
+                    <span class="company">🏢 ${w.name}</span>
                     <p>${w.summary}</p>
                 </div>
             `).join('')}
@@ -51,7 +56,9 @@ function renderResume(data) {
         <section>
             <h3>Idiomas</h3>
             <div class="languages">
-                ${data.languages.map(l => `<span><strong>${l.language}:</strong> ${l.fluency}</span>`).join(' | ')}
+                ${data.languages.map(l => `
+                    <span><strong>${l.language}:</strong> ${l.fluency}</span>
+                `).join(' | ')}
             </div>
         </section>
     `;
@@ -60,7 +67,8 @@ function renderResume(data) {
 // Carga inicial
 loadResume('es');
 
-// Switch de tema
+// Lógica del botón de tema
 document.getElementById('theme-toggle').addEventListener('click', () => {
     document.body.classList.toggle('dark-theme');
+    document.body.classList.toggle('light-theme');
 });
