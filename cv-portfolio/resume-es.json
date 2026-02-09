@@ -49,5 +49,14 @@
       "language": "Inglés",
       "fluency": "Intermedio (B1)"
     }
-  ]
+  ],
+  ,
+"proyectos": [
+  {
+    "name": "Sistema de Domótica con Flutter",
+    "summary": "Control de luces y temperatura mediante protocolo MQTT.",
+    "tecnologias": "Dart, C++, ESP32"
+  }
+]
+  
 }
