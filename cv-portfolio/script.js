@@ -98,12 +98,15 @@ function renderResume() {
     
     // --- Generar sección de habilidades técnicas ---
     // Itera sobre cada categoría de habilidades y genera tags
-    const skillsHtml = s.skills.map(skill => `
-        <div class="item-box">
-            <strong>${skill.category}:</strong>
-            ${skill.keywords.map(k => `<span class="skill-tag">${k}</span>`).join('')}
-        </div>
-    `).join('');
+    const skillsHtml = s.skills.map(skill => {
+        const categoryKey = currentLang === 'es' ? 'category_es' : 'category_en';
+        return `
+            <div class="item-box">
+                <strong>${skill[categoryKey]}:</strong>
+                ${skill.keywords.map(k => `<span class="skill-tag">${k}</span>`).join('')}
+            </div>
+        `;
+    }).join('');
     
     // --- Generar experiencia laboral ---
     // Selecciona automáticamente el resumen en el idioma correcto (_es o _en)

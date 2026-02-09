@@ -77,15 +77,18 @@
   ],
   "skills": [
     {
-      "category": "Desarrollo Móvil / Mobile Development",
+      "category_es": "Desarrollo Móvil",
+      "category_en": "Mobile Development",
       "keywords": ["Flutter", "Dart", "Android", "iOS"]
     },
     {
-      "category": "Automatización / Automation",
+      "category_es": "Automatización",
+      "category_en": "Automation",
       "keywords": ["n8n", "Webhooks", "JSON"]
     },
     {
-      "category": "Infraestructura / Infrastructure",
+      "category_es": "Infraestructura",
+      "category_en": "Infrastructure",
       "keywords": ["VPS", "Cloud Computing", "Linux"]
     }
   ],
