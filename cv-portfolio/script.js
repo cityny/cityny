@@ -70,7 +70,18 @@ function renderBasics(basics) {
     // Excluye campos especiales que se manejan por separado
     const contactFields = Object.entries(basics)
         .filter(([key]) => !['name', 'label', 'summary', 'location', 'profiles'].includes(key))
-        .map(([key, value]) => `<span><strong>${key}:</strong> ${value}</span>`)
+        .map(([key, value]) => {
+            // Detecta campos de teléfono y los convierte en enlace wa.me
+            if (key.toLowerCase().includes('telefono') || key.toLowerCase().includes('phone')) {
+                const cleanPhone = value.replace(/\D/g, ''); // Solo números
+                return `<a href="https://wa.me/${cleanPhone}" target="_blank" rel="noopener"><strong>${key}:</strong> ${value}</a>`;
+            }
+            // Detecta correos y los convierte en mailto
+            if (key.toLowerCase().includes('correo') || key.toLowerCase().includes('email')) {
+                return `<a href="mailto:${value}" target="_blank"><strong>${key}:</strong> ${value}</a>`;
+            }
+            return `<span><strong>${key}:</strong> ${value}</span>`;
+        })
         .join(' | ');
     
     // Mapea location (ciudad y región)
