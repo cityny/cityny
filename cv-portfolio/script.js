@@ -1,21 +1,12 @@
 async function loadResume(lang) {
     const container = document.getElementById('resume-container');
-    console.log(`Cargando idioma: ${lang}`);
-    
     try {
-        // Usamos una ruta relativa sin el punto inicial para evitar confusiones en GitHub Pages
         const response = await fetch(`resume-${lang}.json`);
-        
-        if (!response.ok) {
-            throw new Error(`Error ${response.status}: No se encontró resume-${lang}.json`);
-        }
-        
+        if (!response.ok) throw new Error(`Error ${response.status}`);
         const data = await response.json();
         renderResume(data);
     } catch (error) {
-        console.error("Error:", error);
-        container.innerHTML = `<h2 style="color:red">Error al cargar los datos</h2>
-                               <p>Detalle: ${error.message}</p>`;
+        container.innerHTML = `<h2 style="color:red">Error al cargar datos</h2>`;
     }
 }
 
@@ -26,22 +17,42 @@ function renderResume(data) {
         <header>
             <h1>${data.basics.name}</h1>
             <p class="subtitle">${data.basics.label}</p>
+            <div class="contact-info">
+                <span>📍 ${data.basics.location.city}, ${data.basics.location.region}</span> | 
+                <span>📧 ${data.basics.email}</span> | 
+                <span>📱 ${data.basics.phone}</span>
+            </div>
             <p class="summary">${data.basics.summary}</p>
         </header>
+
         <section>
             <h3>Habilidades Técnicas</h3>
             <div class="skills-grid">
-                ${data.skills.map(s => `<span><strong>${s.name}:</strong> ${s.keywords.join(', ')}</span>`).join(' | ')}
+                ${data.skills.map(s => `
+                    <div class="skill-category">
+                        <strong>${s.name}:</strong> 
+                        ${s.keywords.map(k => `<span class="skill-tag">${k}</span>`).join('')}
+                    </div>
+                `).join('')}
             </div>
         </section>
+
         <section>
-            <h3>Experiencia Laboral</h3>
+            <h3>Experiencia Profesional</h3>
             ${data.work.map(w => `
                 <div class="job">
-                    <h4>${w.position} @ ${w.name}</h4>
+                    <h4>${w.position}</h4>
+                    <span class="company">${w.name}</span>
                     <p>${w.summary}</p>
                 </div>
             `).join('')}
+        </section>
+
+        <section>
+            <h3>Idiomas</h3>
+            <div class="languages">
+                ${data.languages.map(l => `<span><strong>${l.language}:</strong> ${l.fluency}</span>`).join(' | ')}
+            </div>
         </section>
     `;
 }
