@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'cv-portfolio/**'
-  workflow_dispatch: # Esto te permite ejecutarlo manualmente si quieres
+  workflow_dispatch:
 
 jobs:
   build_and_deploy:
@@ -17,14 +17,17 @@ jobs:
         with:
           node-version: '20'
 
-      # Instalamos la herramienta Y el tema específico
-      - name: Instalar Resume CLI y Tema
-        run: npm install -g resume-cli jsonresume-theme-flat
+      - name: Instalar Dependencias Locales
+        working-directory: cv-portfolio
+        # Instalamos resume-cli y el tema en la misma carpeta del proyecto
+        run: |
+          npm init -y
+          npm install resume-cli jsonresume-theme-flat
 
       - name: Generar HTML
         working-directory: cv-portfolio
-        # Forzamos a que busque el tema instalado globalmente
-        run: resume export index.html --theme flat
+        # Usamos 'npx' para ejecutar el binario instalado localmente
+        run: npx resume export index.html --theme flat
 
       - name: Desplegar a GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
