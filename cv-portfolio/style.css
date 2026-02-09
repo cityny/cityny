@@ -94,3 +94,25 @@ button {
 button:hover {
     border-color: var(--primary);
 }
+
+.contact-info {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.job {
+    border-left: 3px solid var(--primary);
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+.company {
+    font-weight: bold;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 5px;
+}
