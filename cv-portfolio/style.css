@@ -40,7 +40,7 @@
     
     --text-muted: #64748b; /* Texto secundario - Se aplica a:
                               - Información de contacto (.contact-info)
-                              - Labels de职位/posición */
+                              - Labels de /posición */
     
     --border: #e2e8f0;     /* Color de bordes - Se aplica a:
                               - Borde inferior de nav
@@ -253,6 +253,7 @@ nav button:hover {
 .item-box {
     /* Hereda transiciones del tema */
     transition: all 0.3s ease;
+    margin-bottom: 25px;  /* Mayor espacio entre instituciones */
 }
 
 /* =============================================================================
@@ -288,4 +289,9 @@ nav button:hover {
 /* Reduce espacio en experiencias laborales */
 .job p {
     margin-top: 2px;
+}
+
+/* Reduce espacio entre institution y degree en educación */
+.item-box p {
+    margin: 2px 0 0 0;
 }
