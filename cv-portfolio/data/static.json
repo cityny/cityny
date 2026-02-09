@@ -87,17 +87,55 @@
     {
       "category_es": "Desarrollo Móvil",
       "category_en": "Mobile Development",
-      "keywords": ["Flutter", "Dart", "Android", "iOS"]
+      "keywords": [
+        {"name": "Flutter", "badge": "Flutter"},
+        {"name": "Dart", "badge": "Dart"},
+        {"name": "Android", "badge": "Android"}
+      ]
+    },
+    {
+      "category_es": "Backend",
+      "category_en": "Backend Development",
+      "keywords": [
+        {"name": "Node.js", "badge": "Node.js"},
+        {"name": "Python", "badge": "Python"},
+        {"name": "JavaScript", "badge": "JavaScript"}
+      ]
+    },
+    {
+      "category_es": "DevOps",
+      "category_en": "DevOps",
+      "keywords": [
+        {"name": "Docker", "badge": "Docker"},
+        {"name": "GitHub Actions", "badge": "GitHub%20Actions"},
+        {"name": "Alpine Linux", "badge": "Alpine%20Linux"},
+        {"name": "Ubuntu", "badge": "Ubuntu"},
+        {"name": "Vercel", "badge": "Vercel"}
+      ]
+    },
+    {
+      "category_es": "Bases de Datos",
+      "category_en": "Databases",
+      "keywords": [
+        {"name": "PostgreSQL", "badge": "PostgreSQL"},
+        {"name": "Supabase", "badge": "Supabase"}
+      ]
     },
     {
       "category_es": "Automatización",
       "category_en": "Automation",
-      "keywords": ["n8n", "Webhooks", "JSON"]
+      "keywords": [
+        {"name": "n8n", "badge": "n8n"},
+        {"name": "WhatsApp", "badge": "WhatsApp"}
+      ]
     },
     {
-      "category_es": "Infraestructura",
-      "category_en": "Infrastructure",
-      "keywords": ["VPS", "Cloud Computing", "Linux"]
+      "category_es": "Otros",
+      "category_en": "Other",
+      "keywords": [
+        {"name": "PaddlePaddle", "badge": "PaddlePaddle"},
+        {"name": "Excel", "badge": "Excel"}
+      ]
     }
   ],
   "languages": [

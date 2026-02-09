@@ -190,7 +190,26 @@ h3 {
 .skills-grid {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 0px;
+}
+
+/* Contenedor de badges de habilidades */
+.skills-badges {
+    display: flex;
+    flex-wrap: wrap;       /* Permite que los badges salten a nueva línea */
+    gap: 4px;              /* Espacio entre badges */
+    margin-top: 8px;       /* Espacio entre categoría y badges */
+}
+
+/* Estilo para los badges de shield.io */
+.skill-badge {
+    height: 22px;           /* Altura consistente */
+    vertical-align: middle; /* Alineación vertical */
+    transition: transform 0.2s ease; /* Animación suave */
+}
+
+.skill-badge:hover {
+    transform: scale(1.05); /* Efecto al pasar el mouse */
 }
 
 /* =============================================================================
@@ -235,7 +254,7 @@ nav button:hover {
     margin: 1rem 0;
     display: flex;
     flex-wrap: wrap;     /* Se adapta a pantallas pequeñas */
-    gap: 15px;
+    gap: 5px;
 }
 
 /* =============================================================================
@@ -253,7 +272,7 @@ nav button:hover {
 .item-box {
     /* Hereda transiciones del tema */
     transition: all 0.3s ease;
-    margin-bottom: 25px;  /* Mayor espacio entre instituciones */
+    margin-bottom: 7px;  /* Mayor espacio entre instituciones */
 }
 
 /* =============================================================================

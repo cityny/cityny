@@ -97,13 +97,20 @@ function renderResume() {
     ];
     
     // --- Generar sección de habilidades técnicas ---
-    // Itera sobre cada categoría de habilidades y genera tags
+    // Itera sobre cada categoría de habilidades y genera badges de shield.io
     const skillsHtml = s.skills.map(skill => {
         const categoryKey = currentLang === 'es' ? 'category_es' : 'category_en';
         return `
             <div class="item-box">
                 <strong>${skill[categoryKey]}:</strong>
-                ${skill.keywords.map(k => `<span class="skill-tag">${k}</span>`).join('')}
+                <div class="skills-badges">
+                    ${skill.keywords.map(k => `
+                        <img src="https://img.shields.io/badge/-${k.badge}-05122A?style=flat&logo=${k.badge}" 
+                             alt="${k.name}" 
+                             title="${k.name}"
+                             class="skill-badge">
+                    `).join('')}
+                </div>
             </div>
         `;
     }).join('');
