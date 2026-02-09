@@ -19,15 +19,12 @@ function renderResume(data) {
             <p class="subtitle">${data.basics.label || ''}</p>
             
             <div class="contact-info">
-                ${/* Recorre basics excepto name, label y summary */
-                    Object.entries(data.basics)
-                        .filter(([key]) => !['name', 'label', 'summary', 'location', 'profiles'].includes(key))
-                        .map(([key, value]) => `<span><strong>${key}:</strong> ${value}</span>`)
-                        .join(' | ')
+                ${Object.entries(data.basics)
+                    .filter(([key]) => !['name', 'label', 'summary', 'location', 'profiles'].includes(key))
+                    .map(([key, value]) => `<span><strong>${key}:</strong> ${value}</span>`)
+                    .join(' | ')
                 }
-                ${/* Agrega ubicación si existe */
-                    data.basics.location ? ` | <span>📍 ${data.basics.location.city}</span>` : ''
-                }
+                ${data.basics.location ? ` | <span>📍 ${data.basics.location.city}</span>` : ''}
             </div>
 
             <p class="summary">${data.basics.summary || ''}</p>
@@ -48,12 +45,10 @@ function renderResume(data) {
     `;
 }
 
-// Función auxiliar para decidir cómo dibujar cada tipo de dato
 function renderSectionContent(title, content) {
     return content.map(item => {
         if (typeof item === 'string') return `<span class="tag">${item}</span>`;
         
-        // Si es una sección con 'keywords' (como skills)
         if (item.keywords) {
             return `<div class="item-box">
                 <strong>${item.name}:</strong> 
@@ -61,7 +56,6 @@ function renderSectionContent(title, content) {
             </div>`;
         }
         
-        // Si es una sección con nombre y resumen (como work)
         return `
             <div class="item-box">
                 ${item.name ? `<h4>${item.name} ${item.position ? `- ${item.position}` : ''}</h4>` : ''}
@@ -74,8 +68,14 @@ function renderSectionContent(title, content) {
     }).join('');
 }
 
+// FUNCIONES DE INTERFAZ
+function toggleTheme() {
+    document.body.classList.toggle('dark-theme');
+    document.body.classList.toggle('light-theme');
+}
+
+// Carga inicial por defecto
 loadResume('es');
 
-document.getElementById('theme-toggle').addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
-});
+// Eventos
+document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
