@@ -17,6 +17,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./cv-portfolio  # Publica solo el contenido de tu carpeta
-          publish_branch: gh-pages      # En la rama especial
+          # Esto toma lo que está DENTRO de la carpeta y lo pone en la RAÍZ de gh-pages
+          publish_dir: ./cv-portfolio  
+          publish_branch: gh-pages
           force_orphan: true
