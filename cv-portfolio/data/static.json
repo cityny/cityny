@@ -23,15 +23,45 @@
     {
       "institution": "Universidad Rafael Belloso Chacin",
       "degree_es": "Ingeniería Electrónica",
-      "degree_en": "Electronic Engineering",
-      "year_es": "Graduado",
-      "year_en": "Graduated"
+      "degree_en": "Electronic Engineering"
+    },
+    {
+      "institution": "Appoint Pros",
+      "degree_es": "Soporte Técnico IT - Tier I",
+      "degree_en": "IT Technical Support - Tier I"
+    },
+    {
+      "institution": "Universidad Privada del Norte",
+      "degree_es": "Introducción a las instalaciones eléctricas",
+      "degree_en": "Introduction to Electrical Installations"
+    },
+    {
+      "institution": "20 Solar Energy",
+      "degree_es": "Instalación de sistemas solares fotovoltaicos",
+      "degree_en": "Photovoltaic Solar Systems Installation"
     }
   ],
   "experience": [
     {
-      "company": "San Simón",
-      "position": "Supervisor de Mantenimiento Industrial",
+      "company": "URBE - Universidad Rafael Belloso Chacín",
+      "position_es": "Asistente de Laboratorio",
+      "position_en": "Laboratory Assistant",
+      "startDate": "20XX-XX-XX",
+      "summary_es": "Preparacion del laboratorio y asistencia en clases.",
+      "summary_en": "Preparation of laboratory and assistance in classes."
+    },
+    {
+      "company": "Fundasteam - Panama",
+      "position_es": "Profesor de Robótica Remoto",
+      "position_en": "Remote Robotics Teacher",
+      "startDate": "20XX-XX-XX",
+      "summary_es": "Enseñanza remota de robótica a estudiantes.",
+      "summary_en": "Remote robotics teaching to students."
+    },
+    {
+      "company": "San Simón Planta de Leche",
+      "position_es": "Supervisor de Mantenimiento Industrial",
+      "position_en": "Industrial Maintenance Supervisor",
       "startDate": "2022-04-15",
       "summary_es": "Control de procesos industriales y manejo de personal.",
       "summary_en": "Industrial process control and staff management."
@@ -62,7 +92,7 @@
   "languages": [
     {
       "language_es": "Español",
-      "language_en": "English",
+      "language_en": "Spanish",
       "level_es": "Nativo",
       "level_en": "Native"
     },

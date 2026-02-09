@@ -72,8 +72,8 @@ async function loadResume(lang) {
  * - Contacto (email, teléfono, ubicación)
  * - Habilidades técnicas
  * - Experiencia laboral
- * - Idiomas
  * - Educación
+ * - Idiomas
  * - Proyectos destacados
  */
 function renderResume() {
@@ -82,7 +82,7 @@ function renderResume() {
     const s = staticData;    // Atajo para datos estáticos
     
     // --- Generar enlaces de contacto ---
-    // Crea enlaces cliqueables para email y WhatsApp (soporta múltiples teléfonos)
+    // Crea enlaces cliqueables para email, teléfonos, ubicación y perfiles
     const contactLinks = [
         // Enlace mailto para abrir cliente de correo
         `📧 <a href="mailto:${s.basics.email}">${s.basics.email}</a>`,
@@ -91,7 +91,9 @@ function renderResume() {
             `📱 <a href="https://wa.me/${p.number.replace(/\D/g, '')}">${p.number}</a>`
         ),
         // Emoji de ubicación + ciudad + región
-        `📍 ${s.basics.location.city}, ${s.basics.location.region || ''}`
+        `📍 ${s.basics.location.city}, ${s.basics.location.region || ''}`,
+        // Perfiles sociales
+        ...s.basics.profiles.map(p => `🔗<a href="${p.url}" target="_blank"> ${p.network}</a>`)
     ];
     
     // --- Generar sección de habilidades técnicas ---
@@ -107,12 +109,25 @@ function renderResume() {
     // Selecciona automáticamente el resumen en el idioma correcto (_es o _en)
     const experienceHtml = s.experience.map(job => {
         const summaryKey = currentLang === 'es' ? 'summary_es' : 'summary_en';
+        const positionKey = currentLang === 'es' ? 'position_es' : 'position_en';
         return `
             <div class="item-box job">
                 <span class="company">${job.company}</span>
-                <strong>${t.job.position_label}:</strong> ${job.position}
+                <strong>${t.job.position_label}:</strong> ${job[positionKey]}
                 <br><small>📅 ${job.startDate}</small>
                 <p>${job[summaryKey]}</p>
+            </div>
+        `;
+    }).join('');
+    
+    // --- Generar educación ---
+    // Selecciona automáticamente título en el idioma correcto
+    const educationHtml = s.education.map(edu => {
+        const degreeKey = currentLang === 'es' ? 'degree_es' : 'degree_en';
+        return `
+            <div class="item-box">
+                <strong>${edu.institution}</strong>
+                <p>${edu[degreeKey]}</p>
             </div>
         `;
     }).join('');
@@ -125,19 +140,6 @@ function renderResume() {
         return `
             <div class="item-box">
                 <strong>${lang[langKey]}</strong> - ${lang[levelKey]}
-            </div>
-        `;
-    }).join('');
-    
-    // --- Generar educación ---
-    // Selecciona automáticamente título y año en el idioma correcto
-    const educationHtml = s.education.map(edu => {
-        const degreeKey = currentLang === 'es' ? 'degree_es' : 'degree_en';
-        const yearKey = currentLang === 'es' ? 'year_es' : 'year_en';
-        return `
-            <div class="item-box">
-                <strong>${edu.institution}</strong>
-                <p>${edu[degreeKey]} - ${edu[yearKey]}</p>
             </div>
         `;
     }).join('');
