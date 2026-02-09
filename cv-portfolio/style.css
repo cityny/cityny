@@ -116,3 +116,19 @@ button:hover {
     display: block;
     margin-bottom: 5px;
 }
+
+/* Agrega esto al principio o final de tu style.css */
+body {
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+main, .item-box, .skill-tag {
+    transition: all 0.3s ease;
+}
+
+/* Efecto visual en los botones para que el usuario sepa que detectan el mouse */
+nav button:hover {
+    transform: scale(1.1);
+    border-color: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+}
