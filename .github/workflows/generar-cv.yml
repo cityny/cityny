@@ -1,0 +1,30 @@
+name: Generar CV Portafolio
+
+# Se activa solo cuando haces cambios en la carpeta de tu CV
+on:
+  push:
+    paths:
+      - 'cv-portfolio/**'
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      # 1. Instalamos la herramienta que convierte JSON a HTML
+      - name: Instalar Resume CLI
+        run: npm install -g resume-cli
+
+      # 2. Generamos el HTML usando un tema profesional
+      - name: Generar HTML
+        working-directory: cv-portfolio
+        run: resume export index.html --theme flat
+
+      # 3. Publicamos el resultado en una rama "huérfana" llamada gh-pages
+      - name: Desplegar a GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./cv-portfolio
+          keep_files: true
