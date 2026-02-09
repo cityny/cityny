@@ -1,1 +1,12 @@
-resume-en.json
+{
+  "basics": {
+    "name": "Dionny Jose Núñez Márquez",
+    "label": "Electronic Engineer & Flutter Developer",
+    "summary": "Influenced by knowledge and the desire to learn new things every day... [cite: 2]",
+    "location": { "city": "Maracaibo", "countryCode": "VE" }
+  },
+  "skills": [
+    { "name": "Mobile Development", "keywords": ["Flutter", "Dart"] },
+    { "name": "Automations", "keywords": ["n8n"] }
+  ]
+}
