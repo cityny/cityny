@@ -412,4 +412,26 @@ nav button:hover {
         margin: 0;
         padding: 0;
     }
+
+    /* Salto de página para la versión en inglés */
+    .print-page {
+        page-break-before: always;
+    }
+
+    /* Indicador de idioma en la versión impresa */
+    .lang-indicator {
+        font-size: 14px;
+        font-weight: bold;
+        color: #666;
+        text-transform: uppercase;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        display: none;  /* Ocultar por defecto, no es necesario */
+    }
+
+    /* Header de la versión EN - mantener pero sin repetir nombre */
+    .print-page header h1 {
+        display: none;  /* Ocultar nombre repetido */
+    }
 }
