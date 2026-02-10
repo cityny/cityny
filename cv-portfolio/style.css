@@ -243,6 +243,19 @@ body.dark-theme .icon-contact {
     color: var(--text-main);  /* Color principal */
 }
 
+/* Iconos de redes sociales (Font Awesome) */
+.social-icon {
+    font-size: 16px;
+    margin-right: 4px;
+    color: var(--primary);  /* Color principal */
+    vertical-align: middle;
+}
+
+/* Iconos de redes sociales en modo oscuro */
+body.dark-theme .social-icon {
+    color: #ffffff;  /* Blanco puro */
+}
+
 /* =============================================================================
  * SECCIÓN 8: BOTONES
  * =============================================================================

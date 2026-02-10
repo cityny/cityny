@@ -83,6 +83,13 @@ function renderResume() {
     
     // --- Generar enlaces de contacto ---
     // Crea enlaces cliqueables para email, teléfonos, ubicación y perfiles
+    // Mapeo de iconos de Font Awesome para redes sociales
+    const socialIcons = {
+        'GitHub': 'fa-brands fa-github',
+        'LinkedIn': 'fa-brands fa-linkedin',
+        'Linktree': 'fa-solid fa-link'
+    };
+    
     const contactLinks = [
         // Enlace mailto para abrir cliente de correo
         `<span class="material-symbols-outlined icon-contact">mail</span> <a href="mailto:${s.basics.email}">${s.basics.email}</a>`,
@@ -92,8 +99,8 @@ function renderResume() {
         ),
         // Ubicación con icono y countryCode
         `<span class="material-symbols-outlined icon-contact">location_on</span> <span class="location-text">${s.basics.location.city}, ${s.basics.location.region || ''} (${s.basics.location.countryCode})</span>`,
-        // Perfiles sociales (GitHub)
-        ...s.basics.profiles.map(p => `<span class="material-symbols-outlined icon-contact">code</span> <a href="${p.url}" target="_blank"> ${p.network}</a>`)
+        // Perfiles sociales con iconos de Font Awesome
+        ...s.basics.profiles.map(p => `<i class="${socialIcons[p.network] || 'fa-solid fa-link'} social-icon"></i> <a href="${p.url}" target="_blank"> ${p.network}</a>`)
     ];
     
     // --- Generar sección de habilidades técnicas ---
