@@ -434,4 +434,18 @@ nav button:hover {
     .print-page header h1 {
         display: none;  /* Ocultar nombre repetido */
     }
+
+    /* Habilidades en 2 columnas al imprimir (AMBOS IDIOMAS) */
+    main.skills-print .skills-grid,
+    .print-page .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;  /* Dos columnas iguales */
+        gap: 15px;  /* Espacio entre columnas */
+    }
+
+    /* Items de habilidades en columnas */
+    main.skills-print .item-box,
+    .print-page .item-box {
+        break-inside: avoid;  /* Evitar que se corten entre páginas */
+    }
 }

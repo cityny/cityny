@@ -299,6 +299,9 @@ async function printBothLanguages() {
     currentLang = "es";
     renderResume();
 
+    // Agregar clase para activar columnas en habilidades al imprimir
+    document.getElementById("resume-container").classList.add("skills-print");
+
     // Crear contenedor para la versión en inglés (página 2)
     const englishSection = document.createElement("div");
     englishSection.id = "english-version";
@@ -328,6 +331,7 @@ async function printBothLanguages() {
     window.print();
 
     // Después de imprimir, restaurar versión original
+    document.getElementById("resume-container").classList.remove("skills-print");
     currentLang = originalLang;
     renderResume();
   } catch (error) {
