@@ -94,18 +94,18 @@ function renderResume() {
 
   const contactLinks = [
     // Enlace mailto para abrir cliente de correo
-    `<span class="material-symbols-outlined icon-contact">mail</span> <a href="mailto:${s.basics.email}">${s.basics.email}</a>`,
+    `<span class="contact-item"><span class="material-symbols-outlined icon-contact">mail</span> <a href="mailto:${s.basics.email}">${s.basics.email}</a></span>`,
     // Teléfonos con enlace a WhatsApp Web
     ...s.basics.phones.map(
       (p) =>
-        `<span class="material-symbols-outlined icon-contact">call</span> <a href="https://wa.me/${p.number.replace(/\D/g, "")}">${p.number}</a>`,
+        `<span class="contact-item"><span class="material-symbols-outlined icon-contact">call</span> <a href="https://wa.me/${p.number.replace(/\D/g, "")}">${p.number}</a></span>`,
     ),
     // Ubicación con icono y countryCode
-    `<span class="material-symbols-outlined icon-contact">location_on</span> <span class="location-text">${s.basics.location.city}, ${s.basics.location.region || ""} (${s.basics.location.countryCode})</span>`,
+    `<span class="contact-item"><span class="material-symbols-outlined icon-contact">location_on</span> <span class="location-text">${s.basics.location.city}, ${s.basics.location.region || ""} (${s.basics.location.countryCode})</span></span>`,
     // Perfiles sociales con iconos de Font Awesome
     ...s.basics.profiles.map(
       (p) =>
-        `<i class="${socialIcons[p.network] || "fa-solid fa-link"} social-icon"></i> <a href="${p.url}" target="_blank"> ${p.network}</a>`,
+        `<span class="contact-item"><i class="${socialIcons[p.network] || "fa-solid fa-link"} social-icon"></i> <a href="${p.url}" target="_blank"> ${p.network}</a></span>`,
     ),
   ];
 

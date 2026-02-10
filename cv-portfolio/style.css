@@ -301,6 +301,14 @@ nav button:hover {
     gap: 5px;
 }
 
+/* Contenedor para icono + texto - evita que se separen al hacer wrap */
+.contact-item {
+    display: inline-flex;      /* Icono y texto juntos en línea */
+    white-space: nowrap;       /* Evita salto de línea interno */
+    align-items: center;       /* Centrado vertical */
+    gap: 2px;                  /* Espacio entre icono y texto */
+}
+
 /* =============================================================================
  * SECCIÓN 10: CAJAS DE CONTENIDO (.item-box)
  * =============================================================================
