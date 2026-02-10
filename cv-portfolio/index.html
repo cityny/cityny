@@ -12,12 +12,14 @@
 </head>
 <body class="light-theme">
     <nav>
-        <button id="theme-toggle" onmouseover="toggleTheme()">🌓</button>
+        <button id="print-btn" onclick="window.print()" title="Imprimir CV"><span class="material-symbols-outlined">print</span></button>
         
         <div class="lang-selector">
             <button onmouseover="setLanguage('es')">🇪🇸 ES</button>
             <button onmouseover="setLanguage('en')">🇺🇸 EN</button>
         </div>
+
+        <button id="theme-toggle" onmouseover="toggleTheme()">🌓</button>
     </nav>
 
     <main id="resume-container">

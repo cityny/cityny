@@ -358,3 +358,58 @@ nav button:hover {
 .item-box p {
     margin: 2px 0 0 0;
 }
+
+/* =============================================================================
+ * SECCIÓN 12: BOTÓN DE IMPRESIÓN
+ * =============================================================================
+ * Botón con icono de impresora junto al toggle de tema
+ */
+
+/* Estilo del botón de imprimir */
+#print-btn {
+    display: flex;           /* Centra el icono dentro del botón */
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;       /* Mismo padding que los demás botones */
+}
+
+/* Icono dentro del botón de imprimir */
+#print-btn .material-symbols-outlined {
+    font-size: 20px;         /* Tamaño del icono de impresora */
+    margin: 0;               /* Sin margen extra */
+}
+
+/* =============================================================================
+ * SECCIÓN 13: ESTILOS DE IMPRESIÓN (@media print)
+ * =============================================================================
+ * Oculta elementos innecesarios al imprimir (Ctrl+P)
+ */
+
+@media print {
+    /* Eliminar encabezado y pie de página del navegador al imprimir */
+    /* margin: 0 elimina el espacio donde el navegador coloca fecha/título/URL */
+    @page {
+        margin: 0;
+    }
+
+    /* Ocultar barra de navegación al imprimir */
+    nav {
+        display: none !important;
+    }
+
+    /* Quitar sombra y borde del contenedor principal */
+    main {
+        box-shadow: none;
+        border: none;
+        margin: 0;
+        padding: 15mm;       /* Padding interno para que el contenido no toque los bordes */
+    }
+
+    /* Fondo blanco para impresión */
+    body {
+        background: white;
+        color: black;
+        margin: 0;
+        padding: 0;
+    }
+}
