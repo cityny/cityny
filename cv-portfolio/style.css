@@ -430,9 +430,10 @@ nav button:hover {
         display: none;  /* Ocultar por defecto, no es necesario */
     }
 
-    /* Header de la versión EN - mantener pero sin repetir nombre */
-    .print-page header h1 {
-        display: none;  /* Ocultar nombre repetido */
+    /* Header de la versión EN - mantener el header completo */
+    .print-page header {
+        margin-top: 30px;  /* Margen superior extra para la página 2 */
+        padding-top: 20px;
     }
 
     /* Habilidades en 2 columnas al imprimir (AMBOS IDIOMAS) */
