@@ -276,6 +276,35 @@ h3 {
     /* Efecto al pasar el mouse */
 }
 
+/* Badge personalizado que imita a Shields.io para logos externos */
+.custom-badge-container {
+    display: inline-flex;
+    align-items: center;
+    background-color: #05122a;
+    /* Color idéntico al de tus otros badges */
+    color: #ffffff;
+    height: 20px;
+    padding: 0 8px 0 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-weight: normal;
+    text-decoration: none;
+    margin: 2px 0px;
+    vertical-align: middle;
+    transition: transform 0.2s ease;
+}
+
+.custom-badge-container:hover {
+    transform: scale(1.05);
+}
+
+.custom-badge-container img {
+    height: 14px;
+    width: auto;
+    margin-right: 5px;
+}
+
 /* =============================================================================
  * SECCIÓN 9: ICONOS DE GOOGLE MATERIAL SYMBOLS
  * =============================================================================

@@ -119,15 +119,24 @@ function renderResume() {
                 <strong>${skill[categoryKey]}:</strong>
                 <div class="skills-badges">
                     ${skill.keywords
-                      .map(
-                        (k) => `
-                        <img src="https://img.shields.io/badge/-${k.badge}-05122A?style=flat&logo=${k.badge}" 
-                             alt="${k.name}" 
-                             title="${k.name}"
-                             class="skill-badge">
-                    `,
-                      )
-                      .join("")}
+          .map(
+            (k) => {
+              if (k.logo && k.logo.startsWith('http')) {
+                return `
+                  <div class="custom-badge-container" title="${k.name}">
+                    <img src="${k.logo}" alt="${k.name}">
+                    <span>${k.badge}</span>
+                  </div>`;
+              }
+              return `
+                <img src="https://img.shields.io/badge/-${k.badge}-05122A?style=flat&logo=${k.logo || k.badge}" 
+                     alt="${k.name}" 
+                     title="${k.name}"
+                     class="skill-badge">
+              `;
+            }
+          )
+          .join("")}
                 </div>
             </div>
         `;
@@ -379,15 +388,24 @@ function generateResumeHTML() {
                 <strong>${skill[categoryKey]}:</strong>
                 <div class="skills-badges">
                     ${skill.keywords
-                      .map(
-                        (k) => `
-                        <img src="https://img.shields.io/badge/-${k.badge}-05122A?style=flat&logo=${k.badge}" 
-                             alt="${k.name}" 
-                             title="${k.name}"
-                             class="skill-badge">
-                    `,
-                      )
-                      .join("")}
+          .map(
+            (k) => {
+              if (k.logo && k.logo.startsWith('http')) {
+                return `
+                  <div class="custom-badge-container" title="${k.name}">
+                    <img src="${k.logo}" alt="${k.name}">
+                    <span>${k.badge}</span>
+                  </div>`;
+              }
+              return `
+                <img src="https://img.shields.io/badge/-${k.badge}-05122A?style=flat&logo=${k.logo || k.badge}" 
+                     alt="${k.name}" 
+                     title="${k.name}"
+                     class="skill-badge">
+              `;
+            }
+          )
+          .join("")}
                 </div>
             </div>
         `;
