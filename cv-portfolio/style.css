@@ -14,35 +14,41 @@
 
 :root {
     /* --- Colores Principales --- */
-    --primary: #2563eb;    /* Azul profesional - Se aplica a:
+    --primary: #2563eb;
+    /* Azul profesional - Se aplica a:
                               - Título principal (h1): "Dionny Jose Núñez Márquez"
                               - Títulos de sección (h3): "Habilidades Técnicas", "Experiencia..."
                               - Borde izquierdo de experiencia (.job)
                               - Efecto hover en botones y enlaces */
-    
+
     /* --- Colores de Fondo --- */
-    --bg: #f1f5f9;         /* Fondo de la página - Se aplica a:
+    --bg: #f1f5f9;
+    /* Fondo de la página - Se aplica a:
                               - body (fondo general de la página)
                               - Botones (background)
                               - Etiquetas skills (.skill-tag background) */
-    
-    --card-bg: #ffffff;    /* Fondo del "papel" del CV - Se aplica a:
+
+    --card-bg: #ffffff;
+    /* Fondo del "papel" del CV - Se aplica a:
                               - main (contenedor principal del CV)
                               - nav (barra superior de controles)
                               - item-box (cada tarjeta de contenido) */
-    
+
     /* --- Colores de Texto --- */
-    --text-main: #0f172a;  /* Texto principal - Se aplica a:
+    --text-main: #0f172a;
+    /* Texto principal - Se aplica a:
                               - body (texto general)
                               - Títulos h1, h3
                               - Nombre de empresas (.company)
                               - Botones (color de texto) */
-    
-    --text-muted: #64748b; /* Texto secundario - Se aplica a:
+
+    --text-muted: #64748b;
+    /* Texto secundario - Se aplica a:
                               - Información de contacto (.contact-info)
                               - Labels de /posición */
-    
-    --border: #e2e8f0;     /* Color de bordes - Se aplica a:
+
+    --border: #e2e8f0;
+    /* Color de bordes - Se aplica a:
                               - Borde inferior de nav
                               - Borde de main
                               - Borde de botones
@@ -57,12 +63,18 @@
  */
 
 body.dark-theme {
-    --primary: #f2f2f2;    /* Azul más brillante para oscuro */
-    --bg: #020617;         /* Fondo casi negro */
-    --card-bg: #1e293b;    /* Gris azulado para el CV */
-    --text-main: #f8fafc;  /* Texto blanco */
-    --text-muted: #94a3b8; /* Gris claro para detalles */
-    --border: #334155;     /* Borde más oscuro */
+    --primary: #f2f2f2;
+    /* Azul más brillante para oscuro */
+    --bg: #020617;
+    /* Fondo casi negro */
+    --card-bg: #1e293b;
+    /* Gris azulado para el CV */
+    --text-main: #f8fafc;
+    /* Texto blanco */
+    --text-muted: #94a3b8;
+    /* Gris claro para detalles */
+    --border: #334155;
+    /* Borde más oscuro */
 }
 
 /* =============================================================================
@@ -73,18 +85,39 @@ body.dark-theme {
 body {
     /* Fondo de toda la página */
     background-color: var(--bg);
-    
+
     /* Color del texto general */
     color: var(--text-main);
-    
+
     /* Tipografía */
     font-family: 'Inter', -apple-system, sans-serif;
     margin: 0;
     line-height: 1.6;
-    
+
     /* Transición suave al cambiar entre modos */
     transition: background-color 0.4s ease, color 0.4s ease;
 }
+
+/* --- Estilos para Enlaces --- */
+a {
+    color: var(--primary);
+    /* Azul profesional en modo claro */
+    text-decoration: none;
+    /* Quitar subrayado por defecto */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+    /* Subrayado al pasar el mouse */
+}
+
+/* Enlaces en modo oscuro */
+body.dark-theme a {
+    color: #ffffff;
+    /* Blanco puro en modo oscuro */
+}
+
 
 /* =============================================================================
  * SECCIÓN 4: BARRA DE NAVEGACIÓN (nav)
@@ -98,15 +131,21 @@ body {
  */
 
 nav {
-    position: sticky;      /* Se mantiene visible al hacer scroll */
-    top: 0;                /* Pegada arriba */
-    background: var(--card-bg);  /* Fondo del navbar */
+    position: sticky;
+    /* Se mantiene visible al hacer scroll */
+    top: 0;
+    /* Pegada arriba */
+    background: var(--card-bg);
+    /* Fondo del navbar */
     padding: 10px 20px;
     display: flex;
-    justify-content: flex-end;   /* Botones alineados a la derecha */
-    gap: 10px;                  /* Espacio entre botones */
+    justify-content: flex-end;
+    /* Botones alineados a la derecha */
+    gap: 10px;
+    /* Espacio entre botones */
     border-bottom: 1px solid var(--border);
-    z-index: 1000;              /* Siempre encima del contenido */
+    z-index: 1000;
+    /* Siempre encima del contenido */
 }
 
 /* =============================================================================
@@ -132,14 +171,20 @@ nav {
  */
 
 main {
-    max-width: 850px;           /* Ancho máximo del CV */
-    margin: 40px auto;           /* Centrado horizontal */
-    background: var(--card-bg);   /* Fondo del papel */
-    padding: 50px;               /* Espacio interior */
-    border-radius: 8px;          /* Bordes redondeados */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);  /* Sombra suave */
+    max-width: 850px;
+    /* Ancho máximo del CV */
+    margin: 40px auto;
+    /* Centrado horizontal */
+    background: var(--card-bg);
+    /* Fondo del papel */
+    padding: 50px;
+    /* Espacio interior */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    /* Sombra suave */
     border: 1px solid var(--border);
-    
+
     /* Transición suave al cambiar tema */
     transition: all 0.3s ease;
 }
@@ -152,15 +197,20 @@ main {
 h1 {
     font-size: 2.5rem;
     margin: 0;
-    color: var(--primary);  /* Tu nombre en azul */
+    color: var(--primary);
+    /* Tu nombre en azul */
 }
 
 h3 {
-    text-transform: uppercase;   /* MAYÚSCULAS */
+    text-transform: uppercase;
+    /* MAYÚSCULAS */
     font-size: 0.9rem;
-    letter-spacing: 1px;         /* Espaciado entre letras */
-    color: var(--primary);       /* Títulos de sección en azul */
-    border-bottom: 2px solid var(--border);  /* Línea bajo el título */
+    letter-spacing: 1px;
+    /* Espaciado entre letras */
+    color: var(--primary);
+    /* Títulos de sección en azul */
+    border-bottom: 2px solid var(--border);
+    /* Línea bajo el título */
     padding-bottom: 5px;
     margin-top: 30px;
 }
@@ -175,14 +225,21 @@ h3 {
  */
 
 .skill-tag {
-    background: var(--bg);           /* Fondo ligero */
-    padding: 2px 10px;                /* Espacio interior pequeño */
-    border-radius: 15px;              /* Forma ovalada */
-    font-size: 0.8rem;                /* Texto pequeño */
-    border: 1px solid var(--border); /* Borde sutil */
-    margin: 0 3px;                    /* Espacio entre etiquetas */
-    display: inline-block;             /* Se alinean en línea */
-    
+    background: var(--bg);
+    /* Fondo ligero */
+    padding: 2px 10px;
+    /* Espacio interior pequeño */
+    border-radius: 15px;
+    /* Forma ovalada */
+    font-size: 0.8rem;
+    /* Texto pequeño */
+    border: 1px solid var(--border);
+    /* Borde sutil */
+    margin: 0 3px;
+    /* Espacio entre etiquetas */
+    display: inline-block;
+    /* Se alinean en línea */
+
     transition: all 0.3s ease;
 }
 
@@ -196,20 +253,27 @@ h3 {
 /* Contenedor de badges de habilidades */
 .skills-badges {
     display: flex;
-    flex-wrap: wrap;       /* Permite que los badges salten a nueva línea */
-    gap: 4px;              /* Espacio entre badges */
-    margin-top: 8px;       /* Espacio entre categoría y badges */
+    flex-wrap: wrap;
+    /* Permite que los badges salten a nueva línea */
+    gap: 4px;
+    /* Espacio entre badges */
+    margin-top: 8px;
+    /* Espacio entre categoría y badges */
 }
 
 /* Estilo para los badges de shield.io */
 .skill-badge {
-    height: 22px;           /* Altura consistente */
-    vertical-align: middle; /* Alineación vertical */
-    transition: transform 0.2s ease; /* Animación suave */
+    height: 22px;
+    /* Altura consistente */
+    vertical-align: middle;
+    /* Alineación vertical */
+    transition: transform 0.2s ease;
+    /* Animación suave */
 }
 
 .skill-badge:hover {
-    transform: scale(1.05); /* Efecto al pasar el mouse */
+    transform: scale(1.05);
+    /* Efecto al pasar el mouse */
 }
 
 /* =============================================================================
@@ -229,31 +293,37 @@ h3 {
     font-size: 16px;
     vertical-align: text-bottom;
     margin-right: 2px;
-    color: var(--primary);  /* Color principal */
-    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;  /* Icono relleno */
+    color: var(--primary);
+    /* Color principal */
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    /* Icono relleno */
 }
 
 /* Iconos de contacto en modo oscuro - color blanco */
 body.dark-theme .icon-contact {
-    color: #ffffff;  /* Blanco puro */
+    color: #ffffff;
+    /* Blanco puro */
 }
 
 /* Texto de ubicación - color negro */
 .location-text {
-    color: var(--text-main);  /* Color principal */
+    color: var(--text-main);
+    /* Color principal */
 }
 
 /* Iconos de redes sociales (Font Awesome) */
 .social-icon {
     font-size: 16px;
     margin-right: 4px;
-    color: var(--primary);  /* Color principal */
+    color: var(--primary);
+    /* Color principal */
     vertical-align: middle;
 }
 
 /* Iconos de redes sociales en modo oscuro */
 body.dark-theme .social-icon {
-    color: #ffffff;  /* Blanco puro */
+    color: #ffffff;
+    /* Blanco puro */
 }
 
 /* =============================================================================
@@ -273,14 +343,17 @@ button {
 }
 
 button:hover {
-    border-color: var(--primary);  /* Borde azul al pasar el mouse */
+    border-color: var(--primary);
+    /* Borde azul al pasar el mouse */
 }
 
 /* Efecto especial para botones del navbar */
 nav button:hover {
-    transform: scale(1.1);                    /* Aumenta tamaño */
+    transform: scale(1.1);
+    /* Aumenta tamaño */
     border-color: var(--primary);
-    box-shadow: 0 0 10px var(--primary);     /* Resplandor azul */
+    box-shadow: 0 0 10px var(--primary);
+    /* Resplandor azul */
 }
 
 /* =============================================================================
@@ -297,16 +370,21 @@ nav button:hover {
     color: var(--text-muted);
     margin: 1rem 0;
     display: flex;
-    flex-wrap: wrap;     /* Se adapta a pantallas pequeñas */
+    flex-wrap: wrap;
+    /* Se adapta a pantallas pequeñas */
     gap: 5px;
 }
 
 /* Contenedor para icono + texto - evita que se separen al hacer wrap */
 .contact-item {
-    display: inline-flex;      /* Icono y texto juntos en línea */
-    white-space: nowrap;       /* Evita salto de línea interno */
-    align-items: center;       /* Centrado vertical */
-    gap: 2px;                  /* Espacio entre icono y texto */
+    display: inline-flex;
+    /* Icono y texto juntos en línea */
+    white-space: nowrap;
+    /* Evita salto de línea interno */
+    align-items: center;
+    /* Centrado vertical */
+    gap: 2px;
+    /* Espacio entre icono y texto */
 }
 
 /* =============================================================================
@@ -324,7 +402,8 @@ nav button:hover {
 .item-box {
     /* Hereda transiciones del tema */
     transition: all 0.3s ease;
-    margin-bottom: 7px;  /* Mayor espacio entre instituciones */
+    margin-bottom: 7px;
+    /* Mayor espacio entre instituciones */
 }
 
 /* =============================================================================
@@ -340,16 +419,21 @@ nav button:hover {
  */
 
 .job {
-    border-left: 3px solid var(--primary);  /* Barra azul izquierda */
-    padding-left: 20px;                      /* Espacio después de la barra */
-    margin-bottom: 25px;                     /* Espacio entre trabajos */
+    border-left: 3px solid var(--primary);
+    /* Barra azul izquierda */
+    padding-left: 20px;
+    /* Espacio después de la barra */
+    margin-bottom: 25px;
+    /* Espacio entre trabajos */
 }
 
 .company {
     /* font-weight: bold;  Quitado - empresa sin negrita */
-    color: var(--text-main);  /* Nombre empresa en color principal */
+    color: var(--text-main);
+    /* Nombre empresa en color principal */
     display: block;
-    margin-bottom: 0px;  /* Ajusta el espacio entre empresa y fecha */
+    margin-bottom: 0px;
+    /* Ajusta el espacio entre empresa y fecha */
 }
 
 /* Texto muted/secundario para labels como "Cargo:" */
@@ -375,16 +459,20 @@ nav button:hover {
 
 /* Estilo del botón de imprimir */
 #print-btn {
-    display: flex;           /* Centra el icono dentro del botón */
+    display: flex;
+    /* Centra el icono dentro del botón */
     align-items: center;
     justify-content: center;
-    padding: 8px 12px;       /* Mismo padding que los demás botones */
+    padding: 8px 12px;
+    /* Mismo padding que los demás botones */
 }
 
 /* Icono dentro del botón de imprimir */
 #print-btn .material-symbols-outlined {
-    font-size: 20px;         /* Tamaño del icono de impresora */
-    margin: 0;               /* Sin margen extra */
+    font-size: 20px;
+    /* Tamaño del icono de impresora */
+    margin: 0;
+    /* Sin margen extra */
 }
 
 /* =============================================================================
@@ -394,6 +482,7 @@ nav button:hover {
  */
 
 @media print {
+
     /* Eliminar encabezado y pie de página del navegador al imprimir */
     /* margin: 0 elimina el espacio donde el navegador coloca fecha/título/URL */
     @page {
@@ -410,7 +499,8 @@ nav button:hover {
         box-shadow: none;
         border: none;
         margin: 0;
-        padding: 15mm;       /* Padding interno para que el contenido no toque los bordes */
+        padding: 15mm;
+        /* Padding interno para que el contenido no toque los bordes */
     }
 
     /* Fondo blanco para impresión */
@@ -435,12 +525,14 @@ nav button:hover {
         border-bottom: 1px solid #ccc;
         padding-bottom: 10px;
         margin-bottom: 20px;
-        display: none;  /* Ocultar por defecto, no es necesario */
+        display: none;
+        /* Ocultar por defecto, no es necesario */
     }
 
     /* Header de la versión EN - mantener el header completo */
     .print-page header {
-        margin-top: 30px;  /* Margen superior extra para la página 2 */
+        margin-top: 30px;
+        /* Margen superior extra para la página 2 */
         padding-top: 20px;
     }
 
@@ -448,13 +540,16 @@ nav button:hover {
     main.skills-print .skills-grid,
     .print-page .skills-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;  /* Dos columnas iguales */
-        gap: 15px;  /* Espacio entre columnas */
+        grid-template-columns: 1fr 1fr;
+        /* Dos columnas iguales */
+        gap: 15px;
+        /* Espacio entre columnas */
     }
 
     /* Items de habilidades en columnas */
     main.skills-print .item-box,
     .print-page .item-box {
-        break-inside: avoid;  /* Evitar que se corten entre páginas */
+        break-inside: avoid;
+        /* Evitar que se corten entre páginas */
     }
 }
