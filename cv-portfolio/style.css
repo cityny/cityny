@@ -98,6 +98,23 @@ body {
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
+/* Video de fondo a pantalla completa */
+.bg-video {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+    background: #000;
+}
+
+/* Evita scroll horizontal si el video ocupa toda la pantalla */
+body {
+    overflow-x: hidden;
+}
+
 /* --- Estilos para Enlaces --- */
 a {
     color: var(--primary);
@@ -516,6 +533,11 @@ nav button:hover {
     /* margin: 0 elimina el espacio donde el navegador coloca fecha/título/URL */
     @page {
         margin: 0;
+    }
+
+    /* Ocultar video de fondo en impresión */
+    .bg-video {
+        display: none !important;
     }
 
     /* Ocultar barra de navegación al imprimir */
