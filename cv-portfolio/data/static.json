@@ -98,6 +98,30 @@
         "Tailwind CSS",
         "Netlify"
       ]
+    },
+    {
+      "name": "Planificador inteligente de ciclos de trabajo",
+      "description_es": "Genera un calendario anual PDF para ciclos rotativos definiendo fecha inicial, dias de salida/regreso y duracion laboral.",
+      "description_en": "Generates a full-year PDF calendar for rotating cycles based on start date, leave/return days and work period duration.",
+      "url": "https://calendarioturno.netlify.app/",
+      "technologies": [
+        "TypeScript",
+        "React",
+        "Vite",
+        "TailwindCSS"
+      ]
+    },
+    {
+      "name": "Deuda Flow",
+      "description_es": "Controla deudas y prestamos personales, registra contactos y conserva el historial de transacciones desde tu movil.",
+      "description_en": "Manage personal debts and loans, track contacts, and keep a clear history of transactions from your phone.",
+      "url": "https://play.google.com/store/apps/details?id=com.deudaflow.app",
+      "technologies": [
+        "Flutter",
+        "Supabase",
+        "PostgreSQL",
+        "Android"
+      ]
     }
   ],
   "skills": [
@@ -219,6 +243,22 @@
         {
           "name": "PaddlePaddle",
           "badge": "PaddlePaddle"
+        }
+      ]
+    },
+    {
+      "category_es": "Analista de datos",
+      "category_en": "Data Entry",
+      "keywords": [
+        {
+          "name": "Data Entry",
+          "badge": "Data Entry",
+          "logo": "https://img.icons8.com/color/48/data-configuration.png"
+        },
+        {
+          "name": "Data Analyst",
+          "badge": "Data Analyst",
+          "logo": "https://img.icons8.com/color/48/combo-chart--v1.png"
         }
       ]
     }
