@@ -55,10 +55,39 @@ async function loadResume(lang) {
 
     // Una vez cargados los datos, renderizar el CV completo
     renderResume();
+
+    // Carga diferida del video tras renderizar el contenido
+    initBackgroundVideo();
   } catch (error) {
     // Si algo falla, mostrar error en pantalla
     // translations?.ui?.error_loading usa optional chaining por si translations no cargó
     container.innerHTML = `<h2>${translations?.ui?.error_loading || "Error"}: ${error.message}</h2>`;
+  }
+}
+
+/**
+ * Inicializa el video de fondo al final de la carga del contenido
+ * Evita recargar si ya se asigno el src.
+ */
+function initBackgroundVideo() {
+  const video = document.querySelector(".bg-video");
+  if (!video) return;
+
+  const source = video.querySelector("source[data-src]");
+  if (!source || source.src) return;
+
+  // Activa un preload liviano al finalizar la carga inicial
+  video.preload = "metadata";
+  source.src = source.dataset.src;
+  video.load();
+
+  // Reintenta autoplay despues de asignar el src (algunos navegadores lo requieren)
+  video.muted = true;
+  const playPromise = video.play();
+  if (playPromise && typeof playPromise.catch === "function") {
+    playPromise.catch(() => {
+      // Autoplay puede ser bloqueado; queda listo para reproducirse con interaccion
+    });
   }
 }
 
@@ -119,24 +148,24 @@ function renderResume() {
                 <strong>${skill[categoryKey]}:</strong>
                 <div class="skills-badges">
                     ${skill.keywords
-          .map(
-            (k) => {
-              if (k.logo && k.logo.startsWith('http')) {
-                return `
+                      .map((k) => {
+                        if (k.logo && k.logo.startsWith("http")) {
+                          return `
                   <div class="custom-badge-container" title="${k.name}">
-                    <img src="${k.logo}" alt="${k.name}">
+                    <img src="${k.logo}" alt="${k.name}" loading="lazy" decoding="async">
                     <span>${k.badge}</span>
                   </div>`;
-              }
-              return `
+                        }
+                        return `
                 <img src="https://img.shields.io/badge/-${k.badge}-05122A?style=flat&logo=${k.logo || k.badge}" 
                      alt="${k.name}" 
                      title="${k.name}"
-                     class="skill-badge">
+                     class="skill-badge"
+                     loading="lazy"
+                     decoding="async">
               `;
-            }
-          )
-          .join("")}
+                      })
+                      .join("")}
                 </div>
             </div>
         `;
@@ -279,6 +308,9 @@ function setLanguage(lang) {
 // Carga inicial: ejecuta loadResume con español por defecto
 loadResume("es");
 
+// Carga el video de fondo al final para priorizar el contenido
+window.addEventListener("load", initBackgroundVideo);
+
 // =============================================================================
 // SECCIÓN 6: IMPRESIÓN DE AMBOS IDIOMAS
 // =============================================================================
@@ -340,7 +372,9 @@ async function printBothLanguages() {
     window.print();
 
     // Después de imprimir, restaurar versión original
-    document.getElementById("resume-container").classList.remove("skills-print");
+    document
+      .getElementById("resume-container")
+      .classList.remove("skills-print");
     currentLang = originalLang;
     renderResume();
   } catch (error) {
@@ -388,24 +422,22 @@ function generateResumeHTML() {
                 <strong>${skill[categoryKey]}:</strong>
                 <div class="skills-badges">
                     ${skill.keywords
-          .map(
-            (k) => {
-              if (k.logo && k.logo.startsWith('http')) {
-                return `
+                      .map((k) => {
+                        if (k.logo && k.logo.startsWith("http")) {
+                          return `
                   <div class="custom-badge-container" title="${k.name}">
                     <img src="${k.logo}" alt="${k.name}">
                     <span>${k.badge}</span>
                   </div>`;
-              }
-              return `
+                        }
+                        return `
                 <img src="https://img.shields.io/badge/-${k.badge}-05122A?style=flat&logo=${k.logo || k.badge}" 
                      alt="${k.name}" 
                      title="${k.name}"
                      class="skill-badge">
               `;
-            }
-          )
-          .join("")}
+                      })
+                      .join("")}
                 </div>
             </div>
         `;

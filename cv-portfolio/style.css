@@ -34,6 +34,9 @@
                               - nav (barra superior de controles)
                               - item-box (cada tarjeta de contenido) */
 
+    /* Ajusta este valor si quieres mas/menos transparencia en el resume container CV */
+    --card-bg-alpha: rgba(255, 255, 255, 0.92);
+
     /* --- Colores de Texto --- */
     --text-main: #0f172a;
     /* Texto principal - Se aplica a:
@@ -69,6 +72,8 @@ body.dark-theme {
     /* Fondo casi negro */
     --card-bg: #1e293b;
     /* Gris azulado para el CV */
+    /* Ajusta este valor si quieres mas/menos transparencia en modo oscuro */
+    --card-bg-alpha: rgba(30, 41, 59, 0.92);
     --text-main: #f8fafc;
     /* Texto blanco */
     --text-muted: #94a3b8;
@@ -196,8 +201,8 @@ main {
     /* Ancho máximo del CV */
     margin: 40px auto;
     /* Centrado horizontal */
-    background: var(--card-bg);
-    /* Fondo del papel */
+    background-color: var(--card-bg-alpha);
+    /* Fondo del papel (ajustar transparencia en --card-bg-alpha) */
     padding: 50px;
     /* Espacio interior */
     border-radius: 8px;
