@@ -94,6 +94,10 @@ body {
     margin: 0;
     line-height: 1.6;
 
+    /* Crea contexto para capas del video */
+    position: relative;
+    z-index: 0;
+
     /* Transición suave al cambiar entre modos */
     transition: background-color 0.4s ease, color 0.4s ease;
 }
@@ -105,7 +109,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1;
+    z-index: 0;
     pointer-events: none;
     background: #000;
 }
@@ -201,6 +205,10 @@ main {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     /* Sombra suave */
     border: 1px solid var(--border);
+
+    /* Mantiene el contenido por encima del video */
+    position: relative;
+    z-index: 1;
 
     /* Transición suave al cambiar tema */
     transition: all 0.3s ease;
