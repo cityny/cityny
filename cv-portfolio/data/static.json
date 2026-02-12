@@ -88,13 +88,15 @@
   ],
   "projects": [
     {
-      "name": "Sistema de Domótica con Flutter",
-      "description_es": "Control de luces y temperatura mediante protocolo MQTT.",
-      "description_en": "Light and temperature control using MQTT protocol.",
+      "name": "Calculadora Comisiones BVC",
+      "description_es": "Calculadora rapida y precisa de comisiones y cargos para operaciones en la BVC con Suma Valores.",
+      "description_en": "Fast and accurate commission and fee calculator for BVC operations with Suma Valores.",
+      "url": "https://calculadorave.netlify.app/",
       "technologies": [
-        "Dart",
-        "C++",
-        "ESP32"
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "Netlify"
       ]
     }
   ],

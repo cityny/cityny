@@ -224,10 +224,15 @@ function renderResume() {
     .map((project) => {
       const descKey =
         currentLang === "es" ? "description_es" : "description_en";
+      const linkLabel = currentLang === "es" ? "Ver proyecto" : "View project";
+      const projectLink = project.url
+        ? `<p><a href="${project.url}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> ${linkLabel}</a></p>`
+        : "";
       return `
             <div class="item-box job">
                 <strong>${project.name}</strong>
                 <p>${project[descKey]}</p>
+                ${projectLink}
                 <small><strong>${t.project.technologies_label}:</strong> ${project.technologies.join(", ")}</small>
             </div>
         `;
@@ -492,10 +497,15 @@ function generateResumeHTML() {
     .map((project) => {
       const descKey =
         currentLang === "es" ? "description_es" : "description_en";
+      const linkLabel = currentLang === "es" ? "Ver proyecto" : "View project";
+      const projectLink = project.url
+        ? `<p><a href="${project.url}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> ${linkLabel}</a></p>`
+        : "";
       return `
             <div class="item-box job">
                 <strong>${project.name}</strong>
                 <p>${project[descKey]}</p>
+                ${projectLink}
                 <small><strong>${t.project.technologies_label}:</strong> ${project.technologies.join(", ")}</small>
             </div>
         `;
