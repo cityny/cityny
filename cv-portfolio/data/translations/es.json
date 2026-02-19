@@ -18,7 +18,8 @@
     "location": "📍"
   },
   "job": {
-    "position_label": "Cargo"
+    "position_label": "Cargo",
+    "date_label": "Año"
   },
   "project": {
     "technologies_label": "Tecnologías y Habilidades"

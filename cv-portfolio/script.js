@@ -39,8 +39,8 @@ async function loadResume(lang) {
     // Cargar ambos archivos JSON al mismo tiempo (en paralelo)
     // Promise.all espera que ambos terminen antes de continuar
     const [staticResponse, translationsResponse] = await Promise.all([
-      fetch("data/static.json"), // Datos que no cambian
-      fetch(`data/translations/${lang}.json`), // Traducciones del idioma
+      fetch("data/static.json?v=" + new Date().getTime()), // Evitar caché
+      fetch(`data/translations/${lang}.json?v=${new Date().getTime()}`), // Evitar caché
     ]);
 
     // Verificar que ambas respuestas fueron exitosas (código 200)
@@ -178,10 +178,12 @@ function renderResume() {
     .map((job) => {
       const summaryKey = currentLang === "es" ? "summary_es" : "summary_en";
       const positionKey = currentLang === "es" ? "position_es" : "position_en";
+      const periodKey = currentLang === "es" ? "period_es" : "period_en";
       return `
             <div class="item-box job">
                 <strong><span class="material-symbols-outlined">work</span> ${t.job.position_label}: ${job[positionKey]}</strong>
                 <span class="company">${job.company}</span>
+                <span class="job-period"><strong>${t.job.date_label}:</strong> ${job[periodKey]}</span>
                 <p>${job[summaryKey]}</p>
             </div>
         `;
@@ -359,7 +361,7 @@ async function printBothLanguages() {
     englishSection.className = "print-page";
 
     // Cargar traducciones en inglés para la versión EN
-    const enTranslationsResponse = await fetch("data/translations/en.json");
+    const enTranslationsResponse = await fetch(`data/translations/en.json?v=${new Date().getTime()}`);
     const enTranslations = await enTranslationsResponse.json();
     translations = enTranslations;
     currentLang = "en";
@@ -381,17 +383,12 @@ async function printBothLanguages() {
     // Ejecutar impresión
     window.print();
 
-    // Después de imprimir, restaurar versión original
-    document
-      .getElementById("resume-container")
-      .classList.remove("skills-print");
-    currentLang = originalLang;
-    renderResume();
+    // Después de imprimir, restaurar versión original (recargando traducciones si es necesario)
+    setLanguage(originalLang);
   } catch (error) {
     console.error("Error al imprimir:", error);
     // Restaurar en caso de error también
-    currentLang = originalLang;
-    renderResume();
+    setLanguage(originalLang);
   }
 }
 
@@ -459,10 +456,12 @@ function generateResumeHTML() {
     .map((job) => {
       const summaryKey = currentLang === "es" ? "summary_es" : "summary_en";
       const positionKey = currentLang === "es" ? "position_es" : "position_en";
+      const periodKey = currentLang === "es" ? "period_es" : "period_en";
       return `
             <div class="item-box job">
                 <strong><span class="material-symbols-outlined">work</span> ${t.job.position_label}: ${job[positionKey]}</strong>
                 <span class="company">${job.company}</span>
+                <span class="job-period"><strong>${t.job.date_label}:</strong> ${job[periodKey]}</span>
                 <p>${job[summaryKey]}</p>
             </div>
         `;

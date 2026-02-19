@@ -491,8 +491,16 @@ nav button:hover {
     color: var(--text-main);
     /* Nombre empresa en color principal */
     display: block;
-    margin-bottom: 0px;
-    /* Ajusta el espacio entre empresa y fecha */
+    margin-bottom: 2px;
+    /* Ajusta el espacio entre empresa y periodo */
+}
+
+.job-period {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    /* Espacio antes del resumen */
 }
 
 /* Texto muted/secundario para labels como "Cargo:" */

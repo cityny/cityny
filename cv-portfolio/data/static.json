@@ -54,10 +54,32 @@
   ],
   "experience": [
     {
+      "company": "San Simón Planta de Leche",
+      "position_es": "Supervisor de Mantenimiento Industrial",
+      "position_en": "Industrial Maintenance Supervisor",
+      "period_es": "Enero 2022 - Actualmente",
+      "period_en": "January 2022 - Present",
+      "startDate": "2022-01-01",
+      "summary_es": "Mantenimiento de maquinaria industrial y gestión de personal.",
+      "summary_en": "Maintenance of industrial machinery and personnel management."
+    },
+    {
+      "company": "Fundasteam - Panama",
+      "position_es": "Profesor de Robótica Remoto",
+      "position_en": "Remote Robotics Teacher",
+      "period_es": "Enero 2021",
+      "period_en": "January 2021",
+      "startDate": "2021-01-01",
+      "summary_es": "Enseñanza remota de robótica a estudiantes.",
+      "summary_en": "Remote robotics teaching to students."
+    },
+    {
       "company": "Ingeolan - Venezuela",
       "position_es": "Entrevistador de Campo",
       "position_en": "Field Interviewer",
-      "startDate": "20XX-XX-XX",
+      "period_es": "Enero 2020",
+      "period_en": "January 2020",
+      "startDate": "2020-01-01",
       "summary_es": "Entrevistas de campo para selección de personal.",
       "summary_en": "Field interviews for personnel selection."
     },
@@ -65,25 +87,11 @@
       "company": "URBE - Universidad Rafael Belloso Chacín",
       "position_es": "Asistente de Laboratorio",
       "position_en": "Laboratory Assistant",
-      "startDate": "20XX-XX-XX",
+      "period_es": "Abril 2015",
+      "period_en": "April 2015",
+      "startDate": "2015-04-01",
       "summary_es": "Preparacion del laboratorio y asistencia en clases.",
       "summary_en": "Preparation of laboratory and assistance in classes."
-    },
-    {
-      "company": "Fundasteam - Panama",
-      "position_es": "Profesor de Robótica Remoto",
-      "position_en": "Remote Robotics Teacher",
-      "startDate": "20XX-XX-XX",
-      "summary_es": "Enseñanza remota de robótica a estudiantes.",
-      "summary_en": "Remote robotics teaching to students."
-    },
-    {
-      "company": "San Simón Planta de Leche",
-      "position_es": "Supervisor de Mantenimiento Industrial",
-      "position_en": "Industrial Maintenance Supervisor",
-      "startDate": "2022-04-15",
-      "summary_es": "Mantenimiento de maquinaria industrial y gestión de personal.",
-      "summary_en": "Maintenance of industrial machinery and personnel management."
     }
   ],
   "projects": [
