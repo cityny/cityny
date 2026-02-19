@@ -88,11 +88,35 @@
   ],
   "projects": [
     {
+      "name": "Armado Torre de Enfriamiento - San Simón",
+      "description_es": "Supervisión y colaboración directa en el armado de torre de enfriamiento para la Planta de Leche San Simón (El Guayabo). Liderazgo de cuadrilla y coordinación técnica.",
+      "description_en": "Direct supervision and collaboration in the assembly of a cooling tower for the San Simón Milk Plant (El Guayabo). Team leadership and technical coordination.",
+      "video": "assets/Armado torre de enfriamiento.mp4",
+      "technologies_es": [
+        "Liderazgo",
+        "Comunicación Asertiva",
+        "Trabajo en Equipo",
+        "Supervisión Técnica"
+      ],
+      "technologies_en": [
+        "Leadership",
+        "Assertive Communication",
+        "Teamwork",
+        "Technical Supervision"
+      ]
+    },
+    {
       "name": "Calculadora Comisiones BVC",
       "description_es": "Calculadora rapida y precisa de comisiones y cargos para operaciones en la BVC con Suma Valores.",
       "description_en": "Fast and accurate commission and fee calculator for BVC operations with Suma Valores.",
       "url": "https://calculadorave.netlify.app/",
-      "technologies": [
+      "technologies_es": [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "Netlify"
+      ],
+      "technologies_en": [
         "React",
         "Vite",
         "Tailwind CSS",
@@ -104,7 +128,13 @@
       "description_es": "Genera un calendario anual PDF para ciclos rotativos definiendo fecha inicial, dias de salida/regreso y duracion laboral.",
       "description_en": "Generates a full-year PDF calendar for rotating cycles based on start date, leave/return days and work period duration.",
       "url": "https://calendarioturno.netlify.app/",
-      "technologies": [
+      "technologies_es": [
+        "TypeScript",
+        "React",
+        "Vite",
+        "TailwindCSS"
+      ],
+      "technologies_en": [
         "TypeScript",
         "React",
         "Vite",
@@ -116,7 +146,13 @@
       "description_es": "Controla deudas y prestamos personales, registra contactos y conserva el historial de transacciones desde tu movil.",
       "description_en": "Manage personal debts and loans, track contacts, and keep a clear history of transactions from your phone.",
       "url": "https://play.google.com/store/apps/details?id=com.deudaflow.app",
-      "technologies": [
+      "technologies_es": [
+        "Flutter",
+        "Supabase",
+        "PostgreSQL",
+        "Android"
+      ],
+      "technologies_en": [
         "Flutter",
         "Supabase",
         "PostgreSQL",

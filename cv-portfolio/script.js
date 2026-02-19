@@ -148,15 +148,15 @@ function renderResume() {
                 <strong>${skill[categoryKey]}:</strong>
                 <div class="skills-badges">
                     ${skill.keywords
-                      .map((k) => {
-                        if (k.logo && k.logo.startsWith("http")) {
-                          return `
+          .map((k) => {
+            if (k.logo && k.logo.startsWith("http")) {
+              return `
                   <div class="custom-badge-container" title="${k.name}">
                     <img src="${k.logo}" alt="${k.name}" loading="lazy" decoding="async">
                     <span>${k.badge}</span>
                   </div>`;
-                        }
-                        return `
+            }
+            return `
                 <img src="https://img.shields.io/badge/-${k.badge}-05122A?style=flat&logo=${k.logo || k.badge}" 
                      alt="${k.name}" 
                      title="${k.name}"
@@ -164,8 +164,8 @@ function renderResume() {
                      loading="lazy"
                      decoding="async">
               `;
-                      })
-                      .join("")}
+          })
+          .join("")}
                 </div>
             </div>
         `;
@@ -228,12 +228,17 @@ function renderResume() {
       const projectLink = project.url
         ? `<p><a href="${project.url}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> ${linkLabel}</a></p>`
         : "";
+      const projectVideoButton = project.video
+        ? `<p><button class="project-action-link" onclick="openVideoModal('${project.video}')"><i class="fa-solid fa-arrow-up-right-from-square"></i> ${linkLabel}</button></p>`
+        : "";
+      const techKey = currentLang === "es" ? "technologies_es" : "technologies_en";
       return `
             <div class="item-box job">
                 <strong>${project.name}</strong>
                 <p>${project[descKey]}</p>
+                ${projectVideoButton}
                 ${projectLink}
-                <small><strong>${t.project.technologies_label}:</strong> ${project.technologies.join(", ")}</small>
+                <small><strong>${t.project.technologies_label}:</strong> ${project[techKey].join(", ")}</small>
             </div>
         `;
     })
@@ -427,22 +432,22 @@ function generateResumeHTML() {
                 <strong>${skill[categoryKey]}:</strong>
                 <div class="skills-badges">
                     ${skill.keywords
-                      .map((k) => {
-                        if (k.logo && k.logo.startsWith("http")) {
-                          return `
+          .map((k) => {
+            if (k.logo && k.logo.startsWith("http")) {
+              return `
                   <div class="custom-badge-container" title="${k.name}">
                     <img src="${k.logo}" alt="${k.name}">
                     <span>${k.badge}</span>
                   </div>`;
-                        }
-                        return `
+            }
+            return `
                 <img src="https://img.shields.io/badge/-${k.badge}-05122A?style=flat&logo=${k.logo || k.badge}" 
                      alt="${k.name}" 
                      title="${k.name}"
                      class="skill-badge">
               `;
-                      })
-                      .join("")}
+          })
+          .join("")}
                 </div>
             </div>
         `;
@@ -501,12 +506,17 @@ function generateResumeHTML() {
       const projectLink = project.url
         ? `<p><a href="${project.url}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> ${linkLabel}</a></p>`
         : "";
+      const projectVideoButton = project.video
+        ? `<p><button class="project-action-link" onclick="openVideoModal('${project.video}')"><i class="fa-solid fa-arrow-up-right-from-square"></i> ${linkLabel}</button></p>`
+        : "";
+      const techKey = currentLang === "es" ? "technologies_es" : "technologies_en";
       return `
             <div class="item-box job">
                 <strong>${project.name}</strong>
                 <p>${project[descKey]}</p>
+                ${projectVideoButton}
                 ${projectLink}
-                <small><strong>${t.project.technologies_label}:</strong> ${project.technologies.join(", ")}</small>
+                <small><strong>${t.project.technologies_label}:</strong> ${project[techKey].join(", ")}</small>
             </div>
         `;
     })
@@ -551,3 +561,36 @@ function generateResumeHTML() {
         </section>
     `;
 }
+
+// =============================================================================
+// SECCIÓN 7: LÓGICA DEL MODAL DE VIDEO
+// =============================================================================
+
+function openVideoModal(videoSrc) {
+  const modal = document.getElementById("video-modal");
+  const container = document.getElementById("modal-video-container");
+
+  container.innerHTML = `
+        <video controls autoplay>
+            <source src="${videoSrc}" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+    `;
+
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden"; // Evita scroll de fondo
+}
+
+function closeVideoModal() {
+  const modal = document.getElementById("video-modal");
+  const container = document.getElementById("modal-video-container");
+
+  container.innerHTML = ""; // Detiene el video al cerrar
+  modal.classList.remove("active");
+  document.body.style.overflow = "auto";
+}
+
+// Cerrar modal con la tecla Esc
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeVideoModal();
+});
