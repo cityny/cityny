@@ -650,6 +650,22 @@ nav button:hover {
     .project-video-container {
         display: none !important;
     }
+
+    /* Reducción de espacio en experiencia laboral */
+    .job {
+        margin-bottom: 15px !important;
+        /* Reducido de 25px */
+    }
+
+    .job-period {
+        margin-bottom: 0px !important;
+        /* Reducido de 8px */
+    }
+
+    .job p {
+        margin-top: 0px !important;
+        /* Reducido de 2px */
+    }
 }
 
 /* --- Estilos para enlaces de acción (Unificados) --- */
