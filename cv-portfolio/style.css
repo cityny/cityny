@@ -606,7 +606,7 @@ nav button:hover {
         border: none;
         border-radius: 0;
         margin: 0;
-        padding: 0 15mm;
+        padding: 0 8mm;
         /* Solo padding LATERAL — top/bottom los controla la tabla */
         max-width: 100%;
         background: white !important;
