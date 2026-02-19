@@ -643,6 +643,18 @@ nav button:hover {
         padding: 0;
     }
 
+    /* Forzar que los navegadores impriman colores de fondo CSS.
+       Sin esto, Chrome/Edge suprimen el background-color #05122a de
+       los custom badges (Microsoft 365, Analista de Datos). */
+    .custom-badge-container {
+        -webkit-print-color-adjust: exact;
+        /* Chrome, Edge, Safari */
+        print-color-adjust: exact;
+        /* Estándar W3C (Firefox) */
+        background-color: #05122a !important;
+        color: #ffffff !important;
+    }
+
     /* Forzar colores de "Modo Claro" para impresión siempre (Ahorro de tinta y legibilidad) */
     body,
     body.dark-theme {
