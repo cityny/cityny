@@ -758,6 +758,32 @@ nav button:hover {
         margin-top: 0px !important;
         /* Reducido de 2px */
     }
+
+    /* Idiomas en una sola fila horizontal para ahorrar espacio vertical */
+    .languages-section .item-box:not(:first-child)::before {
+        content: " | ";
+        margin: 0 6px;
+        color: var(--border);
+    }
+
+    .languages-section {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0;
+    }
+
+    /* El h3 ocupa toda la fila, los item-box se alinean en la siguiente */
+    .languages-section h3 {
+        width: 100%;
+        margin-bottom: 4px;
+    }
+
+    .languages-section .item-box {
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: 0 !important;
+    }
 }
 
 /* --- Estilos para enlaces de acción (Unificados) --- */

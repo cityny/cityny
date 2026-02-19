@@ -214,7 +214,7 @@ function renderResume() {
       return `
             <div class="item-box">
                 <span class="material-symbols-outlined">language</span>
-                <strong>${lang[langKey]}</strong> - ${lang[levelKey]}
+                <strong>${lang[langKey]}</strong>&nbsp;&ndash;&nbsp;${lang[levelKey]}
             </div>
         `;
     })
@@ -288,7 +288,7 @@ function renderResume() {
                 ${educationHtml}
             </section>
 
-            <section>
+            <section class="languages-section">
                 <h3>${t.sections.languages}</h3>
                 ${languagesHtml}
             </section>
@@ -508,7 +508,7 @@ function generateResumeHTML() {
       return `
             <div class="item-box">
                 <span class="material-symbols-outlined">language</span>
-                <strong>${lang[langKey]}</strong> - ${lang[levelKey]}
+                <strong>${lang[langKey]}</strong>&nbsp;&ndash;&nbsp;${lang[levelKey]}
             </div>
         `;
     })
@@ -581,7 +581,7 @@ function generateResumeHTML() {
                 ${educationHtml}
             </section>
 
-            <section>
+            <section class="languages-section">
                 <h3>${t.sections.languages}</h3>
                 ${languagesHtml}
             </section>
