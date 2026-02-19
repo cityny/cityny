@@ -247,44 +247,62 @@ function renderResume() {
     .join("");
 
   // --- Construir HTML final ---
-  // Ensambla todas las secciones generadas en el contenedor principal
+  // El contenido se envuelve en una <table> para que el <thead> actúe como
+  // margen superior automático en CADA página durante la impresión.
   container.innerHTML = `
-        <header>
-            <h1>${s.basics.name}</h1>
-            <p class="subtitle">${currentLang === "es" ? "Ingeniero Electrónico & Desarrollador Junior" : "Electronic Engineer & Junior Developer"}</p>
-            
-            <div class="contact-info">
-                ${contactLinks.join(" | ")}
-            </div>
-        </header>
+    <table class="cv-print-table">
+      <thead>
+        <tr>
+          <td>
+            <!-- Espacio en blanco que se repite como margen superior en cada página impresa -->
+            <div class="cv-page-header-space"></div>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="cv-print-cell">
 
-        <section>
-            <h3>${t.sections.technical_skills}</h3>
-            <div class="skills-grid">
-                ${skillsHtml}
-            </div>
-        </section>
+            <header>
+                <h1>${s.basics.name}</h1>
+                <p class="subtitle">${currentLang === "es" ? "Ingeniero Electrónico & Desarrollador Junior" : "Electronic Engineer & Junior Developer"}</p>
+                <div class="contact-info">
+                    ${contactLinks.join(" | ")}
+                </div>
+            </header>
 
-        <section>
-            <h3>${t.sections.work_experience}</h3>
-            ${experienceHtml}
-        </section>
+            <section>
+                <h3>${t.sections.technical_skills}</h3>
+                <div class="skills-grid">
+                    ${skillsHtml}
+                </div>
+            </section>
 
-        <section>
-            <h3>${t.sections.education}</h3>
-            ${educationHtml}
-        </section>
+            <section>
+                <h3>${t.sections.work_experience}</h3>
+                ${experienceHtml}
+            </section>
 
-        <section>
-            <h3>${t.sections.languages}</h3>
-            ${languagesHtml}
-        </section>
+            <section>
+                <h3>${t.sections.education}</h3>
+                ${educationHtml}
+            </section>
 
-        <section>
-            <h3>${t.sections.featured_projects}</h3>
-            ${projectsHtml}
-        </section>
-    `;
+            <section>
+                <h3>${t.sections.languages}</h3>
+                ${languagesHtml}
+            </section>
+
+            <section>
+                <h3>${t.sections.featured_projects}</h3>
+                ${projectsHtml}
+            </section>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  `;
 }
 
 // =============================================================================
@@ -522,43 +540,62 @@ function generateResumeHTML() {
     .join("");
 
   // --- Construir HTML final ---
+  // Mismo patrón de tabla: el <thead> se repite en cada página impresa
+  // garantizando el margen superior de 15mm en TODAS las páginas (incluida la EN).
   return `
-        <header>
-            <h1>${s.basics.name}</h1>
-            <p class="subtitle">${currentLang === "es" ? "Ingeniero Electrónico & Desarrollador Junior" : "Electronic Engineer & Junior Developer"}</p>
-            
-            <div class="contact-info">
-                ${contactLinks.join(" | ")}
-            </div>
-        </header>
+    <table class="cv-print-table">
+      <thead>
+        <tr>
+          <td>
+            <!-- Espacio en blanco que se repite como margen superior en cada página impresa -->
+            <div class="cv-page-header-space"></div>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="cv-print-cell">
 
-        <section>
-            <h3>${t.sections.technical_skills}</h3>
-            <div class="skills-grid">
-                ${skillsHtml}
-            </div>
-        </section>
+            <header>
+                <h1>${s.basics.name}</h1>
+                <p class="subtitle">${currentLang === "es" ? "Ingeniero Electrónico & Desarrollador Junior" : "Electronic Engineer & Junior Developer"}</p>
+                <div class="contact-info">
+                    ${contactLinks.join(" | ")}
+                </div>
+            </header>
 
-        <section>
-            <h3>${t.sections.work_experience}</h3>
-            ${experienceHtml}
-        </section>
+            <section>
+                <h3>${t.sections.technical_skills}</h3>
+                <div class="skills-grid">
+                    ${skillsHtml}
+                </div>
+            </section>
 
-        <section>
-            <h3>${t.sections.education}</h3>
-            ${educationHtml}
-        </section>
+            <section>
+                <h3>${t.sections.work_experience}</h3>
+                ${experienceHtml}
+            </section>
 
-        <section>
-            <h3>${t.sections.languages}</h3>
-            ${languagesHtml}
-        </section>
+            <section>
+                <h3>${t.sections.education}</h3>
+                ${educationHtml}
+            </section>
 
-        <section>
-            <h3>${t.sections.featured_projects}</h3>
-            ${projectsHtml}
-        </section>
-    `;
+            <section>
+                <h3>${t.sections.languages}</h3>
+                ${languagesHtml}
+            </section>
+
+            <section>
+                <h3>${t.sections.featured_projects}</h3>
+                ${projectsHtml}
+            </section>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  `;
 }
 
 // =============================================================================
