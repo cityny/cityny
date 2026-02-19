@@ -583,6 +583,11 @@ nav button:hover {
         padding: 0;
     }
 
+    /* Reducir espacio superior en títulos de sección */
+    h3 {
+        margin-top: 15px !important;
+    }
+
     /* Salto de página para la versión en inglés */
     .print-page {
         page-break-before: always;
@@ -614,8 +619,24 @@ nav button:hover {
         display: grid;
         grid-template-columns: 1fr 1fr;
         /* Dos columnas iguales */
-        gap: 15px;
-        /* Espacio entre columnas */
+        gap: 10px;
+        /* Espacio entre columnas reducido de 15px a 10px */
+    }
+
+    /* Reducción de espacios en categorías de habilidades */
+    .skills-grid .item-box {
+        margin-bottom: 0px !important;
+    }
+
+    /* Reducción de espacio entre el título de categoría y los badges */
+    .skills-badges {
+        margin-top: 2px !important;
+        gap: 2px !important;
+    }
+
+    /* Reducción de margen en badges personalizados */
+    .custom-badge-container {
+        margin: 1px 0 !important;
     }
 
     /* Items de habilidades en columnas */
