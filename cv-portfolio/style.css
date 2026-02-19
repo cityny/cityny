@@ -575,10 +575,34 @@ nav button:hover {
         /* Padding interno para que el contenido no toque los bordes */
     }
 
+    /* Forzar colores de "Modo Claro" para impresión siempre (Ahorro de tinta y legibilidad) */
+    body,
+    body.dark-theme {
+        --primary: #2563eb !important;
+        --bg: #ffffff !important;
+        --card-bg: #ffffff !important;
+        --card-bg-alpha: #ffffff !important;
+        --text-main: #0f172a !important;
+        --text-muted: #64748b !important;
+        --border: #e2e8f0 !important;
+    }
+
+    /* Asegurar que iconos y enlaces sean oscuros en impresión aunque esté el modo dark activo */
+    body.dark-theme .icon-contact,
+    body.dark-theme .social-icon,
+    body.dark-theme a,
+    body.dark-theme .project-action-link {
+        color: var(--primary) !important;
+    }
+
+    body.dark-theme .location-text {
+        color: var(--text-main) !important;
+    }
+
     /* Fondo blanco para impresión */
     body {
-        background: white;
-        color: black;
+        background: white !important;
+        color: black !important;
         margin: 0;
         padding: 0;
     }
