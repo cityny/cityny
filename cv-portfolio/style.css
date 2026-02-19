@@ -613,14 +613,14 @@ nav button:hover {
         padding-top: 20px;
     }
 
-    /* Habilidades en 2 columnas al imprimir (AMBOS IDIOMAS) */
+    /* Habilidades en 3 columnas al imprimir (AMBOS IDIOMAS) */
     main.skills-print .skills-grid,
     .print-page .skills-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        /* Dos columnas iguales */
-        gap: 10px;
-        /* Espacio entre columnas reducido de 15px a 10px */
+        grid-template-columns: 1fr 1fr 1fr;
+        /* Tres columnas iguales */
+        gap: 8px;
+        /* Espacio entre columnas reducido para acomodar la tercera columna */
     }
 
     /* Reducción de espacios en categorías de habilidades */
