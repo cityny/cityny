@@ -323,20 +323,7 @@ h3 {
     /* Espacio entre categoría y badges */
 }
 
-/* Estilo para los badges de shield.io */
-.skill-badge {
-    height: 22px;
-    /* Altura consistente */
-    vertical-align: middle;
-    /* Alineación vertical */
-    transition: transform 0.2s ease;
-    /* Animación suave */
-}
-
-.skill-badge:hover {
-    transform: scale(1.05);
-    /* Efecto al pasar el mouse */
-}
+/* Estilos de Badges (Estructura Unificada) */
 
 /* Badge personalizado que imita a Shields.io para logos externos */
 .custom-badge-container {
@@ -643,31 +630,26 @@ nav button:hover {
         padding: 0;
     }
 
-    /* Formato de impresión para badges personalizados (Excel, Word, etc.) */
+    /* Formato de impresión para TODOS los badges */
     .custom-badge-container {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
         background-color: #ffffff !important;
         color: #000000 !important;
         border: 1px solid #000000 !important;
+        border-radius: 3px !important;
         padding: 0 6px !important;
+        height: 18px !important;
+        margin: 1px 0 !important;
     }
 
-    /* Mostrar logo en badges personalizados al imprimir */
+    /* Mostrar logo en todos los badges al imprimir */
     .custom-badge-container img {
         display: inline-block !important;
-        height: 12px !important;
+        height: 11px !important;
         width: auto !important;
         margin-right: 4px !important;
         vertical-align: middle !important;
-    }
-
-    /* Estilos para badges transformados por Canvas */
-    .skill-badge {
-        background: transparent !important;
-        border: none !important;
-        /* Fallback si el canvas falla */
-        filter: none;
     }
 
     /* Forzar colores de "Modo Claro" para impresión siempre (Ahorro de tinta y legibilidad) */
