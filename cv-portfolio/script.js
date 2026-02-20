@@ -112,6 +112,9 @@ function renderResume() {
   const t = translations; // Atajo para traducciones
   const s = staticData; // Atajo para datos estáticos
 
+  // --- Obtener URL base limpia (sin parámetros ni anclas) ---
+  const currentFullUrl = window.location.href.split('?')[0].split('#')[0];
+
   // --- Generar enlaces de contacto ---
   // Crea enlaces cliqueables para email, teléfonos, ubicación y perfiles
   // Mapeo de iconos de Font Awesome para redes sociales
@@ -259,11 +262,11 @@ function renderResume() {
 
             <header>
                 <h1>
-                  <a href="${window.location.origin}" style="text-decoration: none; color: inherit;">${s.basics.name}</a>
+                  <a href="${currentFullUrl}" style="text-decoration: none; color: inherit;">${s.basics.name}</a>
                   <span class="qr-container">
                     <span class="material-symbols-outlined qr-icon">qr_code_2</span>
                     <div class="qr-popup">
-                      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(window.location.origin)}" alt="QR Code">
+                      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(currentFullUrl)}" alt="QR Code">
                       <p>${currentLang === 'es' ? 'Escanea para ver online' : 'Scan to view online'}</p>
                     </div>
                   </span>
@@ -430,6 +433,7 @@ function getLogoSlug(label, logo) {
 function generateResumeHTML() {
   const t = translations;
   const s = staticData;
+  const currentFullUrl = window.location.href.split('?')[0].split('#')[0];
 
   // --- Generar enlaces de contacto ---
   const socialIcons = {
@@ -567,11 +571,11 @@ function generateResumeHTML() {
 
             <header>
                 <h1>
-                  <a href="${window.location.origin}" style="text-decoration: none; color: inherit;">${s.basics.name}</a>
+                  <a href="${currentFullUrl}" style="text-decoration: none; color: inherit;">${s.basics.name}</a>
                   <span class="qr-container">
                     <span class="material-symbols-outlined qr-icon">qr_code_2</span>
                     <div class="qr-popup">
-                      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(window.location.origin)}" alt="QR Code">
+                      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(currentFullUrl)}" alt="QR Code">
                       <p>${currentLang === 'es' ? 'Escanea para ver online' : 'Scan to view online'}</p>
                     </div>
                   </span>
