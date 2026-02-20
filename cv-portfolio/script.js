@@ -258,7 +258,16 @@ function renderResume() {
           <td class="cv-print-cell">
 
             <header>
-                <h1><a href="${window.location.origin}" style="text-decoration: none; color: inherit;">${s.basics.name}</a></h1>
+                <h1>
+                  <a href="${window.location.origin}" style="text-decoration: none; color: inherit;">${s.basics.name}</a>
+                  <span class="qr-container">
+                    <span class="material-symbols-outlined qr-icon">qr_code_2</span>
+                    <div class="qr-popup">
+                      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(window.location.origin)}" alt="QR Code">
+                      <p>${currentLang === 'es' ? 'Escanea para ver online' : 'Scan to view online'}</p>
+                    </div>
+                  </span>
+                </h1>
                 <p class="subtitle">${currentLang === "es" ? "Ingeniero Electrónico & Desarrollador Junior" : "Electronic Engineer & Junior Developer"}</p>
                 <div class="contact-info">
                     ${contactLinks.join(" | ")}
@@ -557,7 +566,16 @@ function generateResumeHTML() {
           <td class="cv-print-cell">
 
             <header>
-                <h1><a href="${window.location.origin}" style="text-decoration: none; color: inherit;">${s.basics.name}</a></h1>
+                <h1>
+                  <a href="${window.location.origin}" style="text-decoration: none; color: inherit;">${s.basics.name}</a>
+                  <span class="qr-container">
+                    <span class="material-symbols-outlined qr-icon">qr_code_2</span>
+                    <div class="qr-popup">
+                      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(window.location.origin)}" alt="QR Code">
+                      <p>${currentLang === 'es' ? 'Escanea para ver online' : 'Scan to view online'}</p>
+                    </div>
+                  </span>
+                </h1>
                 <p class="subtitle">${currentLang === "es" ? "Ingeniero Electrónico & Desarrollador Junior" : "Electronic Engineer & Junior Developer"}</p>
                 <div class="contact-info">
                     ${contactLinks.join(" | ")}
