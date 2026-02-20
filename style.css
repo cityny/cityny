@@ -1,0 +1,1003 @@
+/**
+ * =============================================================================
+ * ESTILOS DEL CV-PORTFOLIO
+ * =============================================================================
+ * Documentación de colores y selectores según el contenido del CV
+ * =============================================================================
+ */
+
+/* =============================================================================
+ * SECCIÓN 1: PALETA DE COLORES (MODO CLARO - POR DEFECTO)
+ * =============================================================================
+ * Estos son los colores base que se usan en todo el CV
+ */
+
+:root {
+    /* --- Colores Principales --- */
+    --primary: #2563eb;
+    /* Azul profesional - Se aplica a:
+                              - Título principal (h1): "Dionny Jose Núñez Márquez"
+                              - Títulos de sección (h3): "Habilidades Técnicas", "Experiencia..."
+                              - Borde izquierdo de experiencia (.job)
+                              - Efecto hover en botones y enlaces */
+
+    /* --- Colores de Fondo --- */
+    --bg: #f1f5f9;
+    /* Fondo de la página - Se aplica a:
+                              - body (fondo general de la página)
+                              - Botones (background)
+                              - Etiquetas skills (.skill-tag background) */
+
+    --card-bg: #ffffff;
+    /* Fondo del "papel" del CV - Se aplica a:
+                              - main (contenedor principal del CV)
+                              - nav (barra superior de controles)
+                              - item-box (cada tarjeta de contenido) */
+
+    /* Ajusta este valor si quieres mas/menos transparencia en el resume container CV */
+    --card-bg-alpha: rgba(255, 255, 255, 0.92);
+
+    /* --- Colores de Texto --- */
+    --text-main: #0f172a;
+    /* Texto principal - Se aplica a:
+                              - body (texto general)
+                              - Títulos h1, h3
+                              - Nombre de empresas (.company)
+                              - Botones (color de texto) */
+
+    --text-muted: #64748b;
+    /* Texto secundario - Se aplica a:
+                              - Información de contacto (.contact-info)
+                              - Labels de /posición */
+
+    --border: #e2e8f0;
+    /* Color de bordes - Se aplica a:
+                              - Borde inferior de nav
+                              - Borde de main
+                              - Borde de botones
+                              - Borde de skill-tags
+                              - Línea bajo títulos h3 */
+}
+
+/* =============================================================================
+ * SECCIÓN 2: PALETA DE COLORES (MODO OSCURO)
+ * =============================================================================
+ * Colores invertidos para mejor lectura en entornos oscuros
+ */
+
+body.dark-theme {
+    --primary: #f2f2f2;
+    /* Azul más brillante para oscuro */
+    --bg: #020617;
+    /* Fondo casi negro */
+    --card-bg: #1e293b;
+    /* Gris azulado para el CV */
+    /* Ajusta este valor si quieres mas/menos transparencia en modo oscuro */
+    --card-bg-alpha: rgba(30, 41, 59, 0.92);
+    --text-main: #f8fafc;
+    /* Texto blanco */
+    --text-muted: #94a3b8;
+    /* Gris claro para detalles */
+    --border: #334155;
+    /* Borde más oscuro */
+}
+
+/* =============================================================================
+ * SECCIÓN 3: ELEMENTOS GENERALES
+ * =============================================================================
+ */
+
+body {
+    /* Fondo de toda la página */
+    background-color: var(--bg);
+
+    /* Color del texto general */
+    color: var(--text-main);
+
+    /* Tipografía */
+    font-family: 'Inter', -apple-system, sans-serif;
+    margin: 0;
+
+    /* --- Icono QR interactivo --- */
+    .qr-container {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        cursor: help;
+        margin-left: 8px;
+        vertical-align: middle;
+        /* Evitar selección de texto en móvil */
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+
+    .qr-icon {
+        font-size: 24px !important;
+        color: var(--text-muted);
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .qr-container:hover .qr-icon {
+        color: var(--primary);
+        transform: scale(1.1);
+    }
+
+    .qr-popup {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(10px);
+        background: white;
+        padding: 12px;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        display: none;
+        z-index: 2000;
+        text-align: center;
+        width: 170px;
+        border: 1px solid var(--border);
+    }
+
+    .qr-popup img {
+        width: 150px;
+        height: 150px;
+        display: block;
+        margin: 0 auto 8px;
+    }
+
+    .qr-popup p {
+        margin: 0;
+        font-size: 12px;
+        color: #333;
+        font-weight: normal;
+    }
+
+    .qr-container:hover .qr-popup {
+        display: block;
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(10px);
+        }
+    }
+
+    /* Ocultar QR en impresión para mantener estética limpia */
+    @media print {
+        .qr-container {
+            display: none !important;
+        }
+    }
+
+    /* Crea contexto para capas del video */
+    position: relative;
+    z-index: 0;
+
+    /* Transición suave al cambiar entre modos */
+    transition: background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+/* Video de fondo a pantalla completa */
+.bg-video {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+    background: #000;
+}
+
+/* Evita scroll horizontal si el video ocupa toda la pantalla */
+body {
+    overflow-x: hidden;
+}
+
+/* --- Estilos para Enlaces --- */
+a {
+    color: var(--primary);
+    /* Azul profesional en modo claro */
+    text-decoration: none;
+    /* Quitar subrayado por defecto */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+    /* Subrayado al pasar el mouse */
+}
+
+/* Enlaces en modo oscuro */
+body.dark-theme a {
+    color: #ffffff;
+    /* Blanco puro en modo oscuro */
+}
+
+
+/* =============================================================================
+ * SECCIÓN 4: BARRA DE NAVEGACIÓN (nav)
+ * =============================================================================
+ * Barra superior con botones de tema e idioma
+ * 
+ * Ejemplo visual:
+ * ┌─────────────────────────────────────────────────────┐
+ * │                       [🌓 Modo] [🇪🇸 ES] [🇺🇸 EN]   │
+ * └─────────────────────────────────────────────────────┘
+ */
+
+nav {
+    position: sticky;
+    /* Se mantiene visible al hacer scroll */
+    top: 0;
+    /* Pegada arriba */
+    background: var(--card-bg);
+    /* Fondo del navbar */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+    /* Botones alineados a la derecha */
+    gap: 10px;
+    /* Espacio entre botones */
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    /* Siempre encima del contenido */
+}
+
+/* =============================================================================
+ * SECCIÓN 5: CONTENEDOR PRINCIPAL (main) - "EL PAPEL DEL CV"
+ * =============================================================================
+ * Área blanca/oscura donde aparece todo el contenido del CV
+ * 
+ * Ejemplo visual:
+ * ┌─────────────────────────────────────────────────────────────┐
+ * │                                                             │
+ * │   Dionny Jose Núñez Márquez                                 │
+ * │   Ingeniero Electrónico & Desarrollador Junior              │
+ * │                                                             │
+ * │   📧 dionnyn@gmail.com | 📱 +58 414... | 📍 Maracaibo...   │
+ * │                                                             │
+ * │   ────────────────────────────                              │
+ * │   HABILIDADES TÉCNICAS                                      │
+ * │   ┌─────────────────────────────────────┐                    │
+ * │   │ Desarrollo Móvil: Flutter Dart...  │                    │
+ * │   └─────────────────────────────────────┘                    │
+ * │                                                             │
+ * └─────────────────────────────────────────────────────────────┘
+ */
+
+main {
+    max-width: 850px;
+    /* Ancho máximo del CV */
+    margin: 40px auto;
+    /* Centrado horizontal */
+    background-color: var(--card-bg-alpha);
+    /* Fondo del papel (ajustar transparencia en --card-bg-alpha) */
+    padding: 50px;
+    /* Espacio interior */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    /* Sombra suave */
+    border: 1px solid var(--border);
+
+    /* Mantiene el contenido por encima del video */
+    position: relative;
+    z-index: 1;
+
+    /* Transición suave al cambiar tema */
+    transition: all 0.3s ease;
+}
+
+/* =============================================================================
+ * TABLA DE IMPRESIÓN (.cv-print-table)
+ * =============================================================================
+ * Estructura de tabla que permite al <thead> repetirse en cada página:
+ *   <table class="cv-print-table">
+ *     <thead>  ← se reproduce al inicio de CADA página impresa
+ *       <tr><td><div class="cv-page-header-space"></div></td></tr>
+ *     </thead>
+ *     <tbody>
+ *       <tr><td class="cv-print-cell"> ... contenido ... </td></tr>
+ *     </tbody>
+ *   </table>
+ */
+
+/* En pantalla: la tabla no altera el layout, ocupa todo el ancho disponible */
+.cv-print-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* En pantalla: el espacio de cabecera es invisible (height 0) */
+.cv-page-header-space {
+    height: 0;
+    display: block;
+}
+
+/* La celda del cuerpo no agrega padding propio; lo hereda de main/print-page */
+.cv-print-cell {
+    padding: 0;
+}
+
+/* =============================================================================
+ * SECCIÓN 6: TÍTULOS
+ * =============================================================================
+ */
+
+h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: var(--primary);
+    /* Tu nombre en azul */
+}
+
+h3 {
+    text-transform: uppercase;
+    /* MAYÚSCULAS */
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    /* Espaciado entre letras */
+    color: var(--primary);
+    /* Títulos de sección en azul */
+    border-bottom: 2px solid var(--border);
+    /* Línea bajo el título */
+    padding-bottom: 5px;
+    margin-top: 30px;
+}
+
+/* =============================================================================
+ * SECCIÓN 7: ETIQUETAS DE HABILIDADES (.skill-tag)
+ * =============================================================================
+ * Etiquetas pequeñas como: Flutter, Dart, Android, iOS, n8n...
+ * 
+ * Ejemplo visual:
+ * [Flutter] [Dart] [Android] [iOS]
+ */
+
+.skill-tag {
+    background: var(--bg);
+    /* Fondo ligero */
+    padding: 2px 10px;
+    /* Espacio interior pequeño */
+    border-radius: 15px;
+    /* Forma ovalada */
+    font-size: 0.8rem;
+    /* Texto pequeño */
+    border: 1px solid var(--border);
+    /* Borde sutil */
+    margin: 0 3px;
+    /* Espacio entre etiquetas */
+    display: inline-block;
+    /* Se alinean en línea */
+
+    transition: all 0.3s ease;
+}
+
+/* Grid para organizar habilidades (3 columnas responsivo) */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columnas por defecto */
+    gap: 15px;
+    /* Espacio entre tarjetas */
+}
+
+/* Ajuste para pantallas medianas (Tabletas) */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Ajuste para pantallas pequeñas (Móviles) */
+@media (max-width: 480px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Contenedor de badges de habilidades */
+.skills-badges {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite que los badges salten a nueva línea */
+    gap: 4px;
+    /* Espacio entre badges */
+    margin-top: 8px;
+    /* Espacio entre categoría y badges */
+}
+
+/* Estilos de Badges (Estructura Unificada) */
+
+/* Badge personalizado que imita a Shields.io para logos externos */
+.custom-badge-container {
+    display: inline-flex;
+    align-items: center;
+    background-color: #05122a;
+    /* Color idéntico al de tus otros badges */
+    color: #ffffff;
+    height: 20px;
+    padding: 0 8px 0 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-weight: normal;
+    text-decoration: none;
+    margin: 2px 0px;
+    vertical-align: middle;
+    transition: transform 0.2s ease;
+}
+
+.custom-badge-container:hover {
+    transform: scale(1.05);
+}
+
+.custom-badge-container img {
+    height: 14px;
+    width: auto;
+    margin-right: 5px;
+}
+
+/* =============================================================================
+ * SECCIÓN 9: ICONOS DE GOOGLE MATERIAL SYMBOLS
+ * =============================================================================
+ */
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    font-size: 18px;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+/* Iconos de contacto */
+.icon-contact {
+    font-size: 16px;
+    vertical-align: text-bottom;
+    margin-right: 2px;
+    color: var(--primary);
+    /* Color principal */
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    /* Icono relleno */
+}
+
+/* Iconos de contacto en modo oscuro - color blanco */
+body.dark-theme .icon-contact {
+    color: #ffffff;
+    /* Blanco puro */
+}
+
+/* Texto de ubicación - color negro */
+.location-text {
+    color: var(--text-main);
+    /* Color principal */
+}
+
+/* Iconos de redes sociales (Font Awesome) */
+.social-icon {
+    font-size: 16px;
+    margin-right: 4px;
+    color: var(--primary);
+    /* Color principal */
+    vertical-align: middle;
+}
+
+/* Iconos de redes sociales en modo oscuro */
+body.dark-theme .social-icon {
+    color: #ffffff;
+    /* Blanco puro */
+}
+
+/* =============================================================================
+ * SECCIÓN 8: BOTONES
+ * =============================================================================
+ * Botones de tema (🌓 Modo) e idioma (🇪🇸 ES | 🇺🇸 EN)
+ */
+
+button {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+button:hover {
+    border-color: var(--primary);
+    /* Borde azul al pasar el mouse */
+}
+
+/* Efecto especial para botones del navbar */
+nav button:hover {
+    transform: scale(1.1);
+    /* Aumenta tamaño */
+    border-color: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+    /* Resplandor azul */
+}
+
+.flag-icon {
+    width: 20px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 5px;
+    border-radius: 2px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.lang-selector {
+    display: flex;
+    gap: 5px;
+}
+
+/* =============================================================================
+ * SECCIÓN 9: INFORMACIÓN DE CONTACTO
+ * =============================================================================
+ * Línea con email, teléfonos, ubicación y GitHub
+ * 
+ * Ejemplo visual:
+ * 📧 dionnyn@gmail.com | 📱 +58 414... | 📍 Maracaibo | 🔗 GitHub
+ */
+
+.contact-info {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    /* Se adapta a pantallas pequeñas */
+    gap: 5px;
+}
+
+/* Contenedor para icono + texto - evita que se separen al hacer wrap */
+.contact-item {
+    display: inline-flex;
+    /* Icono y texto juntos en línea */
+    white-space: nowrap;
+    /* Evita salto de línea interno */
+    align-items: center;
+    /* Centrado vertical */
+    gap: 2px;
+    /* Espacio entre icono y texto */
+}
+
+/* =============================================================================
+ * SECCIÓN 10: CAJAS DE CONTENIDO (.item-box)
+ * =============================================================================
+ * Tarjetas que contienen cada elemento (educación, experiencia, etc.)
+ * 
+ * Ejemplo visual:
+ * ┌─────────────────────────────────────────┐
+ * │ Universidad Rafael Belloso Chacin      │
+ * │ Ingeniería Electrónica                 │
+ * └─────────────────────────────────────────┘
+ */
+
+.item-box {
+    /* Hereda transiciones del tema */
+    transition: all 0.3s ease;
+    margin-bottom: 7px;
+    /* Mayor espacio entre instituciones */
+}
+
+/* =============================================================================
+ * SECCIÓN 11: EXPERIENCIA LABORAL (.job)
+ * =============================================================================
+ * Tarjetas de experiencia con borde izquierdo azul
+ * 
+ * Ejemplo visual:
+ * │ San Simón Planta de Leche
+ * │ Cargo: Supervisor de Mantenimiento...
+ * │ 📅 2022-04-15
+ * │ Control de procesos...
+ */
+
+.job {
+    border-left: 3px solid var(--primary);
+    /* Barra azul izquierda */
+    padding-left: 20px;
+    /* Espacio después de la barra */
+    margin-bottom: 25px;
+    /* Espacio entre trabajos */
+}
+
+.company {
+    /* font-weight: bold;  Quitado - empresa sin negrita */
+    color: var(--text-main);
+    /* Nombre empresa en color principal */
+    display: block;
+    margin-bottom: 2px;
+    /* Ajusta el espacio entre empresa y periodo */
+}
+
+.job-period {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    /* Espacio antes del resumen */
+}
+
+/* Texto muted/secundario para labels como "Cargo:" */
+.muted {
+    color: var(--text-muted);
+}
+
+/* Reduce espacio en experiencias laborales */
+.job p {
+    margin-top: 2px;
+}
+
+/* Reduce espacio entre institution y degree en educación */
+.item-box p {
+    margin: 2px 0 0 0;
+}
+
+/* =============================================================================
+ * SECCIÓN 12: BOTÓN DE IMPRESIÓN
+ * =============================================================================
+ * Botón con icono de impresora junto al toggle de tema
+ */
+
+/* Estilo del botón de imprimir */
+#print-btn {
+    display: flex;
+    /* Centra el icono dentro del botón */
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    /* Mismo padding que los demás botones */
+}
+
+/* Icono dentro del botón de imprimir */
+#print-btn .material-symbols-outlined {
+    font-size: 20px;
+    /* Tamaño del icono de impresora */
+    margin: 0;
+    /* Sin margen extra */
+}
+
+/* =============================================================================
+ * SECCIÓN 13: ESTILOS DE IMPRESIÓN (@media print)
+ * =============================================================================
+ * Oculta elementos innecesarios al imprimir (Ctrl+P)
+ */
+
+@media print {
+
+    /* Eliminar encabezado y pie de página del navegador al imprimir */
+    /* margin: 0 elimina el espacio donde el navegador coloca fecha/título/URL */
+    @page {
+        margin: 0;
+    }
+
+    /* Ocultar video de fondo en impresión */
+    .bg-video {
+        display: none !important;
+    }
+
+    /* Ocultar barra de navegación al imprimir */
+    nav {
+        display: none !important;
+    }
+
+    main {
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        margin: 0;
+        padding: 0 8mm;
+        /* Solo padding LATERAL — top/bottom los controla la tabla */
+        max-width: 100%;
+        background: white !important;
+    }
+
+    /* Reducir tamaño de info de contacto en impresión */
+    .contact-info {
+        font-size: 0.75rem !important;
+        margin: 4px 0 !important;
+        gap: 4px !important;
+    }
+
+    .icon-contact,
+    .social-icon {
+        font-size: 13px !important;
+    }
+
+    /* .print-page (versión EN) es hijo de main, que ya aporta padding: 0 15mm.
+       No se define padding propio para no duplicar los márgenes laterales. */
+    .print-page {
+        page-break-before: always;
+        padding: 0;
+    }
+
+    /* -----------------------------------------------------------------------
+     * TABLA DE IMPRESIÓN — clave para el margen superior repetido
+     * El <thead> se imprime al inicio de CADA página nueva automáticamente.
+     * La altura del <thead> equivale al margen superior de cada página.
+     * ----------------------------------------------------------------------- */
+
+    /* La tabla ocupa todo el ancho del main (sin bordes ni espacios extra) */
+    .cv-print-table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    /* El div dentro del thead define la altura del margen superior de página */
+    .cv-page-header-space {
+        height: 8mm;
+        display: block;
+    }
+
+    /* La celda del tbody no agrega padding: el main ya tiene padding lateral */
+    .cv-print-cell {
+        padding: 0;
+    }
+
+    /* Formato de impresión para TODOS los badges */
+    .custom-badge-container {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border: 1px solid #000000 !important;
+        border-radius: 3px !important;
+        padding: 0 6px !important;
+        height: 18px !important;
+        margin: 1px 0 !important;
+    }
+
+    /* Mostrar logo en todos los badges al imprimir */
+    .custom-badge-container img {
+        display: inline-block !important;
+        height: 11px !important;
+        width: auto !important;
+        margin-right: 4px !important;
+        vertical-align: middle !important;
+    }
+
+    /* Forzar colores de "Modo Claro" para impresión siempre (Ahorro de tinta y legibilidad) */
+    body,
+    body.dark-theme {
+        --primary: #2563eb !important;
+        --bg: #ffffff !important;
+        --card-bg: #ffffff !important;
+        --card-bg-alpha: #ffffff !important;
+        --text-main: #0f172a !important;
+        --text-muted: #64748b !important;
+        --border: #e2e8f0 !important;
+    }
+
+    /* Asegurar que iconos y enlaces sean oscuros en impresión aunque esté el modo dark activo */
+    body.dark-theme .icon-contact,
+    body.dark-theme .social-icon,
+    body.dark-theme a,
+    body.dark-theme .project-action-link {
+        color: var(--primary) !important;
+    }
+
+    body.dark-theme .location-text {
+        color: var(--text-main) !important;
+    }
+
+    /* Fondo blanco para impresión */
+    body {
+        background: white !important;
+        color: black !important;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Reducir espacio superior en títulos de sección */
+    h3 {
+        margin-top: 15px !important;
+    }
+
+    /* Indicador de idioma en la versión impresa */
+    .lang-indicator {
+        font-size: 14px;
+        font-weight: bold;
+        color: #666;
+        text-transform: uppercase;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        display: none;
+        /* Ocultar por defecto, no es necesario */
+    }
+
+    /* Habilidades en 3 columnas al imprimir (AMBOS IDIOMAS) */
+    main.skills-print .skills-grid,
+    .print-page .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        /* Tres columnas iguales */
+        gap: 8px;
+        /* Espacio entre columnas reducido para acomodar la tercera columna */
+    }
+
+    /* Reducción de espacios en categorías de habilidades */
+    .skills-grid .item-box {
+        margin-bottom: 0px !important;
+    }
+
+    /* Reducción de espacio entre el título de categoría y los badges */
+    .skills-badges {
+        margin-top: 2px !important;
+        gap: 2px !important;
+    }
+
+    /* Reducción de margen en badges personalizados */
+    .custom-badge-container {
+        margin: 1px 0 !important;
+    }
+
+    /* Items de habilidades en columnas */
+    main.skills-print .item-box,
+    .print-page .item-box {
+        break-inside: avoid;
+        /* Evitar que se corten entre páginas */
+    }
+
+    /* Ocultar videos en impresión */
+    .project-video-container {
+        display: none !important;
+    }
+
+    /* Reducción de espacio en experiencia laboral */
+    .job {
+        margin-bottom: 15px !important;
+        /* Reducido de 25px */
+    }
+
+    .job-period {
+        margin-bottom: 0px !important;
+        /* Reducido de 8px */
+    }
+
+    .job p {
+        margin-top: 0px !important;
+        /* Reducido de 2px */
+    }
+
+    /* Idiomas en una sola fila horizontal para ahorrar espacio vertical */
+    .languages-section .item-box:not(:first-child)::before {
+        content: " | ";
+        margin: 0 6px;
+        color: var(--border);
+    }
+
+    .languages-section {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0;
+    }
+
+    /* El h3 ocupa toda la fila, los item-box se alinean en la siguiente */
+    .languages-section h3 {
+        width: 100%;
+        margin-bottom: 4px;
+    }
+
+    .languages-section .item-box {
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: 0 !important;
+    }
+}
+
+/* --- Estilos para enlaces de acción (Unificados) --- */
+.project-action-link {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--primary);
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: normal;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.project-action-link:hover {
+    text-decoration: underline;
+    color: var(--primary);
+    box-shadow: none;
+    transform: none;
+}
+
+.project-action-link i {
+    font-size: 0.9em;
+}
+
+body.dark-theme .project-action-link {
+    color: #ffffff;
+}
+
+/* Estilos del Modal */
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    /* Oculto por defecto */
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.3s ease;
+}
+
+.close-modal:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+#modal-video-container video {
+    width: 100%;
+    display: block;
+    max-height: 80vh;
+}

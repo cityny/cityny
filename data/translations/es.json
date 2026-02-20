@@ -1,0 +1,27 @@
+{
+  "ui": {
+    "loading": "Cargando perfil profesional...",
+    "error_loading": "Error al cargar:",
+    "theme_button": "🌓 Modo",
+    "label_es": "🇪🇸 ES",
+    "label_en": "🇺🇸 EN"
+  },
+  "sections": {
+    "profiles": "Perfiles",
+    "education": "Educación",
+    "technical_skills": "Habilidades Técnicas",
+    "work_experience": "Experiencia Laboral",
+    "languages": "Idiomas",
+    "featured_projects": "Proyectos Destacados"
+  },
+  "contact": {
+    "location": "📍"
+  },
+  "job": {
+    "position_label": "Cargo",
+    "date_label": "Año"
+  },
+  "project": {
+    "technologies_label": "Tecnologías y Habilidades"
+  }
+}

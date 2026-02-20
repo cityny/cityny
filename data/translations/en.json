@@ -1,0 +1,27 @@
+{
+  "ui": {
+    "loading": "Loading professional profile...",
+    "error_loading": "Error loading:",
+    "theme_button": "🌓 Mode",
+    "label_es": "🇪🇸 ES",
+    "label_en": "🇺🇸 EN"
+  },
+  "sections": {
+    "profiles": "Profiles",
+    "education": "Education",
+    "technical_skills": "Technical Skills",
+    "work_experience": "Work Experience",
+    "languages": "Languages",
+    "featured_projects": "Featured Projects"
+  },
+  "contact": {
+    "location": "📍"
+  },
+  "job": {
+    "position_label": "Position",
+    "date_label": "Year"
+  },
+  "project": {
+    "technologies_label": "Technologies & Skills"
+  }
+}

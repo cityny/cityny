@@ -1,0 +1,326 @@
+{
+  "basics": {
+    "name": "Dionny Jose Núñez Márquez",
+    "email": "dionnyn@gmail.com",
+    "phones": [
+      {
+        "number": "+58 414 6795706",
+        "label": "Principal"
+      },
+      {
+        "number": "+58 412 176 3710",
+        "label": "Secundario"
+      }
+    ],
+    "location": {
+      "city": "Maracaibo",
+      "region": "Zulia",
+      "countryCode": "VE"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "cityny",
+        "url": "https://github.com/cityny"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "electroneo",
+        "url": "https://www.linkedin.com/in/electroneo/"
+      }
+    ]
+  },
+  "education": [
+    {
+      "institution": "Universidad Rafael Belloso Chacin",
+      "degree_es": "Ingeniería Electrónica",
+      "degree_en": "Electronic Engineering"
+    },
+    {
+      "institution": "Appoint Pros",
+      "degree_es": "Soporte Técnico IT - Tier I",
+      "degree_en": "IT Technical Support - Tier I"
+    },
+    {
+      "institution": "Universidad Privada del Norte",
+      "degree_es": "Introducción a las instalaciones eléctricas",
+      "degree_en": "Introduction to Electrical Installations"
+    },
+    {
+      "institution": "20 Solar Energy",
+      "degree_es": "Instalación de sistemas solares fotovoltaicos",
+      "degree_en": "Photovoltaic Solar Systems Installation"
+    }
+  ],
+  "experience": [
+    {
+      "company": "San Simón Planta de Leche",
+      "position_es": "Supervisor de Mantenimiento Industrial",
+      "position_en": "Industrial Maintenance Supervisor",
+      "period_es": "Enero 2022 - Actualmente",
+      "period_en": "January 2022 - Present",
+      "startDate": "2022-01-01",
+      "summary_es": "Mantenimiento de maquinaria industrial y gestión de personal.",
+      "summary_en": "Maintenance of industrial machinery and personnel management."
+    },
+    {
+      "company": "Fundasteam - Panama",
+      "position_es": "Profesor de Robótica Remoto",
+      "position_en": "Remote Robotics Teacher",
+      "period_es": "Enero 2021",
+      "period_en": "January 2021",
+      "startDate": "2021-01-01",
+      "summary_es": "Enseñanza remota de robótica a estudiantes.",
+      "summary_en": "Remote robotics teaching to students."
+    },
+    {
+      "company": "Ingeolan - Venezuela",
+      "position_es": "Entrevistador de Campo",
+      "position_en": "Field Interviewer",
+      "period_es": "Enero 2020",
+      "period_en": "January 2020",
+      "startDate": "2020-01-01",
+      "summary_es": "Entrevistas de campo para selección de personal.",
+      "summary_en": "Field interviews for personnel selection."
+    },
+    {
+      "company": "URBE - Universidad Rafael Belloso Chacín",
+      "position_es": "Asistente de Laboratorio",
+      "position_en": "Laboratory Assistant",
+      "period_es": "Abril 2015",
+      "period_en": "April 2015",
+      "startDate": "2015-04-01",
+      "summary_es": "Preparacion del laboratorio y asistencia en clases.",
+      "summary_en": "Preparation of laboratory and assistance in classes."
+    }
+  ],
+  "projects": [
+    {
+      "name": "Armado Torre de Enfriamiento - San Simón",
+      "description_es": "Supervisión y colaboración directa en el armado de torre de enfriamiento para la Planta de Leche San Simón (El Guayabo).",
+      "description_en": "Direct supervision and collaboration in the assembly of a cooling tower for the San Simón Milk Plant (El Guayabo).",
+      "video": "assets/Armado torre de enfriamiento.mp4",
+      "technologies_es": [
+        "Liderazgo",
+        "Comunicación Asertiva",
+        "Trabajo en Equipo",
+        "Supervisión Técnica",
+        "Planificación"
+      ],
+      "technologies_en": [
+        "Leadership",
+        "Assertive Communication",
+        "Teamwork",
+        "Technical Supervision",
+        "Planning"
+      ]
+    },
+    {
+      "name": "Calculadora Comisiones BVC",
+      "description_es": "Calculadora rapida y precisa de comisiones y cargos para operaciones en la BVC con Suma Valores.",
+      "description_en": "Fast and accurate commission and fee calculator for BVC operations with Suma Valores.",
+      "url": "https://calculadorave.netlify.app/",
+      "technologies_es": [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "Netlify"
+      ],
+      "technologies_en": [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "Netlify"
+      ]
+    },
+    {
+      "name": "Planificador inteligente de ciclos de trabajo",
+      "description_es": "Genera un calendario anual PDF para ciclos rotativos definiendo fecha inicial, dias de salida/regreso y duracion laboral.",
+      "description_en": "Generates a full-year PDF calendar for rotating cycles based on start date, leave/return days and work period duration.",
+      "url": "https://calendarioturno.netlify.app/",
+      "technologies_es": [
+        "TypeScript",
+        "React",
+        "Vite",
+        "TailwindCSS"
+      ],
+      "technologies_en": [
+        "TypeScript",
+        "React",
+        "Vite",
+        "TailwindCSS"
+      ]
+    },
+    {
+      "name": "Deuda Flow",
+      "description_es": "Controla deudas y prestamos personales, registra contactos y conserva el historial de transacciones desde tu movil.",
+      "description_en": "Manage personal debts and loans, track contacts, and keep a clear history of transactions from your phone.",
+      "url": "https://play.google.com/store/apps/details?id=com.deudaflow.app",
+      "technologies_es": [
+        "Flutter",
+        "Supabase",
+        "PostgreSQL",
+        "Android"
+      ],
+      "technologies_en": [
+        "Flutter",
+        "Supabase",
+        "PostgreSQL",
+        "Android"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "category_es": "Desarrollo Móvil",
+      "category_en": "Mobile Development",
+      "keywords": [
+        {
+          "name": "Flutter",
+          "badge": "Flutter"
+        },
+        {
+          "name": "Dart",
+          "badge": "Dart"
+        },
+        {
+          "name": "Android",
+          "badge": "Android"
+        }
+      ]
+    },
+    {
+      "category_es": "Backend",
+      "category_en": "Backend Development",
+      "keywords": [
+        {
+          "name": "Node.js",
+          "badge": "Node.js"
+        },
+        {
+          "name": "Python",
+          "badge": "Python"
+        },
+        {
+          "name": "JavaScript",
+          "badge": "JavaScript"
+        }
+      ]
+    },
+    {
+      "category_es": "DevOps",
+      "category_en": "DevOps",
+      "keywords": [
+        {
+          "name": "Docker",
+          "badge": "Docker"
+        },
+        {
+          "name": "GitHub Actions",
+          "badge": "GitHub Actions"
+        },
+        {
+          "name": "Alpine Linux",
+          "badge": "Alpine Linux"
+        },
+        {
+          "name": "Ubuntu",
+          "badge": "Ubuntu"
+        },
+        {
+          "name": "Vercel",
+          "badge": "Vercel"
+        }
+      ]
+    },
+    {
+      "category_es": "Bases de Datos",
+      "category_en": "Databases",
+      "keywords": [
+        {
+          "name": "PostgreSQL",
+          "badge": "PostgreSQL"
+        },
+        {
+          "name": "Supabase",
+          "badge": "Supabase"
+        }
+      ]
+    },
+    {
+      "category_es": "Automatización",
+      "category_en": "Automation",
+      "keywords": [
+        {
+          "name": "n8n",
+          "badge": "n8n"
+        },
+        {
+          "name": "WhatsApp",
+          "badge": "WhatsApp"
+        }
+      ]
+    },
+    {
+      "category_es": "Microsoft 365",
+      "category_en": "Microsoft 365",
+      "keywords": [
+        {
+          "name": "Excel",
+          "badge": "Excel",
+          "logo": "https://img.icons8.com/color/48/microsoft-excel-2019.png"
+        },
+        {
+          "name": "Word",
+          "badge": "Word",
+          "logo": "https://img.icons8.com/color/48/microsoft-word-2019.png"
+        },
+        {
+          "name": "PowerPoint",
+          "badge": "Powerpoint",
+          "logo": "https://img.icons8.com/color/48/microsoft-powerpoint-2019.png"
+        }
+      ]
+    },
+    {
+      "category_es": "Otros",
+      "category_en": "Other",
+      "keywords": [
+        {
+          "name": "PaddlePaddle",
+          "badge": "PaddlePaddle"
+        }
+      ]
+    },
+    {
+      "category_es": "Analista de datos",
+      "category_en": "Data Entry",
+      "keywords": [
+        {
+          "name": "Data Entry",
+          "badge": "Data Entry",
+          "logo": "https://img.icons8.com/color/48/data-configuration.png"
+        },
+        {
+          "name": "Data Analyst",
+          "badge": "Data Analyst",
+          "logo": "https://img.icons8.com/color/48/combo-chart--v1.png"
+        }
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language_es": "Español",
+      "language_en": "Spanish",
+      "level_es": "Nativo",
+      "level_en": "Native"
+    },
+    {
+      "language_es": "Inglés",
+      "language_en": "English",
+      "level_es": "Intermedio (B1)",
+      "level_en": "Intermediate (B1)"
+    }
+  ]
+}
