@@ -677,12 +677,15 @@ async function prepareBadgesForPrint() {
     try {
       // Extraer logo de la URL de Shields.io
       const url = new URL(img.src);
-      // Limpiar el slug: decodificar, minúsculas y quitar espacios/caracteres especiales
+      // Limpiar el slug: decodificar, minúsculas y mapear caracteres especiales
       let logoSlug = url.searchParams.get("logo") || label;
       logoSlug = decodeURIComponent(logoSlug)
         .toLowerCase()
         .replace(/\s+/g, '')
-        .replace(/[^a-z0-9]/g, ''); // Solo caracteres alfanuméricos para Simple Icons
+        .replace(/\./g, 'dot')
+        .replace(/#/g, 'sharp')
+        .replace(/\+/g, 'plus')
+        .replace(/[^a-z0-9]/g, ''); // Limpieza final
 
       const iconUrl = `https://cdn.simpleicons.org/${logoSlug}`;
 
