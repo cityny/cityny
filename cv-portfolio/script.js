@@ -398,17 +398,26 @@ async function printBothLanguages() {
     // Esperar un momento para que el DOM se actualice
     await new Promise((resolve) => setTimeout(resolve, 100));
 
+    // Preparar badges para impresión (convertir a Canvas blanco y negro)
+    await prepareBadgesForPrint();
+
     // Ejecutar impresión
     window.print();
 
-    // Después de imprimir, restaurar versión original (recargando traducciones si es necesario)
+    // Restaurar el idioma original
     setLanguage(originalLang);
+
+    // Restaurar los badges originales después de un breve delay
+    setTimeout(restoreBadgesAfterPrint, 500);
   } catch (error) {
     console.error("Error al imprimir:", error);
-    // Restaurar en caso de error también
     setLanguage(originalLang);
+    restoreBadgesAfterPrint();
   }
 }
+
+// Escuchar evento de fin de impresión por si acaso
+window.addEventListener('afterprint', restoreBadgesAfterPrint);
 
 /**
  * Genera el HTML del CV usando los datos actuales (staticData + translations)
@@ -630,3 +639,120 @@ function closeVideoModal() {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeVideoModal();
 });
+
+/**
+ * SISTEMA DE "PRINT-READY BADGES"
+ * Convierte dinámicamente los badges de Shields.io a imágenes Canvas (blanco y negro)
+ * para asegurar legibilidad perfecta en la impresión del PDF.
+ */
+
+const badgeCache = new Map();
+
+// Función auxiliar para cargar imágenes con Promesi y CORS
+function loadImage(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error(`No se pudo cargar: ${src}`));
+    img.src = src;
+  });
+}
+
+async function prepareBadgesForPrint() {
+  const badges = document.querySelectorAll(".skill-badge");
+  const promises = Array.from(badges).map(async (img) => {
+    // Si ya está procesado, saltar
+    if (img.dataset.originalSrc) return;
+
+    const label = img.getAttribute("alt") || img.getAttribute("title") || "Skill";
+
+    // Usar caché si ya generamos este badge
+    if (badgeCache.has(label)) {
+      img.dataset.originalSrc = img.src;
+      img.src = badgeCache.get(label);
+      return;
+    }
+
+    try {
+      // Extraer logo de la URL de Shields.io
+      const url = new URL(img.src);
+      const logoSlug = url.searchParams.get("logo") || label.toLowerCase().replace(/\s+/g, '');
+      const iconUrl = `https://cdn.simpleicons.org/${logoSlug}`;
+
+      // Intentar cargar el icono primero
+      let iconImg = null;
+      try {
+        iconImg = await loadImage(iconUrl);
+      } catch (e) {
+        console.warn("No se pudo cargar icono para:", label);
+      }
+
+      // Crear canvas para el nuevo badge
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+
+      // Medir texto para ajustar ancho
+      ctx.font = "bold 11px Verdana, Geneva, sans-serif";
+      const textMetrics = ctx.measureText(label);
+      const padding = 12;
+      const logoSpace = 20;
+      const width = Math.max(textMetrics.width + padding + (iconImg ? logoSpace : 5), 40);
+      const height = 20;
+
+      canvas.width = width * 2; // Alta resolución
+      canvas.height = height * 2;
+      ctx.scale(2, 2);
+
+      // 1. Fondo blanco con borde negro
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, width, height);
+      ctx.strokeStyle = "#000000";
+      ctx.lineWidth = 1;
+      ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
+
+      // 2. Dibujar Icono real si se cargó
+      if (iconImg) {
+        ctx.drawImage(iconImg, 6, 4, 12, 12);
+      } else {
+        // Placeholder circular si no hay icono
+        ctx.beginPath();
+        ctx.arc(10, height / 2, 4, 0, Math.PI * 2);
+        ctx.fillStyle = "#333333";
+        ctx.fill();
+      }
+
+      // 3. Texto en negro
+      ctx.fillStyle = "#000000";
+      ctx.textBaseline = "middle";
+      ctx.textAlign = "left";
+      ctx.font = "bold 10px Verdana, Geneva, sans-serif";
+      ctx.fillText(label, iconImg ? logoSpace : 8, height / 2 + 0.5);
+
+      const dataUrl = canvas.toDataURL("image/png");
+      badgeCache.set(label, dataUrl);
+
+      img.dataset.originalSrc = img.src;
+      img.src = dataUrl;
+    } catch (e) {
+      console.warn("Error creando badge canvas para:", label, e);
+      // Fallback: usar filtro CSS si falla el canvas
+      img.style.filter = "grayscale(1) invert(1) contrast(2)";
+    }
+  });
+
+  await Promise.all(promises);
+  // Pequeño delay para asegurar renderizado
+  return new Promise(resolve => setTimeout(resolve, 200));
+}
+
+function restoreBadgesAfterPrint() {
+  const badges = document.querySelectorAll(".skill-badge");
+  badges.forEach((img) => {
+    if (img.dataset.originalSrc) {
+      img.src = img.dataset.originalSrc;
+      delete img.dataset.originalSrc;
+      img.style.filter = "";
+    }
+  });
+}
