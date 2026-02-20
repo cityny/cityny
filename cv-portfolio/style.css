@@ -653,9 +653,13 @@ nav button:hover {
         padding: 0 6px !important;
     }
 
-    /* Ocultar logo en badges personalizados al imprimir */
+    /* Mostrar logo en badges personalizados al imprimir */
     .custom-badge-container img {
-        display: none !important;
+        display: inline-block !important;
+        height: 12px !important;
+        width: auto !important;
+        margin-right: 4px !important;
+        vertical-align: middle !important;
     }
 
     /* Estilos para badges transformados por Canvas */
