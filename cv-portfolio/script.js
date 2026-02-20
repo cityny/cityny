@@ -258,7 +258,7 @@ function renderResume() {
           <td class="cv-print-cell">
 
             <header>
-                <h1>${s.basics.name}</h1>
+                <h1><a href="${window.location.origin}" style="text-decoration: none; color: inherit;">${s.basics.name}</a></h1>
                 <p class="subtitle">${currentLang === "es" ? "Ingeniero Electrónico & Desarrollador Junior" : "Electronic Engineer & Junior Developer"}</p>
                 <div class="contact-info">
                     ${contactLinks.join(" | ")}
@@ -557,7 +557,7 @@ function generateResumeHTML() {
           <td class="cv-print-cell">
 
             <header>
-                <h1>${s.basics.name}</h1>
+                <h1><a href="${window.location.origin}" style="text-decoration: none; color: inherit;">${s.basics.name}</a></h1>
                 <p class="subtitle">${currentLang === "es" ? "Ingeniero Electrónico & Desarrollador Junior" : "Electronic Engineer & Junior Developer"}</p>
                 <div class="contact-info">
                     ${contactLinks.join(" | ")}
