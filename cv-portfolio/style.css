@@ -380,11 +380,27 @@ h3 {
     transition: all 0.3s ease;
 }
 
-/* Grid para organizar habilidades */
+/* Grid para organizar habilidades (3 columnas responsivo) */
 .skills-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columnas por defecto */
+    gap: 15px;
+    /* Espacio entre tarjetas */
+}
+
+/* Ajuste para pantallas medianas (Tabletas) */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Ajuste para pantallas pequeñas (Móviles) */
+@media (max-width: 480px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Contenedor de badges de habilidades */
