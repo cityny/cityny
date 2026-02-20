@@ -525,6 +525,20 @@ nav button:hover {
     /* Resplandor azul */
 }
 
+.flag-icon {
+    width: 20px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 5px;
+    border-radius: 2px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.lang-selector {
+    display: flex;
+    gap: 5px;
+}
+
 /* =============================================================================
  * SECCIÓN 9: INFORMACIÓN DE CONTACTO
  * =============================================================================
