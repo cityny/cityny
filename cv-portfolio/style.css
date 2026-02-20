@@ -660,9 +660,6 @@ nav button:hover {
         display: none !important;
     }
 
-    /* Quitar sombra y borde del contenedor principal.
-       El padding lateral se mantiene en 15mm; el padding TOP lo gestiona
-       el <thead> de la tabla interna, NO el main. */
     main {
         box-shadow: none;
         border: none;
@@ -672,6 +669,18 @@ nav button:hover {
         /* Solo padding LATERAL — top/bottom los controla la tabla */
         max-width: 100%;
         background: white !important;
+    }
+
+    /* Reducir tamaño de info de contacto en impresión */
+    .contact-info {
+        font-size: 0.75rem !important;
+        margin: 4px 0 !important;
+        gap: 4px !important;
+    }
+
+    .icon-contact,
+    .social-icon {
+        font-size: 13px !important;
     }
 
     /* .print-page (versión EN) es hijo de main, que ya aporta padding: 0 15mm.
@@ -696,7 +705,7 @@ nav button:hover {
 
     /* El div dentro del thead define la altura del margen superior de página */
     .cv-page-header-space {
-        height: 6mm;
+        height: 8mm;
         display: block;
     }
 
