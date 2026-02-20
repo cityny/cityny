@@ -696,7 +696,7 @@ nav button:hover {
 
     /* El div dentro del thead define la altura del margen superior de página */
     .cv-page-header-space {
-        height: 15mm;
+        height: 6mm;
         display: block;
     }
 
