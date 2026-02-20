@@ -97,20 +97,22 @@
   "projects": [
     {
       "name": "Armado Torre de Enfriamiento - San Simón",
-      "description_es": "Supervisión y colaboración directa en el armado de torre de enfriamiento para la Planta de Leche San Simón (El Guayabo). Liderazgo de cuadrilla y coordinación técnica.",
-      "description_en": "Direct supervision and collaboration in the assembly of a cooling tower for the San Simón Milk Plant (El Guayabo). Team leadership and technical coordination.",
+      "description_es": "Supervisión y colaboración directa en el armado de torre de enfriamiento para la Planta de Leche San Simón (El Guayabo).",
+      "description_en": "Direct supervision and collaboration in the assembly of a cooling tower for the San Simón Milk Plant (El Guayabo).",
       "video": "assets/Armado torre de enfriamiento.mp4",
       "technologies_es": [
         "Liderazgo",
         "Comunicación Asertiva",
         "Trabajo en Equipo",
-        "Supervisión Técnica"
+        "Supervisión Técnica",
+        "Planificación"
       ],
       "technologies_en": [
         "Leadership",
         "Assertive Communication",
         "Teamwork",
-        "Technical Supervision"
+        "Technical Supervision",
+        "Planning"
       ]
     },
     {
