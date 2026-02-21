@@ -116,6 +116,7 @@
 - [twake-drive-legacy](https://github.com/linagora/twake-drive-legacy)
 - [n8n](https://github.com/n8n-io/n8n)
 - [VidBee](https://github.com/nexmoe/VidBee)
+- [ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
 - [node-red](https://github.com/node-red/node-red)
 - [openclaw](https://github.com/openclaw/openclaw)
 - [n8n-nodes-chatwoot](https://github.com/pixelinfinito/n8n-nodes-chatwoot)
