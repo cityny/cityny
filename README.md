@@ -118,6 +118,8 @@
 - [Apktool](https://github.com/iBotPeaches/Apktool)
 - [jan](https://github.com/janhq/jan)
 - [twake-drive-legacy](https://github.com/linagora/twake-drive-legacy)
+- [dockge](https://github.com/louislam/dockge)
+- [uptime-kuma](https://github.com/louislam/uptime-kuma)
 - [n8n](https://github.com/n8n-io/n8n)
 - [VidBee](https://github.com/nexmoe/VidBee)
 - [ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
