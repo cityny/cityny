@@ -131,6 +131,7 @@
 - [visual-explainer](https://github.com/nicobailon/visual-explainer)
 - [node-red](https://github.com/node-red/node-red)
 - [openclaw](https://github.com/openclaw/openclaw)
+- [pinchtab](https://github.com/pinchtab/pinchtab)
 - [n8n-nodes-chatwoot](https://github.com/pixelinfinito/n8n-nodes-chatwoot)
 - [pixeltable](https://github.com/pixeltable/pixeltable)
 - [deepseek_ocr_app](https://github.com/rdumasia303/deepseek_ocr_app)
