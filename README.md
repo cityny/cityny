@@ -148,6 +148,7 @@
 - [sim](https://github.com/simstudioai/sim)
 - [awesome](https://github.com/sindresorhus/awesome)
 - [spotify-downloader](https://github.com/spotDL/spotify-downloader)
+- [phoneinfoga](https://github.com/sundowndev/phoneinfoga)
 - [instagram-api](https://github.com/suphiyasin/instagram-api)
 - [tesseract](https://github.com/tesseract-ocr/tesseract)
 - [n8n-nodes-message-debounce](https://github.com/uaiautomacao/n8n-nodes-message-debounce)
