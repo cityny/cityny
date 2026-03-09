@@ -68,6 +68,7 @@
 <!-- inicio-forks -->
 - [Chatwoot-CityNy](https://github.com/cityny/Chatwoot-CityNy)
 - [PaddleOCR](https://github.com/cityny/PaddleOCR)
+- [algonius-browser](https://github.com/cityny/algonius-browser)
 - [shopper](https://github.com/cityny/shopper)
 <!-- final-forks -->
 </details>
