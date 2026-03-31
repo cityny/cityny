@@ -80,7 +80,6 @@
 <!-- inicio-stars -->
 - [ai-marketplace-monitor](https://github.com/BoPeng/ai-marketplace-monitor)
 - [WrenAI](https://github.com/Canner/WrenAI)
-- [Cyber-Sploit](https://github.com/Cyber-Dioxide/Cyber-Sploit)
 - [Scrapling](https://github.com/D4Vinci/Scrapling)
 - [FreeDomain](https://github.com/DigitalPlatDev/FreeDomain)
 - [evolution-api](https://github.com/EvolutionAPI/evolution-api)
