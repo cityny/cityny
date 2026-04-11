@@ -96,6 +96,22 @@
   ],
   "projects": [
     {
+      "name": "Plano Despiece Llenadora Fabrima",
+      "description_es": "Plano de despiece de una llenadora marca Fabrima, elaborado de manera urgente e improvisada utilizando Microsoft PowerPoint.",
+      "description_en": "Disassembly plan for a Fabrima filling machine, urgently and improvised created using Microsoft PowerPoint.",
+      "url": "docs/plano_llenadora_fabrima.pdf",
+      "technologies_es": [
+        "PowerPoint",
+        "Diseño",
+        "Resolución de Problemas"
+      ],
+      "technologies_en": [
+        "PowerPoint",
+        "Design",
+        "Problem Solving"
+      ]
+    },
+    {
       "name": "Armado Torre de Enfriamiento - San Simón",
       "description_es": "Supervisión y colaboración directa en el armado de torre de enfriamiento para la Planta de Leche San Simón (El Guayabo).",
       "description_en": "Direct supervision and collaboration in the assembly of a cooling tower for the San Simón Milk Plant (El Guayabo).",
