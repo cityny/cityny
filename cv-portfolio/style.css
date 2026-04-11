@@ -263,7 +263,7 @@ nav {
  * ┌─────────────────────────────────────────────────────────────┐
  * │                                                             │
  * │   Dionny Jose Núñez Márquez                                 │
- * │   Ingeniero Electrónico & Desarrollador Junior              │
+ * │   Ingeniero Electrónico | Desarrollador de Software y Mantenimiento Industrial   │
  * │                                                             │
  * │   📧 dionnyn@gmail.com | 📱 +58 414... | 📍 Maracaibo...   │
  * │                                                             │
@@ -1108,6 +1108,44 @@ body.dark-theme .project-action-link {
     padding: 20px;
 }
 
+/* =============================================================================
+ * FOOTER & CONTADOR DE VISITAS
+ * =============================================================================
+ */
+footer {
+    margin-top: 40px;
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    background: var(--card-bg-alpha);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 100;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+footer p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.visitor-counter {
+    transition: transform 0.3s ease;
+}
+
+.visitor-counter:hover {
+    transform: scale(1.05);
+}
+
 .modal.active {
     display: flex;
 }
@@ -1299,7 +1337,7 @@ body.dark-theme .project-action-link {
     }
 
     /* --- 2. Elementos a Ocultar --- */
-    nav, .bg-video, .qr-container, .preview-tooltip, .project-video-container {
+    nav, footer, .bg-video, .qr-container, .preview-tooltip, .project-video-container, .project-preview-container .material-symbols-outlined {
         display: none !important;
     }
 

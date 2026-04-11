@@ -115,6 +115,10 @@ function renderResume() {
   // --- Obtener URL pública (Personalizada) ---
   const currentFullUrl = "https://analista.cc/link/cv";
 
+  // --- Actualizar año en el footer ---
+  const dateSpan = document.getElementById("current-date");
+  if (dateSpan) dateSpan.textContent = new Date().getFullYear();
+
   // --- Generar enlaces de contacto ---
   // Crea enlaces cliqueables para email, teléfonos, ubicación y perfiles
   // Mapeo de iconos de Font Awesome para redes sociales
@@ -607,7 +611,7 @@ function generateResumeHTML() {
                     </div>
                   </span>
                 </h1>
-                <p class="subtitle">${currentLang === "es" ? "Ingeniero Electrónico & Desarrollador Junior" : "Electronic Engineer & Junior Developer"}</p>
+                <p class="subtitle">${currentLang === "es" ? "Ingeniero Electrónico | Desarrollador de Software y Mantenimiento Industrial" : "Electronic Engineer | Software Developer and Industrial Maintenance"}</p>
                 <div class="contact-info">
                     ${contactLinks.join(" | ")}
                 </div>
