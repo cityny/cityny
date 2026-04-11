@@ -112,8 +112,8 @@ function renderResume() {
   const t = translations; // Atajo para traducciones
   const s = staticData; // Atajo para datos estáticos
 
-  // --- Obtener URL base limpia (sin parámetros ni anclas) ---
-  const currentFullUrl = window.location.href.split('?')[0].split('#')[0];
+  // --- Obtener URL pública (Personalizada) ---
+  const currentFullUrl = "https://analista.cc/link/cv";
 
   // --- Generar enlaces de contacto ---
   // Crea enlaces cliqueables para email, teléfonos, ubicación y perfiles
@@ -446,7 +446,7 @@ function getLogoSlug(label, logo) {
 function generateResumeHTML() {
   const t = translations;
   const s = staticData;
-  const currentFullUrl = window.location.href.split('?')[0].split('#')[0];
+  const currentFullUrl = "https://analista.cc/link/cv";
 
   // --- Generar enlaces de contacto ---
   const socialIcons = {

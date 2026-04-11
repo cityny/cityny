@@ -1325,6 +1325,13 @@ body.dark-theme .project-action-link {
     }
 
     .print-page { page-break-before: always; padding: 0; }
+    
+    /* Evitar que las secciones o bloques se corten entre páginas */
+    section, .job, .item-box {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+
     h3 { 
         margin-top: 15px !important; 
         break-after: avoid !important; /* EVITA TÍTULOS HUÉRFANOS */
