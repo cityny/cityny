@@ -270,6 +270,10 @@ function renderResume() {
           <td class="cv-print-cell">
 
             <header>
+                <div class="digital-version-print">
+                    ${currentLang === 'es' ? 'Versión digital:' : 'Digital version:'} 
+                    <a href="${currentFullUrl}">${currentFullUrl.replace(/^https?:\/\//, '')}</a>
+                </div>
                 <h1>
                   <a href="${currentFullUrl}" style="text-decoration: none; color: inherit;">${s.basics.name}</a>
                   <span class="qr-container">
@@ -589,6 +593,10 @@ function generateResumeHTML() {
           <td class="cv-print-cell">
 
             <header>
+                <div class="digital-version-print">
+                    ${currentLang === 'es' ? 'Versión digital:' : 'Digital version:'} 
+                    <a href="${currentFullUrl}">${currentFullUrl.replace(/^https?:\/\//, '')}</a>
+                </div>
                 <h1>
                   <a href="${currentFullUrl}" style="text-decoration: none; color: inherit;">${s.basics.name}</a>
                   <span class="qr-container">

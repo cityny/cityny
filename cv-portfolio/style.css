@@ -219,6 +219,11 @@ body.dark-theme a {
     /* Blanco puro en modo oscuro */
 }
 
+/* Ocultar aviso de versión digital en web, solo visible en PDF/Impresión */
+.digital-version-print {
+    display: none;
+}
+
 
 /* =============================================================================
  * SECCIÓN 4: BARRA DE NAVEGACIÓN (nav)
@@ -1296,6 +1301,20 @@ body.dark-theme .project-action-link {
     /* --- 2. Elementos a Ocultar --- */
     nav, .bg-video, .qr-container, .preview-tooltip, .project-video-container {
         display: none !important;
+    }
+
+    .digital-version-print {
+        display: block !important;
+        font-size: 10px;
+        color: var(--text-muted);
+        text-align: right;
+        margin-bottom: -10px;
+        font-style: italic;
+    }
+
+    .digital-version-print a {
+        color: var(--primary) !important;
+        text-decoration: none !important;
     }
 
     /* --- 3. Estructura y Espaciado --- */
