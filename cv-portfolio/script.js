@@ -421,10 +421,20 @@ async function printBothLanguages() {
     // Esperar un momento para que el DOM se actualice
     await new Promise((resolve) => setTimeout(resolve, 100));
 
+    // --- Personalizar nombre del archivo PDF ---
+    const originalTitle = document.title;
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: '2-digit' }).replace(/\//g, '');
+    const timeStr = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase().replace(/[\s:]/g, '');
+    
+    // Título temporal para que el navegador lo use como nombre de archivo
+    document.title = `CV-Dionny Núñez-${dateStr}-${timeStr}`;
+
     // Ejecutar impresión
     window.print();
 
-    // Restaurar el idioma original
+    // Restaurar el título e idioma original
+    document.title = originalTitle;
     setLanguage(originalLang);
   } catch (error) {
     console.error("Error al imprimir:", error);
