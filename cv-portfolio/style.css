@@ -1068,6 +1068,30 @@ body.dark-theme .project-action-link {
     transform: translateX(-50%) translateY(-5px);
 }
 
+/* Ajuste responsivo para pantallas minimizadas o móviles */
+@media (max-width: 650px) {
+    .preview-tooltip {
+        width: 260px;
+        left: -10px; /* Alineación ligera a la izquierda en vez de centrarlo completamente para no desbordar */
+        transform: translateX(0); 
+    }
+    
+    .project-preview-container:hover .preview-tooltip {
+        transform: translateY(-5px);
+    }
+
+    /* Mover el triángulo indicador para que siga apuntando al enlace */
+    .preview-tooltip::after {
+        left: 25px;
+        margin-left: 0;
+    }
+
+    .preview-tooltip::before {
+        left: 24px;
+        margin-left: 0;
+    }
+}
+
 /* Ocultar en impresión */
 @media print {
     .preview-tooltip, .project-preview-container .preview-tooltip {
