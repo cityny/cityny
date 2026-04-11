@@ -279,38 +279,32 @@ function renderResume() {
                 </div>
             </header>
 
-            <div class="cv-body-layout">
-                <aside class="cv-sidebar">
-                    <section>
-                        <h3>${t.sections.technical_skills}</h3>
-                        <div class="skills-grid">
-                            ${skillsHtml}
-                        </div>
-                    </section>
-                </aside>
+            <section class="summary-section">
+                <h3>${t.sections.about_me}</h3>
+                <p>${summaryText}</p>
+            </section>
 
-                <div class="cv-main-col">
-                    <section class="summary-section">
-                        <h3>${t.sections.about_me}</h3>
-                        <p>${summaryText}</p>
-                    </section>
-
-                    <section>
-                        <h3>${t.sections.work_experience}</h3>
-                        ${experienceHtml}
-                    </section>
-
-                    <section>
-                        <h3>${t.sections.education}</h3>
-                        ${educationHtml}
-                    </section>
-
-                    <section>
-                        <h3>${t.sections.featured_projects}</h3>
-                        ${projectsHtml}
-                    </section>
+            <section>
+                <h3>${t.sections.technical_skills}</h3>
+                <div class="skills-grid">
+                    ${skillsHtml}
                 </div>
-            </div>
+            </section>
+
+            <section>
+                <h3>${t.sections.work_experience}</h3>
+                ${experienceHtml}
+            </section>
+
+            <section>
+                <h3>${t.sections.education}</h3>
+                ${educationHtml}
+            </section>
+
+            <section>
+                <h3>${t.sections.featured_projects}</h3>
+                ${projectsHtml}
+            </section>
 
           </td>
         </tr>
@@ -597,38 +591,32 @@ function generateResumeHTML() {
                 </div>
             </header>
 
-            <div class="cv-body-layout">
-                <aside class="cv-sidebar">
-                    <section>
-                        <h3>${t.sections.technical_skills}</h3>
-                        <div class="skills-grid">
-                            ${skillsHtml}
-                        </div>
-                    </section>
-                </aside>
+            <section class="summary-section">
+                <h3>${t.sections.about_me}</h3>
+                <p>${s.basics[currentLang === "es" ? "summary_es" : "summary_en"] || ""}</p>
+            </section>
 
-                <div class="cv-main-col">
-                    <section class="summary-section">
-                        <h3>${t.sections.about_me}</h3>
-                        <p>${s.basics[currentLang === "es" ? "summary_es" : "summary_en"] || ""}</p>
-                    </section>
-
-                    <section>
-                        <h3>${t.sections.work_experience}</h3>
-                        ${experienceHtml}
-                    </section>
-
-                    <section>
-                        <h3>${t.sections.education}</h3>
-                        ${educationHtml}
-                    </section>
-
-                    <section>
-                        <h3>${t.sections.featured_projects}</h3>
-                        ${projectsHtml}
-                    </section>
+            <section>
+                <h3>${t.sections.technical_skills}</h3>
+                <div class="skills-grid">
+                    ${skillsHtml}
                 </div>
-            </div>
+            </section>
+
+            <section>
+                <h3>${t.sections.work_experience}</h3>
+                ${experienceHtml}
+            </section>
+
+            <section>
+                <h3>${t.sections.education}</h3>
+                ${educationHtml}
+            </section>
+
+            <section>
+                <h3>${t.sections.featured_projects}</h3>
+                ${projectsHtml}
+            </section>
 
           </td>
         </tr>
