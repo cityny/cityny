@@ -289,7 +289,7 @@ function renderResume() {
                     </section>
                 </aside>
 
-                <main class="cv-main-col">
+                <div class="cv-main-col">
                     <section class="summary-section">
                         <h3>${t.sections.about_me}</h3>
                         <p>${summaryText}</p>
@@ -309,7 +309,7 @@ function renderResume() {
                         <h3>${t.sections.featured_projects}</h3>
                         ${projectsHtml}
                     </section>
-                </main>
+                </div>
             </div>
 
           </td>
@@ -607,7 +607,7 @@ function generateResumeHTML() {
                     </section>
                 </aside>
 
-                <main class="cv-main-col">
+                <div class="cv-main-col">
                     <section class="summary-section">
                         <h3>${t.sections.about_me}</h3>
                         <p>${s.basics[currentLang === "es" ? "summary_es" : "summary_en"] || ""}</p>
@@ -627,7 +627,7 @@ function generateResumeHTML() {
                         <h3>${t.sections.featured_projects}</h3>
                         ${projectsHtml}
                     </section>
-                </main>
+                </div>
             </div>
 
           </td>

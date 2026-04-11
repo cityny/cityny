@@ -1014,7 +1014,8 @@ body.dark-theme .project-action-link {
 .preview-tooltip {
     visibility: hidden;
     position: absolute;
-    bottom: 100%; /* Aparece encima del enlace */
+    bottom: 100%;
+    /* Aparece encima del enlace */
     left: 50%;
     transform: translateX(-50%);
     margin-bottom: 12px;
@@ -1027,7 +1028,8 @@ body.dark-theme .project-action-link {
     opacity: 0;
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
     width: 320px;
-    pointer-events: none; /* No robar el cursor */
+    pointer-events: none;
+    /* No robar el cursor */
 }
 
 /* Triángulo indicador abajo del tooltip (interior) */
@@ -1072,10 +1074,11 @@ body.dark-theme .project-action-link {
 @media (max-width: 650px) {
     .preview-tooltip {
         width: 260px;
-        left: -10px; /* Alineación ligera a la izquierda en vez de centrarlo completamente para no desbordar */
-        transform: translateX(0); 
+        left: -10px;
+        /* Alineación ligera a la izquierda en vez de centrarlo completamente para no desbordar */
+        transform: translateX(0);
     }
-    
+
     .project-preview-container:hover .preview-tooltip {
         transform: translateY(-5px);
     }
@@ -1094,7 +1097,9 @@ body.dark-theme .project-action-link {
 
 /* Ocultar en impresión */
 @media print {
-    .preview-tooltip, .project-preview-container .preview-tooltip {
+
+    .preview-tooltip,
+    .project-preview-container .preview-tooltip {
         display: none !important;
     }
 }
@@ -1136,8 +1141,9 @@ body.dark-theme .project-action-link {
     margin-top: 2px;
 }
 
-.cv-sidebar h3, .cv-main-col h3 {
-    margin-top: 0; 
+.cv-sidebar h3,
+.cv-main-col h3 {
+    margin-top: 0;
 }
 
 /* Responsividad para móviles: Apilar columnas */
@@ -1146,11 +1152,15 @@ body.dark-theme .project-action-link {
         flex-direction: column;
         gap: 15px;
     }
-    .cv-sidebar, .cv-main-col {
+
+    .cv-sidebar,
+    .cv-main-col {
         width: 100%;
     }
+
     .cv-sidebar .skills-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas en celular para no desperdiciar espacio */
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columnas en celular para no desperdiciar espacio */
     }
 }
 
@@ -1158,17 +1168,22 @@ body.dark-theme .project-action-link {
 @media print {
     .cv-body-layout {
         display: flex !important;
-        flex-direction: row !important; /* Fuerza las 2 columnas al imprimir */
+        flex-direction: row !important;
+        /* Fuerza las 2 columnas al imprimir */
         gap: 20px !important;
         align-items: flex-start !important;
-        page-break-inside: auto; /* Permite que el flexbox se divida en varias páginas */
+        page-break-inside: auto;
+        /* Permite que el flexbox se divida en varias páginas */
     }
+
     .cv-sidebar {
         width: 32% !important;
     }
+
     .cv-main-col {
         width: 68% !important;
     }
+
     .cv-sidebar .skills-grid {
         grid-template-columns: 1fr !important;
     }
