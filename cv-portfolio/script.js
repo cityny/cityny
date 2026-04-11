@@ -224,9 +224,14 @@ function renderResume() {
       const descKey =
         currentLang === "es" ? "description_es" : "description_en";
       const linkLabel = currentLang === "es" ? "Ver proyecto" : "View project";
-      const projectLink = project.url
-        ? `<p><a href="${project.url}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> ${linkLabel}</a></p>`
-        : "";
+      let projectLink = "";
+      if (project.url) {
+        if (project.preview) {
+          projectLink = `<p class="project-preview-container" style="display:inline-block;"><a href="${project.url}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> ${linkLabel}</a><span class="preview-tooltip"><img src="${project.preview}" alt="Preview del proyecto" loading="lazy" decoding="async"></span></p>`;
+        } else {
+          projectLink = `<p><a href="${project.url}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> ${linkLabel}</a></p>`;
+        }
+      }
       const projectVideoButton = project.video
         ? `<p><button class="project-action-link" onclick="openVideoModal('${project.video}')"><i class="fa-solid fa-arrow-up-right-from-square"></i> ${linkLabel}</button></p>`
         : "";
@@ -533,9 +538,14 @@ function generateResumeHTML() {
       const descKey =
         currentLang === "es" ? "description_es" : "description_en";
       const linkLabel = currentLang === "es" ? "Ver proyecto" : "View project";
-      const projectLink = project.url
-        ? `<p><a href="${project.url}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> ${linkLabel}</a></p>`
-        : "";
+      let projectLink = "";
+      if (project.url) {
+        if (project.preview) {
+          projectLink = `<p class="project-preview-container" style="display:inline-block;"><a href="${project.url}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> ${linkLabel}</a><span class="preview-tooltip"><img src="${project.preview}" alt="Preview del proyecto" loading="lazy" decoding="async"></span></p>`;
+        } else {
+          projectLink = `<p><a href="${project.url}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> ${linkLabel}</a></p>`;
+        }
+      }
       const projectVideoButton = project.video
         ? `<p><button class="project-action-link" onclick="openVideoModal('${project.video}')"><i class="fa-solid fa-arrow-up-right-from-square"></i> ${linkLabel}</button></p>`
         : "";

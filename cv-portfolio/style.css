@@ -1001,3 +1001,76 @@ body.dark-theme .project-action-link {
     display: block;
     max-height: 80vh;
 }
+
+/* =============================================================================
+ * TOOLTIP PARA PREVIEW DE PROYECTOS
+ * =============================================================================
+ */
+
+.project-preview-container {
+    position: relative;
+}
+
+.preview-tooltip {
+    visibility: hidden;
+    position: absolute;
+    bottom: 100%; /* Aparece encima del enlace */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 12px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    width: 320px;
+    pointer-events: none; /* No robar el cursor */
+}
+
+/* Triángulo indicador abajo del tooltip (interior) */
+.preview-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: var(--card-bg) transparent transparent transparent;
+}
+
+/* Triángulo indicador abajo del tooltip (borde) */
+.preview-tooltip::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -9px;
+    border-width: 9px;
+    border-style: solid;
+    border-color: var(--border) transparent transparent transparent;
+    z-index: -1;
+}
+
+.preview-tooltip img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+}
+
+.project-preview-container:hover .preview-tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+/* Ocultar en impresión */
+@media print {
+    .preview-tooltip, .project-preview-container .preview-tooltip {
+        display: none !important;
+    }
+}

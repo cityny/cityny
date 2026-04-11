@@ -100,6 +100,7 @@
       "description_es": "Plano de despiece de una llenadora marca Fabrima, elaborado de manera urgente e improvisada utilizando Microsoft PowerPoint.",
       "description_en": "Disassembly plan for a Fabrima filling machine, urgently and improvised created using Microsoft PowerPoint.",
       "url": "docs/plano_llenadora_fabrima.pdf",
+      "preview": "docs/plano_preview.jpg",
       "technologies_es": [
         "PowerPoint",
         "Diseño",
