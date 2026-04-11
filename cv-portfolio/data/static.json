@@ -62,6 +62,7 @@
       "period_es": "Enero 2022 - Marzo 2026",
       "period_en": "January 2022 - March 2026",
       "startDate": "2022-01-01",
+      "preview": "docs/san_simon.jpg",
       "summary_es": [
         "Automatización y Control: Restablecimiento operativo de llenadoras Tetra Pak TBA/8 (PLC GE Fanuc) y corrección de averías lógicas en equipos Fabrima mediante análisis de planos.",
         "Infraestructura: Ejecución del montaje de torre de enfriamiento (con soporte internacional en inglés) y diseño de bypass en tuberías críticas para garantizar continuidad operativa."
@@ -78,6 +79,7 @@
       "period_es": "Ene 2021 - Dic 2021",
       "period_en": "Jan 2021 - Dec 2021",
       "startDate": "2021-01-01",
+      "preview": "docs/clases_steam.jpg",
       "summary_es": [
         "Instrucción STEAM: Facilitación de fundamentos de Python y robótica para grupos juveniles mediante entornos virtuales.",
         "Gestión Pedagógica: Diseño de experiencias gamificadas y seguimiento de trazabilidad académica basada en proyectos (PBL)."
@@ -110,6 +112,7 @@
       "period_es": "Abril 2015",
       "period_en": "April 2015",
       "startDate": "2015-04-01",
+      "preview": "docs/urbe.jpg",
       "summary_es": [
         "Configuración, calibración y testeo de banco de equipos de medición (osciloscopios, generadores) previo a prácticas de ingeniería.",
         "Soporte técnico proactivo y guía normativa de seguridad electrónica para docentes y alumnado."
