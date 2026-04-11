@@ -65,6 +65,40 @@ export function closePrintOptions() {
     if (options) options.classList.remove("active");
 }
 
+export function initMobilePreviewTooltips() {
+    const isTouchDevice = window.matchMedia('(hover: none)').matches || window.matchMedia('(pointer: coarse)').matches;
+    if (!isTouchDevice) return;
+
+    const previewContainers = document.querySelectorAll('.project-preview-container');
+    if (!previewContainers.length) return;
+
+    previewContainers.forEach((container) => {
+        const tooltip = container.querySelector('.preview-tooltip');
+        if (!tooltip) return;
+
+        container.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const isActive = container.classList.contains('tooltip-active');
+            document.querySelectorAll('.project-preview-container.tooltip-active').forEach((activeContainer) => {
+                if (activeContainer !== container) {
+                    activeContainer.classList.remove('tooltip-active');
+                }
+            });
+            if (isActive) {
+                container.classList.remove('tooltip-active');
+            } else {
+                container.classList.add('tooltip-active');
+            }
+        });
+    });
+
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.project-preview-container.tooltip-active').forEach((container) => {
+            container.classList.remove('tooltip-active');
+        });
+    });
+}
+
 // Registro global para onclick en HTML si es necesario (aunque mejor usar main.js)
 window.openVideoModal = openVideoModal;
 window.closeVideoModal = closeVideoModal;

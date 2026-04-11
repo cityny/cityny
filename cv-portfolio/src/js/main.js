@@ -1,6 +1,6 @@
 import { loadResumeData } from './modules/api.js';
 import { renderResume } from './modules/renderer.js';
-import { toggleTheme, initBackgroundVideo, closeVideoModal, togglePrintOptions, closePrintOptions } from './modules/ui.js';
+import { toggleTheme, initBackgroundVideo, closeVideoModal, togglePrintOptions, closePrintOptions, initMobilePreviewTooltips } from './modules/ui.js';
 import { printBothLanguages, printSingleLanguage } from './modules/print.js';
 
 /**
@@ -25,6 +25,7 @@ async function init(lang = "es") {
         
         renderResume(container, staticData, translations, currentLang);
         initBackgroundVideo();
+        initMobilePreviewTooltips();
     } catch (error) {
         container.innerHTML = `<h2>Error: ${error.message}</h2>`;
     }
