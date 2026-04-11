@@ -338,6 +338,31 @@ body.dark-theme .project-action-link { color: #ffffff; }
 }
 
 @media (max-width: 650px) {
+    nav {
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 10px 12px;
+        gap: 8px;
+    }
+
+    .lang-selector {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .print-dropdown {
+        width: 100%;
+    }
+
+    .print-options {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        width: min(220px, calc(100vw - 16px));
+        max-width: calc(100vw - 16px);
+        box-sizing: border-box;
+    }
+
     .preview-tooltip {
         width: min(260px, calc(100vw - 20px));
         max-width: calc(100vw - 20px);
@@ -353,6 +378,14 @@ body.dark-theme .project-action-link { color: #ffffff; }
     .preview-tooltip::before {
         left: 50%;
         margin-left: -8px;
+    }
+
+    .contact-info {
+        white-space: normal;
+    }
+
+    .print-options button {
+        padding: 10px 14px;
     }
 }
 
