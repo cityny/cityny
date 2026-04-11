@@ -22,8 +22,15 @@
     </video>
 
     <nav>
-        <button id="print-btn" onclick="printBothLanguages()" title="Imprimir CV (ES + EN)"><span
-                class="material-symbols-outlined">print</span></button>
+        <div class="print-dropdown">
+            <button id="print-btn" title="Opciones de impresión"><span
+                    class="material-symbols-outlined">print</span></button>
+            <div id="print-options" class="print-options">
+                <button id="print-es">Español</button>
+                <button id="print-en">Inglés</button>
+                <button id="print-both">Ambos</button>
+            </div>
+        </div>
 
         <div class="lang-selector">
             <button onmouseover="setLanguage('es')"><img src="https://flagcdn.com/w20/es.png" class="flag-icon"

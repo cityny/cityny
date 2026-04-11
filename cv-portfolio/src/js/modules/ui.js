@@ -55,7 +55,18 @@ export function closeVideoModal() {
     document.body.style.overflow = "auto";
 }
 
+export function togglePrintOptions() {
+    const options = document.getElementById("print-options");
+    if (options) options.classList.toggle("active");
+}
+
+export function closePrintOptions() {
+    const options = document.getElementById("print-options");
+    if (options) options.classList.remove("active");
+}
+
 // Registro global para onclick en HTML si es necesario (aunque mejor usar main.js)
 window.openVideoModal = openVideoModal;
 window.closeVideoModal = closeVideoModal;
 window.toggleTheme = toggleTheme;
+window.togglePrintOptions = togglePrintOptions;

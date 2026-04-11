@@ -57,9 +57,56 @@ nav button:hover {
     padding: 8px 12px;
 }
 
-#print-btn .material-symbols-outlined {
-    font-size: 20px;
-    margin: 0;
+/* Print Dropdown */
+.print-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.print-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--card-bg);
+    min-width: 140px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    z-index: 2000;
+    margin-top: 8px;
+    padding: 8px 0;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.print-options.active {
+    display: flex;
+    animation: fadeInDown 0.2s ease;
+}
+
+.print-options button {
+    background: none;
+    border: none;
+    color: var(--text-main);
+    padding: 10px 16px;
+    text-align: left;
+    width: 100%;
+    border-radius: 0;
+    font-size: 0.9rem;
+    transition: background 0.2s ease;
+}
+
+.print-options button:hover {
+    background-color: var(--bg);
+    color: var(--primary);
+    transform: none;
+    box-shadow: none;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Badges y Habilidades */
