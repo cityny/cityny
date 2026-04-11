@@ -136,8 +136,15 @@ function renderResume() {
     `<span class="contact-item"><span class="material-symbols-outlined icon-contact">location_on</span> <span class="location-text">${s.basics.location.city}, ${s.basics.location.region || ""} (${s.basics.location.countryCode})</span></span>`,
     // Perfiles sociales con iconos de Font Awesome
     ...s.basics.profiles.map(
-      (p) =>
-        `<span class="contact-item"><i class="${socialIcons[p.network] || "fa-solid fa-link"} social-icon"></i> <a href="${p.url}" target="_blank"> ${p.network}</a></span>`,
+      (p) => {
+        // Generar una versión corta de la URL para impresión (ej: linkedin.com/in/dionnyn/)
+        const shortUrl = p.url
+          .replace(/^https?:\/\//, "")
+          .replace(/^www\./, "")
+          .replace(/\/$/, ""); // Quitar slash final opcional
+
+        return `<span class="contact-item"><i class="${socialIcons[p.network] || "fa-solid fa-link"} social-icon"></i> <a href="${p.url}" target="_blank" data-print-url="${shortUrl}"> ${p.network}</a></span>`;
+      }
     ),
   ];
 
@@ -452,8 +459,15 @@ function generateResumeHTML() {
     ),
     `<span class="material-symbols-outlined icon-contact">location_on</span> <span class="location-text">${s.basics.location.city}, ${s.basics.location.region || ""} (${s.basics.location.countryCode})</span>`,
     ...s.basics.profiles.map(
-      (p) =>
-        `<i class="${socialIcons[p.network] || "fa-solid fa-link"} social-icon"></i> <a href="${p.url}" target="_blank"> ${p.network}</a>`,
+      (p) => {
+        // Generar una versión corta de la URL para impresión (ej: linkedin.com/in/dionnyn/)
+        const shortUrl = p.url
+          .replace(/^https?:\/\//, "")
+          .replace(/^www\./, "")
+          .replace(/\/$/, ""); // Quitar slash final opcional
+
+        return `<i class="${socialIcons[p.network] || "fa-solid fa-link"} social-icon"></i> <a href="${p.url}" target="_blank" data-print-url="${shortUrl}"> ${p.network}</a>`;
+      }
     ),
   ];
 

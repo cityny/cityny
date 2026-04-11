@@ -171,12 +171,7 @@ body {
         }
     }
 
-    /* Ocultar QR en impresión para mantener estética limpia */
-    @media print {
-        .qr-container {
-            display: none !important;
-        }
-    }
+
 
     /* Crea contexto para capas del video */
     position: relative;
@@ -678,6 +673,161 @@ nav button:hover {
     /* Sin margen extra */
 }
 
+/* --- Estilos para enlaces de acción (Unificados) --- */
+.project-action-link {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--primary);
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: normal;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.project-action-link:hover {
+    text-decoration: underline;
+    color: var(--primary);
+    box-shadow: none;
+    transform: none;
+}
+
+.project-action-link i {
+    font-size: 0.9em;
+}
+
+body.dark-theme .project-action-link {
+    color: #ffffff;
+}
+
+/* Estilos del Modal */
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    /* Oculto por defecto */
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.3s ease;
+}
+
+.close-modal:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+#modal-video-container video {
+    width: 100%;
+    display: block;
+    max-height: 80vh;
+}
+
+/* =============================================================================
+ * TOOLTIP PARA PREVIEW DE PROYECTOS
+ * =============================================================================
+ */
+
+.project-preview-container {
+    position: relative;
+}
+
+.preview-tooltip {
+    visibility: hidden;
+    position: absolute;
+    bottom: 100%;
+    /* Aparece encima del enlace */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 12px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    width: 320px;
+    pointer-events: none;
+    /* No robar el cursor */
+}
+
+/* Triángulo indicador abajo del tooltip (interior) */
+.preview-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: var(--card-bg) transparent transparent transparent;
+}
+
+/* Triángulo indicador abajo del tooltip (borde) */
+.preview-tooltip::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -9px;
+    border-width: 9px;
+    border-style: solid;
+    border-color: var(--border) transparent transparent transparent;
+    z-index: -1;
+}
+
 /* =============================================================================
  * SECCIÓN 13: ESTILOS DE IMPRESIÓN (@media print)
  * =============================================================================
@@ -1103,13 +1253,7 @@ body.dark-theme .project-action-link {
 }
 
 /* Ocultar en impresión */
-@media print {
 
-    .preview-tooltip,
-    .project-preview-container .preview-tooltip {
-        display: none !important;
-    }
-}
 
 /* =============================================================================
  * AJUSTES ADICIONALES
@@ -1121,41 +1265,76 @@ body.dark-theme .project-action-link {
     text-align: justify;
 }
 
-/* Imponer de forma forzada el renderizado tipo albañilería (Masonry) para la generación del PDF */
+/* =============================================================================
+ * SECCIÓN Máster de IMPRESIÓN (@media print unificado)
+ * =============================================================================
+ */
 @media print {
-    /* Forzar colores de "Modo Claro" para máxima legibilidad y ahorro de tinta */
-    :root {
+    /* --- 1. Configuración de Página y Contenedores --- */
+    @page { margin: 0; }
+    
+    body {
+        background: white !important;
+        color: black !important;
+        margin: 0;
+        padding: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* Forzar "Modo Claro" para máxima legibilidad */
+    :root, body, body.dark-theme {
         --primary: #2563eb !important;
-        --text-main: #0f172a !important;
-        --text-muted: #64748b !important;
         --bg: #ffffff !important;
         --card-bg: #ffffff !important;
+        --card-bg-alpha: #ffffff !important;
+        --text-main: #0f172a !important;
+        --text-muted: #64748b !important;
+        --border: #e2e8f0 !important;
     }
 
-    /* Asegurar que los enlaces sean visibles y funcionales */
+    /* --- 2. Elementos a Ocultar --- */
+    nav, .bg-video, .qr-container, .preview-tooltip, .project-video-container {
+        display: none !important;
+    }
+
+    /* --- 3. Estructura y Espaciado --- */
+    main {
+        box-shadow: none; border: none; border-radius: 0;
+        margin: 0; padding: 0 8mm; max-width: 100%;
+        background: white !important;
+    }
+
+    .print-page { page-break-before: always; padding: 0; }
+    h3 { margin-top: 15px !important; }
+
+    /* Estructura para márgenes superiores consistentes */
+    .cv-print-table { width: 100%; border-collapse: collapse; }
+    .cv-page-header-space { height: 8mm; display: block; }
+    .cv-print-cell { padding: 0; }
+
+    /* --- 4. Enlaces y URLs (Petición Usuario) --- */
     a {
         color: var(--primary) !important;
-        text-decoration: underline !important;
+        text-decoration: none !important; /* QUITAR SUBRAYADO */
     }
 
-    /* Mostrar la URL entre paréntesis solo para redes sociales (LinkedIn, GitHub) en el PDF */
-    .contact-info a:after {
-        content: " (" attr(href) ")";
-        font-size: 0.85em;
-        font-weight: normal;
-        opacity: 0.7;
+    /* Mostrar URL simplificada solo para perfiles sociales */
+    .contact-info a[data-print-url]:after {
+        content: " (" attr(data-print-url) ")";
+        font-size: 0.85em; font-weight: normal; opacity: 0.7;
     }
 
-    /* Ocultar la URL técnica para Email y WhatsApp ya que el texto ya es el dato o es redundante */
-    .contact-info a[href^="mailto:"]:after,
-    .contact-info a[href^="https://wa.me/"]:after {
+    /* Ocultar URLs técnicas o redundantes (Email, WhatsApp, Proyectos) */
+    .contact-info a:not([data-print-url]):after, .job a:after, .project-action-link:after {
         content: "" !important;
     }
 
+    /* --- 5. Habilidades (Layout Masonry Forzado) --- */
     .skills-grid {
+        display: block !important;
         column-count: 3 !important;
         column-gap: 10px !important;
-        display: block !important;
     }
 
     .skills-grid .item-box {
@@ -1166,4 +1345,28 @@ body.dark-theme .project-action-link {
         display: inline-block !important;
         width: 100% !important;
     }
+
+    .skills-badges { margin-top: 2px !important; gap: 2px !important; }
+
+    /* --- 6. Otros Ajustes Visuales --- */
+    .contact-info { font-size: 0.75rem !important; margin: 4px 0 !important; gap: 4px !important; }
+    .icon-contact, .social-icon { font-size: 13px !important; color: var(--primary) !important; }
+    .location-text { color: var(--text-main) !important; }
+
+    .custom-badge-container {
+        background-color: #ffffff !important; color: #000 !important;
+        border: 1px solid #000 !important; border-radius: 3px !important;
+        padding: 0 6px !important; height: 18px !important; margin: 1px 0 !important;
+    }
+    .custom-badge-container img { display: inline-block !important; height: 11px !important; margin-right: 4px !important; }
+
+    .job { margin-bottom: 12px !important; }
+    .job-period { margin-bottom: 0 !important; }
+    .job p { margin-top: 0 !important; }
+
+    /* Idiomas en fila horizontal */
+    .languages-section { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0; }
+    .languages-section h3 { width: 100%; margin-bottom: 4px; }
+    .languages-section .item-box { display: inline-flex; align-items: center; margin-bottom: 0 !important; }
+    .languages-section .item-box:not(:first-child)::before { content: " | "; margin: 0 6px; color: var(--border); }
 }
