@@ -176,10 +176,17 @@ function renderResume() {
       const summaryKey = currentLang === "es" ? "summary_es" : "summary_en";
       const positionKey = currentLang === "es" ? "position_es" : "position_en";
       const periodKey = currentLang === "es" ? "period_es" : "period_en";
+      let previewHtml = "";
+      if (job.preview) {
+        previewHtml = `<span class="project-preview-container" style="display:inline-block; margin-left: 10px; position: relative;">
+          <span class="material-symbols-outlined" style="font-size: 1.1em; color: var(--primary); vertical-align: sub; cursor: pointer;">image</span>
+          <span class="preview-tooltip"><img src="${job.preview}" alt="Preview" loading="lazy" decoding="async"></span>
+        </span>`;
+      }
       return `
             <div class="item-box job">
                 <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 4px;">
-                    <strong style="margin-right: 15px;"><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: sub;">work</span> ${job[positionKey]}</strong>
+                    <strong style="margin-right: 15px;"><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: sub;">work</span> ${job[positionKey]} ${previewHtml}</strong>
                     <span style="font-size: 0.9em; opacity: 0.85;">${job.company} &nbsp;|&nbsp; ${job[periodKey]}</span>
                 </div>
                 <ul style="margin: 3px 0 0 25px; padding: 0; font-size: 0.95em; color: var(--text-secondary);">
@@ -489,10 +496,17 @@ function generateResumeHTML() {
       const summaryKey = currentLang === "es" ? "summary_es" : "summary_en";
       const positionKey = currentLang === "es" ? "position_es" : "position_en";
       const periodKey = currentLang === "es" ? "period_es" : "period_en";
+      let previewHtml = "";
+      if (job.preview) {
+        previewHtml = `<span class="project-preview-container" style="display:inline-block; margin-left: 10px; position: relative;">
+          <span class="material-symbols-outlined" style="font-size: 1.1em; color: var(--primary); vertical-align: sub; cursor: pointer;">image</span>
+          <span class="preview-tooltip"><img src="${job.preview}" alt="Preview" loading="lazy" decoding="async"></span>
+        </span>`;
+      }
       return `
             <div class="item-box job">
                 <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 4px;">
-                    <strong style="margin-right: 15px;"><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: sub;">work</span> ${job[positionKey]}</strong>
+                    <strong style="margin-right: 15px;"><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: sub;">work</span> ${job[positionKey]} ${previewHtml}</strong>
                     <span style="font-size: 0.9em; opacity: 0.85;">${job.company} &nbsp;|&nbsp; ${job[periodKey]}</span>
                 </div>
                 <ul style="margin: 3px 0 0 25px; padding: 0; font-size: 0.95em; color: var(--text-secondary);">

@@ -63,28 +63,29 @@
       "period_en": "January 2022 - March 2026",
       "startDate": "2022-01-01",
       "summary_es": [
-        "Supervisión y optimización del mantenimiento electromecánico de sistemas de envasado y llenado crítico (Tetra Pak, Fabrima).",
-        "Implementación de cronogramas de mantenimiento preventivo y correctivo, logrando reducción de tiempos de inactividad y fallas."
+        "Automatización y Control: Restablecimiento operativo de llenadoras Tetra Pak TBA/8 (PLC GE Fanuc) y corrección de averías lógicas en equipos Fabrima mediante análisis de planos.",
+        "Infraestructura: Ejecución del montaje de torre de enfriamiento (con soporte internacional en inglés) y diseño de bypass en tuberías críticas para garantizar continuidad operativa."
       ],
       "summary_en": [
-        "Supervision and optimization of electromechanical maintenance for critical packaging and filling systems (Tetra Pak, Fabrima).",
-        "Implementation of preventive and corrective maintenance schedules, achieving a reduction in downtime and failures."
+        "Automation and Control: Operational restoration of Tetra Pak TBA/8 filling machines (GE Fanuc PLC) and correction of logic faults in Fabrima equipment through blueprint analysis.",
+        "Infrastructure: Execution of cooling tower assembly (with international English support) and design of bypasses in critical pipelines to guarantee operational continuity."
       ]
     },
     {
       "company": "Fundasteam - Panama",
       "position_es": "Profesor de Robótica",
       "position_en": "Robotics Teacher",
-      "period_es": "Enero 2021",
-      "period_en": "January 2021",
+      "period_es": "Ene 2021 - Dic 2021",
+      "period_en": "Jan 2021 - Dec 2021",
       "startDate": "2021-01-01",
+      "preview": "docs/clases_steam.jpg",
       "summary_es": [
-        "Diseño e impartición eficiente de planes curriculares de robótica STEM vía remota a más de 50 alumnos.",
-        "Capacitación técnica e inmersión algorítmica usando simuladores, programación de Arduino y Scratch."
+        "Instrucción STEAM: Facilitación de fundamentos de Python y robótica para grupos juveniles mediante entornos virtuales.",
+        "Gestión Pedagógica: Diseño de experiencias gamificadas y seguimiento de trazabilidad académica basada en proyectos (PBL)."
       ],
       "summary_en": [
-        "Efficient design and delivery of remote STEM robotics curricula to more than 50 students.",
-        "Technical training and algorithmic immersion using simulators, Arduino programming, and Scratch."
+        "STEAM Instruction: Facilitation of Python and robotics fundamentals for youth groups via virtual environments.",
+        "Pedagogical Management: Design of gamified experiences and tracking of project-based academic traceability (PBL)."
       ]
     },
     {
