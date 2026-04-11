@@ -1123,6 +1123,35 @@ body.dark-theme .project-action-link {
 
 /* Imponer de forma forzada el renderizado tipo albañilería (Masonry) para la generación del PDF */
 @media print {
+    /* Forzar colores de "Modo Claro" para máxima legibilidad y ahorro de tinta */
+    :root {
+        --primary: #2563eb !important;
+        --text-main: #0f172a !important;
+        --text-muted: #64748b !important;
+        --bg: #ffffff !important;
+        --card-bg: #ffffff !important;
+    }
+
+    /* Asegurar que los enlaces sean visibles y funcionales */
+    a {
+        color: var(--primary) !important;
+        text-decoration: underline !important;
+    }
+
+    /* Mostrar la URL entre paréntesis solo para redes sociales (LinkedIn, GitHub) en el PDF */
+    .contact-info a:after {
+        content: " (" attr(href) ")";
+        font-size: 0.85em;
+        font-weight: normal;
+        opacity: 0.7;
+    }
+
+    /* Ocultar la URL técnica para Email y WhatsApp ya que el texto ya es el dato o es redundante */
+    .contact-info a[href^="mailto:"]:after,
+    .contact-info a[href^="https://wa.me/"]:after {
+        content: "" !important;
+    }
+
     .skills-grid {
         column-count: 3 !important;
         column-gap: 10px !important;

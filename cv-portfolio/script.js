@@ -230,7 +230,7 @@ function renderResume() {
         }
       }
       const projectVideoButton = project.video
-        ? `<p><button class="project-action-link" onclick="openVideoModal('${project.video}')"><i class="fa-solid fa-arrow-up-right-from-square"></i> ${linkLabel}</button></p>`
+        ? `<p><a href="${project.video}" class="project-action-link" onclick="openVideoModal('${project.video}'); return false;"><i class="fa-solid fa-arrow-up-right-from-square"></i> ${linkLabel}</a></p>`
         : "";
       const techKey = currentLang === "es" ? "technologies_es" : "technologies_en";
       return `
@@ -542,7 +542,7 @@ function generateResumeHTML() {
         }
       }
       const projectVideoButton = project.video
-        ? `<p><button class="project-action-link" onclick="openVideoModal('${project.video}')"><i class="fa-solid fa-arrow-up-right-from-square"></i> ${linkLabel}</button></p>`
+        ? `<p><a href="${project.video}" class="project-action-link" onclick="openVideoModal('${project.video}'); return false;"><i class="fa-solid fa-arrow-up-right-from-square"></i> ${linkLabel}</a></p>`
         : "";
       const techKey = currentLang === "es" ? "technologies_es" : "technologies_en";
       return `
