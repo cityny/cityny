@@ -1306,7 +1306,11 @@ body.dark-theme .project-action-link {
     }
 
     .print-page { page-break-before: always; padding: 0; }
-    h3 { margin-top: 15px !important; }
+    h3 { 
+        margin-top: 15px !important; 
+        break-after: avoid !important; /* EVITA TÍTULOS HUÉRFANOS */
+        page-break-after: avoid !important;
+    }
 
     /* Estructura para márgenes superiores consistentes */
     .cv-print-table { width: 100%; border-collapse: collapse; }
@@ -1319,10 +1323,17 @@ body.dark-theme .project-action-link {
         text-decoration: none !important; /* QUITAR SUBRAYADO */
     }
 
-    /* Mostrar URL simplificada solo para perfiles sociales */
+    /* Mostrar solo la URL simplificada para redes sociales, ocultando el nombre (LinkedIn/GitHub) */
+    .contact-info a[data-print-url] {
+        font-size: 0 !important;
+    }
+
     .contact-info a[data-print-url]:after {
-        content: " (" attr(data-print-url) ")";
-        font-size: 0.85em; font-weight: normal; opacity: 0.7;
+        content: attr(data-print-url);
+        font-size: 0.75rem !important; /* Tamaño legible para la URL */
+        font-weight: normal;
+        margin-left: 0;
+        opacity: 0.8;
     }
 
     /* Ocultar URLs técnicas o redundantes (Email, WhatsApp, Proyectos) */
