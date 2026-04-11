@@ -1118,4 +1118,23 @@ body.dark-theme .project-action-link {
 
 .summary-section p {
     margin-top: 8px;
+    text-align: justify;
+}
+
+/* Imponer de forma forzada el renderizado tipo albañilería (Masonry) para la generación del PDF */
+@media print {
+    .skills-grid {
+        column-count: 3 !important;
+        column-gap: 10px !important;
+        display: block !important;
+    }
+
+    .skills-grid .item-box {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        margin-bottom: 6px !important;
+        padding-bottom: 4px !important;
+        display: inline-block !important;
+        width: 100% !important;
+    }
 }
