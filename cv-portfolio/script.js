@@ -178,10 +178,13 @@ function renderResume() {
       const periodKey = currentLang === "es" ? "period_es" : "period_en";
       return `
             <div class="item-box job">
-                <strong><span class="material-symbols-outlined">work</span> ${t.job.position_label}: ${job[positionKey]}</strong>
-                <span class="company">${job.company}</span>
-                <span class="job-period"><strong>${t.job.date_label}:</strong> ${job[periodKey]}</span>
-                <p>${job[summaryKey]}</p>
+                <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 4px;">
+                    <strong style="margin-right: 15px;"><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: sub;">work</span> ${job[positionKey]}</strong>
+                    <span style="font-size: 0.9em; opacity: 0.85;">${job.company} &nbsp;|&nbsp; ${job[periodKey]}</span>
+                </div>
+                <ul style="margin: 3px 0 0 25px; padding: 0; font-size: 0.95em; color: var(--text-secondary);">
+                    ${job[summaryKey].map(bullet => `<li style="margin-bottom: 3px;">${bullet}</li>`).join("")}
+                </ul>
             </div>
         `;
     })
@@ -202,20 +205,7 @@ function renderResume() {
     })
     .join("");
 
-  // --- Generar sección de idiomas ---
-  // Selecciona automáticamente nombre y nivel en el idioma correcto
-  const languagesHtml = s.languages
-    .map((lang) => {
-      const langKey = currentLang === "es" ? "language_es" : "language_en";
-      const levelKey = currentLang === "es" ? "level_es" : "level_en";
-      return `
-            <div class="item-box">
-                <span class="material-symbols-outlined">language</span>
-                <strong>${lang[langKey]}</strong>&nbsp;&ndash;&nbsp;${lang[levelKey]}
-            </div>
-        `;
-    })
-    .join("");
+  // --- (Idiomas ahora se manejan como parte de las habilidades) ---
 
   // --- Generar proyectos destacados ---
   // Selecciona automáticamente descripción en el idioma correcto
@@ -248,15 +238,15 @@ function renderResume() {
     })
     .join("");
 
+  const summaryKey = currentLang === "es" ? "summary_es" : "summary_en";
+  const summaryText = s.basics[summaryKey] || "";
+
   // --- Construir HTML final ---
-  // El contenido se envuelve en una <table> para que el <thead> actúe como
-  // margen superior automático en CADA página durante la impresión.
   container.innerHTML = `
     <table class="cv-print-table">
       <thead>
         <tr>
           <td>
-            <!-- Espacio en blanco que se repite como margen superior en cada página impresa -->
             <div class="cv-page-header-space"></div>
           </td>
         </tr>
@@ -276,38 +266,44 @@ function renderResume() {
                     </div>
                   </span>
                 </h1>
-                <p class="subtitle">${currentLang === "es" ? "Ingeniero Electrónico & Desarrollador Junior" : "Electronic Engineer & Junior Developer"}</p>
+                <p class="subtitle">${currentLang === "es" ? "Ingeniero Electrónico | Desarrollador de Software y Mantenimiento Industrial" : "Electronic Engineer | Software Developer and Industrial Maintenance"}</p>
                 <div class="contact-info">
                     ${contactLinks.join(" | ")}
                 </div>
             </header>
 
-            <section>
-                <h3>${t.sections.technical_skills}</h3>
-                <div class="skills-grid">
-                    ${skillsHtml}
-                </div>
-            </section>
+            <div class="cv-body-layout">
+                <aside class="cv-sidebar">
+                    <section>
+                        <h3>${t.sections.technical_skills}</h3>
+                        <div class="skills-grid">
+                            ${skillsHtml}
+                        </div>
+                    </section>
+                </aside>
 
-            <section>
-                <h3>${t.sections.work_experience}</h3>
-                ${experienceHtml}
-            </section>
+                <main class="cv-main-col">
+                    <section class="summary-section">
+                        <h3>${t.sections.about_me}</h3>
+                        <p>${summaryText}</p>
+                    </section>
 
-            <section>
-                <h3>${t.sections.education}</h3>
-                ${educationHtml}
-            </section>
+                    <section>
+                        <h3>${t.sections.work_experience}</h3>
+                        ${experienceHtml}
+                    </section>
 
-            <section class="languages-section">
-                <h3>${t.sections.languages}</h3>
-                ${languagesHtml}
-            </section>
+                    <section>
+                        <h3>${t.sections.education}</h3>
+                        ${educationHtml}
+                    </section>
 
-            <section>
-                <h3>${t.sections.featured_projects}</h3>
-                ${projectsHtml}
-            </section>
+                    <section>
+                        <h3>${t.sections.featured_projects}</h3>
+                        ${projectsHtml}
+                    </section>
+                </main>
+            </div>
 
           </td>
         </tr>
@@ -495,10 +491,13 @@ function generateResumeHTML() {
       const periodKey = currentLang === "es" ? "period_es" : "period_en";
       return `
             <div class="item-box job">
-                <strong><span class="material-symbols-outlined">work</span> ${t.job.position_label}: ${job[positionKey]}</strong>
-                <span class="company">${job.company}</span>
-                <span class="job-period"><strong>${t.job.date_label}:</strong> ${job[periodKey]}</span>
-                <p>${job[summaryKey]}</p>
+                <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 4px;">
+                    <strong style="margin-right: 15px;"><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: sub;">work</span> ${job[positionKey]}</strong>
+                    <span style="font-size: 0.9em; opacity: 0.85;">${job.company} &nbsp;|&nbsp; ${job[periodKey]}</span>
+                </div>
+                <ul style="margin: 3px 0 0 25px; padding: 0; font-size: 0.95em; color: var(--text-secondary);">
+                    ${job[summaryKey].map(bullet => `<li style="margin-bottom: 3px;">${bullet}</li>`).join("")}
+                </ul>
             </div>
         `;
     })
@@ -518,19 +517,7 @@ function generateResumeHTML() {
     })
     .join("");
 
-  // --- Generar idiomas ---
-  const languagesHtml = s.languages
-    .map((lang) => {
-      const langKey = currentLang === "es" ? "language_es" : "language_en";
-      const levelKey = currentLang === "es" ? "level_es" : "level_en";
-      return `
-            <div class="item-box">
-                <span class="material-symbols-outlined">language</span>
-                <strong>${lang[langKey]}</strong>&nbsp;&ndash;&nbsp;${lang[levelKey]}
-            </div>
-        `;
-    })
-    .join("");
+  // --- (Idiomas ahora se manejan como parte de las habilidades) ---
 
   // --- Generar proyectos ---
   const projectsHtml = s.projects
@@ -596,32 +583,38 @@ function generateResumeHTML() {
                 </div>
             </header>
 
-            <section>
-                <h3>${t.sections.technical_skills}</h3>
-                <div class="skills-grid">
-                    ${skillsHtml}
-                </div>
-            </section>
+            <div class="cv-body-layout">
+                <aside class="cv-sidebar">
+                    <section>
+                        <h3>${t.sections.technical_skills}</h3>
+                        <div class="skills-grid">
+                            ${skillsHtml}
+                        </div>
+                    </section>
+                </aside>
 
-            <section>
-                <h3>${t.sections.work_experience}</h3>
-                ${experienceHtml}
-            </section>
+                <main class="cv-main-col">
+                    <section class="summary-section">
+                        <h3>${t.sections.about_me}</h3>
+                        <p>${s.basics[currentLang === "es" ? "summary_es" : "summary_en"] || ""}</p>
+                    </section>
 
-            <section>
-                <h3>${t.sections.education}</h3>
-                ${educationHtml}
-            </section>
+                    <section>
+                        <h3>${t.sections.work_experience}</h3>
+                        ${experienceHtml}
+                    </section>
 
-            <section class="languages-section">
-                <h3>${t.sections.languages}</h3>
-                ${languagesHtml}
-            </section>
+                    <section>
+                        <h3>${t.sections.education}</h3>
+                        ${educationHtml}
+                    </section>
 
-            <section>
-                <h3>${t.sections.featured_projects}</h3>
-                ${projectsHtml}
-            </section>
+                    <section>
+                        <h3>${t.sections.featured_projects}</h3>
+                        ${projectsHtml}
+                    </section>
+                </main>
+            </div>
 
           </td>
         </tr>

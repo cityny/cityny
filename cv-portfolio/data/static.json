@@ -1,6 +1,8 @@
 {
   "basics": {
     "name": "Dionny Jose Núñez Márquez",
+    "summary_es": "Ingeniero Electrónico y Desarrollador de Software enfocado en automatización e infraestructura. Experiencia en mantenimiento industrial crítico (sistemas Tetra Pak, PLC) y despliegue de soluciones tecnológicas (VPS, n8n, desarrollo Full-Stack). Orientado a la resolución de problemas y optimización de procesos bajo estrictas normas de calidad.",
+    "summary_en": "Electronic Engineer and Software Developer focused on automation and infrastructure. Experience in critical industrial maintenance (Tetra Pak systems, PLC) and deployment of technological solutions (VPS, n8n, Full-Stack development). Oriented towards problem-solving and process optimization under strict quality standards.",
     "email": "dionnyn@gmail.com",
     "phones": [
       {
@@ -57,21 +59,33 @@
       "company": "San Simón Planta de Leche",
       "position_es": "Supervisor de Mantenimiento Industrial",
       "position_en": "Industrial Maintenance Supervisor",
-      "period_es": "Enero 2022 - Actualmente",
-      "period_en": "January 2022 - Present",
+      "period_es": "Enero 2022 - Marzo 2026",
+      "period_en": "January 2022 - March 2026",
       "startDate": "2022-01-01",
-      "summary_es": "Mantenimiento de maquinaria industrial y gestión de personal.",
-      "summary_en": "Maintenance of industrial machinery and personnel management."
+      "summary_es": [
+        "Supervisión y optimización del mantenimiento electromecánico de sistemas de envasado y llenado crítico (Tetra Pak, Fabrima).",
+        "Implementación de cronogramas de mantenimiento preventivo y correctivo, logrando reducción de tiempos de inactividad y fallas."
+      ],
+      "summary_en": [
+        "Supervision and optimization of electromechanical maintenance for critical packaging and filling systems (Tetra Pak, Fabrima).",
+        "Implementation of preventive and corrective maintenance schedules, achieving a reduction in downtime and failures."
+      ]
     },
     {
       "company": "Fundasteam - Panama",
-      "position_es": "Profesor de Robótica Remoto",
-      "position_en": "Remote Robotics Teacher",
+      "position_es": "Profesor de Robótica",
+      "position_en": "Robotics Teacher",
       "period_es": "Enero 2021",
       "period_en": "January 2021",
       "startDate": "2021-01-01",
-      "summary_es": "Enseñanza remota de robótica a estudiantes.",
-      "summary_en": "Remote robotics teaching to students."
+      "summary_es": [
+        "Diseño e impartición eficiente de planes curriculares de robótica STEM vía remota a más de 50 alumnos.",
+        "Capacitación técnica e inmersión algorítmica usando simuladores, programación de Arduino y Scratch."
+      ],
+      "summary_en": [
+        "Efficient design and delivery of remote STEM robotics curricula to more than 50 students.",
+        "Technical training and algorithmic immersion using simulators, Arduino programming, and Scratch."
+      ]
     },
     {
       "company": "Ingeolan - Venezuela",
@@ -80,18 +94,30 @@
       "period_es": "Enero 2020",
       "period_en": "January 2020",
       "startDate": "2020-01-01",
-      "summary_es": "Entrevistas de campo para selección de personal.",
-      "summary_en": "Field interviews for personnel selection."
+      "summary_es": [
+        "Ejecución de procesos de selección y entrevistas en masa directas en campo para la detección de perfiles socio-laborales.",
+        "Evaluación de competencias analíticas y técnicas, asegurando el filtro eficiente de candidatos calificados."
+      ],
+      "summary_en": [
+        "Execution of direct mass field selection and interview processes for the detection of socio-labor profiles.",
+        "Evaluation of analytical and technical competencies, ensuring the efficient filtering of qualified candidates."
+      ]
     },
     {
-      "company": "URBE - Universidad Rafael Belloso Chacín",
+      "company": "URBE",
       "position_es": "Asistente de Laboratorio",
       "position_en": "Laboratory Assistant",
       "period_es": "Abril 2015",
       "period_en": "April 2015",
       "startDate": "2015-04-01",
-      "summary_es": "Preparacion del laboratorio y asistencia en clases.",
-      "summary_en": "Preparation of laboratory and assistance in classes."
+      "summary_es": [
+        "Configuración, calibración y testeo de banco de equipos de medición (osciloscopios, generadores) previo a prácticas de ingeniería.",
+        "Soporte técnico proactivo y guía normativa de seguridad electrónica para docentes y alumnado."
+      ],
+      "summary_en": [
+        "Configuration, calibration and testing of measurement equipment benches (oscilloscopes, generators) prior to engineering practices.",
+        "Proactive technical support and electronic safety normative guidance for teachers and student body."
+      ]
     }
   ],
   "projects": [
@@ -300,16 +326,6 @@
       ]
     },
     {
-      "category_es": "Otros",
-      "category_en": "Other",
-      "keywords": [
-        {
-          "name": "PaddlePaddle",
-          "badge": "PaddlePaddle"
-        }
-      ]
-    },
-    {
       "category_es": "Analista de datos",
       "category_en": "Data Entry",
       "keywords": [
@@ -324,20 +340,22 @@
           "logo": "https://img.icons8.com/color/48/combo-chart--v1.png"
         }
       ]
-    }
-  ],
-  "languages": [
-    {
-      "language_es": "Español",
-      "language_en": "Spanish",
-      "level_es": "Nativo",
-      "level_en": "Native"
     },
     {
-      "language_es": "Inglés",
-      "language_en": "English",
-      "level_es": "Intermedio (B1)",
-      "level_en": "Intermediate (B1)"
+      "category_es": "Idiomas",
+      "category_en": "Languages",
+      "keywords": [
+        {
+          "name": "Español",
+          "badge": "Nativo",
+          "logo": "https://flagcdn.com/w20/es.png"
+        },
+        {
+          "name": "Inglés",
+          "badge": "Intermedio B1",
+          "logo": "https://flagcdn.com/w20/us.png"
+        }
+      ]
     }
   ]
 }

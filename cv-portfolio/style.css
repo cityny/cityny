@@ -1098,3 +1098,78 @@ body.dark-theme .project-action-link {
         display: none !important;
     }
 }
+
+/* =============================================================================
+ * LAYOUT DE 2 COLUMNAS (SIDEBAR + MAIN)
+ * =============================================================================
+ */
+
+.cv-body-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.cv-sidebar {
+    width: 32%;
+    flex-shrink: 0;
+}
+
+.cv-main-col {
+    width: 68%;
+    flex-grow: 1;
+}
+
+/* Habilidades en modo Sidebar (1 columna compacta) */
+.cv-sidebar .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 4px;
+}
+
+.cv-sidebar .item-box {
+    margin-bottom: 2px;
+    padding-bottom: 2px;
+}
+
+.cv-sidebar .skills-badges {
+    margin-top: 2px;
+}
+
+.cv-sidebar h3, .cv-main-col h3 {
+    margin-top: 0; 
+}
+
+/* Responsividad para móviles: Apilar columnas */
+@media (max-width: 768px) {
+    .cv-body-layout {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .cv-sidebar, .cv-main-col {
+        width: 100%;
+    }
+    .cv-sidebar .skills-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en celular para no desperdiciar espacio */
+    }
+}
+
+/* Soporte seguro para impresión en PDF del flexbox */
+@media print {
+    .cv-body-layout {
+        display: flex !important;
+        flex-direction: row !important; /* Fuerza las 2 columnas al imprimir */
+        gap: 20px !important;
+        align-items: flex-start !important;
+        page-break-inside: auto; /* Permite que el flexbox se divida en varias páginas */
+    }
+    .cv-sidebar {
+        width: 32% !important;
+    }
+    .cv-main-col {
+        width: 68% !important;
+    }
+    .cv-sidebar .skills-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
