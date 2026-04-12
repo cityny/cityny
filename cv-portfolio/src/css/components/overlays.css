@@ -1,0 +1,198 @@
+/* Overlays: QR popups, modals, preview tooltips and related keyframes */
+
+/* QR Interaction */
+.qr-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: help;
+    margin-left: 8px;
+    vertical-align: middle;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.qr-icon {
+    font-size: 24px !important;
+    color: var(--text-muted);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.qr-container:hover .qr-icon {
+    color: var(--primary);
+    transform: scale(1.1);
+}
+
+.qr-popup {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 2000;
+    text-align: center;
+    width: 170px;
+    border: 1px solid var(--border);
+}
+
+.qr-popup img { width: 150px; height: 150px; display: block; margin: 0 auto 8px; }
+.qr-popup p { margin: 0; font-size: 12px; color: #333; }
+.qr-container:hover .qr-popup { display: block; animation: fadeIn 0.3s ease; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(0); }
+    to { opacity: 1; transform: translateX(-50%) translateY(10px); }
+}
+
+
+/* Modals */
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.modal.active { display: flex; }
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal.active .modal-content { transform: scale(1); }
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.3s ease;
+}
+
+#modal-video-container video { width: 100%; display: block; max-height: 80vh; }
+
+
+/* Preview tooltips */
+.project-preview-container { position: relative; }
+.preview-tooltip {
+    visibility: hidden;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 12px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    width: 320px;
+    pointer-events: none;
+}
+
+.preview-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: var(--arrow-pos, 50%);
+    margin-left: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: var(--card-bg) transparent transparent transparent;
+}
+
+.preview-tooltip::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: var(--arrow-pos, 50%);
+    margin-left: -9px;
+    border-width: 9px;
+    border-style: solid;
+    border-color: var(--border) transparent transparent transparent;
+    z-index: -1;
+}
+
+.preview-tooltip img { width: 100%; height: auto; border-radius: 6px; display: block; }
+.project-preview-container:hover .preview-tooltip,
+.project-preview-container.tooltip-active .preview-tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+@media (max-width: 650px) {
+    .preview-tooltip {
+        width: min(240px, calc(100vw - 20px));
+        max-width: calc(100vw - 20px);
+        left: 50%;
+        transform: translateX(-50%);
+        pointer-events: auto;
+        box-sizing: border-box;
+    }
+    .project-preview-container:hover .preview-tooltip,
+    .project-preview-container.tooltip-active .preview-tooltip {
+        transform: translateX(-50%) translateY(-5px);
+    }
+    .preview-tooltip::after,
+    .preview-tooltip::before {
+        left: 50%;
+        margin-left: -8px;
+    }
+
+    @media (max-width: 360px) {
+        .preview-tooltip {
+            /* Allow JS to clamp tooltip within viewport; provide a sensible max width */
+            width: calc(100vw - 16px);
+            max-width: calc(100vw - 16px);
+        }
+
+        .preview-tooltip::after,
+        .preview-tooltip::before {
+            left: var(--arrow-pos, 24px);
+            margin-left: -8px;
+        }
+
+        .preview-tooltip img {
+            max-height: 180px;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
