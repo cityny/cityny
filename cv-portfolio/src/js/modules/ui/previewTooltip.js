@@ -66,6 +66,9 @@ export function initMobilePreviewTooltips() {
     const tooltip = container.querySelector(".preview-tooltip");
     if (!tooltip) return;
 
+    // Prefer the focusable job-title inside the container when present
+    const anchor = container.querySelector(".job-title");
+
     container.addEventListener("click", (event) => {
       event.stopPropagation();
       const isActive = container.classList.contains("tooltip-active");
@@ -75,18 +78,33 @@ export function initMobilePreviewTooltips() {
           if (activeContainer !== container) {
             activeContainer.classList.remove("tooltip-active");
             clearPreviewTooltipPosition(activeContainer);
+            const activeAnchor = activeContainer.querySelector(".job-title");
+            if (activeAnchor)
+              activeAnchor.setAttribute("aria-expanded", "false");
           }
         });
 
       if (isActive) {
         container.classList.remove("tooltip-active");
         clearPreviewTooltipPosition(container);
+        if (anchor) anchor.setAttribute("aria-expanded", "false");
       } else {
         container.classList.add("tooltip-active");
+        if (anchor) anchor.setAttribute("aria-expanded", "true");
         // Wait a frame so CSS visibility/layout updates and we can measure width
         requestAnimationFrame(() => updatePreviewTooltipPosition(container));
       }
     });
+
+    // Keyboard support: Enter or Space should toggle the preview when focused
+    if (anchor) {
+      anchor.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+          e.preventDefault();
+          container.click();
+        }
+      });
+    }
 
     // For pointer/desktop devices, recalc on hover and clear on leave
     container.addEventListener("mouseenter", () => {

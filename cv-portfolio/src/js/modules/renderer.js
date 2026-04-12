@@ -63,11 +63,11 @@ export function generateResumeHTML(staticData, translations, currentLang) {
       // Wrap the job title as the preview trigger when a preview image is available.
       const titleHtml = job.preview
         ? `
-            <span class="project-preview-container" style="display:inline-block; position: relative;">
-                <span class="job-title">${job[positionKey]}</span>
-                <span class="preview-tooltip"><img src="${job.preview}" alt="Preview" loading="lazy" decoding="async"></span>
-            </span>`
-        : `<span class="job-title">${job[positionKey]}</span>`;
+          <span class="project-preview-container" style="display:inline-block; position: relative;">
+            <span class="job-title" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">${job[positionKey]}</span>
+            <span class="preview-tooltip"><img src="${job.preview}" alt="Preview" loading="lazy" decoding="async"></span>
+          </span>`
+        : `<span class="job-title" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">${job[positionKey]}</span>`;
       return `
             <div class="item-box job">
                 <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 4px;">

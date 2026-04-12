@@ -46,7 +46,10 @@ nav button:hover {
 }
 
 .print-options {
-    display: none;
+    /* Use opacity/visibility transitions instead of display to avoid layout jumps
+       when the dropdown appears on small screens. */
+    opacity: 0;
+    visibility: hidden;
     position: absolute;
     top: 100%;
     right: 0;
@@ -60,11 +63,15 @@ nav button:hover {
     padding: 8px 0;
     flex-direction: column;
     overflow: hidden;
+    transform-origin: top right;
+    transform: translateY(-6px);
+    transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
 }
 
 .print-options.active {
-    display: flex;
-    animation: fadeInDown 0.2s ease;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .print-options button {
@@ -111,10 +118,15 @@ nav button:hover {
     .print-options {
         left: 50%;
         right: auto;
-        transform: translateX(-50%);
+        /* combine X centering with initial Y offset for smooth entrance */
+        transform: translate(-50%, -6px);
         width: min(220px, calc(100vw - 16px));
         max-width: calc(100vw - 16px);
         box-sizing: border-box;
+    }
+
+    .print-options.active {
+        transform: translate(-50%, 0);
     }
 
     .contact-info {
