@@ -6,18 +6,21 @@ function updatePreviewTooltipPosition(container) {
   const tooltip = container.querySelector(".preview-tooltip");
   if (!tooltip) return;
 
-  const icon = container.querySelector(".material-symbols-outlined");
+  // Prefer the job-title as anchor; fall back to any inline icon if present.
+  const anchor =
+    container.querySelector(".job-title") ||
+    container.querySelector(".material-symbols-outlined");
   const containerRect = container.getBoundingClientRect();
-  const iconRect = icon ? icon.getBoundingClientRect() : containerRect;
+  const anchorRect = anchor ? anchor.getBoundingClientRect() : containerRect;
 
   // Measure tooltip width (ensure it's visible when measuring)
   let tooltipWidth =
     tooltip.offsetWidth || tooltip.getBoundingClientRect().width;
   const viewportWidth = window.innerWidth;
 
-  // Compute ideal left in viewport coordinates (centered on icon)
-  const iconCenterViewport = iconRect.left + iconRect.width / 2;
-  const idealLeftViewport = iconCenterViewport - tooltipWidth / 2;
+  // Compute ideal left in viewport coordinates (centered on anchor)
+  const anchorCenterViewport = anchorRect.left + anchorRect.width / 2;
+  const idealLeftViewport = anchorCenterViewport - tooltipWidth / 2;
 
   // Clamp to viewport edges with 8px padding
   const minViewportLeft = 8;
@@ -37,8 +40,8 @@ function updatePreviewTooltipPosition(container) {
   tooltip.style.right = "auto";
   tooltip.style.transform = "none";
 
-  // Calculate arrow offset (icon center relative to tooltip left) and expose via CSS variable
-  const arrowOffset = Math.round(iconCenterViewport - clampedLeftViewport);
+  // Calculate arrow offset (anchor center relative to tooltip left) and expose via CSS variable
+  const arrowOffset = Math.round(anchorCenterViewport - clampedLeftViewport);
   tooltip.style.setProperty("--arrow-pos", `${arrowOffset}px`);
 }
 

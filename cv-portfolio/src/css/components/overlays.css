@@ -107,6 +107,8 @@
 
 /* Preview tooltips */
 .project-preview-container { position: relative; }
+.project-preview-container .job-title { cursor: pointer; display: inline-block; }
+.item-box.job strong .project-preview-container { margin-left: 8px; }
 .preview-tooltip {
     visibility: hidden;
     position: absolute;
@@ -181,6 +183,8 @@
             /* Allow JS to clamp tooltip within viewport; provide a sensible max width */
             width: calc(100vw - 16px);
             max-width: calc(100vw - 16px);
+            /* Prevent the tooltip from growing taller than viewport space */
+            max-height: calc(100vh - 120px);
         }
 
         .preview-tooltip::after,
@@ -190,9 +194,16 @@
         }
 
         .preview-tooltip img {
-            max-height: 180px;
-            width: 100%;
-            object-fit: cover;
+            display: block;
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            /* Ensure the image fits the viewport (no internal scroll) */
+            max-height: calc(100vh - 160px);
+            object-fit: contain;
+            object-position: center;
+            border-radius: 6px;
+            margin: 0 auto;
         }
     }
 }
