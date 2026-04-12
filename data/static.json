@@ -1,0 +1,364 @@
+{
+  "basics": {
+    "name": "Dionny Jose Núñez Márquez",
+    "summary_es": "Ingeniero Electrónico y Desarrollador de Software enfocado en automatización e infraestructura. Experiencia en mantenimiento industrial crítico (sistemas Tetra Pak, PLC) y despliegue de soluciones tecnológicas (VPS, n8n, desarrollo Full-Stack). Orientado a la resolución de problemas y optimización de procesos bajo estrictas normas de calidad.",
+    "summary_en": "Electronic Engineer and Software Developer focused on automation and infrastructure. Experience in critical industrial maintenance (Tetra Pak systems, PLC) and deployment of technological solutions (VPS, n8n, Full-Stack development). Oriented towards problem-solving and process optimization under strict quality standards.",
+    "email": "dionnyn@gmail.com",
+    "phones": [
+      {
+        "number": "+58 414 6795706",
+        "label": "Principal"
+      },
+      {
+        "number": "+58 412 1763710",
+        "label": "Secundario"
+      }
+    ],
+    "location": {
+      "city": "Maracaibo",
+      "region": "Zulia",
+      "countryCode": "VE"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "cityny",
+        "url": "https://github.com/cityny"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "electroneo",
+        "url": "https://www.linkedin.com/in/dionnyn/"
+      }
+    ]
+  },
+  "education": [
+    {
+      "institution": "Universidad Rafael Belloso Chacin",
+      "degree_es": "Ingeniería Electrónica",
+      "degree_en": "Electronic Engineering"
+    },
+    {
+      "institution": "Appoint Pros",
+      "degree_es": "Soporte Técnico IT - Tier I",
+      "degree_en": "IT Technical Support - Tier I"
+    },
+    {
+      "institution": "Universidad Privada del Norte",
+      "degree_es": "Introducción a las instalaciones eléctricas",
+      "degree_en": "Introduction to Electrical Installations"
+    },
+    {
+      "institution": "20 Solar Energy",
+      "degree_es": "Instalación de sistemas solares fotovoltaicos",
+      "degree_en": "Photovoltaic Solar Systems Installation"
+    }
+  ],
+  "experience": [
+    {
+      "company": "San Simón Planta de Leche",
+      "position_es": "Supervisor de Mantenimiento Industrial",
+      "position_en": "Industrial Maintenance Supervisor",
+      "period_es": "Enero 2022 - Marzo 2026",
+      "period_en": "January 2022 - March 2026",
+      "startDate": "2022-01-01",
+      "preview": "docs/san_simon.jpg",
+      "summary_es": [
+        "Automatización y Control: Restablecimiento operativo de llenadoras Tetra Pak TBA/8 (PLC GE Fanuc) y corrección de averías lógicas en equipos Fabrima mediante análisis de planos.",
+        "Infraestructura: Ejecución del montaje de torre de enfriamiento (con soporte internacional en inglés) y diseño de bypass en tuberías críticas para garantizar continuidad operativa."
+      ],
+      "summary_en": [
+        "Automation and Control: Operational restoration of Tetra Pak TBA/8 filling machines (GE Fanuc PLC) and correction of logic faults in Fabrima equipment through blueprint analysis.",
+        "Infrastructure: Execution of cooling tower assembly (with international English support) and design of bypasses in critical pipelines to guarantee operational continuity."
+      ]
+    },
+    {
+      "company": "Fundasteam - Panama",
+      "position_es": "Profesor de Robótica",
+      "position_en": "Robotics Teacher",
+      "period_es": "Ene 2021 - Dic 2021",
+      "period_en": "Jan 2021 - Dec 2021",
+      "startDate": "2021-01-01",
+      "preview": "docs/clases_steam.jpg",
+      "summary_es": [
+        "Instrucción STEAM: Facilitación de fundamentos de Python y robótica para grupos juveniles mediante entornos virtuales.",
+        "Gestión Pedagógica: Diseño de experiencias gamificadas y seguimiento de trazabilidad académica basada en proyectos (PBL)."
+      ],
+      "summary_en": [
+        "STEAM Instruction: Facilitation of Python and robotics fundamentals for youth groups via virtual environments.",
+        "Pedagogical Management: Design of gamified experiences and tracking of project-based academic traceability (PBL)."
+      ]
+    },
+    {
+      "company": "Ingeolan - Venezuela",
+      "position_es": "Entrevistador de Campo",
+      "position_en": "Field Interviewer",
+      "period_es": "Enero 2020",
+      "period_en": "January 2020",
+      "startDate": "2020-01-01",
+      "summary_es": [
+        "Ejecución de procesos de selección y entrevistas en masa directas en campo para la detección de perfiles socio-laborales.",
+        "Evaluación de competencias analíticas y técnicas, asegurando el filtro eficiente de candidatos calificados."
+      ],
+      "summary_en": [
+        "Execution of direct mass field selection and interview processes for the detection of socio-labor profiles.",
+        "Evaluation of analytical and technical competencies, ensuring the efficient filtering of qualified candidates."
+      ]
+    },
+    {
+      "company": "URBE",
+      "position_es": "Asistente de Laboratorio",
+      "position_en": "Laboratory Assistant",
+      "period_es": "Abril 2015",
+      "period_en": "April 2015",
+      "startDate": "2015-04-01",
+      "preview": "docs/urbe.jpg",
+      "summary_es": [
+        "Configuración, calibración y testeo de banco de equipos de medición (osciloscopios, generadores) previo a prácticas de ingeniería.",
+        "Soporte técnico proactivo y guía normativa de seguridad electrónica para docentes y alumnado."
+      ],
+      "summary_en": [
+        "Configuration, calibration and testing of measurement equipment benches (oscilloscopes, generators) prior to engineering practices.",
+        "Proactive technical support and electronic safety normative guidance for teachers and student body."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Plano Despiece Llenadora Fabrima",
+      "description_es": "Plano de despiece de una llenadora marca Fabrima, elaborado de manera urgente e improvisada utilizando Microsoft PowerPoint.",
+      "description_en": "Disassembly plan for a Fabrima filling machine, urgently and improvised created using Microsoft PowerPoint.",
+      "url": "docs/plano_llenadora_fabrima.pdf",
+      "preview": "docs/plano_llenadora_fabrima.jpg",
+      "technologies_es": [
+        "PowerPoint",
+        "Diseño",
+        "Resolución de Problemas"
+      ],
+      "technologies_en": [
+        "PowerPoint",
+        "Design",
+        "Problem Solving"
+      ]
+    },
+    {
+      "name": "Armado Torre de Enfriamiento - San Simón",
+      "description_es": "Supervisión y colaboración directa en el armado de torre de enfriamiento para la Planta de Leche San Simón (El Guayabo).",
+      "description_en": "Direct supervision and collaboration in the assembly of a cooling tower for the San Simón Milk Plant (El Guayabo).",
+      "video": "assets/Armado torre de enfriamiento.mp4",
+      "technologies_es": [
+        "Liderazgo",
+        "Comunicación Asertiva",
+        "Trabajo en Equipo",
+        "Supervisión Técnica",
+        "Planificación"
+      ],
+      "technologies_en": [
+        "Leadership",
+        "Assertive Communication",
+        "Teamwork",
+        "Technical Supervision",
+        "Planning"
+      ]
+    },
+    {
+      "name": "Calculadora Comisiones BVC",
+      "description_es": "Calculadora rapida y precisa de comisiones y cargos para operaciones en la BVC con Suma Valores.",
+      "description_en": "Fast and accurate commission and fee calculator for BVC operations with Suma Valores.",
+      "url": "https://calculadorave.netlify.app/",
+      "technologies_es": [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "Netlify"
+      ],
+      "technologies_en": [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "Netlify"
+      ]
+    },
+    {
+      "name": "Planificador inteligente de ciclos de trabajo",
+      "description_es": "Genera un calendario anual PDF para ciclos rotativos definiendo fecha inicial, dias de salida/regreso y duracion laboral.",
+      "description_en": "Generates a full-year PDF calendar for rotating cycles based on start date, leave/return days and work period duration.",
+      "url": "https://calendarioturno.netlify.app/",
+      "technologies_es": [
+        "TypeScript",
+        "React",
+        "Vite",
+        "TailwindCSS"
+      ],
+      "technologies_en": [
+        "TypeScript",
+        "React",
+        "Vite",
+        "TailwindCSS"
+      ]
+    },
+    {
+      "name": "Deuda Flow",
+      "description_es": "Controla deudas y prestamos personales, registra contactos y conserva el historial de transacciones desde tu movil.",
+      "description_en": "Manage personal debts and loans, track contacts, and keep a clear history of transactions from your phone.",
+      "url": "https://play.google.com/store/apps/details?id=com.deudaflow.app",
+      "technologies_es": [
+        "Flutter",
+        "Supabase",
+        "PostgreSQL",
+        "Android"
+      ],
+      "technologies_en": [
+        "Flutter",
+        "Supabase",
+        "PostgreSQL",
+        "Android"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "category_es": "Desarrollo Móvil",
+      "category_en": "Mobile Development",
+      "keywords": [
+        {
+          "name": "Flutter",
+          "badge": "Flutter"
+        },
+        {
+          "name": "Dart",
+          "badge": "Dart"
+        },
+        {
+          "name": "Android",
+          "badge": "Android"
+        }
+      ]
+    },
+    {
+      "category_es": "Backend",
+      "category_en": "Backend Development",
+      "keywords": [
+        {
+          "name": "Node.js",
+          "badge": "Node.js"
+        },
+        {
+          "name": "Python",
+          "badge": "Python"
+        },
+        {
+          "name": "JavaScript",
+          "badge": "JavaScript"
+        }
+      ]
+    },
+    {
+      "category_es": "DevOps",
+      "category_en": "DevOps",
+      "keywords": [
+        {
+          "name": "Docker",
+          "badge": "Docker"
+        },
+        {
+          "name": "GitHub Actions",
+          "badge": "GitHub Actions"
+        },
+        {
+          "name": "Alpine Linux",
+          "badge": "Alpine Linux"
+        },
+        {
+          "name": "Ubuntu",
+          "badge": "Ubuntu"
+        },
+        {
+          "name": "Vercel",
+          "badge": "Vercel"
+        }
+      ]
+    },
+    {
+      "category_es": "Bases de Datos",
+      "category_en": "Databases",
+      "keywords": [
+        {
+          "name": "PostgreSQL",
+          "badge": "PostgreSQL"
+        },
+        {
+          "name": "Supabase",
+          "badge": "Supabase"
+        }
+      ]
+    },
+    {
+      "category_es": "Automatización",
+      "category_en": "Automation",
+      "keywords": [
+        {
+          "name": "n8n",
+          "badge": "n8n"
+        },
+        {
+          "name": "WhatsApp",
+          "badge": "WhatsApp"
+        }
+      ]
+    },
+    {
+      "category_es": "Microsoft 365",
+      "category_en": "Microsoft 365",
+      "keywords": [
+        {
+          "name": "Excel",
+          "badge": "Excel",
+          "logo": "https://img.icons8.com/color/48/microsoft-excel-2019.png"
+        },
+        {
+          "name": "Word",
+          "badge": "Word",
+          "logo": "https://img.icons8.com/color/48/microsoft-word-2019.png"
+        },
+        {
+          "name": "PowerPoint",
+          "badge": "Powerpoint",
+          "logo": "https://img.icons8.com/color/48/microsoft-powerpoint-2019.png"
+        }
+      ]
+    },
+    {
+      "category_es": "Analista de datos",
+      "category_en": "Data Entry",
+      "keywords": [
+        {
+          "name": "Data Entry",
+          "badge": "Data Entry",
+          "logo": "https://img.icons8.com/color/48/data-configuration.png"
+        },
+        {
+          "name": "Data Analyst",
+          "badge": "Data Analyst",
+          "logo": "https://img.icons8.com/color/48/combo-chart--v1.png"
+        }
+      ]
+    },
+    {
+      "category_es": "Idiomas",
+      "category_en": "Languages",
+      "keywords": [
+        {
+          "name": "Español",
+          "badge": "Nativo",
+          "logo": "https://flagcdn.com/w20/es.png"
+        },
+        {
+          "name": "Inglés",
+          "badge": "Intermedio B1",
+          "logo": "https://flagcdn.com/w20/us.png"
+        }
+      ]
+    }
+  ]
+}

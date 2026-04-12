@@ -1,0 +1,92 @@
+/* Controls: botones, badges, iconos y enlaces de acción */
+
+button {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+button:hover {
+    border-color: var(--primary);
+}
+
+/* Badges y Habilidades */
+.skills-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 8px;
+}
+
+.custom-badge-container {
+    display: inline-flex;
+    align-items: center;
+    background-color: #05122a;
+    color: #ffffff;
+    height: 20px;
+    padding: 0 8px 0 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-family: Verdana, Geneva, sans-serif;
+    margin: 2px 0px;
+    vertical-align: middle;
+    transition: transform 0.2s ease;
+}
+
+.custom-badge-container:hover { transform: scale(1.05); }
+.custom-badge-container img { height: 14px; width: auto; margin-right: 5px; }
+
+/* Iconos */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    font-size: 18px;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+.icon-contact {
+    font-size: 16px;
+    vertical-align: text-bottom;
+    margin-right: 2px;
+    color: var(--primary);
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+body.dark-theme .icon-contact { color: #ffffff; }
+.location-text { color: var(--text-main); }
+
+.social-icon {
+    font-size: 16px;
+    margin-right: 4px;
+    color: var(--primary);
+    vertical-align: middle;
+}
+
+body.dark-theme .social-icon { color: #ffffff; }
+
+/* Action Links */
+.project-action-link {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--primary);
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.project-action-link:hover { text-decoration: underline; }
+body.dark-theme .project-action-link { color: #ffffff; }
+
+/* Visitor Counter */
+.visitor-counter { transition: transform 0.3s ease; }
+.visitor-counter:hover { transform: scale(1.05); }

@@ -1,0 +1,127 @@
+/**
+ * Estilos específicos para medios de impresión y exportación PDF
+ */
+@media print {
+    @page { margin: 0; }
+    
+    body {
+        background: white !important;
+        color: black !important;
+        margin: 0;
+        padding: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* Forzar Modo Claro */
+    :root, body, body.dark-theme {
+        --primary: #2563eb !important;
+        --bg: #ffffff !important;
+        --card-bg: #ffffff !important;
+        --card-bg-alpha: #ffffff !important;
+        --text-main: #0f172a !important;
+        --text-muted: #64748b !important;
+        --border: #e2e8f0 !important;
+    }
+
+    /* Elementos a ocultar */
+    nav, footer, .bg-video, .qr-container, .preview-tooltip, 
+    .project-video-container, .project-preview-container .material-symbols-outlined {
+        display: none !important;
+    }
+
+    .digital-version-print {
+        display: block !important;
+        font-size: 10px;
+        color: var(--text-muted);
+        text-align: right;
+        margin-bottom: -10px;
+        font-style: italic;
+    }
+
+    .digital-version-print a {
+        color: var(--primary) !important;
+        text-decoration: none !important;
+    }
+
+    /* Estructura de Impresión */
+    main {
+        box-shadow: none; border: none; border-radius: 0;
+        margin: 0; padding: 0 8mm; max-width: 100%;
+        background: white !important;
+    }
+
+    .print-page { page-break-before: always; padding: 0; }
+    
+    section, .job, .item-box {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+
+    h3 { 
+        margin-top: 15px !important; 
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+    }
+
+    .cv-print-table { width: 100%; border-collapse: collapse; }
+    .cv-page-header-space { height: 8mm; display: block; }
+    .cv-print-cell { padding: 0; }
+
+    /* Enlaces */
+    a {
+        color: var(--primary) !important;
+        text-decoration: none !important;
+    }
+
+    .contact-info a[data-print-url] { font-size: 0 !important; }
+    .contact-info a[data-print-url]:after {
+        content: attr(data-print-url);
+        font-size: 0.75rem !important;
+        opacity: 0.8;
+    }
+
+    .contact-info a:not([data-print-url]):after, .job a:after, .project-action-link:after {
+        content: "" !important;
+    }
+
+    /* Habilidades (3 columnas) */
+    .skills-grid {
+        display: block !important;
+        column-count: 3 !important;
+        column-gap: 10px !important;
+    }
+
+    .skills-grid .item-box {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        margin-bottom: 6px !important;
+        padding-bottom: 4px !important;
+        display: inline-block !important;
+        width: 100% !important;
+    }
+
+    .skills-badges { margin-top: 2px !important; gap: 2px !important; }
+
+    .custom-badge-container {
+        background-color: #ffffff !important; color: #000 !important;
+        border: 1px solid #000 !important; border-radius: 3px !important;
+        padding: 0 6px !important; height: 18px !important; margin: 1px 0 !important;
+    }
+    .custom-badge-container img { display: inline-block !important; height: 11px !important; margin-right: 4px !important; }
+
+    /* Contacto e Información */
+    .contact-info { font-size: 0.75rem !important; margin: 4px 0 !important; gap: 4px !important; }
+    .icon-contact, .social-icon { font-size: 13px !important; color: var(--primary) !important; }
+    .location-text { color: var(--text-main) !important; }
+
+    .job { margin-bottom: 12px !important; }
+    .job-period { margin-bottom: 0 !important; }
+    .job p { margin-top: 0 !important; }
+
+    /* Idiomas en fila horizontal */
+    .languages-section { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0; }
+    .languages-section h3 { width: 100%; margin-bottom: 4px; }
+    .languages-section .item-box { display: inline-flex; align-items: center; margin-bottom: 0 !important; }
+    .languages-section .item-box:not(:first-child)::before { content: " | "; margin: 0 6px; color: var(--border); }
+}
