@@ -310,7 +310,7 @@ body.dark-theme .project-action-link { color: #ffffff; }
     content: '';
     position: absolute;
     top: 100%;
-    left: 50%;
+    left: var(--arrow-pos, 50%);
     margin-left: -8px;
     border-width: 8px;
     border-style: solid;
@@ -321,7 +321,7 @@ body.dark-theme .project-action-link { color: #ffffff; }
     content: '';
     position: absolute;
     top: 100%;
-    left: 50%;
+    left: var(--arrow-pos, 50%);
     margin-left: -9px;
     border-width: 9px;
     border-style: solid;
@@ -364,11 +364,12 @@ body.dark-theme .project-action-link { color: #ffffff; }
     }
 
     .preview-tooltip {
-        width: min(260px, calc(100vw - 20px));
+        width: min(240px, calc(100vw - 20px));
         max-width: calc(100vw - 20px);
         left: 50%;
         transform: translateX(-50%);
         pointer-events: auto;
+        box-sizing: border-box;
     }
     .project-preview-container:hover .preview-tooltip,
     .project-preview-container.tooltip-active .preview-tooltip {
@@ -382,6 +383,26 @@ body.dark-theme .project-action-link { color: #ffffff; }
 
     .contact-info {
         white-space: normal;
+    }
+
+    @media (max-width: 360px) {
+        .preview-tooltip {
+            /* Allow JS to clamp tooltip within viewport; provide a sensible max width */
+            width: calc(100vw - 16px);
+            max-width: calc(100vw - 16px);
+        }
+
+        .preview-tooltip::after,
+        .preview-tooltip::before {
+            left: var(--arrow-pos, 24px);
+            margin-left: -8px;
+        }
+
+        .preview-tooltip img {
+            max-height: 180px;
+            width: 100%;
+            object-fit: cover;
+        }
     }
 
     .print-options button {
