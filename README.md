@@ -111,6 +111,7 @@
 - [go-whatsapp-web-multidevice](https://github.com/aldinokemal/go-whatsapp-web-multidevice)
 - [metube](https://github.com/alexta69/metube)
 - [mengram](https://github.com/alibaizhanov/mengram)
+- [opencode](https://github.com/anomalyco/opencode)
 - [awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted)
 - [browser-use](https://github.com/browser-use/browser-use)
 - [web-ui](https://github.com/browser-use/web-ui)
