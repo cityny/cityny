@@ -78,6 +78,7 @@
 <summary><h2>⭐ Stars Repo</h2></summary>
 
 <!-- inicio-stars -->
+- [Super-Light-Web-WhatsApp-API-Server](https://github.com/Alucard0x1/Super-Light-Web-WhatsApp-API-Server)
 - [ai-marketplace-monitor](https://github.com/BoPeng/ai-marketplace-monitor)
 - [LobsterBoard](https://github.com/Curbob/LobsterBoard)
 - [Scrapling](https://github.com/D4Vinci/Scrapling)
@@ -103,6 +104,7 @@
 - [ODINT](https://github.com/Ringmast4r/ODINT)
 - [crystal-vault](https://github.com/Ringmast4r/crystal-vault)
 - [lingbot-world](https://github.com/Robbyant/lingbot-world)
+- [kiro-telegram-bot](https://github.com/Ryoowa1303/kiro-telegram-bot)
 - [awesome-flutter](https://github.com/Solido/awesome-flutter)
 - [Telegram-OSINT](https://github.com/The-Osint-Toolbox/Telegram-OSINT)
 - [awesome-openclaw-skills](https://github.com/VoltAgent/awesome-openclaw-skills)
@@ -136,8 +138,8 @@
 - [pangolin](https://github.com/fosrl/pangolin)
 - [binance-bcv-dolar](https://github.com/gabrielbaute/binance-bcv-dolar)
 - [postiz-app](https://github.com/gitroomhq/postiz-app)
+- [mcp-chrome](https://github.com/hangwin/mcp-chrome)
 - [excel-mcp-server](https://github.com/haris-musa/excel-mcp-server)
-- [Apktool](https://github.com/iBotPeaches/Apktool)
 - [ESP32-LoRa](https://github.com/ingeniero-yt/ESP32-LoRa)
 - [jan](https://github.com/janhq/jan)
 - [esp32-4-channel-relays](https://github.com/leomanangka/esp32-4-channel-relays)
@@ -165,7 +167,6 @@
 - [HeadlessX](https://github.com/saifyxpro/HeadlessX)
 - [Docker-eyeOS](https://github.com/sickcodes/Docker-eyeOS)
 - [dock-droid](https://github.com/sickcodes/dock-droid)
-- [sim](https://github.com/simstudioai/sim)
 - [awesome](https://github.com/sindresorhus/awesome)
 - [spotify-downloader](https://github.com/spotDL/spotify-downloader)
 - [phoneinfoga](https://github.com/sundowndev/phoneinfoga)
@@ -174,7 +175,6 @@
 - [galaxy](https://github.com/uiverse-io/galaxy)
 - [weakReCAPTCHA](https://github.com/unixfox/weakReCAPTCHA)
 - [Zefoy-TikTok-Automator](https://github.com/useragents/Zefoy-TikTok-Automator)
-- [components.build](https://github.com/vercel/components.build)
 - [stealth-browser-mcp](https://github.com/vibheksoni/stealth-browser-mcp)
 - [yt-dlp](https://github.com/yt-dlp/yt-dlp)
 - [social-media-posts](https://github.com/zafar-saleem/social-media-posts)
