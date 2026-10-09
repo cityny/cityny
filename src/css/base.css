@@ -1,0 +1,62 @@
+/**
+ * Variables de color y estilos base
+ */
+:root {
+    --primary: #2563eb;
+    --bg: #f1f5f9;
+    --card-bg: #ffffff;
+    --card-bg-alpha: rgba(255, 255, 255, 0.92);
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+}
+
+body.dark-theme {
+    --primary: #f2f2f2;
+    --bg: #020617;
+    --card-bg: #1e293b;
+    --card-bg-alpha: rgba(30, 41, 59, 0.92);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border: #334155;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text-main);
+    font-family: 'Inter', -apple-system, sans-serif;
+    margin: 0;
+    position: relative;
+    z-index: 0;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    overflow-x: hidden;
+}
+
+.bg-video {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+    background: #000;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+body.dark-theme a {
+    color: #ffffff;
+}
+
+.digital-version-print {
+    display: none;
+}

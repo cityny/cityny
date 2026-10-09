@@ -1,0 +1,8 @@
+/* ARCHIVO CSS PRINCIPAL (MÓDULO DE IMPORTACIÓN) */
+@import url('src/css/base.css');
+@import url('src/css/layout.css');
+@import url('src/css/components/header.css');
+@import url('src/css/components/controls.css');
+@import url('src/css/components.css');
+@import url('src/css/components/overlays.css');
+@import url('src/css/print.css');
