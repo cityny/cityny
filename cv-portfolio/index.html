@@ -5,6 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Dionny Núñez</title>
+    <meta name="description"
+        content="Dionny Núñez - Ingeniero Electrónico y Desarrollador de Software. Automatización, mantenimiento industrial e infraestructura. Maracaibo, Venezuela.">
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Dionny Núñez - Ingeniero Electrónico | Desarrollador de Software">
+    <meta property="og:description"
+        content="Automatización, mantenimiento industrial (Tetra Pak, PLC) e infraestructura. CV en español e inglés.">
+    <meta property="og:url" content="https://cityny.github.io/cityny/">
+    <meta property="og:image" content="https://cityny.github.io/cityny/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,13 +45,13 @@
         </div>
 
         <div class="lang-selector">
-            <button onmouseover="setLanguage('es')"><img src="https://flagcdn.com/w20/es.png" class="flag-icon"
+            <button type="button" data-lang="es"><img src="https://flagcdn.com/w20/es.png" class="flag-icon"
                     alt="ES"> ES</button>
-            <button onmouseover="setLanguage('en')"><img src="https://flagcdn.com/w20/us.png" class="flag-icon"
+            <button type="button" data-lang="en"><img src="https://flagcdn.com/w20/us.png" class="flag-icon"
                     alt="US"> EN</button>
         </div>
 
-        <button id="theme-toggle" onmouseover="toggleTheme()">🌓</button>
+        <button id="theme-toggle" type="button" title="Cambiar tema" aria-label="Cambiar tema">🌓</button>
     </nav>
 
     <main id="resume-container">

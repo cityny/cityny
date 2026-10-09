@@ -24,18 +24,39 @@ const container = document.getElementById("resume-container");
  * Inicialización de la aplicación
  */
 async function init(lang = "es") {
+  if (lang === currentLang && staticData) return;
   currentLang = lang;
   try {
     const data = await loadResumeData(lang);
     staticData = data.staticData;
     translations = data.translations;
 
+    document.documentElement.lang = currentLang;
+    applyUiTranslations(translations);
     renderResume(container, staticData, translations, currentLang);
     initBackgroundVideo();
     initMobilePreviewTooltips();
   } catch (error) {
     container.innerHTML = `<h2>Error: ${error.message}</h2>`;
   }
+}
+
+/**
+ * Traduce los textos fijos de la barra superior
+ */
+function applyUiTranslations(t) {
+  if (!t.print) return;
+  const labels = {
+    "print-es": t.print.option_es,
+    "print-en": t.print.option_en,
+    "print-both": t.print.option_both,
+  };
+  Object.entries(labels).forEach(([id, text]) => {
+    const btn = document.getElementById(id);
+    if (btn && text) btn.textContent = text;
+  });
+  const printBtn = document.getElementById("print-btn");
+  if (printBtn && t.print.button_title) printBtn.title = t.print.button_title;
 }
 
 /**
@@ -95,7 +116,10 @@ function setupEventListeners() {
     if (e.key === "Escape") closeVideoModal();
   });
 
-  // Delegación de eventos para botones de idiomas (hover en el HTML original se mantiene o se puede pasar aquí)
+  // Cambio de idioma
+  document.querySelectorAll(".lang-selector button[data-lang]").forEach((btn) => {
+    btn.addEventListener("click", () => init(btn.dataset.lang));
+  });
   window.setLanguage = (lang) => init(lang);
   window.printBothLanguages = () =>
     printBothLanguages(staticData, currentLang, loadResumeData, renderResume);

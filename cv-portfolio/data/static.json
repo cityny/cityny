@@ -34,7 +34,7 @@
   },
   "education": [
     {
-      "institution": "Universidad Rafael Belloso Chacin",
+      "institution": "Universidad Rafael Belloso Chacín",
       "degree_es": "Ingeniería Electrónica",
       "degree_en": "Electronic Engineering"
     },
@@ -126,8 +126,9 @@
   "projects": [
     {
       "name": "Plano Despiece Llenadora Fabrima",
-      "description_es": "Plano de despiece de una llenadora marca Fabrima, elaborado de manera urgente e improvisada utilizando Microsoft PowerPoint.",
-      "description_en": "Disassembly plan for a Fabrima filling machine, urgently and improvised created using Microsoft PowerPoint.",
+      "name_en": "Fabrima Filling Machine Exploded-View Drawing",
+      "description_es": "Plano de despiece de una llenadora marca Fabrima, elaborado bajo urgencia con Microsoft PowerPoint como herramienta disponible.",
+      "description_en": "Exploded-view drawing of a Fabrima filling machine, produced under time pressure using Microsoft PowerPoint as the tool at hand.",
       "url": "docs/plano_llenadora_fabrima.pdf",
       "preview": "docs/plano_llenadora_fabrima.jpg",
       "technologies_es": [
@@ -143,6 +144,7 @@
     },
     {
       "name": "Armado Torre de Enfriamiento - San Simón",
+      "name_en": "Cooling Tower Assembly - San Simón",
       "description_es": "Supervisión y colaboración directa en el armado de torre de enfriamiento para la Planta de Leche San Simón (El Guayabo).",
       "description_en": "Direct supervision and collaboration in the assembly of a cooling tower for the San Simón Milk Plant (El Guayabo).",
       "video": "assets/Armado torre de enfriamiento.mp4",
@@ -163,7 +165,8 @@
     },
     {
       "name": "Calculadora Comisiones BVC",
-      "description_es": "Calculadora rapida y precisa de comisiones y cargos para operaciones en la BVC con Suma Valores.",
+      "name_en": "BVC Commission Calculator",
+      "description_es": "Calculadora rápida y precisa de comisiones y cargos para operaciones en la BVC con Suma Valores.",
       "description_en": "Fast and accurate commission and fee calculator for BVC operations with Suma Valores.",
       "url": "https://calculadorave.netlify.app/",
       "technologies_es": [
@@ -181,7 +184,8 @@
     },
     {
       "name": "Planificador inteligente de ciclos de trabajo",
-      "description_es": "Genera un calendario anual PDF para ciclos rotativos definiendo fecha inicial, dias de salida/regreso y duracion laboral.",
+      "name_en": "Smart Work-Cycle Planner",
+      "description_es": "Genera un calendario anual PDF para ciclos rotativos definiendo fecha inicial, días de salida/regreso y duración laboral.",
       "description_en": "Generates a full-year PDF calendar for rotating cycles based on start date, leave/return days and work period duration.",
       "url": "https://calendarioturno.netlify.app/",
       "technologies_es": [
@@ -199,7 +203,7 @@
     },
     {
       "name": "Deuda Flow",
-      "description_es": "Controla deudas y prestamos personales, registra contactos y conserva el historial de transacciones desde tu movil.",
+      "description_es": "Controla deudas y préstamos personales, registra contactos y conserva el historial de transacciones desde tu móvil.",
       "description_en": "Manage personal debts and loans, track contacts, and keep a clear history of transactions from your phone.",
       "url": "https://play.google.com/store/apps/details?id=com.deudaflow.app",
       "technologies_es": [
@@ -323,14 +327,14 @@
         },
         {
           "name": "PowerPoint",
-          "badge": "Powerpoint",
+          "badge": "PowerPoint",
           "logo": "https://img.icons8.com/color/48/microsoft-powerpoint-2019.png"
         }
       ]
     },
     {
-      "category_es": "Analista de datos",
-      "category_en": "Data Entry",
+      "category_es": "Análisis de datos",
+      "category_en": "Data Analysis",
       "keywords": [
         {
           "name": "Data Entry",
@@ -350,12 +354,16 @@
       "keywords": [
         {
           "name": "Español",
+          "name_en": "Spanish",
           "badge": "Nativo",
+          "badge_en": "Native",
           "logo": "https://flagcdn.com/w20/es.png"
         },
         {
           "name": "Inglés",
+          "name_en": "English",
           "badge": "Intermedio B1",
+          "badge_en": "Intermediate B1",
           "logo": "https://flagcdn.com/w20/us.png"
         }
       ]

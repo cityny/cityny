@@ -42,11 +42,14 @@ export function generateResumeHTML(staticData, translations, currentLang) {
                         const logoSrc =
                           k.logo && k.logo.startsWith("http")
                             ? k.logo
-                            : `https://cdn.simpleicons.org/${getLogoSlug(k.name, k.logo || k.badge)}`;
+                            : `assets/icons/${getLogoSlug(k.name, k.logo || k.badge)}.svg`;
+                        const keywordName = k[`name_${currentLang}`] || k.name;
+                        const keywordBadge =
+                          k[`badge_${currentLang}`] || k.badge;
                         return `
-                        <div class="custom-badge-container" title="${k.name}">
-                            <img src="${logoSrc}" alt="${k.name}" loading="lazy" decoding="async">
-                            <span>${k.badge}</span>
+                        <div class="custom-badge-container" title="${keywordName}">
+                            <img src="${logoSrc}" alt="" loading="lazy" decoding="async">
+                            <span>${keywordBadge}</span>
                         </div>`;
                       })
                       .join("")}
@@ -111,7 +114,7 @@ export function generateResumeHTML(staticData, translations, currentLang) {
         currentLang === "es" ? "technologies_es" : "technologies_en";
       return `
             <div class="item-box job">
-                <strong>${project.name}</strong>
+                <strong>${project[`name_${currentLang}`] || project.name}</strong>
                 <p>${project[descKey]}</p>
                 ${projectVideoButton}
                 ${projectLink}
