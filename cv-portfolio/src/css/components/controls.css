@@ -101,3 +101,9 @@ body.dark-theme .project-action-link { color: #ffffff; }
 .visit-badge:hover { transform: scale(1.05); }
 .visit-badge-label { background: #555555; padding: 0 6px; }
 .visit-badge-value { background: #2563eb; padding: 0 6px; }
+
+/* Botón de edición (oculto hasta activarlo desde el pie de página) */
+#edit-btn { display: flex; align-items: center; justify-content: center; padding: 8px 12px; }
+#edit-btn[hidden] { display: none; }
+#edit-btn .material-symbols-outlined { margin-right: 0; }
+#footer-name { user-select: none; -webkit-user-select: none; }

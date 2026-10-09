@@ -18,6 +18,9 @@ import { initVisitCounter } from "./modules/ui/visits.js";
 let currentLang = "es";
 let staticData = null;
 let translations = null;
+// Datos en edición (vista previa) y último currículo publicado desde el editor
+let draftData = null;
+let publishedData = null;
 
 const container = document.getElementById("resume-container");
 
@@ -29,17 +32,59 @@ async function init(lang = "es") {
   currentLang = lang;
   try {
     const data = await loadResumeData(lang);
-    staticData = data.staticData;
+    // Tras publicar, GitHub Pages tarda un poco en servir el archivo nuevo
+    staticData = publishedData || data.staticData;
     translations = data.translations;
 
     document.documentElement.lang = currentLang;
     applyUiTranslations(translations);
-    renderResume(container, staticData, translations, currentLang);
+    renderResume(container, draftData || staticData, translations, currentLang);
     initBackgroundVideo();
     initMobilePreviewTooltips();
   } catch (error) {
     container.innerHTML = `<h2>Error: ${error.message}</h2>`;
   }
+}
+
+/**
+ * Conexión del editor con la página (modules/editor)
+ */
+const editorPage = {
+  preview(data) {
+    draftData = data;
+    renderResume(container, data, translations, currentLang);
+  },
+  commit(data) {
+    draftData = null;
+    publishedData = data;
+    staticData = data;
+    renderResume(container, staticData, translations, currentLang);
+    initMobilePreviewTooltips();
+  },
+  discard() {
+    draftData = null;
+    renderResume(container, staticData, translations, currentLang);
+    initMobilePreviewTooltips();
+  },
+};
+
+/**
+ * Tres clics seguidos sobre el nombre del pie de página muestran el botón de editar
+ */
+function setupEditorTrigger() {
+  const name = document.getElementById("footer-name");
+  if (!name) return;
+  let clicks = 0;
+  let timer = null;
+  name.addEventListener("click", async () => {
+    clicks += 1;
+    clearTimeout(timer);
+    timer = setTimeout(() => (clicks = 0), 600);
+    if (clicks < 3) return;
+    clicks = 0;
+    const editor = await import("./modules/editor/index.js");
+    editor.revealEditButton(editorPage);
+  });
 }
 
 /**
@@ -132,6 +177,7 @@ function setupEventListeners() {
 document.addEventListener("DOMContentLoaded", () => {
   init("es");
   setupEventListeners();
+  setupEditorTrigger();
   initVisitCounter();
 });
 

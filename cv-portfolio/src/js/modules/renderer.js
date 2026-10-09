@@ -62,7 +62,7 @@ export function generateResumeHTML(staticData, translations, currentLang) {
                           k[`badge_${currentLang}`] || k.badge;
                         return `
                         <div class="custom-badge-container" title="${keywordName}">
-                            <img src="${logoSrc}" alt="" loading="lazy" decoding="async">
+                            <img src="${logoSrc}" alt="" loading="lazy" decoding="async" onerror="this.remove()">
                             <span>${keywordBadge}</span>
                         </div>`;
                       })
@@ -164,7 +164,7 @@ export function generateResumeHTML(staticData, translations, currentLang) {
                     </div>
                   </span>
                 </h1>
-                <p class="subtitle">${currentLang === "es" ? "Ingeniero Electrónico | Desarrollador de Software y Mantenimiento Industrial" : "Electronic Engineer | Software Developer and Industrial Maintenance"}</p>
+                <p class="subtitle">${s.basics[`title_${currentLang}`] || ""}</p>
                 <div class="contact-info">${contactLinks.join(" | ")}</div>
             </header>
             <section class="summary-section">
