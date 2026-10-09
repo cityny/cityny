@@ -125,6 +125,27 @@
   ],
   "projects": [
     {
+      "name": "Control Tower",
+      "description_es": "Panel web para vigilar varios servidores —y también equipos Windows y Mac— desde un solo sitio: qué consume cada uno, qué está fallando y qué hay que renovar. De solo lectura por diseño, con alertas automáticas y alojado en el servidor del propio usuario.",
+      "description_en": "Web dashboard to monitor multiple servers —plus Windows and Mac machines— from a single place: what each one consumes, what is failing and what needs renewing. Read-only by design, with automatic alerts, and self-hosted on the user's own server.",
+      "url": "docs/control-tower-brochure.pdf",
+      "preview": "docs/control_tower.jpg",
+      "technologies_es": [
+        "Python",
+        "Flet",
+        "Docker",
+        "SQLite",
+        "Linux"
+      ],
+      "technologies_en": [
+        "Python",
+        "Flet",
+        "Docker",
+        "SQLite",
+        "Linux"
+      ]
+    },
+    {
       "name": "Plano Despiece Llenadora Fabrima",
       "name_en": "Fabrima Filling Machine Exploded-View Drawing",
       "description_es": "Plano de despiece de una llenadora marca Fabrima, elaborado bajo urgencia con Microsoft PowerPoint como herramienta disponible.",
