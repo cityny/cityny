@@ -70,11 +70,13 @@
         <div class="footer-content">
             <p>&copy; <span id="current-date"></span> Dionny Núñez</p>
             <div class="visitor-counter">
-                <img src="https://hits.sh/analista.cc/cv-dionny.svg?label=Visitas&color=2563eb&style=flat-square" alt="Contador de visitas"/>
+                <img src="https://hits.sh/analista.cc/cv-dionny.svg?label=Visitas&color=2563eb&style=flat-square" alt="Contador de visitas"
+                    onerror="this.closest('.visitor-counter').style.display='none'" />
             </div>
         </div>
     </footer>
 
+    <script src="src/js/vendor/qrcode.js"></script>
     <script type="module" src="src/js/main.js"></script>
 </body>
 

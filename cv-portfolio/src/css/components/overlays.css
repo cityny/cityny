@@ -207,3 +207,7 @@
         }
     }
 }
+
+
+/* QR de cada proyecto: solo se muestra al imprimir */
+.project-qr { display: none; }

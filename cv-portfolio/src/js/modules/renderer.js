@@ -1,5 +1,19 @@
 import { getLogoSlug } from "./utils.js";
 
+const SITE_BASE = "https://cityny.github.io/cityny/";
+
+/**
+ * Código QR (SVG) con el enlace de un proyecto, visible solo al imprimir
+ */
+function projectQrHtml(target) {
+  if (!target || typeof window.qrcode !== "function") return "";
+  const absoluteUrl = new URL(target, SITE_BASE).href;
+  const qr = window.qrcode(0, "M");
+  qr.addData(absoluteUrl);
+  qr.make();
+  return `<a class="project-qr" href="${absoluteUrl}" aria-hidden="true" tabindex="-1">${qr.createSvgTag({ cellSize: 2, margin: 0, scalable: true })}</a>`;
+}
+
 /**
  * Genera el HTML completo del CV
  */
@@ -113,12 +127,15 @@ export function generateResumeHTML(staticData, translations, currentLang) {
       const techKey =
         currentLang === "es" ? "technologies_es" : "technologies_en";
       return `
-            <div class="item-box job">
-                <strong>${project[`name_${currentLang}`] || project.name}</strong>
-                <p>${project[descKey]}</p>
-                ${projectVideoButton}
-                ${projectLink}
-                <small><strong>${t.project.technologies_label}:</strong> ${project[techKey].join(", ")}</small>
+            <div class="item-box job project-item">
+                <div class="project-body">
+                    <strong>${project[`name_${currentLang}`] || project.name}</strong>
+                    <p>${project[descKey]}</p>
+                    ${projectVideoButton}
+                    ${projectLink}
+                    <small><strong>${t.project.technologies_label}:</strong> ${project[techKey].join(", ")}</small>
+                </div>
+                ${projectQrHtml(project.url || project.video)}
             </div>`;
     })
     .join("");
