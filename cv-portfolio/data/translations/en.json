@@ -4,7 +4,8 @@
     "error_loading": "Error loading:",
     "theme_button": "🌓 Mode",
     "label_es": "🇪🇸 ES",
-    "label_en": "🇺🇸 EN"
+    "label_en": "🇺🇸 EN",
+    "visits": "Visits"
   },
   "sections": {
     "profiles": "Profiles",

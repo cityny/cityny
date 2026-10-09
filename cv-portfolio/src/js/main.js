@@ -9,6 +9,7 @@ import {
   initMobilePreviewTooltips,
 } from "./modules/ui.js";
 import { printBothLanguages, printSingleLanguage } from "./modules/print.js";
+import { initVisitCounter } from "./modules/ui/visits.js";
 
 /**
  * Punto de entrada principal
@@ -45,6 +46,8 @@ async function init(lang = "es") {
  * Traduce los textos fijos de la barra superior
  */
 function applyUiTranslations(t) {
+  const visitsLabel = document.getElementById("visit-counter-label");
+  if (visitsLabel && t.ui && t.ui.visits) visitsLabel.textContent = t.ui.visits;
   if (!t.print) return;
   const labels = {
     "print-es": t.print.option_es,
@@ -129,6 +132,7 @@ function setupEventListeners() {
 document.addEventListener("DOMContentLoaded", () => {
   init("es");
   setupEventListeners();
+  initVisitCounter();
 });
 
 // Carga tardía de video

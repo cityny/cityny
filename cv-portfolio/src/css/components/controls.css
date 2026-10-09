@@ -88,5 +88,16 @@ body.dark-theme .social-icon { color: #ffffff; }
 body.dark-theme .project-action-link { color: #ffffff; }
 
 /* Visitor Counter */
-.visitor-counter { transition: transform 0.3s ease; }
-.visitor-counter:hover { transform: scale(1.05); }
+.visit-badge {
+    display: inline-flex;
+    height: 20px;
+    line-height: 20px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 11px;
+    color: #ffffff;
+    transition: transform 0.3s ease;
+}
+.visit-badge[hidden] { display: none; }
+.visit-badge:hover { transform: scale(1.05); }
+.visit-badge-label { background: #555555; padding: 0 6px; }
+.visit-badge-value { background: #2563eb; padding: 0 6px; }
