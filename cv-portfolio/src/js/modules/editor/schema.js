@@ -132,6 +132,19 @@ export const SECTIONS = [
     ],
   },
   {
+    key: "certifications",
+    title: "Cursos y certificaciones",
+    type: "list",
+    itemName: "curso",
+    itemTitle: (item) => [item.name_es, item.institution].filter(Boolean).join(" · "),
+    create: () => ({ name_es: "", name_en: "", institution: "", date: "" }),
+    fields: [
+      { keys: ["name_es", "name_en"], label: "Curso", type: "text" },
+      { key: "institution", label: "Institución", type: "text" },
+      { key: "date", label: "Fecha", type: "text", hint: "MM/AAAA, por ejemplo 03/2023" },
+    ],
+  },
+  {
     key: "projects",
     title: "Proyectos destacados",
     type: "list",

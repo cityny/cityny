@@ -14,7 +14,8 @@
     "work_experience": "Experiencia Laboral",
     "languages": "Idiomas",
     "featured_projects": "Proyectos Destacados",
-    "about_me": "Perfil Profesional"
+    "about_me": "Perfil Profesional",
+    "certifications": "Cursos y Certificaciones"
   },
   "contact": {
     "location": "📍"
@@ -30,6 +31,7 @@
     "button_title": "Opciones de impresión",
     "option_es": "Español",
     "option_en": "Inglés",
-    "option_both": "Ambos"
+    "option_both": "Ambos",
+    "option_apa": "Formato APA"
   }
 }

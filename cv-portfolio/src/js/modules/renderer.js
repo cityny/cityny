@@ -21,6 +21,12 @@ function locationText(loc) {
   return loc.country || loc.countryCode;
 }
 
+// Enlace escrito del proyecto: solo se ve en la impresión APA, que no lleva QR
+function projectUrlHtml(target) {
+  if (!target) return "";
+  return `<p class="project-url-print">${new URL(target, SITE_BASE).href}</p>`;
+}
+
 function projectQrHtml(target) {
   if (!target || typeof window.qrcode !== "function") return "";
   const absoluteUrl = new URL(target, SITE_BASE).href;
@@ -136,6 +142,17 @@ export function generateResumeHTML(staticData, translations, currentLang) {
     })
     .join("");
 
+  // Cursos y certificaciones: una línea por curso, para que no ocupen media página
+  const certificationsHtml = (s.certifications || [])
+    .map((c) => {
+      const name = c[`name_${currentLang}`] || c.name_es;
+      return `
+            <div class="item-box cert-item">
+                <strong>${name}</strong> — ${c.institution}${c.date ? `<span class="edu-period">&nbsp;|&nbsp; ${c.date}</span>` : ""}
+            </div>`;
+    })
+    .join("");
+
   const projectsHtml = s.projects
     .map((project) => {
       const descKey =
@@ -162,6 +179,7 @@ export function generateResumeHTML(staticData, translations, currentLang) {
                     <small><strong>${t.project.technologies_label}:</strong> ${project[techKey].join(", ")}</small>
                 </div>
                 ${projectQrHtml(project.url || project.video)}
+                ${projectUrlHtml(project.url || project.video)}
             </div>`;
     })
     .join("");
@@ -207,6 +225,11 @@ export function generateResumeHTML(staticData, translations, currentLang) {
                 <h3>${t.sections.education}</h3>
                 ${educationHtml}
             </section>
+            ${certificationsHtml ? `
+            <section>
+                <h3>${t.sections.certifications || "Cursos y Certificaciones"}</h3>
+                ${certificationsHtml}
+            </section>` : ""}
             <section>
                 <h3>${t.sections.featured_projects}</h3>
                 ${projectsHtml}

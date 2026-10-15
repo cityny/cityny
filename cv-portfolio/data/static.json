@@ -42,27 +42,50 @@
       "degree_en": "Electronic Engineering",
       "period_es": "2015 – 2020",
       "period_en": "2015 – 2020"
-    },
+    }
+  ],
+  "certifications": [
     {
+      "name_es": "Soporte técnico IT (Tier I)",
+      "name_en": "IT Support Troubleshooting (Tier I)",
       "institution": "Appoint Pros",
-      "degree_es": "Soporte Técnico IT - Tier I",
-      "degree_en": "IT Technical Support - Tier I",
-      "period_es": "Curso intensivo · 2 meses",
-      "period_en": "Intensive course · 2 months"
+      "date": "03/2023"
     },
     {
-      "institution": "Universidad Privada del Norte",
-      "degree_es": "Introducción a las instalaciones eléctricas",
-      "degree_en": "Introduction to Electrical Installations",
-      "period_es": "Curso intensivo · 2 meses",
-      "period_en": "Intensive course · 2 months"
+      "name_es": "Fundamentos del diseño de redes",
+      "name_en": "Network Design Fundamentals",
+      "institution": "LinkedIn Learning",
+      "date": "01/2022"
     },
     {
-      "institution": "20 Solar Energy",
-      "degree_es": "Instalación de sistemas solares fotovoltaicos",
-      "degree_en": "Photovoltaic Solar Systems Installation",
-      "period_es": "Curso intensivo · 2 meses",
-      "period_en": "Intensive course · 2 months"
+      "name_es": "Ciberseguridad en el trabajo",
+      "name_en": "Cybersecurity at Work",
+      "institution": "Google España",
+      "date": "10/2020"
+    },
+    {
+      "name_es": "Computación en la nube",
+      "name_en": "Cloud Computing",
+      "institution": "Google España",
+      "date": "10/2020"
+    },
+    {
+      "name_es": "Instalación de sistemas solares fotovoltaicos residenciales y comerciales",
+      "name_en": "Residential and Commercial Photovoltaic Solar Systems Installation",
+      "institution": "Solar 20 Energías Renovables",
+      "date": "03/2020"
+    },
+    {
+      "name_es": "Medio ambiente, salud y seguridad (EHS)",
+      "name_en": "Environment, Health and Safety (EHS)",
+      "institution": "Universidad Rafael Belloso Chacín",
+      "date": "10/2016"
+    },
+    {
+      "name_es": "Introducción a las instalaciones eléctricas domiciliarias",
+      "name_en": "Introduction to Residential Electrical Installations",
+      "institution": "Universidad Privada del Norte (Miríadax)",
+      "date": "08/2014"
     }
   ],
   "experience": [
@@ -412,8 +435,8 @@
         {
           "name": "Inglés",
           "name_en": "English",
-          "badge": "Intermedio B1",
-          "badge_en": "Intermediate B1",
+          "badge": "Intermedio B1 · EF SET",
+          "badge_en": "Intermediate B1 · EF SET",
           "logo": "https://flagcdn.com/w20/us.png"
         }
       ]

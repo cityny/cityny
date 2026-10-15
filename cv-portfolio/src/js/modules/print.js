@@ -17,6 +17,7 @@ async function restoreAfterPrint(originalTitle, originalLang, sData, loadResumeD
     const container = document.getElementById("resume-container");
     document.title = originalTitle;
     container.classList.remove("skills-print");
+    document.body.classList.remove("apa-print");
     
     // Volver al estado original en la UI
     const { translations: originalTranslations } = await loadResumeData(originalLang);
@@ -26,7 +27,7 @@ async function restoreAfterPrint(originalTitle, originalLang, sData, loadResumeD
 /**
  * Imprime un solo idioma
  */
-export async function printSingleLanguage(lang, staticData, currentLang, loadResumeData, renderResume) {
+export async function printSingleLanguage(lang, staticData, currentLang, loadResumeData, renderResume, titlePrefix = "") {
     const container = document.getElementById("resume-container");
     const originalLang = currentLang;
 
@@ -41,7 +42,7 @@ export async function printSingleLanguage(lang, staticData, currentLang, loadRes
         const dateStr = now.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: '2-digit' }).replace(/\//g, '');
         const timeStr = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase().replace(/[\s:]/g, '');
         
-        const prefix = lang.toUpperCase(); // ES o EN
+        const prefix = titlePrefix + lang.toUpperCase(); // ES, EN o APA-ES
         const originalTitle = preparePrint(dateStr, timeStr, prefix);
         window.print();
         
@@ -50,6 +51,16 @@ export async function printSingleLanguage(lang, staticData, currentLang, loadRes
     } catch (error) {
         console.error("Error al imprimir:", error);
     }
+}
+
+/**
+ * Imprime en formato APA (en el idioma que se está viendo): márgenes de 2,54 cm,
+ * Times New Roman 12, texto alineado a la izquierda y número de página.
+ * Los estilos están en print.css, bajo body.apa-print.
+ */
+export async function printApa(lang, staticData, currentLang, loadResumeData, renderResume) {
+    document.body.classList.add("apa-print");
+    await printSingleLanguage(lang, staticData, currentLang, loadResumeData, renderResume, "APA-");
 }
 
 /**

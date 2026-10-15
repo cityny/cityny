@@ -102,6 +102,8 @@
     .location-text { color: var(--text-main) !important; }
 
     .job { margin-bottom: 12px !important; }
+    /* En pantalla separa el cargo del icono; sin icono quedaba como sangría */
+    .item-box.job strong .project-preview-container { margin-left: 0; }
     .job-period { margin-bottom: 0 !important; }
     .job p { margin-top: 0 !important; }
 
@@ -116,4 +118,68 @@
     .languages-section h3 { width: 100%; margin-bottom: 4px; }
     .languages-section .item-box { display: inline-flex; align-items: center; margin-bottom: 0 !important; }
     .languages-section .item-box:not(:first-child)::before { content: " | "; margin: 0 6px; color: var(--border); }
+}
+
+/* Cursos y certificaciones: una línea cada uno */
+.cert-item { margin-bottom: 4px; }
+.project-url-print { display: none; }
+
+/* Impresión en formato APA (7.ª ed.): márgenes de 2,54 cm, Times New Roman 12,
+   interlineado 1,5, texto alineado a la izquierda, sin colores ni QR, número de
+   página arriba a la derecha. La página con nombre "apa" solo aplica a este modo. */
+@page apa {
+    margin: 2.54cm;
+    @top-right {
+        content: counter(page);
+        font-family: "Times New Roman", Times, serif;
+        font-size: 12pt;
+    }
+}
+
+@media print {
+    body.apa-print main { page: apa; padding: 0 !important; }
+    body.apa-print .cv-page-header-space { display: none; }
+
+    body.apa-print main, body.apa-print main * {
+        font-family: "Times New Roman", Times, serif !important;
+        font-size: 12pt !important;
+        line-height: 1.5 !important;
+        color: #000 !important;
+        text-align: left !important;
+    }
+
+    body.apa-print h1 { text-align: center !important; font-weight: bold; margin: 0 !important; }
+    body.apa-print .subtitle { text-align: center !important; margin: 0 !important; }
+    body.apa-print .contact-info { justify-content: center; }
+    body.apa-print .contact-info, body.apa-print .contact-info * { text-align: center !important; }
+    body.apa-print .contact-info a[data-print-url] { font-size: 0 !important; }
+    body.apa-print .contact-info a[data-print-url]:after { font-size: 12pt !important; opacity: 1; }
+
+    /* Encabezado de nivel 1: centrado y en negrita, sin líneas ni colores */
+    body.apa-print h3 {
+        text-align: center !important;
+        font-weight: bold !important;
+        border: none !important;
+        margin: 12pt 0 0 !important;
+        text-transform: none !important;
+        letter-spacing: normal !important;
+    }
+
+    body.apa-print .summary-section p { text-indent: 1.27cm; }
+
+    body.apa-print .job, body.apa-print .item-box {
+        margin-bottom: 6pt !important;
+        border: none !important;
+        padding-left: 0 !important;
+        box-shadow: none !important;
+        background: none !important;
+    }
+    /* Sin colores ni recuadros, un trabajo largo puede seguir en la otra página */
+    body.apa-print .job { break-inside: auto !important; page-break-inside: auto !important; }
+    body.apa-print .job li { break-inside: avoid; }
+    body.apa-print .project-qr, body.apa-print .project-item p:has(> a),
+    body.apa-print .digital-version-print { display: none !important; }
+    body.apa-print .project-item { display: block; }
+    body.apa-print .project-url-print { display: block; word-break: break-all; }
+    body.apa-print .edu-period { opacity: 1; }
 }
