@@ -45,6 +45,7 @@ export const SECTIONS = [
         fields: [
           { key: "city", label: "Ciudad", type: "text" },
           { key: "region", label: "Estado o región", type: "text" },
+          { key: "country", label: "País", type: "text" },
           { key: "countryCode", label: "País (código)", type: "text" },
         ],
       },

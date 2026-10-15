@@ -5,6 +5,14 @@ const SITE_BASE = "https://cityny.github.io/cityny/";
 /**
  * Código QR (SVG) con el enlace de un proyecto, visible solo al imprimir
  */
+
+// "Ciudad, Estado (VE)"; sin ciudad ni estado, solo el país ("Venezuela").
+function locationText(loc) {
+  const parts = [loc.city, loc.region].filter(Boolean);
+  if (parts.length) return `${parts.join(", ")} (${loc.countryCode})`;
+  return loc.country || loc.countryCode;
+}
+
 function projectQrHtml(target) {
   if (!target || typeof window.qrcode !== "function") return "";
   const absoluteUrl = new URL(target, SITE_BASE).href;
@@ -34,7 +42,7 @@ export function generateResumeHTML(staticData, translations, currentLang) {
       (p) =>
         `<span class="contact-item"><span class="material-symbols-outlined icon-contact">call</span> <a href="https://wa.me/${p.number.replace(/\D/g, "")}">${p.number}</a></span>`,
     ),
-    `<span class="contact-item"><span class="material-symbols-outlined icon-contact">location_on</span> <span class="location-text">${s.basics.location.city}, ${s.basics.location.region || ""} (${s.basics.location.countryCode})</span></span>`,
+    `<span class="contact-item"><span class="material-symbols-outlined icon-contact">location_on</span> <span class="location-text">${locationText(s.basics.location)}</span></span>`,
     ...s.basics.profiles.map((p) => {
       const shortUrl = p.url
         .replace(/^https?:\/\//, "")

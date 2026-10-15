@@ -17,8 +17,9 @@
       }
     ],
     "location": {
-      "city": "Maracaibo",
-      "region": "Zulia",
+      "city": "",
+      "region": "",
+      "country": "Venezuela",
       "countryCode": "VE"
     },
     "profiles": [
