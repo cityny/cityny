@@ -107,6 +107,14 @@
     .job-period { margin-bottom: 0 !important; }
     .job p { margin-top: 0 !important; }
 
+    /* Más compacto en papel, para que cada idioma quepa en 2 hojas también en
+       tamaño Carta (más corta que A4). La impresión APA tiene su propio espaciado. */
+    body:not(.apa-print) main { line-height: 1.15; }
+    body:not(.apa-print) main li { margin-bottom: 1px !important; }
+    body:not(.apa-print) h3 { margin-top: 10px !important; margin-bottom: 8px !important; }
+    body:not(.apa-print) .job { margin-bottom: 8px !important; }
+    body:not(.apa-print) .summary-section p { margin: 4px 0 6px !important; }
+
     /* Proyectos: QR con el enlace para la versión en papel */
     .project-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
     .project-body { flex: 1; min-width: 0; }
