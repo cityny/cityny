@@ -59,6 +59,24 @@
   ],
   "experience": [
     {
+      "company": "Emporio Group",
+      "position_es": "Ingeniero de Procura",
+      "position_en": "Procurement Engineer",
+      "period_es": "Mayo 2026 - Actualidad",
+      "period_en": "May 2026 - Present",
+      "startDate": "2026-05-01",
+      "summary_es": [
+        "Procura Internacional: Compra de repuestos y maquinaria industrial con proveedores internacionales y seguimiento de cada pedido hasta su llegada a Venezuela, con comunicación directa con proveedores asiáticos.",
+        "Diseño Técnico: Elaboración de diseños y planos en AutoCAD para especificar equipos y piezas.",
+        "Calidad: Seguimiento y cumplimiento de normas ISO en los procesos de compra y con proveedores."
+      ],
+      "summary_en": [
+        "International Procurement: Purchasing of spare parts and industrial machinery from international suppliers and tracking of each order until its arrival in Venezuela, with direct communication with Asian suppliers.",
+        "Technical Design: Preparation of designs and drawings in AutoCAD to specify equipment and parts.",
+        "Quality: Monitoring of and compliance with ISO standards in purchasing processes and with suppliers."
+      ]
+    },
+    {
       "company": "San Simón Planta de Leche",
       "position_es": "Supervisor de Mantenimiento Industrial",
       "position_en": "Industrial Maintenance Supervisor",
