@@ -39,22 +39,30 @@
     {
       "institution": "Universidad Rafael Belloso Chacín",
       "degree_es": "Ingeniería Electrónica",
-      "degree_en": "Electronic Engineering"
+      "degree_en": "Electronic Engineering",
+      "period_es": "2015 – 2020",
+      "period_en": "2015 – 2020"
     },
     {
       "institution": "Appoint Pros",
       "degree_es": "Soporte Técnico IT - Tier I",
-      "degree_en": "IT Technical Support - Tier I"
+      "degree_en": "IT Technical Support - Tier I",
+      "period_es": "Curso intensivo · 2 meses",
+      "period_en": "Intensive course · 2 months"
     },
     {
       "institution": "Universidad Privada del Norte",
       "degree_es": "Introducción a las instalaciones eléctricas",
-      "degree_en": "Introduction to Electrical Installations"
+      "degree_en": "Introduction to Electrical Installations",
+      "period_es": "Curso intensivo · 2 meses",
+      "period_en": "Intensive course · 2 months"
     },
     {
       "institution": "20 Solar Energy",
       "degree_es": "Instalación de sistemas solares fotovoltaicos",
-      "degree_en": "Photovoltaic Solar Systems Installation"
+      "degree_en": "Photovoltaic Solar Systems Installation",
+      "period_es": "Curso intensivo · 2 meses",
+      "period_en": "Intensive course · 2 months"
     }
   ],
   "experience": [
@@ -130,8 +138,8 @@
       "company": "URBE",
       "position_es": "Asistente de Laboratorio",
       "position_en": "Laboratory Assistant",
-      "period_es": "04/2015",
-      "period_en": "04/2015",
+      "period_es": "04/2015 – 09/2020",
+      "period_en": "04/2015 – 09/2020",
       "startDate": "2015-04-01",
       "preview": "docs/urbe.jpg",
       "summary_es": [

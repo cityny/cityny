@@ -125,10 +125,12 @@ export function generateResumeHTML(staticData, translations, currentLang) {
   const educationHtml = s.education
     .map((edu) => {
       const degreeKey = currentLang === "es" ? "degree_es" : "degree_en";
+      const period = edu[currentLang === "es" ? "period_es" : "period_en"];
       return `
             <div class="item-box">
                 <span class="material-symbols-outlined">school</span>
                 <strong>${edu.institution}</strong>
+                ${period ? `<span class="edu-period">&nbsp;|&nbsp; ${period}</span>` : ""}
                 <p>${edu[degreeKey]}</p>
             </div>`;
     })

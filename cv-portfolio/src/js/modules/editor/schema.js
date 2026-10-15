@@ -124,10 +124,11 @@ export const SECTIONS = [
     type: "list",
     itemName: "estudio",
     itemTitle: (item) => item.institution,
-    create: () => ({ institution: "", degree_es: "", degree_en: "" }),
+    create: () => ({ institution: "", degree_es: "", degree_en: "", period_es: "", period_en: "" }),
     fields: [
       { key: "institution", label: "Institución", type: "text" },
       { keys: ["degree_es", "degree_en"], label: "Título o curso", type: "text" },
+      { keys: ["period_es", "period_en"], label: "Fechas o duración", type: "text" },
     ],
   },
   {

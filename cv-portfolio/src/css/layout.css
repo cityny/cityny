@@ -147,3 +147,9 @@ footer p {
     font-size: 0.9rem;
     margin: 0;
 }
+
+/* Fechas de un estudio, junto a la institución */
+.edu-period {
+    font-size: 0.9em;
+    opacity: 0.85;
+}
