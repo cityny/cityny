@@ -53,7 +53,10 @@
 
     .print-page { page-break-before: always; padding: 0; }
     
-    section, .job, .item-box {
+    /* Las secciones largas (experiencia, proyectos…) pueden seguir en la página
+       siguiente para aprovechar el espacio; lo que no se parte es cada elemento:
+       un trabajo, una habilidad, un proyecto, y las secciones cortas. */
+    .job, .item-box, .project-item, .summary-section, .languages-section {
         break-inside: avoid !important;
         page-break-inside: avoid !important;
     }
