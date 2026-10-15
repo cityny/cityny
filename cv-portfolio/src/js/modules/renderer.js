@@ -21,10 +21,11 @@ function locationText(loc) {
   return loc.country || loc.countryCode;
 }
 
-// Enlace escrito del proyecto: solo se ve en la impresión APA, que no lleva QR
-function projectUrlHtml(target) {
-  if (!target) return "";
-  return `<p class="project-url-print">${new URL(target, SITE_BASE).href}</p>`;
+// Enlace escrito del proyecto: solo se ve en la impresión APA, que no lleva QR.
+// Si el proyecto tiene enlace corto, se escribe ese.
+function projectUrlHtml(target, shortUrl) {
+  if (!target && !shortUrl) return "";
+  return `<p class="project-url-print">${shortUrl || new URL(target, SITE_BASE).href}</p>`;
 }
 
 function projectQrHtml(target) {
@@ -179,7 +180,7 @@ export function generateResumeHTML(staticData, translations, currentLang) {
                     <small><strong>${t.project.technologies_label}:</strong> ${project[techKey].join(", ")}</small>
                 </div>
                 ${projectQrHtml(project.url || project.video)}
-                ${projectUrlHtml(project.url || project.video)}
+                ${projectUrlHtml(project.url || project.video, project.short_url)}
             </div>`;
     })
     .join("");

@@ -168,6 +168,13 @@ export const SECTIONS = [
         hint: "Dirección web o ruta de un archivo ya subido. También genera el QR al imprimir.",
       },
       {
+        key: "short_url",
+        label: "Enlace corto (opcional)",
+        type: "text",
+        optional: ["short_url"],
+        hint: "Se escribe en la impresión APA en lugar del enlace largo, por ejemplo analista.cc/link/ct",
+      },
+      {
         key: "video",
         label: "Video (opcional)",
         type: "text",

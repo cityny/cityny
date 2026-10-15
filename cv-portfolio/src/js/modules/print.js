@@ -1,4 +1,4 @@
-import { generateResumeHTML } from './renderer.js?v=20261015b';
+import { generateResumeHTML } from './renderer.js?v=20261015c';
 
 /**
  * Prepara el documento para impresión (común para single y both)
@@ -54,19 +54,19 @@ export async function printSingleLanguage(lang, staticData, currentLang, loadRes
 }
 
 /**
- * Imprime en formato APA (en el idioma que se está viendo): márgenes de 2,54 cm,
- * Times New Roman 12, texto alineado a la izquierda y número de página.
+ * Imprime en formato APA, español e inglés en el mismo archivo: márgenes de
+ * 2,54 cm, Times New Roman 12 y número de página.
  * Los estilos están en print.css, bajo body.apa-print.
  */
-export async function printApa(lang, staticData, currentLang, loadResumeData, renderResume) {
+export async function printApa(staticData, currentLang, loadResumeData, renderResume) {
     document.body.classList.add("apa-print");
-    await printSingleLanguage(lang, staticData, currentLang, loadResumeData, renderResume, "APA-");
+    await printBothLanguages(staticData, currentLang, loadResumeData, renderResume, "APA-");
 }
 
 /**
  * Imprime ambos idiomas en un solo documento
  */
-export async function printBothLanguages(staticData, currentLang, loadResumeData, renderResume) {
+export async function printBothLanguages(staticData, currentLang, loadResumeData, renderResume, titlePrefix = "") {
     const container = document.getElementById("resume-container");
     const originalLang = currentLang;
 
@@ -78,6 +78,7 @@ export async function printBothLanguages(staticData, currentLang, loadResumeData
         const englishSection = document.createElement("div");
         englishSection.id = "english-version";
         englishSection.className = "print-page";
+        englishSection.lang = "en";
 
         const { translations: enTranslations } = await loadResumeData("en");
         englishSection.innerHTML = generateResumeHTML(sData, enTranslations, "en");
@@ -90,7 +91,7 @@ export async function printBothLanguages(staticData, currentLang, loadResumeData
         const dateStr = now.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: '2-digit' }).replace(/\//g, '');
         const timeStr = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase().replace(/[\s:]/g, '');
         
-        const originalTitle = preparePrint(dateStr, timeStr, "ES-EN");
+        const originalTitle = preparePrint(dateStr, timeStr, titlePrefix + "ES-EN");
         window.print();
 
         // Limpiar sección inglés extra

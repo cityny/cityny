@@ -165,7 +165,10 @@
         letter-spacing: normal !important;
     }
 
-    body.apa-print .summary-section p { text-indent: 1.27cm; }
+    body.apa-print .summary-section p {
+        text-indent: 1.27cm;
+        text-align: justify !important;
+    }
 
     body.apa-print .job, body.apa-print .item-box {
         margin-bottom: 6pt !important;
