@@ -4,7 +4,7 @@
 
 import { hasStoredToken, storeToken, unlockToken, forgetToken } from "./crypto.js";
 import { loadFile, saveFile } from "./github.js";
-import { SECTIONS } from "./schema.js";
+import { SECTIONS } from "./schema.js?v=20261015b";
 import { buildForm } from "./form.js";
 import { openDialog } from "./dialog.js";
 

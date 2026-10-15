@@ -1,5 +1,5 @@
 import { loadResumeData } from "./modules/api.js";
-import { renderResume } from "./modules/renderer.js";
+import { renderResume } from "./modules/renderer.js?v=20261015b";
 import {
   toggleTheme,
   initBackgroundVideo,
@@ -8,7 +8,7 @@ import {
   closePrintOptions,
   initMobilePreviewTooltips,
 } from "./modules/ui.js";
-import { printApa, printBothLanguages, printSingleLanguage } from "./modules/print.js";
+import { printApa, printBothLanguages, printSingleLanguage } from "./modules/print.js?v=20261015b";
 import { initVisitCounter } from "./modules/ui/visits.js";
 
 /**
@@ -82,7 +82,7 @@ function setupEditorTrigger() {
     timer = setTimeout(() => (clicks = 0), 600);
     if (clicks < 3) return;
     clicks = 0;
-    const editor = await import("./modules/editor/index.js");
+    const editor = await import("./modules/editor/index.js?v=20261015b");
     editor.revealEditButton(editorPage);
   });
 }
