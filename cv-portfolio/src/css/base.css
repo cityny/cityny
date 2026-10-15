@@ -57,6 +57,7 @@ body.dark-theme a {
     color: #ffffff;
 }
 
-.digital-version-print {
+.digital-version-print,
+.skills-print-list {
     display: none;
 }

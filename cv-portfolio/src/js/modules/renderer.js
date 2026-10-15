@@ -6,6 +6,14 @@ const SITE_BASE = "https://cityny.github.io/cityny/";
  * Código QR (SVG) con el enlace de un proyecto, visible solo al imprimir
  */
 
+// Texto de una habilidad. Si la etiqueta no es el nombre (idiomas: "Nativo"),
+// se muestran los dos ("Español (Nativo)"): la bandera sola no la lee un ATS.
+function skillLabel(k, lang) {
+  const name = k[`name_${lang}`] || k.name;
+  const badge = k[`badge_${lang}`] || k.badge || name;
+  return badge.toLowerCase().includes(name.toLowerCase()) ? badge : `${name} (${badge})`;
+}
+
 // "Ciudad, Estado (VE)"; sin ciudad ni estado, solo el país ("Venezuela").
 function locationText(loc) {
   const parts = [loc.city, loc.region].filter(Boolean);
@@ -66,8 +74,7 @@ export function generateResumeHTML(staticData, translations, currentLang) {
                             ? k.logo
                             : `assets/icons/${getLogoSlug(k.name, k.logo || k.badge)}.svg`;
                         const keywordName = k[`name_${currentLang}`] || k.name;
-                        const keywordBadge =
-                          k[`badge_${currentLang}`] || k.badge;
+                        const keywordBadge = skillLabel(k, currentLang);
                         return `
                         <div class="custom-badge-container" title="${keywordName}">
                             <img src="${logoSrc}" alt="" loading="lazy" decoding="async" onerror="this.remove()">
@@ -103,6 +110,15 @@ export function generateResumeHTML(staticData, translations, currentLang) {
                     ${job[summaryKey].map((bullet) => `<li style="margin-bottom: 3px;">${bullet}</li>`).join("")}
                 </ul>
             </div>`;
+    })
+    .join("");
+
+  // Para imprimir: una línea de texto por categoría, que un ATS lee en orden
+  // (las columnas de insignias se leen mezcladas fila por fila).
+  const skillsPrintHtml = s.skills
+    .map((skill) => {
+      const category = skill[currentLang === "es" ? "category_es" : "category_en"];
+      return `<p><strong>${category}:</strong> ${skill.keywords.map((k) => skillLabel(k, currentLang)).join(", ")}</p>`;
     })
     .join("");
 
@@ -158,10 +174,7 @@ export function generateResumeHTML(staticData, translations, currentLang) {
         <tr>
           <td class="cv-print-cell">
             <header>
-                <div class="digital-version-print">
-                    ${currentLang === "es" ? "Versión digital:" : "Digital version:"} 
-                    <a href="${currentFullUrl}">${currentFullUrl.replace(/^https?:\/\//, "")}</a>
-                </div>
+
                 <h1>
                   <a href="${currentFullUrl}" style="text-decoration: none; color: inherit;">${s.basics.name}</a>
                   <span class="qr-container">
@@ -182,6 +195,7 @@ export function generateResumeHTML(staticData, translations, currentLang) {
             <section>
                 <h3>${t.sections.technical_skills}</h3>
                 <div class="skills-grid">${skillsHtml}</div>
+                <div class="skills-print-list">${skillsPrintHtml}</div>
             </section>
             <section>
                 <h3>${t.sections.work_experience}</h3>
@@ -195,6 +209,10 @@ export function generateResumeHTML(staticData, translations, currentLang) {
                 <h3>${t.sections.featured_projects}</h3>
                 ${projectsHtml}
             </section>
+                <div class="digital-version-print">
+                    ${currentLang === "es" ? "Versión digital:" : "Digital version:"} 
+                    <a href="${currentFullUrl}">${currentFullUrl.replace(/^https?:\/\//, "")}</a>
+                </div>
           </td>
         </tr>
       </tbody>

@@ -24,18 +24,21 @@
         --border: #e2e8f0 !important;
     }
 
-    /* Elementos a ocultar */
-    nav, footer, .bg-video, .qr-container, .preview-tooltip, 
-    .project-video-container, .project-preview-container .material-symbols-outlined {
+    /* Elementos a ocultar. Los iconos (Material Symbols, Font Awesome) son
+       caracteres de uso privado: en el PDF salen como letras invisibles o "□". */
+    nav, footer, .bg-video, .qr-container, .preview-tooltip,
+    .project-video-container, .project-preview-container .material-symbols-outlined,
+    .material-symbols-outlined, .social-icon, [class^="fa-"], [class*=" fa-"] {
         display: none !important;
     }
 
+    /* Al final del CV: si va arriba, un ATS la toma como primera línea (el nombre). */
     .digital-version-print {
         display: block !important;
         font-size: 10px;
         color: var(--text-muted);
         text-align: right;
-        margin-bottom: -10px;
+        margin-top: 10px;
         font-style: italic;
     }
 
@@ -88,34 +91,14 @@
         content: "" !important;
     }
 
-    /* Habilidades (3 columnas) */
-    .skills-grid {
-        display: block !important;
-        column-count: 3 !important;
-        column-gap: 10px !important;
-    }
-
-    .skills-grid .item-box {
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-        margin-bottom: 6px !important;
-        padding-bottom: 4px !important;
-        display: inline-block !important;
-        width: 100% !important;
-    }
-
-    .skills-badges { margin-top: 2px !important; gap: 2px !important; }
-
-    .custom-badge-container {
-        background-color: #ffffff !important; color: #000 !important;
-        border: 1px solid #000 !important; border-radius: 3px !important;
-        padding: 0 6px !important; height: 18px !important; margin: 1px 0 !important;
-    }
-    .custom-badge-container img { display: inline-block !important; height: 11px !important; margin-right: 4px !important; }
+    /* Habilidades: en papel, una línea de texto por categoría ("Bases de Datos:
+       PostgreSQL, Supabase"). Las insignias en columnas se leían mezcladas. */
+    .skills-grid { display: none !important; }
+    .skills-print-list { display: block !important; break-inside: avoid; }
+    .skills-print-list p { margin: 0 0 3px !important; font-size: 0.9rem; line-height: 1.35; }
 
     /* Contacto e Información */
     .contact-info { font-size: 0.75rem !important; margin: 4px 0 !important; gap: 4px !important; }
-    .icon-contact, .social-icon { font-size: 13px !important; color: var(--primary) !important; }
     .location-text { color: var(--text-main) !important; }
 
     .job { margin-bottom: 12px !important; }
