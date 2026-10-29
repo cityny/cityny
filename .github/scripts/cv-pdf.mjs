@@ -21,7 +21,7 @@ for (const [archivo, boton] of Object.entries(PDFS)) {
   await pagina.waitForFunction(() => window.__listo === true);
   await pagina.emulateMedia({ media: "print" });
   await pagina.evaluate(() => document.fonts.ready);
-  await pagina.pdf({ path: `${salida}/${archivo}`, format: "Letter", printBackground: true, preferCSSPageSize: true });
+  await pagina.pdf({ path: `${salida}/${archivo}`, format: "A4", printBackground: true, preferCSSPageSize: true });
   console.log(`${archivo}: listo`);
   await pagina.close();
 }
