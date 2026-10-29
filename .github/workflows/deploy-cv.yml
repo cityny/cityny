@@ -2,8 +2,11 @@ name: Deploy CV Personalizado
 
 on:
   push:
+    branches: [main]
     paths:
       - 'cv-portfolio/**'
+      - '.github/scripts/cv-pdf.mjs'
+      - '.github/workflows/deploy-cv.yml'
   workflow_dispatch:
 
 jobs:
@@ -12,7 +15,20 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # No instalamos nada pesado, solo movemos archivos
+      # PDF del CV (español, inglés, ambos y APA) en cv-portfolio/pdf/, como los
+      # botones de imprimir. Los descarga el bot de empleo desde GitHub Pages.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Generar PDF del CV
+        run: |
+          npm install --no-save playwright@1.63.0
+          npx playwright install --with-deps chromium
+          python3 -m http.server 8765 --directory cv-portfolio &
+          sleep 2
+          node .github/scripts/cv-pdf.mjs http://localhost:8765/ cv-portfolio/pdf
+
       - name: Desplegar a GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
