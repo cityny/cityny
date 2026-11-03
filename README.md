@@ -71,6 +71,7 @@
 - [Scrapling](https://github.com/cityny/Scrapling)
 - [algonius-browser](https://github.com/cityny/algonius-browser)
 - [shopper](https://github.com/cityny/shopper)
+- [web-mcp-bridge](https://github.com/cityny/web-mcp-bridge)
 <!-- final-forks -->
 </details>
 
