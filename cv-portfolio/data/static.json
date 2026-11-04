@@ -218,6 +218,26 @@
       "short_url": "tinyurl.com/22h296fo"
     },
     {
+      "name": "Diagrama Unifilar Interactivo - Planta de Muebles",
+      "name_en": "Interactive Single-Line Diagram - Furniture Plant",
+      "description_es": "Diagrama unifilar interactivo de una planta de muebles: red de 12,47 kV, transformador principal y de respaldo, 3 DRUPS y 6 líneas de producción, con panel de cargas en tiempo real (kW, kVA y % de capacidad).",
+      "description_en": "Interactive single-line diagram of a furniture plant: 12.47 kV grid, main and backup transformers, 3 DRUPS units and 6 production lines, with a real-time load panel (kW, kVA and % of capacity).",
+      "url": "docs/unifilar/",
+      "preview": "docs/unifilar_portafolio.jpg",
+      "technologies_es": [
+        "Diseño Eléctrico",
+        "Rive",
+        "JavaScript",
+        "Supabase"
+      ],
+      "technologies_en": [
+        "Electrical Design",
+        "Rive",
+        "JavaScript",
+        "Supabase"
+      ]
+    },
+    {
       "name": "Armado Torre de Enfriamiento - San Simón",
       "name_en": "Cooling Tower Assembly - San Simón",
       "description_es": "Supervisión y colaboración directa en el armado de torre de enfriamiento para la Planta de Leche San Simón (El Guayabo).",

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Diagrama Unifilar Interactivo - Dionny Núñez</title>
+    <meta name="description" content="Diagrama unifilar interactivo de una planta de muebles: red de 12,47 kV, transformadores, DRUPS y 6 líneas de producción, con panel de cargas en tiempo real.">
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+    <style>
+        :root { --fondo: #0d1117; --texto: #e6eaf0; --suave: #8b95a3; --borde: #30363d; }
+        html, body { margin: 0; height: 100%; background: var(--fondo); color: var(--texto);
+                     font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+        canvas { display: block; width: 100vw; height: 100vh; height: 100dvh; }
+        .volver { position: fixed; bottom: 12px; left: 12px; padding: 8px 14px; border: 1px solid var(--borde);
+                  border-radius: 999px; background: rgba(13, 17, 23, .85); color: var(--texto);
+                  text-decoration: none; font-size: 14px; }
+        .volver:hover { border-color: var(--suave); }
+        .aviso { position: fixed; inset: 0; display: grid; place-items: center; margin: 0; padding: 24px;
+                 text-align: center; color: var(--suave); }
+        .aviso[hidden] { display: none; }
+    </style>
+</head>
+<body>
+    <canvas id="diagrama" aria-label="Diagrama unifilar interactivo de una planta de muebles"></canvas>
+    <p class="aviso" id="aviso" hidden></p>
+    <a class="volver" href="../../">← Ver CV</a>
+    <script src="https://cdn.jsdelivr.net/npm/@rive-app/webgl2@2.45.0"></script>
+    <script>
+        // Versión de portafolio (sin marcas), compilada con rive-llm/scripts/publicar-cv.ps1.
+        // Clic en líneas, transformadores y fuentes para simular fallas; rueda para acercar.
+        const aviso = document.getElementById("aviso");
+        const mostrarAviso = texto => { aviso.textContent = texto; aviso.hidden = !texto; };
+        if (!window.rive) {
+            mostrarAviso("No se pudo cargar el visor. Revisa la conexión e inténtalo de nuevo.");
+        } else {
+            const instancia = new rive.Rive({
+                src: "unifilar.riv",
+                canvas: document.getElementById("diagrama"),
+                autoplay: true,
+                autoBind: true,
+                stateMachines: "Plant SM",
+                layout: new rive.Layout({ fit: rive.Fit.Layout }),
+                onLoad: () => instancia.resizeDrawingSurfaceToCanvas(),
+                onLoadError: () => mostrarAviso("No se pudo abrir el diagrama.")
+            });
+            window.addEventListener("resize", () => instancia.resizeDrawingSurfaceToCanvas());
+        }
+    </script>
+</body>
+</html>

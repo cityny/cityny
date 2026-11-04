@@ -1,4 +1,4 @@
-import { generateResumeHTML } from './renderer.js?v=20261015c';
+import { generateResumeHTML } from './renderer.js?v=20261104a';
 
 /**
  * Prepara el documento para impresión (común para single y both)
