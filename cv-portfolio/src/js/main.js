@@ -1,5 +1,5 @@
 import { loadResumeData } from "./modules/api.js";
-import { renderResume } from "./modules/renderer.js?v=20261015c";
+import { renderResume } from "./modules/renderer.js?v=20261104a";
 import {
   toggleTheme,
   initBackgroundVideo,

@@ -32,6 +32,9 @@
         display: none !important;
     }
 
+    /* Proyectos marcados "imprimir": false en static.json: solo en la web. */
+    .solo-web { display: none !important; }
+
     /* Al final del CV: si va arriba, un ATS la toma como primera línea (el nombre). */
     .digital-version-print {
         display: block !important;
