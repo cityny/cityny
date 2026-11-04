@@ -170,10 +170,8 @@ export function generateResumeHTML(staticData, translations, currentLang) {
         : "";
       const techKey =
         currentLang === "es" ? "technologies_es" : "technologies_en";
-      // "imprimir": false lo deja solo en la web: no sale en los PDF (print.css, .solo-web).
-      const soloWeb = project.imprimir === false ? " solo-web" : "";
       return `
-            <div class="item-box job project-item${soloWeb}">
+            <div class="item-box job project-item">
                 <div class="project-body">
                     <strong>${project[`name_${currentLang}`] || project.name}</strong>
                     <p>${project[descKey]}</p>
