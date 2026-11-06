@@ -66,7 +66,6 @@
 <summary><h2>🍴 Forks</h2></summary>
   
 <!-- inicio-forks -->
-- [Chatwoot-CityNy](https://github.com/cityny/Chatwoot-CityNy)
 - [PaddleOCR](https://github.com/cityny/PaddleOCR)
 - [Scrapling](https://github.com/cityny/Scrapling)
 - [algonius-browser](https://github.com/cityny/algonius-browser)
@@ -124,6 +123,7 @@
 - [docker-android](https://github.com/budtmo/docker-android)
 - [pcb-mcp](https://github.com/bunnyf/pcb-mcp)
 - [home-assistant-passive-income](https://github.com/bvlinsky/home-assistant-passive-income)
+- [OpenMontage](https://github.com/calesthio/OpenMontage)
 - [OmniRoute](https://github.com/cheaper-inference/OmniRoute)
 - [builderbot](https://github.com/codigoencasa/builderbot)
 - [API-mega-list](https://github.com/cporter202/API-mega-list)
@@ -145,7 +145,6 @@
 - [everAliveSensor](https://github.com/jfm92/everAliveSensor)
 - [esp32-4-channel-relays](https://github.com/leomanangka/esp32-4-channel-relays)
 - [whatsapp-mcp](https://github.com/lharries/whatsapp-mcp)
-- [twake-drive-legacy](https://github.com/linagora/twake-drive-legacy)
 - [pcb_libs](https://github.com/lmtreser/pcb_libs)
 - [dockge](https://github.com/louislam/dockge)
 - [uptime-kuma](https://github.com/louislam/uptime-kuma)
