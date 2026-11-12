@@ -58,6 +58,7 @@
 - [Prueba-de-inicio-de-sesion](https://github.com/cityny/Prueba-de-inicio-de-sesion)
 - [Renombrador-Masivo-V0.1](https://github.com/cityny/Renombrador-Masivo-V0.1)
 - [cityny](https://github.com/cityny/cityny)
+- [paneltask](https://github.com/cityny/paneltask)
 - [politica-privacidad-bot](https://github.com/cityny/politica-privacidad-bot)
 <!-- final-proyectos -->
 </details>
