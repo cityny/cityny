@@ -8,7 +8,7 @@ import {
   closePrintOptions,
   initMobilePreviewTooltips,
 } from "./modules/ui.js";
-import { printApa, printBothLanguages, printPersonal, printSingleLanguage } from "./modules/print.js?v=20261113b";
+import { printApa, printBothLanguages, printPersonal, printSingleLanguage } from "./modules/print.js?v=20261113c";
 import { initVisitCounter } from "./modules/ui/visits.js";
 
 /**

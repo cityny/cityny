@@ -37,11 +37,20 @@ export async function printSingleLanguage(lang, staticData, currentLang, loadRes
         container.classList.add("skills-print");
 
         if (personal) {
-            const { personalBlockHtml } = await import("./personal.js?v=20261113b");
+            const { personalBlockHtml } = await import("./personal.js?v=20261113c");
             const header = container.querySelector("header");
             if (header) {
                 header.classList.add("has-personal");
-                header.insertAdjacentHTML("beforeend", personalBlockHtml(personal, lang));
+                // "Venezuela" pasa de los datos de contacto a la dirección
+                let country = "";
+                const loc = header.querySelector(".location-text")?.closest(".contact-item");
+                if (loc) {
+                    country = loc.textContent.trim().replace(/^location_on\s*/, "");
+                    const sep = loc.previousSibling;
+                    if (sep && sep.nodeType === 3 && sep.textContent.includes("|")) sep.remove();
+                    loc.remove();
+                }
+                header.insertAdjacentHTML("beforeend", personalBlockHtml(personal, lang, country));
                 // Esperar a que cargue la foto antes de imprimir
                 const img = header.querySelector(".personal-photo");
                 if (img) await img.decode().catch(() => {});
@@ -122,7 +131,7 @@ export async function printBothLanguages(staticData, currentLang, loadResumeData
  * en el idioma actual, solo si la clave descifra data/personal.enc.json.
  */
 export async function printPersonal(staticData, currentLang, loadResumeData, renderResume) {
-    const { askPassword, decryptPersonal } = await import("./personal.js?v=20261113b");
+    const { askPassword, decryptPersonal } = await import("./personal.js?v=20261113c");
     const es = currentLang === "es";
     const password = await askPassword(currentLang);
     if (password === null) return;

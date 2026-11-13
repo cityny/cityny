@@ -45,14 +45,15 @@ export function askPassword(lang) {
   });
 }
 
-export function personalBlockHtml(p, lang) {
+export function personalBlockHtml(p, lang, country = "") {
   const es = lang === "es";
   const esc = (v) => String(v).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const address = [p.address, country].filter(Boolean).join(", ");
   const rows = [
     [es ? "C.I." : "ID No.", p.ci],
     [es ? "Fecha de nacimiento" : "Date of birth", p.birth],
-    [es ? "Dirección de habitación" : "Home address", p.address],
+    [es ? "Dirección de habitación" : "Home address", address],
   ].filter(([, v]) => v);
   return `${p.photo ? `<img class="personal-photo" alt="" src="${p.photo}">` : ""}
-    <div class="personal-data">${rows.map(([k, v]) => `<p><strong>${k}:</strong> ${esc(v)}</p>`).join("")}</div>`;
+    <p class="personal-data">${rows.map(([k, v]) => `<span><strong>${k}:</strong> ${esc(v)}</span>`).join(" | ")}</p>`;
 }

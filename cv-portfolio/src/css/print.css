@@ -202,6 +202,5 @@
         position: absolute; top: 0; right: 0;
         width: 2.2cm; height: 2.9cm; object-fit: cover; border: 1px solid #cbd5e1;
     }
-    header.has-personal .personal-data { margin-top: 6px; text-align: left; font-size: 10pt; }
-    header.has-personal .personal-data p { margin: 1px 0 !important; }
+    header.has-personal .personal-data { margin: 6px 0 0 !important; text-align: left; font-size: 9.5pt; }
 }
