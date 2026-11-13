@@ -8,7 +8,7 @@ import {
   closePrintOptions,
   initMobilePreviewTooltips,
 } from "./modules/ui.js";
-import { printApa, printBothLanguages, printSingleLanguage } from "./modules/print.js?v=20261015c";
+import { printApa, printBothLanguages, printPersonal, printSingleLanguage } from "./modules/print.js?v=20261113a";
 import { initVisitCounter } from "./modules/ui/visits.js";
 
 /**
@@ -99,6 +99,7 @@ function applyUiTranslations(t) {
     "print-en": t.print.option_en,
     "print-both": t.print.option_both,
     "print-apa": t.print.option_apa,
+    "print-personal": t.print.option_personal,
   };
   Object.entries(labels).forEach(([id, text]) => {
     const btn = document.getElementById(id);
@@ -164,6 +165,12 @@ function setupEventListeners() {
   if (btnApa)
     btnApa.addEventListener("click", () => {
       printApa(staticData, currentLang, loadResumeData, renderResume);
+    });
+
+  const btnPersonal = document.getElementById("print-personal");
+  if (btnPersonal)
+    btnPersonal.addEventListener("click", () => {
+      printPersonal(staticData, currentLang, loadResumeData, renderResume);
     });
 
   // Cerrar modal con escape

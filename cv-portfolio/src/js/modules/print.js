@@ -27,7 +27,7 @@ async function restoreAfterPrint(originalTitle, originalLang, sData, loadResumeD
 /**
  * Imprime un solo idioma
  */
-export async function printSingleLanguage(lang, staticData, currentLang, loadResumeData, renderResume, titlePrefix = "") {
+export async function printSingleLanguage(lang, staticData, currentLang, loadResumeData, renderResume, titlePrefix = "", personal = null) {
     const container = document.getElementById("resume-container");
     const originalLang = currentLang;
 
@@ -35,6 +35,18 @@ export async function printSingleLanguage(lang, staticData, currentLang, loadRes
         const { staticData: sData, translations: selectedTranslations } = await loadResumeData(lang);
         renderResume(container, sData, selectedTranslations, lang);
         container.classList.add("skills-print");
+
+        if (personal) {
+            const { personalBlockHtml } = await import("./personal.js?v=20261113a");
+            const header = container.querySelector("header");
+            if (header) {
+                header.classList.add("has-personal");
+                header.insertAdjacentHTML("beforeend", personalBlockHtml(personal, lang));
+                // Esperar a que cargue la foto antes de imprimir
+                const img = header.querySelector(".personal-photo");
+                if (img) await img.decode().catch(() => {});
+            }
+        }
 
         await new Promise(resolve => setTimeout(resolve, 150));
 
@@ -103,4 +115,23 @@ export async function printBothLanguages(staticData, currentLang, loadResumeData
     } catch (error) {
         console.error("Error al imprimir:", error);
     }
+}
+
+/**
+ * Imprime el CV con datos personales (CI, fecha de nacimiento, dirección, foto)
+ * en el idioma actual, solo si la clave descifra data/personal.enc.json.
+ */
+export async function printPersonal(staticData, currentLang, loadResumeData, renderResume) {
+    const { askPassword, decryptPersonal } = await import("./personal.js?v=20261113a");
+    const es = currentLang === "es";
+    const password = await askPassword(currentLang);
+    if (password === null) return;
+    let personal;
+    try {
+        personal = await decryptPersonal(password);
+    } catch (e) {
+        alert(es ? "Clave incorrecta." : "Wrong password.");
+        return;
+    }
+    await printSingleLanguage(currentLang, staticData, currentLang, loadResumeData, renderResume, "PERSONAL-", personal);
 }
