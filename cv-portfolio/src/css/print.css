@@ -200,7 +200,7 @@
     header.has-personal { position: relative; }
     header.has-personal .personal-photo {
         position: absolute; top: 0; right: 0;
-        width: 2.8cm; height: 3.6cm; object-fit: cover; border: 1px solid #cbd5e1;
+        width: 2.2cm; height: 2.9cm; object-fit: cover; border: 1px solid #cbd5e1;
     }
     header.has-personal .personal-data { margin-top: 6px; text-align: left; font-size: 10pt; }
     header.has-personal .personal-data p { margin: 1px 0 !important; }

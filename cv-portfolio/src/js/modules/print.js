@@ -37,7 +37,7 @@ export async function printSingleLanguage(lang, staticData, currentLang, loadRes
         container.classList.add("skills-print");
 
         if (personal) {
-            const { personalBlockHtml } = await import("./personal.js?v=20261113a");
+            const { personalBlockHtml } = await import("./personal.js?v=20261113b");
             const header = container.querySelector("header");
             if (header) {
                 header.classList.add("has-personal");
@@ -122,7 +122,7 @@ export async function printBothLanguages(staticData, currentLang, loadResumeData
  * en el idioma actual, solo si la clave descifra data/personal.enc.json.
  */
 export async function printPersonal(staticData, currentLang, loadResumeData, renderResume) {
-    const { askPassword, decryptPersonal } = await import("./personal.js?v=20261113a");
+    const { askPassword, decryptPersonal } = await import("./personal.js?v=20261113b");
     const es = currentLang === "es";
     const password = await askPassword(currentLang);
     if (password === null) return;
