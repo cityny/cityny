@@ -80,6 +80,7 @@
 
 <!-- inicio-stars -->
 - [Super-Light-Web-WhatsApp-API-Server](https://github.com/Alucard0x1/Super-Light-Web-WhatsApp-API-Server)
+- [web-mcp-bridge](https://github.com/AstraxOf/web-mcp-bridge)
 - [ai-marketplace-monitor](https://github.com/BoPeng/ai-marketplace-monitor)
 - [LobsterBoard](https://github.com/Curbob/LobsterBoard)
 - [Scrapling](https://github.com/D4Vinci/Scrapling)
@@ -142,7 +143,6 @@
 - [mcp-chrome](https://github.com/hangwin/mcp-chrome)
 - [excel-mcp-server](https://github.com/haris-musa/excel-mcp-server)
 - [ESP32-LoRa](https://github.com/ingeniero-yt/ESP32-LoRa)
-- [jan](https://github.com/janhq/jan)
 - [everAliveSensor](https://github.com/jfm92/everAliveSensor)
 - [esp32-4-channel-relays](https://github.com/leomanangka/esp32-4-channel-relays)
 - [whatsapp-mcp](https://github.com/lharries/whatsapp-mcp)
