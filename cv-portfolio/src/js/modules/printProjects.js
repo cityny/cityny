@@ -5,7 +5,8 @@
  * - Estima las páginas que saldrán con la selección (maqueta el CV en un iframe
  *   oculto con los estilos de impresión) y avisa si se pasa del tamaño normal.
  * - No se abre en los PDF automáticos (navigator.webdriver: los genera
- *   .github/scripts/cv-pdf.mjs y el bot de empleo): salen con todos los proyectos.
+ *   .github/scripts/cv-pdf.mjs y el bot de empleo): salen con los proyectos que no tienen
+ *   "pdf_default": false (así siguen en 2 páginas).
  * - Enlace con selección, sin diálogo: ?proyectos=todos o ?proyectos=1,3,5 (posiciones
  *   desde 1 en la lista de proyectos), pensado para que un bot mande el enlace.
  */
@@ -126,7 +127,10 @@ export async function chooseProjects({ modo, lang, staticData, loadResumeData })
   const proyectos = staticData.projects || [];
   const delEnlace = seleccionDeEnlace(proyectos);
   if (delEnlace) return delEnlace;
-  if (navigator.webdriver || proyectos.length === 0) return proyectos;
+  if (proyectos.length === 0) return proyectos;
+  // PDF automáticos: los proyectos con "pdf_default": false quedan fuera para que el CV siga en 2 páginas
+  // (se pueden pedir con ?proyectos=..., que se atiende más arriba).
+  if (navigator.webdriver) return proyectos.filter((p) => p.pdf_default !== false);
 
   const idiomas = modo === "both" || modo === "apa" ? ["es", "en"] : [lang];
   const traducciones = {};

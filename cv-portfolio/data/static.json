@@ -216,7 +216,8 @@
         "Plant Layout",
         "Engineering Drawings",
         "Technical Design"
-      ]
+      ],
+      "pdf_default": false
     },
     {
       "name": "Plano Despiece Llenadora Fabrima",
