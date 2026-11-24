@@ -1,4 +1,5 @@
 import { generateResumeHTML } from './renderer.js?v=20261104a';
+import { chooseProjects } from './printProjects.js?v=20261124b';
 
 /**
  * Prepara el documento para impresión (común para single y both)
@@ -33,7 +34,9 @@ export async function printSingleLanguage(lang, staticData, currentLang, loadRes
 
     try {
         const { staticData: sData, translations: selectedTranslations } = await loadResumeData(lang);
-        renderResume(container, sData, selectedTranslations, lang);
+        const projects = await chooseProjects({ modo: personal ? "personal" : "single", lang, staticData: sData, loadResumeData });
+        if (!projects) return; // cancelado en el diálogo de proyectos
+        renderResume(container, { ...sData, projects }, selectedTranslations, lang);
         container.classList.add("skills-print");
 
         if (personal) {
@@ -80,20 +83,26 @@ export async function printSingleLanguage(lang, staticData, currentLang, loadRes
  * Los estilos están en print.css, bajo body.apa-print.
  */
 export async function printApa(staticData, currentLang, loadResumeData, renderResume) {
+    const { staticData: sData } = await loadResumeData(currentLang);
+    const projects = await chooseProjects({ modo: "apa", lang: currentLang, staticData: sData, loadResumeData });
+    if (!projects) return;
     document.body.classList.add("apa-print");
-    await printBothLanguages(staticData, currentLang, loadResumeData, renderResume, "APA-");
+    await printBothLanguages(staticData, currentLang, loadResumeData, renderResume, "APA-", projects);
 }
 
 /**
  * Imprime ambos idiomas en un solo documento
  */
-export async function printBothLanguages(staticData, currentLang, loadResumeData, renderResume, titlePrefix = "") {
+export async function printBothLanguages(staticData, currentLang, loadResumeData, renderResume, titlePrefix = "", preselected = null) {
     const container = document.getElementById("resume-container");
     const originalLang = currentLang;
 
     try {
         const { staticData: sData, translations: esTranslations } = await loadResumeData("es");
-        renderResume(container, sData, esTranslations, "es");
+        const projects = preselected || await chooseProjects({ modo: "both", lang: currentLang, staticData: sData, loadResumeData });
+        if (!projects) return; // cancelado en el diálogo de proyectos
+        const pData = { ...sData, projects };
+        renderResume(container, pData, esTranslations, "es");
         container.classList.add("skills-print");
 
         const englishSection = document.createElement("div");
@@ -102,7 +111,7 @@ export async function printBothLanguages(staticData, currentLang, loadResumeData
         englishSection.lang = "en";
 
         const { translations: enTranslations } = await loadResumeData("en");
-        englishSection.innerHTML = generateResumeHTML(sData, enTranslations, "en");
+        englishSection.innerHTML = generateResumeHTML(pData, enTranslations, "en");
 
         container.appendChild(englishSection);
 

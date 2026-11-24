@@ -199,6 +199,26 @@
       "short_url": "tinyurl.com/26ym8jvk"
     },
     {
+      "name": "Portafolio 29W - Planos de planta industrial",
+      "name_en": "Portfolio 29W - Industrial Plant Drawings",
+      "description_es": "Portafolio de 13 planos en AutoCAD de una planta de manufactura de muebles premium: distribución general, 6 líneas de producción, mezzaninas, división de áreas, pasillos y equipos auxiliares. Nombres de equipos y ubicación generalizados.",
+      "description_en": "Portfolio of 13 AutoCAD drawings of a premium furniture manufacturing plant: general layout, 6 production lines, mezzanines, area division, aisles and auxiliary equipment. Equipment names and location generalized.",
+      "url": "docs/portafolio-29w.pdf",
+      "preview": "docs/portafolio_29w.jpg",
+      "technologies_es": [
+        "AutoCAD",
+        "Distribución de Planta",
+        "Planos de Ingeniería",
+        "Diseño Técnico"
+      ],
+      "technologies_en": [
+        "AutoCAD",
+        "Plant Layout",
+        "Engineering Drawings",
+        "Technical Design"
+      ]
+    },
+    {
       "name": "Plano Despiece Llenadora Fabrima",
       "name_en": "Fabrima Filling Machine Exploded-View Drawing",
       "description_es": "Plano de despiece de una llenadora marca Fabrima, elaborado bajo urgencia con Microsoft PowerPoint como herramienta disponible.",
