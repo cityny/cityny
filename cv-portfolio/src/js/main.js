@@ -70,6 +70,7 @@ const editorPage = {
 
 /**
  * Tres clics seguidos sobre el nombre del pie de página muestran el botón de editar
+ * y muestran u ocultan la opción de imprimir "Personal" (CV con datos personales)
  */
 function setupEditorTrigger() {
   const name = document.getElementById("footer-name");
@@ -82,6 +83,8 @@ function setupEditorTrigger() {
     timer = setTimeout(() => (clicks = 0), 600);
     if (clicks < 3) return;
     clicks = 0;
+    const personal = document.getElementById("print-personal");
+    if (personal) personal.style.display = personal.style.display === "none" ? "" : "none";
     const editor = await import("./modules/editor/index.js?v=20261015c");
     editor.revealEditButton(editorPage);
   });
