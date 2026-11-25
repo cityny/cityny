@@ -25,6 +25,8 @@
   .gal-flecha { position:absolute; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:0; background:rgba(0,0,0,.55); border:1px solid rgba(255,255,255,.6); color:#fff; font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:5; }
   .gal-flecha:hover, .gal-flecha:focus-visible { background:rgba(0,0,0,.8); }
   .gal-prev { left:12px; } .gal-next { right:12px; }
+  .gal-leyenda { position:absolute; left:12px; bottom:12px; max-width:70%; background:rgba(0,0,0,.55); color:#fff; font-size:13px; padding:3px 10px; border-radius:6px; pointer-events:none; z-index:4; }
+  .gal-leyenda.sobre-video { bottom:64px; }
   .gal-contador { position:absolute; left:12px; top:15px; background:rgba(0,0,0,.55); color:#fff; font-size:13px; padding:2px 10px; border-radius:999px; pointer-events:none; }
 </style>
 </head>
@@ -43,7 +45,7 @@
 <script type="module">
   import { crearGaleria } from "../../src/js/modules/ui/gallery.js";
   const items = ["28W-video.mp4", "28W-01.jpg", "28W-02.jpg", "28W-03.jpg", "28W-04.jpg", "28W-05.jpg", "28W-06.jpg"];
-  const g = crearGaleria(document.getElementById("visor"), items, { poster: "28W-poster.jpg" });
+  const g = crearGaleria(document.getElementById("visor"), items, { poster: "28W-poster.jpg", leyenda: "Autor: Dionny Núñez" });
   document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowLeft") g.anterior();
     else if (e.key === "ArrowRight") g.siguiente();

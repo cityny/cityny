@@ -1,5 +1,5 @@
 import { loadResumeData } from "./modules/api.js";
-import { renderResume } from "./modules/renderer.js?v=20261125a";
+import { renderResume } from "./modules/renderer.js?v=20261125b";
 import {
   toggleTheme,
   initBackgroundVideo,
@@ -7,8 +7,8 @@ import {
   togglePrintOptions,
   closePrintOptions,
   initMobilePreviewTooltips,
-} from "./modules/ui.js?v=20261125a";
-import { printApa, printBothLanguages, printPersonal, printSingleLanguage } from "./modules/print.js?v=20261125a";
+} from "./modules/ui.js?v=20261125b";
+import { printApa, printBothLanguages, printPersonal, printSingleLanguage } from "./modules/print.js?v=20261125b";
 import { initVisitCounter } from "./modules/ui/visits.js";
 
 /**

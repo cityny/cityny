@@ -162,7 +162,7 @@ export function generateResumeHTML(staticData, translations, currentLang) {
       let projectLink = "";
       // Con "galeria", "Ver proyecto" abre el visor (video e imágenes); el enlace queda de respaldo.
       const galAttr = Array.isArray(project.galeria) && project.galeria.length
-        ? ` data-galeria="${project.galeria.join("|")}"${project.poster ? ` data-poster="${project.poster}"` : ""}`
+        ? ` data-galeria="${project.galeria.join("|")}"${project.poster ? ` data-poster="${project.poster}"` : ""}${project.leyenda ? ` data-leyenda="${project.leyenda}"` : ""}`
         : "";
       if (project.url) {
         projectLink = project.preview

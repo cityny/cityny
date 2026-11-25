@@ -10,7 +10,7 @@
  * - Enlace con selección, sin diálogo: ?proyectos=todos o ?proyectos=1,3,5 (posiciones
  *   desde 1 en la lista de proyectos), pensado para que un bot mande el enlace.
  */
-import { generateResumeHTML } from "./renderer.js?v=20261125a";
+import { generateResumeHTML } from "./renderer.js?v=20261125b";
 
 const KEY = "cv.proyectos.desmarcados";
 // Páginas que ocupa el CV con su contenido habitual, por modo de impresión.

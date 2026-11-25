@@ -1,5 +1,5 @@
-import { generateResumeHTML } from './renderer.js?v=20261125a';
-import { chooseProjects } from './printProjects.js?v=20261125a';
+import { generateResumeHTML } from './renderer.js?v=20261125b';
+import { chooseProjects } from './printProjects.js?v=20261125b';
 
 /**
  * Prepara el documento para impresión (común para single y both)

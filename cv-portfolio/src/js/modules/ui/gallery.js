@@ -11,16 +11,20 @@
 
 const esVideo = (src) => /\.(mp4|webm|mov)(\?|$)/i.test(src);
 
-export function crearGaleria(contenedor, items, { poster = "", autoplay = false } = {}) {
+export function crearGaleria(contenedor, items, { poster = "", autoplay = false, leyenda = "" } = {}) {
   let actual = 0;
   contenedor.classList.add("gal");
   contenedor.innerHTML = `
     <div class="gal-escena"></div>
     <button type="button" class="gal-flecha gal-prev" aria-label="Anterior">&#10094;</button>
     <button type="button" class="gal-flecha gal-next" aria-label="Siguiente">&#10095;</button>
-    <div class="gal-contador" aria-live="polite"></div>`;
+    <div class="gal-contador" aria-live="polite"></div>
+    <div class="gal-leyenda"></div>`;
   const escena = contenedor.querySelector(".gal-escena");
   const contador = contenedor.querySelector(".gal-contador");
+  const pie = contenedor.querySelector(".gal-leyenda");
+  pie.textContent = leyenda;
+  pie.hidden = !leyenda;
   const botones = contenedor.querySelectorAll(".gal-flecha");
   if (items.length < 2) botones.forEach((b) => (b.hidden = true));
 
@@ -44,6 +48,7 @@ export function crearGaleria(contenedor, items, { poster = "", autoplay = false 
       el.src = src;
     }
     escena.appendChild(el);
+    pie.classList.toggle("sobre-video", esVideo(src)); // sube para no tapar los controles
     contador.textContent = `${actual + 1} / ${items.length}`;
     // Precarga la siguiente imagen
     const sig = items[(actual + 1) % items.length];
@@ -77,11 +82,11 @@ export function crearGaleria(contenedor, items, { poster = "", autoplay = false 
 let galeria = null;
 let teclas = null;
 
-export function openGallery(items, poster = "") {
+export function openGallery(items, poster = "", leyenda = "") {
   const modal = document.getElementById("gallery-modal");
   const caja = document.getElementById("gallery-container");
   if (!modal || !caja || !items?.length) return false;
-  galeria = crearGaleria(caja, items, { poster, autoplay: true });
+  galeria = crearGaleria(caja, items, { poster, autoplay: true, leyenda });
   modal.classList.add("active");
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
@@ -114,5 +119,5 @@ export function closeGallery() {
 document.addEventListener("click", (e) => {
   const a = e.target.closest?.("a[data-galeria]");
   if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return;
-  if (openGallery(a.dataset.galeria.split("|"), a.dataset.poster || "")) e.preventDefault();
+  if (openGallery(a.dataset.galeria.split("|"), a.dataset.poster || "", a.dataset.leyenda || "")) e.preventDefault();
 }, true);

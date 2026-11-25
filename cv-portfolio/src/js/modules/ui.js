@@ -8,7 +8,7 @@ import {
   openVideoModal,
   closeVideoModal,
 } from "./ui/video.js";
-import { openGallery, closeGallery } from "./ui/gallery.js";
+import { openGallery, closeGallery } from "./ui/gallery.js?v=20261125b";
 import { togglePrintOptions, closePrintOptions } from "./ui/printMenu.js";
 import { initMobilePreviewTooltips } from "./ui/previewTooltip.js";
 
