@@ -160,10 +160,14 @@ export function generateResumeHTML(staticData, translations, currentLang) {
         currentLang === "es" ? "description_es" : "description_en";
       const linkLabel = currentLang === "es" ? "Ver proyecto" : "View project";
       let projectLink = "";
+      // Con "galeria", "Ver proyecto" abre el visor (video e imágenes); el enlace queda de respaldo.
+      const galAttr = Array.isArray(project.galeria) && project.galeria.length
+        ? ` data-galeria="${project.galeria.join("|")}"${project.poster ? ` data-poster="${project.poster}"` : ""}`
+        : "";
       if (project.url) {
         projectLink = project.preview
-          ? `<p class="project-preview-container" style="display:inline-block;"><a href="${project.url}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> ${linkLabel}</a><span class="preview-tooltip"><img src="${project.preview}" alt="Preview del proyecto" loading="lazy" decoding="async"></span></p>`
-          : `<p><a href="${project.url}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> ${linkLabel}</a></p>`;
+          ? `<p class="project-preview-container" style="display:inline-block;"><a href="${project.url}" target="_blank" rel="noopener"${galAttr}><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> ${linkLabel}</a><span class="preview-tooltip"><img src="${project.preview}" alt="Preview del proyecto" loading="lazy" decoding="async"></span></p>`
+          : `<p><a href="${project.url}" target="_blank" rel="noopener"${galAttr}><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> ${linkLabel}</a></p>`;
       }
       const projectVideoButton = project.video
         ? `<p><a href="${project.video}" class="project-action-link" onclick="window.openVideoModal('${project.video}'); return false;"><i class="fa-solid fa-arrow-up-right-from-square"></i> ${linkLabel}</a></p>`

@@ -19,7 +19,7 @@
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <link rel="stylesheet" href="style.css?v=20261113c">
+    <link rel="stylesheet" href="style.css?v=20261125a">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://img.shields.io" crossorigin>
@@ -73,6 +73,14 @@
         </div>
     </div>
 
+    <div id="gallery-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-overlay" onclick="closeGallery()"></div>
+        <div class="modal-content gallery-content">
+            <button class="close-modal" onclick="closeGallery()" aria-label="Cerrar">&times;</button>
+            <div id="gallery-container"></div>
+        </div>
+    </div>
+
     <footer>
         <div class="footer-content">
             <p>&copy; <span id="current-date"></span> <span id="footer-name">Dionny Núñez</span></p>
@@ -84,7 +92,7 @@
     </footer>
 
     <script src="src/js/vendor/qrcode.js"></script>
-    <script type="module" src="src/js/main.js?v=20261124c"></script>
+    <script type="module" src="src/js/main.js?v=20261125a"></script>
 </body>
 
 </html>

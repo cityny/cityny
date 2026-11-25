@@ -8,6 +8,7 @@ import {
   openVideoModal,
   closeVideoModal,
 } from "./ui/video.js";
+import { openGallery, closeGallery } from "./ui/gallery.js";
 import { togglePrintOptions, closePrintOptions } from "./ui/printMenu.js";
 import { initMobilePreviewTooltips } from "./ui/previewTooltip.js";
 
@@ -16,6 +17,8 @@ export {
   initBackgroundVideo,
   openVideoModal,
   closeVideoModal,
+  openGallery,
+  closeGallery,
   togglePrintOptions,
   closePrintOptions,
   initMobilePreviewTooltips,
@@ -24,5 +27,6 @@ export {
 // Keep global window bindings for HTML inline handlers
 window.openVideoModal = openVideoModal;
 window.closeVideoModal = closeVideoModal;
+window.closeGallery = closeGallery;
 window.toggleTheme = toggleTheme;
 window.togglePrintOptions = togglePrintOptions;

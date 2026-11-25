@@ -211,3 +211,26 @@
 
 /* QR de cada proyecto: solo se muestra al imprimir */
 .project-qr { display: none; }
+
+/* Galería multimedia (video + imágenes con flechas) */
+.gallery-content { max-width: min(1100px, 96vw); }
+.gal { position: relative; background: #000; }
+.gal-escena { display: flex; align-items: center; justify-content: center; min-height: 200px; }
+.gal-escena img, .gal-escena video { display: block; width: 100%; max-height: 80vh; object-fit: contain; background: #000; }
+.gal-flecha {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 44px; height: 44px; border-radius: 50%; border: 0;
+    background: rgba(0, 0, 0, 0.55); border: 1px solid rgba(255, 255, 255, 0.6); color: #fff; font-size: 20px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s ease; z-index: 5;
+}
+.gal-flecha:hover, .gal-flecha:focus-visible { background: rgba(0, 0, 0, 0.8); }
+.gallery-content .close-modal { background: rgba(0, 0, 0, 0.55); border: 1px solid rgba(255, 255, 255, 0.6); }
+.gal-prev { left: 12px; }
+.gal-next { right: 12px; }
+.gal-contador {
+    position: absolute; left: 12px; top: 15px;
+    background: rgba(0, 0, 0, 0.55); color: #fff; font-size: 13px;
+    padding: 2px 10px; border-radius: 999px; pointer-events: none;
+}
+@media (max-width: 600px) { .gal-flecha { width: 36px; height: 36px; font-size: 16px; } }
