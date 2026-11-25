@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portafolio 28W - Simulación 3D de almacén de materia prima</title>
+<meta name="description" content="Modelo 3D en SketchUp de un almacén de materia prima: distribución de racks y pasillos con cotas, vistas y recorrido en video.">
+<style>
+  :root { --fondo:#f8fafc; --texto:#0f172a; --suave:#64748b; --borde:#cbd5e1; --acento:#2563eb; }
+  @media (prefers-color-scheme: dark) { :root { --fondo:#0f172a; --texto:#e2e8f0; --suave:#94a3b8; --borde:#334155; --acento:#60a5fa; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--fondo); color:var(--texto); font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  main { max-width:1100px; margin:0 auto; padding:24px 16px 40px; }
+  h1 { font-size:clamp(1.3rem,3.5vw,1.9rem); margin:0 0 4px; }
+  p { color:var(--suave); margin:0 0 16px; }
+  .visor { border-radius:12px; overflow:hidden; border:1px solid var(--borde); }
+  .descargas { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+  .descargas a { color:var(--acento); border:1px solid var(--borde); border-radius:8px; padding:8px 14px; text-decoration:none; font-size:.95rem; }
+  .descargas a:hover { border-color:var(--acento); }
+  .volver { display:inline-block; margin-bottom:16px; color:var(--acento); text-decoration:none; font-size:.95rem; }
+  /* Visor (mismos estilos que el modal del CV) */
+  .gal { position:relative; background:#000; }
+  .gal-escena { display:flex; align-items:center; justify-content:center; min-height:200px; }
+  .gal-escena img, .gal-escena video { display:block; width:100%; max-height:80vh; object-fit:contain; background:#000; }
+  .gal-flecha { position:absolute; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:0; background:rgba(0,0,0,.55); border:1px solid rgba(255,255,255,.6); color:#fff; font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:5; }
+  .gal-flecha:hover, .gal-flecha:focus-visible { background:rgba(0,0,0,.8); }
+  .gal-prev { left:12px; } .gal-next { right:12px; }
+  .gal-leyenda { position:absolute; left:12px; bottom:12px; max-width:70%; background:rgba(0,0,0,.55); color:#fff; font-size:13px; padding:3px 10px; border-radius:6px; pointer-events:none; z-index:4; }
+  .gal-leyenda.sobre-video { bottom:64px; }
+  .gal-contador { position:absolute; left:12px; top:15px; background:rgba(0,0,0,.55); color:#fff; font-size:13px; padding:2px 10px; border-radius:999px; pointer-events:none; }
+</style>
+</head>
+<body>
+<main>
+  <a class="volver" href="../../index.html">&larr; Ver CV</a>
+  <h1>Portafolio 28W - Simulación 3D de almacén de materia prima</h1>
+  <p>Modelo en SketchUp para proyectar y simular los espacios de un almacén: distribución de racks y pasillos con cotas. Primero el recorrido en video; luego las vistas.<br>
+     <span lang="en">SketchUp model to plan and simulate warehouse spaces: rack and aisle layout with dimensions. Walkthrough video first, then the views.</span></p>
+  <div class="visor" id="visor"></div>
+  <div class="descargas">
+    <a href="28W-plano.skp" download>Plano SketchUp (.skp)</a>
+    <a href="28W-video-original.mp4" download>Video original (HD)</a>
+  </div>
+</main>
+<script type="module">
+  import { crearGaleria } from "../../src/js/modules/ui/gallery.js";
+  const items = ["28W-video.mp4", "28W-01.jpg", "28W-02.jpg", "28W-03.jpg", "28W-04.jpg", "28W-05.jpg", "28W-06.jpg"];
+  const g = crearGaleria(document.getElementById("visor"), items, { poster: "28W-poster.jpg", leyenda: "Autor: Dionny Núñez" });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") g.anterior();
+    else if (e.key === "ArrowRight") g.siguiente();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+/* Header: navegación, selector de idioma y opciones de impresión */
+
+nav {
+    position: sticky;
+    top: 0;
+    background: var(--card-bg);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+}
+
+nav button:hover {
+    transform: scale(1.1);
+    border-color: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.flag-icon {
+    width: 20px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 5px;
+    border-radius: 2px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.lang-selector {
+    display: flex;
+    gap: 5px;
+}
+
+#print-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+}
+
+/* Print Dropdown */
+.print-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.print-options {
+    /* Use opacity/visibility transitions instead of display to avoid layout jumps
+       when the dropdown appears on small screens. */
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--card-bg);
+    min-width: 140px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    z-index: 2000;
+    margin-top: 8px;
+    padding: 8px 0;
+    flex-direction: column;
+    overflow: hidden;
+    transform-origin: top right;
+    transform: translateY(-6px);
+    transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
+}
+
+.print-options.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.print-options button {
+    background: none;
+    border: none;
+    color: var(--text-main);
+    padding: 10px 16px;
+    text-align: left;
+    width: 100%;
+    border-radius: 0;
+    font-size: 0.9rem;
+    transition: background 0.2s ease;
+}
+
+.print-options button:hover {
+    background-color: var(--bg);
+    color: var(--primary);
+    transform: none;
+    box-shadow: none;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 650px) {
+    nav {
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 10px 12px;
+        gap: 8px;
+    }
+
+    .lang-selector {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .print-dropdown {
+        width: 100%;
+    }
+
+    .print-options {
+        left: 50%;
+        right: auto;
+        /* combine X centering with initial Y offset for smooth entrance */
+        transform: translate(-50%, -6px);
+        width: min(220px, calc(100vw - 16px));
+        max-width: calc(100vw - 16px);
+        box-sizing: border-box;
+    }
+
+    .print-options.active {
+        transform: translate(-50%, 0);
+    }
+
+    .contact-info {
+        white-space: normal;
+    }
+
+    .print-options button {
+        padding: 10px 14px;
+    }
+}
